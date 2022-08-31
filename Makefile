@@ -4,6 +4,10 @@ IFT				:=	include
 FT_NAME			:=	libft.a
 FT				:=	ft
 
+# minilibX settings
+M_PATH			:=	minilibX
+M_NAME			:=	minilibX.a
+
 # project settings
 NAME 			:=	cub3d
 NORMINETTE_BIN 	:= 	norminette
@@ -37,11 +41,11 @@ vpath %.o $(OPATH)
 all:	$(NAME)
 
 $(OPATH)/%.o:	%.c
-			$(CC) $(CFLAGS) $(CFLAGSADD) -I $(IPATH) -I $(FTPATH)/$(IFT) -c $< -o $@
+			$(CC) $(CFLAGS) $(CFLAGSADD) -I $(IPATH) -I $(FTPATH)/$(IFT) -I -c $< -o $@
 
 $(NAME):	$(OBJS)
 			make -C $(FTPATH)
-			$(CC) $(CFLAGS) $(CFLAGSADD) $(OBJS) -I $(IPATH) -I $(FTPATH)/$(IFT) -L$(FTPATH) -l$(FT) -lreadline -o $(NAME)
+			$(CC) $(CFLAGS) $(CFLAGSADD) $(OBJS) -I $(IPATH) -I $(FTPATH)/$(IFT) -L$(FTPATH) -l$(FT) -o $(NAME)
 
 $(OBJS):	| $(OPATH)
 
@@ -50,7 +54,6 @@ $(OPATH):
 
 clean:
 			make clean -C $(FTPATH)
-			$(RM) $(OPATH)
 
 fclean:
 			make clean
@@ -61,10 +64,10 @@ re:
 			make all
 
 norme:
-			$(NORMINETTE_BIN) $(SRCS)
+			$(NORMINETTE_BIN) $(SRCS) $(FTPATH)
 
 sym:
-			$(NM_BIN) -Dgu $(NAME)
+			$(NM_BIN) -Dgu $(NAME) $(FTPATH)
 
 comp:
 			make
