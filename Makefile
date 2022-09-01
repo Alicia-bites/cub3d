@@ -5,8 +5,9 @@ FT_NAME			:=	libft.a
 FT				:=	ft
 
 # minilibX settings
-M_PATH			:=	minilibX
-M_NAME			:=	minilibX.a
+# MLX_PATH		:=	minilibX
+# MLX_NAME		:=	libmlx_Linux.a
+# MLX				:=	mlx_linux
 
 # project settings
 NAME 			:=	cub3d
@@ -29,11 +30,15 @@ SRCS_PATH		:=	sources
 RM				:=	rm -rf
 
 SRCS			:=	main.c\
+					destroy_sprites.c\
+					free_mlx.c\
+					ft_key_hook.c\
+					ft_red_cross.c
 
 OBJS			:=	$(addprefix $(OPATH)/, $(SRCS:.c=.o))
 DEPS			:=	$(OBJS:.o=.d)
 
-vpath %.h $(IPATH)
+vpath %.h $(IPATH) $(MLX_PATH)
 vpath %.c $(SRCS_PATH)\
 
 vpath %.o $(OPATH)
@@ -41,11 +46,13 @@ vpath %.o $(OPATH)
 all:	$(NAME)
 
 $(OPATH)/%.o:	%.c
-			$(CC) $(CFLAGS) $(CFLAGSADD) -I $(IPATH) -I $(FTPATH)/$(IFT) -I -c $< -o $@
+			$(CC) $(CFLAGS) $(CFLAGSADD) -I $(IPATH) -I $(FTPATH)/$(IFT) -c $< -o $@
+#			$(CC) $(CFLAGS) $(CFLAGSADD) -I $(IPATH) -I $(MLX_PATH) -I $(FTPATH)/$(IFT) -c $< -o $@
 
 $(NAME):	$(OBJS)
 			make -C $(FTPATH)
 			$(CC) $(CFLAGS) $(CFLAGSADD) $(OBJS) -I $(IPATH) -I $(FTPATH)/$(IFT) -L$(FTPATH) -l$(FT) -o $(NAME)
+#			 $(CC) $(CFLAGS) $(CFLAGSADD) $(OBJS) -I $(IPATH) -I $(FTPATH)/$(IFT) -I $(MLX_PATH) -L$(FTPATH) -l$(FT) -L$(MLX_PATH) -l$(MLX) -o $(NAME)
 
 $(OBJS):	| $(OPATH)
 

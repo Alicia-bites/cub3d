@@ -1,0 +1,11 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory '/mnt/nfs/homes/amarchan/Documents/cub3d'
+ 
+make: *** No rule to make target 'includes/mlx.h', needed by 'obj/main.o'.
+
+cc -MMD -Wall -Wextra -Werror -g3 -I includes -I libft/include -c sources/destroy_sprites.c -o obj/destroy_sprites.o
+cc -MMD -Wall -Wextra -Werror -g3 -I includes -I libft/include -c sources/free_mlx.c -o obj/free_mlx.o
+cc -MMD -Wall -Wextra -Werror -g3 -I includes -I libft/include -c sources/ft_key_hook.c -o obj/ft_key_hook.o
+cc -MMD -Wall -Wextra -Werror -g3 -I includes -I libft/include -c sources/ft_red_cross.c -o obj/ft_red_cross.o
+make: Leaving directory '/mnt/nfs/homes/amarchan/Documents/cub3d'
+ 
