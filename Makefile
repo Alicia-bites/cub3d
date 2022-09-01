@@ -7,7 +7,7 @@ FT				:=	ft
 # minilibX settings
 MLX_PATH			:=	minilibX
 MLX_NAME			:=	libmlx_Linux.a
-MLX					:=	mlx_Linux
+MLX				:=	mlx_Linux
 
 # project settings
 NAME 			:=	cub3d
@@ -34,7 +34,7 @@ SRCS			:=	main.c\
 					free_mlx.c\
 					ft_key_hook.c\
 					ft_red_cross.c
-
+					
 OBJS			:=	$(addprefix $(OPATH)/, $(SRCS:.c=.o))
 DEPS			:=	$(OBJS:.o=.d)
 

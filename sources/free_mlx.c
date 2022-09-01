@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 12:13:26 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/01 15:05:10 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/01 15:41:53 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	free_mlx(t_mlx *mlx)
 {
-	if (mlx->map)
-		ft_clear(&(mlx->map));
+	// if (mlx->map)
+	// 	ft_clear(&(mlx->map));
 	if (mlx->win_ptr)
 		mlx_destroy_window(mlx->mlx_ptr, mlx->win_ptr);
 	mlx_destroy_display(mlx->mlx_ptr);

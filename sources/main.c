@@ -6,13 +6,12 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:54:11 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/01 15:04:44 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/01 15:42:01 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-initiate mlx, get map size, inititate game, clean up
 int	init_game(t_list *map)
 {
 	t_mlx	mlx;
