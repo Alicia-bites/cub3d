@@ -29,8 +29,12 @@ SRCS_PATH		:=	sources
 
 RM				:=	rm -rf
 
-SRCS			:=	main.c
-
+SRCS			:=	main.c\
+					destroy_sprites.c\
+					free_mlx.c\
+					ft_key_hook.c\
+					ft_red_cross.c
+					
 OBJS			:=	$(addprefix $(OPATH)/, $(SRCS:.c=.o))
 DEPS			:=	$(OBJS:.o=.d)
 
