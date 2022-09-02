@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/01 15:41:28 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/01 16:47:33 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,9 @@
 # include <errno.h>
 # include <math.h>
 
+//# include "mlx.h"
+# include "../minilibX/libmlx.h"
 # include "libft.h"
-# include "libmlx.h"
 
 # define ESC_KEYCODE 65307
 # define UP 119

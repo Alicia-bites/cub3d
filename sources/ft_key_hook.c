@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 12:18:17 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/01 15:41:57 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/01 15:44:23 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	move_camera(t_mlx *mlx, int keycode)
 {
+	(void)mlx;
 	if (keycode == CAM_RIGHT)
 		NULL;
 	else if (keycode == CAM_LEFT)

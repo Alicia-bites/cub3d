@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:54:11 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/01 15:42:01 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/01 16:53:13 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int	main(int argc, char **argv)
 	// t_list	*map;
 	
 	(void)argv;
-	if (argc != 1)
+	if (argc != 2)
 	{
 		ft_putstr_fd("Oups, wrong number of arguments!", 2);
 		return (-1);

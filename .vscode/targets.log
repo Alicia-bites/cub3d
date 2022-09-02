@@ -1,14 +1,13 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
-make: *** No rule to make target 'includes/mlx.h', needed by 'obj/main.o'.  Stop.
-
 # GNU Make 4.2.1
+ 
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Sep  1 15:02:41 2022
+# Make data base, printed on Thu Sep  1 16:51:58 2022
 
 # Variables
 
@@ -22,6 +21,8 @@ DESKTOP_SESSION = ubuntu
 .SHELLFLAGS := -c
 # environment
 XDG_SESSION_CLASS = user
+# makefile (from 'Makefile', line 8)
+MLX_PATH := minilibX
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
@@ -38,20 +39,24 @@ XMODIFIERS = @im=ibus
 CURDIR := /mnt/nfs/homes/amarchan/Documents/cub3d
 # makefile
 SHELL = /bin/sh
-# makefile (from 'Makefile', line 30)
+# makefile (from 'Makefile', line 31)
 RM := rm -rf
 # environment
 VTE_VERSION = 6003
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
+# makefile (from 'Makefile', line 10)
+MLX := mlx
 # environment
 JOURNAL_STREAM = 9:9119429
 # makefile (from 'Makefile', line 17)
 CFLAGS := -MMD -Wall -Wextra -Werror
+# makefile (from 'Makefile', line 18)
+CFLAGS_MLX := -lXext -lX11
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
-# makefile (from 'obj/main.d', line 1)
-MAKEFILE_LIST :=  Makefile obj/main.d
+# makefile (from 'obj/ft_red_cross.d', line 1)
+MAKEFILE_LIST :=  Makefile obj/main.d obj/destroy_sprites.d obj/free_mlx.d obj/ft_key_hook.d obj/ft_red_cross.d
 # automatic
 @F = $(notdir $@)
 # environment
@@ -66,13 +71,13 @@ XDG_DATA_DIRS = /usr/share/gnome:/usr/share/ubuntu:/mnt/nfs/homes/amarchan/.loca
 DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/40494/bus
 # makefile (from 'Makefile', line 5)
 FT := ft
-# makefile (from 'Makefile', line 38)
+# makefile (from 'Makefile', line 39)
 OBJS := obj/main.o obj/destroy_sprites.o obj/free_mlx.o obj/ft_key_hook.o obj/ft_red_cross.o
 # environment
 MANAGERPID = 1599772
 # environment
 VSCODE_CWD = /mnt/nfs/homes/amarchan/Documents/cub3d
-# makefile (from 'Makefile', line 23)
+# makefile (from 'Makefile', line 24)
 VALGRIND := valgrind -s --leak-check=full --show-leak-kinds=all --track-origins=yes --track-fds=yes
 # environment
 XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session32
@@ -88,11 +93,11 @@ GPG_AGENT_INFO = /run/user/40494/gnupg/S.gpg-agent:0:1
 SESSION_MANAGER = local/e1r8p11.clusters.42paris.fr:@/tmp/.ICE-unix/1600295,unix/e1r8p11.clusters.42paris.fr:/tmp/.ICE-unix/1600295
 # environment
 XDG_RUNTIME_DIR = /run/user/40494
-# makefile (from 'Makefile', line 25)
-IPATH := includes
 # makefile (from 'Makefile', line 26)
+IPATH := includes
+# makefile (from 'Makefile', line 27)
 OPATH := obj
-# makefile (from 'Makefile', line 20)
+# makefile (from 'Makefile', line 21)
 CFLAGSADD := -g3
 # environment
 XDG_MENU_PREFIX = gnome-
@@ -138,6 +143,8 @@ IFT := include
 VSCODE_CLI = 1
 # environment
 VSCODE_CODE_CACHE_PATH = /mnt/nfs/homes/amarchan/.config/Code/CachedData/3b889b090b5ad5793f524b5d1d39fda662b96a2a
+# makefile (from 'Makefile', line 9)
+MLX_NAME := libmlx.a
 # environment
 LOGNAME = amarchan
 # environment
@@ -160,7 +167,7 @@ MAKE = $(MAKE_COMMAND)
 MAKECMDGOALS := all
 # environment
 QT_IM_MODULE = ibus
-# makefile (from 'Makefile', line 32)
+# makefile (from 'Makefile', line 33)
 SRCS := main.c destroy_sprites.c free_mlx.c ft_key_hook.c ft_red_cross.c
 # environment
 SHLVL = 2
@@ -212,20 +219,20 @@ DEFAULTS_PATH = /usr/share/gconf/ubuntu.default.path
 MAKEFILES := 
 # automatic
 <F = $(notdir $<)
-# makefile (from 'Makefile', line 28)
+# makefile (from 'Makefile', line 29)
 SRCS_PATH := sources
 # environment
 LC_ALL = C
 # environment
 GJS_DEBUG_TOPICS = JS ERROR;JS LOG
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/aaae9871_1dd0_442d_97d3_b879cb00972e
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/670abc55_efdf_4a88_9750_b84c3b503f06
 # automatic
 ^F = $(notdir $^)
-# makefile (from 'Makefile', line 39)
+# makefile (from 'Makefile', line 40)
 DEPS := obj/main.d obj/destroy_sprites.d obj/free_mlx.d obj/ft_key_hook.d obj/ft_red_cross.d
 # environment
-GNOME_TERMINAL_SERVICE = :1.81
+GNOME_TERMINAL_SERVICE = :1.4212
 # default
 SUFFIXES := 
 # environment
@@ -245,9 +252,9 @@ TERM = xterm-256color
 # environment
 DOCKER_HOST = unix:///run/user/40494/docker.sock
 # environment
-VSCODE_PID = 1601464
+VSCODE_PID = 1667344
 # variable set hash-table stats:
-# Load=117/1024=11%, Rehash=0, Collisions=20/159=13%
+# Load=121/1024=12%, Rehash=0, Collisions=21/170=12%
 
 # Pattern-specific Variable Values
 
@@ -255,38 +262,43 @@ VSCODE_PID = 1601464
 
 # Directories
 
-# obj (device 59, inode 233248766): No files, no impossibilities so far.
-# . (device 59, inode 215352580): 14 files, no impossibilities.
-# sources (device 59, inode 222171419): No files, no impossibilities so far.
-# includes/includes: could not be stat'd.
-# includes (device 59, inode 219323566): No files, no impossibilities so far.
-# obj/obj: could not be stat'd.
+# obj (device 59, inode 255038537): No files, no impossibilities so far.
+# . (device 59, inode 215647431): 14 files, no impossibilities.
+# sources (device 59, inode 243343089): No files, no impossibilities so far.
+# includes (device 59, inode 219381861): No files, no impossibilities so far.
 
-# 14 files, no impossibilities in 6 directories.
+# 14 files, no impossibilities in 4 directories.
 
 # Implicit Rules
 
 obj/%.o: %.c
-#  recipe to execute (from 'Makefile', line 49):
-			$(CC) $(CFLAGS) $(CFLAGSADD) -I $(IPATH) -I $(FTPATH)/$(IFT) -c $< -o $@
+#  recipe to execute (from 'Makefile', line 50):
+			$(CC) $(CFLAGS) $(CFLAGSADD) -I $(IPATH) -I $(FTPATH)/$(IFT) -I $(MLX_PATH) -c $< -o $@
 
 # 1 implicit rules, 0 (0.0%) terminal.
 
 # Files
 
+ 
 compi_envi:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 88):
+#  recipe to execute (from 'Makefile', line 87):
 			make
 			$(VALGRIND) env -i ./$(NAME)
 
 # Not a target:
 libft/include/get_next_line.h:
 #  Implicit rule search has been done.
- 
-#  Last modified 2022-09-01 09:49:52.860963647
+#  Last modified 2022-09-01 15:38:01.076562218
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+sources/ft_red_cross.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-09-01 15:44:35.468667137
 #  File has been updated.
 #  Successfully updated.
 
@@ -295,7 +307,8 @@ all: cub3d
 #  Command line target.
 #  Implicit rule search has not been done.
 #  File does not exist.
-#  File has not been updated.
+#  File has been updated.
+#  Successfully updated.
 
 .PHONY: all clean fclean re norme sym comp comp_vgdb comp_envi
 #  Implicit rule search has not been done.
@@ -303,81 +316,108 @@ all: cub3d
 #  File has not been updated.
 
 # Not a target:
+sources/ft_key_hook.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-09-01 15:44:23.357602464
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
 obj/ft_red_cross.d:
 #  Implicit rule search has been done.
-#  File does not exist.
+#  Last modified 2022-09-01 16:50:32.736906634
 #  File has been updated.
-#  Failed to be updated.
+#  Successfully updated.
+
+# Not a target:
+sources/free_mlx.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-09-01 15:41:53.387801917
+#  File has been updated.
+#  Successfully updated.
 
 cub3d: obj/main.o obj/destroy_sprites.o obj/free_mlx.o obj/ft_key_hook.o obj/ft_red_cross.o
 #  Implicit rule search has not been done.
-#  File does not exist.
-#  File has not been updated.
+#  Last modified 2022-09-01 16:51:00.907056476
+#  File has been updated.
+#  Successfully updated.
 #  recipe to execute (from 'Makefile', line 53):
 			make -C $(FTPATH)
-			$(CC) $(CFLAGS) $(CFLAGSADD) $(OBJS) -I $(IPATH) -I $(FTPATH)/$(IFT) -L$(FTPATH) -l$(FT) -o $(NAME)
+			$(CC) $(CFLAGS) $(CFLAGSADD) $(CFLAGS_MLX) $(OBJS) -I $(IPATH) -I $(FTPATH)/$(IFT) -I $(MLX_PATH) -L$(FTPATH) -l$(FT) -L$(MLX_PATH) -l$(MLX) -o $(NAME)
 
 comp:
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 80):
+#  recipe to execute (from 'Makefile', line 79):
 			make
 			$(VALGRIND) ./$(NAME)
 
-obj/main.o: sources/main.c sources/main.c includes/cub.h libft/include/libft.h libft/include/ft_chartype.h libft/include/ft_convert.h libft/include/ft_list.h libft/include/ft_message.h libft/include/ft_put.h libft/include/ft_string.h libft/include/ft_memory.h libft/include/get_next_line.h includes/mlx.h | obj
+obj/main.o: sources/main.c sources/main.c includes/cub.h includes/../minilibX/libmlx.h libft/include/libft.h libft/include/ft_chartype.h libft/include/ft_convert.h libft/include/ft_list.h libft/include/ft_message.h libft/include/ft_put.h libft/include/ft_string.h libft/include/ft_memory.h libft/include/get_next_line.h | obj
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'main'
-#  File does not exist.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 49):
-			$(CC) $(CFLAGS) $(CFLAGSADD) -I $(IPATH) -I $(FTPATH)/$(IFT) -c $< -o $@
+#  Last modified 2022-09-01 16:50:32.466905197
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 50):
+			$(CC) $(CFLAGS) $(CFLAGSADD) -I $(IPATH) -I $(FTPATH)/$(IFT) -I $(MLX_PATH) -c $< -o $@
 
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-09-01 15:01:46.465262981
+#  Last modified 2022-09-01 16:50:52.072009481
 #  File has been updated.
 #  Successfully updated.
 
-obj/destroy_sprites.o: | obj
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+obj/destroy_sprites.o: sources/destroy_sprites.c sources/destroy_sprites.c includes/cub.h includes/../minilibX/libmlx.h libft/include/libft.h libft/include/ft_chartype.h libft/include/ft_convert.h libft/include/ft_list.h libft/include/ft_message.h libft/include/ft_put.h libft/include/ft_string.h libft/include/ft_memory.h libft/include/get_next_line.h | obj
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'destroy_sprites'
+#  Last modified 2022-09-01 16:50:32.535905564
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 50):
+			$(CC) $(CFLAGS) $(CFLAGSADD) -I $(IPATH) -I $(FTPATH)/$(IFT) -I $(MLX_PATH) -c $< -o $@
 
 # Not a target:
 obj/free_mlx.d:
 #  Implicit rule search has been done.
-#  File does not exist.
+#  Last modified 2022-09-01 16:50:32.603905926
 #  File has been updated.
-#  Failed to be updated.
+#  Successfully updated.
 
 # Not a target:
 libft/include/ft_put.h:
 #  Implicit rule search has been done.
-#  Last modified 2022-09-01 09:49:52.857963628
+#  Last modified 2022-09-01 15:38:01.072562196
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 obj/ft_key_hook.d:
 #  Implicit rule search has been done.
-#  File does not exist.
+#  Last modified 2022-09-01 16:50:32.670906283
 #  File has been updated.
-#  Failed to be updated.
+#  Successfully updated.
+
+# Not a target:
+includes/../minilibX/libmlx.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-09-01 15:59:51.407567035
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
 libft/include/ft_chartype.h:
 #  Implicit rule search has been done.
-#  Last modified 2022-09-01 09:49:52.848963573
+#  Last modified 2022-09-01 15:38:01.064562153
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 libft/include/ft_convert.h:
 #  Implicit rule search has been done.
-#  Last modified 2022-09-01 09:49:52.850963586
+#  Last modified 2022-09-01 15:38:01.065562159
 #  File has been updated.
 #  Successfully updated.
 
@@ -386,14 +426,18 @@ fclean:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 66):
+#  recipe to execute (from 'Makefile', line 65):
 			make clean
 			$(RM) $(NAME) $(FT_NAME)
 
-obj/ft_red_cross.o: | obj
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+obj/ft_red_cross.o: sources/ft_red_cross.c sources/ft_red_cross.c includes/cub.h includes/../minilibX/libmlx.h libft/include/libft.h libft/include/ft_chartype.h libft/include/ft_convert.h libft/include/ft_list.h libft/include/ft_message.h libft/include/ft_put.h libft/include/ft_string.h libft/include/ft_memory.h libft/include/get_next_line.h | obj
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'ft_red_cross'
+#  Last modified 2022-09-01 16:50:32.735906628
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 50):
+			$(CC) $(CFLAGS) $(CFLAGSADD) -I $(IPATH) -I $(FTPATH)/$(IFT) -I $(MLX_PATH) -c $< -o $@
 
 comp_envi:
 #  Phony target (prerequisite of .PHONY).
@@ -404,37 +448,31 @@ comp_envi:
 # Not a target:
 includes/cub.h:
 #  Implicit rule search has been done.
-#  Last modified 2022-09-01 14:55:00.854272802
+#  Last modified 2022-09-01 16:47:33.169951489
 #  File has been updated.
 #  Successfully updated.
 
 obj:
 #  Implicit rule search has not been done.
-#  Last modified 2022-09-01 14:44:34.964115739
+#  Last modified 2022-09-01 16:50:32.736906634
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 60):
+#  recipe to execute (from 'Makefile', line 59):
 			mkdir -p $(OPATH)
 
 # Not a target:
 libft/include/libft.h:
 #  Implicit rule search has been done.
-#  Last modified 2022-09-01 09:49:52.861963653
+#  Last modified 2022-09-01 15:38:01.077562223
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 libft/include/ft_list.h:
 #  Implicit rule search has been done.
-#  Last modified 2022-09-01 09:49:52.852963598
+#  Last modified 2022-09-01 15:38:01.067562169
 #  File has been updated.
 #  Successfully updated.
-
-# Not a target:
-includes/mlx.h:
-#  Implicit rule search has been done.
-#  File does not exist.
-#  File has not been updated.
 
 # Not a target:
 .DEFAULT:
@@ -442,23 +480,27 @@ includes/mlx.h:
 #  Modification time never checked.
 #  File has not been updated.
 
-obj/free_mlx.o: | obj
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+obj/free_mlx.o: sources/free_mlx.c sources/free_mlx.c includes/cub.h includes/../minilibX/libmlx.h libft/include/libft.h libft/include/ft_chartype.h libft/include/ft_convert.h libft/include/ft_list.h libft/include/ft_message.h libft/include/ft_put.h libft/include/ft_string.h libft/include/ft_memory.h libft/include/get_next_line.h | obj
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'free_mlx'
+#  Last modified 2022-09-01 16:50:32.602905921
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 50):
+			$(CC) $(CFLAGS) $(CFLAGSADD) -I $(IPATH) -I $(FTPATH)/$(IFT) -I $(MLX_PATH) -c $< -o $@
 
 sym:
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 77):
+#  recipe to execute (from 'Makefile', line 76):
 			$(NM_BIN) -Dgu $(NAME) $(FTPATH)
 
 # Not a target:
 libft/include/ft_message.h:
 #  Implicit rule search has been done.
-#  Last modified 2022-09-01 09:49:52.855963616
+#  Last modified 2022-09-01 15:38:01.071562191
 #  File has been updated.
 #  Successfully updated.
 
@@ -467,41 +509,45 @@ re:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 70):
+#  recipe to execute (from 'Makefile', line 69):
 			make fclean
 			make all
 
-obj/ft_key_hook.o: | obj
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+obj/ft_key_hook.o: sources/ft_key_hook.c sources/ft_key_hook.c includes/cub.h includes/../minilibX/libmlx.h libft/include/libft.h libft/include/ft_chartype.h libft/include/ft_convert.h libft/include/ft_list.h libft/include/ft_message.h libft/include/ft_put.h libft/include/ft_string.h libft/include/ft_memory.h libft/include/get_next_line.h | obj
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'ft_key_hook'
+#  Last modified 2022-09-01 16:50:32.669906277
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 50):
+			$(CC) $(CFLAGS) $(CFLAGSADD) -I $(IPATH) -I $(FTPATH)/$(IFT) -I $(MLX_PATH) -c $< -o $@
 
 clean:
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 63):
+#  recipe to execute (from 'Makefile', line 62):
 			make clean -C $(FTPATH)
 
 # Not a target:
 libft/include/ft_string.h:
 #  Implicit rule search has been done.
-#  Last modified 2022-09-01 09:49:52.858963635
+#  Last modified 2022-09-01 15:38:01.074562207
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 libft/include/ft_memory.h:
 #  Implicit rule search has been done.
-#  Last modified 2022-09-01 09:49:52.85496361
+#  Last modified 2022-09-01 15:38:01.06956218
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 sources/main.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-09-01 14:32:55.704516916
+#  Last modified 2022-09-01 16:42:13.165242514
 #  File has been updated.
 #  Successfully updated.
 
@@ -510,34 +556,42 @@ comp_vgdb:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 84):
+#  recipe to execute (from 'Makefile', line 83):
 			make
 			$(VALGRIND) --vgdb-error=0 ./$(NAME)
+
+# Not a target:
+sources/destroy_sprites.c:
+#  Implicit rule search has been done.
+ 
+#  Last modified 2022-09-01 15:38:01.303563429
+#  File has been updated.
+#  Successfully updated.
 
 norme:
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 74):
+#  recipe to execute (from 'Makefile', line 73):
 			$(NORMINETTE_BIN) $(SRCS) $(FTPATH)
 
 # Not a target:
 obj/main.d:
 #  Implicit rule search has been done.
-#  Last modified 2022-09-01 14:44:34.945115641
+#  Last modified 2022-09-01 16:50:32.467905203
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 obj/destroy_sprites.d:
 #  Implicit rule search has been done.
-#  File does not exist.
+#  Last modified 2022-09-01 16:50:32.53690557
 #  File has been updated.
-#  Failed to be updated.
+#  Successfully updated.
 
 # files hash-table stats:
-# Load=38/1024=4%, Rehash=0, Collisions=2/104=2%
+# Load=42/1024=4%, Rehash=0, Collisions=7/196=4%
 # VPATH Search Paths
 
 vpath %.h includes
@@ -548,12 +602,12 @@ vpath %.o obj
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 60 / storage = 732 B / avg = 12 B
-# current buf: size = 8162 B / used = 732 B / count = 60 / avg = 12 B
+# strcache buffers: 1 (0) / strings = 69 / storage = 912 B / avg = 13 B
+# current buf: size = 8162 B / used = 912 B / count = 69 / avg = 13 B
 
-# strcache performance: lookups = 115 / hit rate = 47%
+# strcache performance: lookups = 189 / hit rate = 63%
 # hash-table stats:
-# Load=60/8192=1%, Rehash=0, Collisions=2/115=2%
-# Finished Make data base on Thu Sep  1 15:02:41 2022
+# Load=69/8192=1%, Rehash=0, Collisions=2/189=1%
+# Finished Make data base on Thu Sep  1 16:51:58 2022
 
  
