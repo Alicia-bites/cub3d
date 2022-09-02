@@ -44,7 +44,7 @@
 *.pdb
 
 # vscode
-*.log
+.vscode
 
 # Kernel Module Compile Results
 *.mod*
