@@ -27,21 +27,38 @@ IPATH			:=	includes
 OPATH			:=	obj
 
 SRCS_PATH		:=	sources
+GRAPH_PATH		:=	graphics
+RAY_PATH		:=	ray_casting
 
 RM				:=	rm -rf
 
-SRCS			:=	destroy_sprites.c\
+GRAPH_SRCS		:=	destroy_sprites.c\
+					draw_background.c\
+					draw_no_player.c\
+					draw_player.c\
 					free_mlx.c\
 					ft_key_hook.c\
 					ft_red_cross.c\
-					main.c\
-					my_pixel_put.c
+					init_game.c\
+					my_pixel_put.c\
+
+RAY_SRCS		:=	calculate_ray_position_and_direction.c\
+					calculate_step.c\
+					perform_dda.c\
+					set_vectors.c\
+					start_ray_casting_loop.c\
+
+SRCS			:=	main.c\
+					$(GRAPH_SRCS)\
+					$(RAY_SRCS)\
 					
 OBJS			:=	$(addprefix $(OPATH)/, $(SRCS:.c=.o))
 DEPS			:=	$(OBJS:.o=.d)
 
 vpath %.h $(IPATH)
 vpath %.c $(SRCS_PATH)\
+		$(SRCS_PATH)/$(GRAPH_PATH)\
+		$(SRCS_PATH)/$(RAY_PATH)\
 
 vpath %.o $(OPATH)
 

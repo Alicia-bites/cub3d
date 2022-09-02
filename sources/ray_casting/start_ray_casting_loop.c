@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   start_ray_casting_loop.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/31 15:54:11 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/02 18:25:58 by amarchan         ###   ########.fr       */
+/*   Created: 2022/09/02 18:09:25 by amarchan          #+#    #+#             */
+/*   Updated: 2022/09/02 18:09:42 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-int	main(int argc, char **argv)
+int	start_ray_casting_loop(t_list map)
 {
-	t_list	*map;
-	
-	(void)argv;
-	if (argc != 2)
+	int			x;
+	t_vector	vec;
+
+	set_vectors(&vec);
+	x = 0;
+	while (x < vec.screen_width)
 	{
-		ft_putstr_fd("Oups, wrong number of arguments!", 2);
-		return (-1);
+		calculate_ray_position_and_direction(&vec);
+		calculate_step(&vec);
+		perform_dda(&vec, map);
 	}
-	map = NULL;
-	init_game(map);
 	return (0);
 }
