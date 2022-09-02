@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/01 16:47:33 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/02 11:55:21 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,11 @@ typedef struct s_mlx
 {
 	t_list		*map;
 	int			image_height;
-	int			image_length;
-	int			row_length;
+	int			image_width;
+	int			row_width;
 	int			col_height;
 	int			map_height;
-	int			map_length;
+	int			map_width;
 	int			sprite_size;
 	int			n_collectibles;
 	int			player_x;
@@ -75,6 +75,7 @@ typedef	struct s_vector
 	double	ray_dirY;
 	double	time;
 	double	old_time;
+	double	screen_width;
 }	t_vector;
 
 typedef struct s_data
