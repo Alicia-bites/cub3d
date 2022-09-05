@@ -45,6 +45,7 @@
 
 # vscode
 .vscode
+.nfs*
 
 # Kernel Module Compile Results
 *.mod*
