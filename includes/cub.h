@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/05 11:47:22 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/05 11:54:13 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,10 @@
 # define RIGHT 100
 # define CAM_RIGHT 65363
 # define CAM_LEFT 65361
+
+# define FILE_ERROR -1
+# define MALLOC_ERROR -2
+# define EMPTY_LINE -3
 
 # define SPRITE_COUNT 9
 
