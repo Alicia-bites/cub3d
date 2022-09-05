@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 18:11:26 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/02 18:11:40 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/05 09:53:41 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	calculate_step(t_vector *vec)
 {
 	//calculate step and initial sideDist
-	if (vec.ray_dirX < 0)
+	if (vec->ray_dirX < 0)
 	{
 		vec->stepX = -1;
 		vec->side = (vec->posX - vec->mapX) * vec->delta_distX;
