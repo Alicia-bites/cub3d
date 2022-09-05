@@ -46,6 +46,7 @@ GRAPH_SRCS		:=	destroy_sprites.c\
 PARSE_SRCS		:=	create_list.c\
 					ft_parse.c\
 					read_map.c\
+					print_map.c\
 
 RAY_SRCS		:=	calculate_ray_position_and_direction.c\
 					calculate_step.c\

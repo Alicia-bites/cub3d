@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/05 12:26:47 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/05 12:33:47 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,6 +127,7 @@ typedef struct s_coord
 t_list	*create_list(char *line);
 t_list	*ft_parse(char *argv);
 t_list	*read_map(char *argv);
+void	print_map(t_list *map);
 
 
 // GRAPHICS

@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   print_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/31 15:54:11 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/05 13:43:27 by amarchan         ###   ########.fr       */
+/*   Created: 2022/09/05 12:32:01 by amarchan          #+#    #+#             */
+/*   Updated: 2022/09/05 13:42:44 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-int	main(int argc, char **argv)
+void	print_map(t_list *map)
 {
-	t_list	*map;
-	
-	map = NULL;
-	(void)argv;
-	if (argc != 2)
+	while (map)
 	{
-		ft_putstr_fd("Oups, wrong number of arguments!", 2);
-		return (-1);
+		printf("%s", map->line);
+		map = map->next;
 	}
-	map = ft_parse(argv[1]);
-	init_game(map);
-	return (0);
+	printf("\n");
 }
