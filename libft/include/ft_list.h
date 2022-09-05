@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 15:17:45 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/05 11:37:12 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/05 12:13:25 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ t_ulist	*ft_lst_last(t_ulist *lst);
 t_ulist	*ft_lst_new(void *content);
 size_t	ft_lst_size(t_ulist **lst);
 
-t_list	*ft_lstnew(char *str, int i, t_toktype toktype);
+t_list	*ft_lstnew(char *str, int i);
 void	ft_lstadd_front(t_list **alst, t_list *new);
 int		ft_lstsize(t_list *lst);
 t_list	*ft_lstlast(t_list *lst);

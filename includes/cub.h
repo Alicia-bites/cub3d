@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/05 11:54:13 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/05 12:26:47 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,7 +125,7 @@ typedef struct s_coord
 
 //PARSING
 t_list	*create_list(char *line);
-t_list	*ft_parse(char **argv);
+t_list	*ft_parse(char *argv);
 t_list	*read_map(char *argv);
 
 
@@ -142,8 +142,8 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 
 // RAY_CASTING
 void	calculate_step(t_vector *vec);
-int		calculate_ray_position_and_direction(t_vector *vec);
-int		perform_dda(t_vector *vec, t_list map);
+int		calculate_ray_position_and_direction(t_vector *vec, int *x);
+int		perform_dda(t_vector *vec, t_list *map);
 int		set_vectors(t_vector *vec);
-int		start_ray_casting_loop(t_list map);
+int		start_ray_casting_loop(t_list *map);
 #endif

@@ -85,6 +85,7 @@ $(OPATH):
 
 clean:
 			make clean -C $(FTPATH)
+			$(RM) $(OPATH)
 
 fclean:
 			make clean

@@ -6,16 +6,16 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 18:10:33 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/02 18:10:51 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/05 12:11:19 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-int	calculate_ray_position_and_direction(t_vector *vec)
+int	calculate_ray_position_and_direction(t_vector *vec, int *x)
 {
 	// calculate ray position and direction
-	vec->cameraX = 2 * x / vec->screen_width - 1; // x-coordinate in camera space
+	vec->cameraX = 2 * (*x) / vec->screen_width - 1; // x-coordinate in camera space
 	vec->ray_dirX = vec->dirX + vec->planeX * vec->cameraX;
 	vec->ray_dirY = vec->dirY + vec->planeY * vec->cameraX;
 	//which box of the map we're in

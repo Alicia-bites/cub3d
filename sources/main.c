@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:54:11 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/05 11:47:44 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/05 12:26:43 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main(int argc, char **argv)
 		ft_putstr_fd("Oups, wrong number of arguments!", 2);
 		return (-1);
 	}
-	map = ft_parse(argv);
+	map = ft_parse(argv[1]);
 	init_game(map);
 	return (0);
 }
