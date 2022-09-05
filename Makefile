@@ -30,34 +30,41 @@ SRCS_PATH		:=	sources
 GRAPH_PATH		:=	graphics
 RAY_PATH		:=	ray_casting
 PARSE_PATH		:=	parsing
+UTILS_PATH		:=	utils
 
 RM				:=	rm -rf
 
-GRAPH_SRCS		:=	destroy_sprites.c\
+GRAPH_SRCS		:=	choose_wall_color.c\
+					destroy_sprites.c\
 					draw_background.c\
 					draw_no_player.c\
+					draw_vertical_line.c\
 					draw_player.c\
 					free_mlx.c\
 					ft_key_hook.c\
 					ft_red_cross.c\
 					init_game.c\
-					my_pixel_put.c\
+					my_mlx_pixel_put.c\
 
 PARSE_SRCS		:=	create_list.c\
 					ft_parse.c\
 					read_map.c\
-					print_map.c\
 
 RAY_SRCS		:=	calculate_ray_position_and_direction.c\
 					calculate_step.c\
+					draw_wall.c\
 					perform_dda.c\
 					set_vectors.c\
 					start_ray_casting_loop.c\
+
+UTILS_SRCS		:=	get_character_in_map.c\
+					print_map.c\
 
 SRCS			:=	main.c\
 					$(GRAPH_SRCS)\
 					$(RAY_SRCS)\
 					$(PARSE_SRCS)\
+					$(UTILS_SRCS)\
 					
 OBJS			:=	$(addprefix $(OPATH)/, $(SRCS:.c=.o))
 DEPS			:=	$(OBJS:.o=.d)
@@ -67,6 +74,7 @@ vpath %.c $(SRCS_PATH)\
 		$(SRCS_PATH)/$(GRAPH_PATH)\
 		$(SRCS_PATH)/$(RAY_PATH)\
 		$(SRCS_PATH)/$(PARSE_PATH)\
+		$(SRCS_PATH)/$(UTILS_PATH)\
 
 vpath %.o $(OPATH)
 

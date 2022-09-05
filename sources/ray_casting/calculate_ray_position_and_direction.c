@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 18:10:33 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/05 12:11:19 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/05 14:22:56 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@ int	calculate_ray_position_and_direction(t_vector *vec, int *x)
 	if (vec->ray_dirX == 0)
 		vec->delta_distX = 1e30;
 	else
-		vec->delta_distX = abs(1 / (int)vec->ray_dirX);
+		vec->delta_distX = fabs(1 / vec->ray_dirX);
 	//length of ray from one y-side to next y-side
 	if (vec->ray_dirY == 0)
 		vec->delta_distY = 1e30;
 	else
-		vec->delta_distY = abs(1 / (int)vec->ray_dirY);
+		vec->delta_distY = fabs(1 / vec->ray_dirY);		
 		//--> to see if a wall was hit :
 	vec->hit = 0;
 	return (0);

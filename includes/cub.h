@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/05 12:33:47 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/05 19:28:41 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@
 # define EMPTY_LINE -3
 
 # define SPRITE_COUNT 9
+# define CHAR_NOT_FOUND	'N'
 
 typedef struct s_sprite
 {
@@ -102,7 +103,12 @@ typedef	struct s_vector
 	int		side;
 	
 	//used to calculate the length of the ray
-	double perpWallDist;
+	double perp_wall_dist;
+
+	int		line_height;
+	int		draw_start;
+	int		draw_end;
+	int		h;
 	
 }	t_vector;
 
@@ -123,18 +129,26 @@ typedef struct s_coord
 	int	draw_loc_y;
 }	t_coord;
 
-//PARSING
+typedef struct s_palette
+{
+	int	color_wall;
+}	t_palette;
+
+
+// PARSING
 t_list	*create_list(char *line);
 t_list	*ft_parse(char *argv);
 t_list	*read_map(char *argv);
-void	print_map(t_list *map);
+
 
 
 // GRAPHICS
 // void	destroy_sprites(t_mlx *mlx);
+int		choose_wall_color(t_vector *vec, t_palette *color);
 void	draw_player(t_mlx *mlx);
 void	draw_background(t_mlx *mlx);
 void	draw_no_player(t_mlx *mlx);
+int		draw_vertical_line(t_mlx mlx, t_vector vec, t_palette color);
 void	free_mlx(t_mlx *mlx);
 int		ft_key_hook(int keycode, t_mlx *mlx);
 int		ft_redcross(t_mlx *mlx, int x);
@@ -144,7 +158,13 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 // RAY_CASTING
 void	calculate_step(t_vector *vec);
 int		calculate_ray_position_and_direction(t_vector *vec, int *x);
+int		draw_wall(t_vector *vec);
 int		perform_dda(t_vector *vec, t_list *map);
 int		set_vectors(t_vector *vec);
-int		start_ray_casting_loop(t_list *map);
+int		start_ray_casting_loop(t_list *map, t_mlx *mlx);
+
+// UTILS
+char	get_character_in_map(t_list *map, int x, int y);
+void	print_map(t_list *map);
+
 #endif

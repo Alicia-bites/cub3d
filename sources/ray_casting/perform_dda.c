@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 18:09:58 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/05 12:12:54 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/05 17:56:39 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,10 @@ int	perform_dda(t_vector *vec, t_list *map)
 			vec->side = 1;
 		}
 		// check if ray has hit a wall
-		// if (/*la case du tableau rencontre aux coordonnees vec.mapX, vec.mapY est superieure a 0*/)
-		// 	hit = 1;
+		if (get_character_in_map(map, vec->mapX, vec->mapY) == '1')
+			vec->hit = 1;
+		// printf("the char you're looking for is = %c\n",
+		// 	get_character_in_map(map, vec->mapX, vec->mapY));
 	}
 	return (0);
 }
