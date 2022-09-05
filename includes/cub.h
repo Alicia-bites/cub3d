@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/02 18:22:49 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/05 11:47:22 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,6 +118,11 @@ typedef struct s_coord
 	int	draw_loc_x;
 	int	draw_loc_y;
 }	t_coord;
+
+//PARSING
+t_list	*create_list(char *line);
+t_list	*ft_parse(char **argv);
+t_list	*read_map(char *argv);
 
 
 // GRAPHICS

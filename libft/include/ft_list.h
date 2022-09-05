@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 15:17:45 by abarrier          #+#    #+#             */
-/*   Updated: 2022/07/21 18:41:27 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/05 11:37:12 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,11 @@ typedef struct s_ulist
 
 typedef struct s_list
 {
+	char			*line;
 	int				index;
-	t_toktype		toktype;
-	char			*token;
 	struct s_list	*prev;
 	struct s_list	*next;
-}			t_list;
+}	t_list;
 
 t_ulist	*ft_lst_append(t_ulist **lst, void *content);
 void	ft_lst_clear(t_ulist **lst, void (*f)(void *));

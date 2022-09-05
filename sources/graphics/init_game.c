@@ -6,13 +6,13 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 18:06:50 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/02 18:12:29 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/05 10:51:19 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-int	init_game(char **map)
+int	init_game(t_list **map)
 {
 	t_mlx	mlx;
 
