@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/05 19:28:41 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/06 16:45:56 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,12 @@
 
 # define PI 3.141592653589793238
 
-# define SCREEN_SIZE 1280
+# define SCREEN_HEIGHT 1280
+# define SCREEN_WIDTH 1280
+
+# define MOVESPEED 0.5
+# define ROTSPEED 0.2
+
 # define BACKGROUND_COLOR 0x00898c83
 # define PLAYER_COLOR 0x00a44620
 
@@ -53,26 +58,6 @@ typedef struct s_sprite
 	char	*name;
 }	t_sprite;
 
-typedef struct s_mlx
-{
-	t_list		*map;
-	int			image_height;
-	int			image_width;
-	int			row_width;
-	int			col_height;
-	int			map_height;
-	int			map_width;
-	int			sprite_size;
-	int			player_x;
-	int			player_y;
-	void		*image;
-	void		*mlx_ptr;
-	void		*player;
-	void		*win_ptr;
-	void		*player_image;
-	void		*no_player_image;
-}	t_mlx;
-
 typedef	struct s_vector
 {
 	double 	posX;
@@ -84,8 +69,6 @@ typedef	struct s_vector
 	double	cameraX;
 	double	ray_dirX;
 	double	ray_dirY;
-	double	time;
-	double	old_time;
 	double	screen_width;
 	int		mapX;
 	int		mapY;
@@ -109,6 +92,8 @@ typedef	struct s_vector
 	int		draw_start;
 	int		draw_end;
 	int		h;
+	double	old_dirX;
+	double	old_planeX;
 	
 }	t_vector;
 
@@ -120,6 +105,28 @@ typedef struct s_data
 	int		line_length;
 	int		endian;
 }	t_data;
+
+typedef struct s_mlx
+{
+	t_list		*map;
+	int			image_height;
+	int			image_width;
+	int			row_width;
+	int			col_height;
+	int			map_height;
+	int			map_width;
+	int			sprite_size;
+	int			player_x;
+	int			player_y;
+	void		*image;
+	void		*mlx_ptr;
+	void		*player;
+	void		*win_ptr;
+	void		*player_image;
+	void		*no_player_image;
+	t_vector	vec;
+	t_data		img;
+}	t_mlx;
 
 typedef struct s_coord
 {
@@ -140,15 +147,13 @@ t_list	*create_list(char *line);
 t_list	*ft_parse(char *argv);
 t_list	*read_map(char *argv);
 
-
-
 // GRAPHICS
 // void	destroy_sprites(t_mlx *mlx);
-int		choose_wall_color(t_vector *vec, t_palette *color);
+int		choose_wall_color(t_list *map, t_vector *vec, t_palette *color);
 void	draw_player(t_mlx *mlx);
 void	draw_background(t_mlx *mlx);
 void	draw_no_player(t_mlx *mlx);
-int		draw_vertical_line(t_mlx mlx, t_vector vec, t_palette color);
+int		draw_vertical_line(int x, t_vector vec, int color, t_data *img);
 void	free_mlx(t_mlx *mlx);
 int		ft_key_hook(int keycode, t_mlx *mlx);
 int		ft_redcross(t_mlx *mlx, int x);
@@ -161,7 +166,7 @@ int		calculate_ray_position_and_direction(t_vector *vec, int *x);
 int		draw_wall(t_vector *vec);
 int		perform_dda(t_vector *vec, t_list *map);
 int		set_vectors(t_vector *vec);
-int		start_ray_casting_loop(t_list *map, t_mlx *mlx);
+int		start_ray_casting_loop(t_mlx *mlx);
 
 // UTILS
 char	get_character_in_map(t_list *map, int x, int y);

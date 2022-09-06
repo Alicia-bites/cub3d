@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_red_cross.c                                     :+:      :+:    :+:   */
+/*   draw_vertical_line.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/01 12:15:31 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/06 14:39:23 by amarchan         ###   ########.fr       */
+/*   Created: 2022/09/06 09:36:25 by amarchan          #+#    #+#             */
+/*   Updated: 2022/09/06 13:16:34 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-//close window
-int	ft_redcross(t_mlx *mlx, int x)
+int	draw_vertical_line(int x, t_vector vec, int color, t_data *img)
 {
-	if (x == 0)
-		printf("Leaving the game. See you later!\n");
-	mlx_loop_end(mlx->mlx_ptr);
+	int		y;
+
+	y = vec.draw_start;
+	while (y < vec.draw_end)
+	{
+		my_mlx_pixel_put(img, x, y, color / 2);
+		y++;
+	}
 	return (0);
 }

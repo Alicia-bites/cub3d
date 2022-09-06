@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 18:11:05 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/02 18:11:16 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/06 11:37:01 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,5 @@ int	set_vectors(t_vector *vec)
 	vec->dirY = 0; // the 2d raycaster version of camera plane
 	vec->planeX = 0;
 	vec->planeY = 0.66;
-	vec->time = 0; // time of current frame
-	vec->old_time = 0; // time of previous frame
 	return (0);
 }

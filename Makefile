@@ -15,7 +15,7 @@ NORMINETTE_BIN 	:= 	norminette
 NM_BIN			:=	nm
 CC				:=	cc
 CFLAGS			:=	-MMD -Wall -Wextra -Werror
-CFLAGS_MLX 		:=	-lXext -lX11
+CFLAGS_MLX 		:=	-lXext -lX11 -lm
 #CFLAGS			:=	-MMD
 #CFLAGSADD		:=	-g3 -fsanitize=address
 CFLAGSADD		:=	-g3
