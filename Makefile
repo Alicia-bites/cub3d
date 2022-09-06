@@ -77,7 +77,7 @@ $(OPATH)/%.o:	%.c
 
 $(NAME):	$(OBJS)
 			make -C $(FTPATH)
-			$(CC) $(CFLAGS) $(CFLAGSADD) $(CFLAGS_MLX) $(OBJS) -I $(IPATH) -I $(FTPATH)/$(IFT) -I $(MLX_PATH) -L$(FTPATH) -l$(FT) -L$(MLX_PATH) -l$(MLX) -o $(NAME)
+			$(CC) $(CFLAGS) $(CFLAGSADD) $(OBJS) -I $(IPATH) -I $(FTPATH)/$(IFT) -I $(MLX_PATH) -L$(FTPATH) -l$(FT) -L$(MLX_PATH) -l$(MLX) -o $(NAME) $(CFLAGS_MLX) 
 
 $(OBJS):	| $(OPATH)
 
