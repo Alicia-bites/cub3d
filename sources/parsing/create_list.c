@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   create_list.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/31 15:54:11 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/05 13:43:27 by amarchan         ###   ########.fr       */
+/*   Created: 2022/09/05 11:42:23 by amarchan          #+#    #+#             */
+/*   Updated: 2022/09/05 12:22:18 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-int	main(int argc, char **argv)
+t_list	*create_list(char *line)
 {
-	t_list	*map;
-	
-	map = NULL;
-	(void)argv;
-	if (argc != 2)
+	static int		i = 0;
+	static t_list	*lst;
+	t_list			*new;
+
+	if (ft_strlen(line) < 2)
 	{
-		ft_putstr_fd("Oups, wrong number of arguments!", 2);
-		return (-1);
+		free(line);
+		ft_panic(EMPTY_LINE, __func__, NULL);
 	}
-	map = ft_parse(argv[1]);
-	init_game(map);
-	return (0);
+	if (i == 0)
+		lst = ft_lstnew(line, i);
+	else
+	{
+		new = ft_lstnew(line, i);
+		ft_lstadd_back(&lst, new);
+	}	
+	i++;
+	return (lst);
 }

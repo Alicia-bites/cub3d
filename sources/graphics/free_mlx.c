@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   free_mlx.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/31 15:54:11 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/05 13:43:27 by amarchan         ###   ########.fr       */
+/*   Created: 2022/09/01 12:13:26 by amarchan          #+#    #+#             */
+/*   Updated: 2022/09/02 16:19:08 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-int	main(int argc, char **argv)
+void	free_mlx(t_mlx *mlx)
 {
-	t_list	*map;
-	
-	map = NULL;
-	(void)argv;
-	if (argc != 2)
-	{
-		ft_putstr_fd("Oups, wrong number of arguments!", 2);
-		return (-1);
-	}
-	map = ft_parse(argv[1]);
-	init_game(map);
-	return (0);
+	// if (mlx->map)
+	// 	ft_clear(&(mlx->map));
+	if (mlx->win_ptr)
+		mlx_destroy_window(mlx->mlx_ptr, mlx->win_ptr);
+	mlx_destroy_display(mlx->mlx_ptr);
+	free(mlx->mlx_ptr);
+	// if (mlx->sprites)
+	// 	free(mlx->sprites);
 }

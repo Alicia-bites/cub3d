@@ -1,3 +1,18 @@
+## Mlx related
+Makefile.gen
+/test/mlx-test
+
+## Editor
+.vscode/*
+*~
+\#*\#
+
+## Other
+.DS_STORE
+
+
+
+## Template from https://github.com/github/gitignore
 # Prerequisites
 *.d
 
@@ -6,7 +21,6 @@
 *.ko
 *.obj
 *.elf
-*.a
 
 # Linker output
 *.ilk
@@ -43,9 +57,6 @@
 *.idb
 *.pdb
 
-# vscode
-.vscode
-
 # Kernel Module Compile Results
 *.mod*
 *.cmd
@@ -54,6 +65,3 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
-
-#exec files
-cub3d

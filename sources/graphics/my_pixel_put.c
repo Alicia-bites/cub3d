@@ -1,29 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   my_pixel_put.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/31 15:54:11 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/05 13:43:27 by amarchan         ###   ########.fr       */
+/*   Created: 2022/09/02 14:08:20 by amarchan          #+#    #+#             */
+/*   Updated: 2022/09/02 14:09:36 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-int	main(int argc, char **argv)
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 {
-	t_list	*map;
-	
-	map = NULL;
-	(void)argv;
-	if (argc != 2)
-	{
-		ft_putstr_fd("Oups, wrong number of arguments!", 2);
-		return (-1);
-	}
-	map = ft_parse(argv[1]);
-	init_game(map);
-	return (0);
+	char	*dst;
+
+	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
+	*(unsigned int*)dst = color;
 }

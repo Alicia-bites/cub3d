@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   set_vectors.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/31 15:54:11 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/05 13:43:27 by amarchan         ###   ########.fr       */
+/*   Created: 2022/09/02 18:11:05 by amarchan          #+#    #+#             */
+/*   Updated: 2022/09/02 18:11:16 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-int	main(int argc, char **argv)
+int	set_vectors(t_vector *vec)
 {
-	t_list	*map;
-	
-	map = NULL;
-	(void)argv;
-	if (argc != 2)
-	{
-		ft_putstr_fd("Oups, wrong number of arguments!", 2);
-		return (-1);
-	}
-	map = ft_parse(argv[1]);
-	init_game(map);
+	vec->screen_width = 1280;
+	vec->posX = 22; // position of the player on the x axe
+	vec->posY = 12; // position of the player on the y axe
+	vec->dirX = -1;	// initial direction vector
+	vec->dirY = 0; // the 2d raycaster version of camera plane
+	vec->planeX = 0;
+	vec->planeY = 0.66;
+	vec->time = 0; // time of current frame
+	vec->old_time = 0; // time of previous frame
 	return (0);
 }

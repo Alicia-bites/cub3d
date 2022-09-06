@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   destroy_sprites.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/31 15:54:11 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/05 13:43:27 by amarchan         ###   ########.fr       */
+/*   Created: 2022/09/01 12:14:00 by amarchan          #+#    #+#             */
+/*   Updated: 2022/09/02 16:18:50 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-int	main(int argc, char **argv)
-{
-	t_list	*map;
-	
-	map = NULL;
-	(void)argv;
-	if (argc != 2)
-	{
-		ft_putstr_fd("Oups, wrong number of arguments!", 2);
-		return (-1);
-	}
-	map = ft_parse(argv[1]);
-	init_game(map);
-	return (0);
-}
+// void	destroy_sprites(t_mlx *mlx)
+// {
+// 	int	i;
+
+// 	if (mlx)
+// 	{
+// 		i = 0;
+// 		while (i <= 8 && mlx->sprites)
+// 			mlx_destroy_image(mlx->mlx_ptr, mlx->sprites[i++].image);
+// 	}
+// }
