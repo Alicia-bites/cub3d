@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/06 20:39:53 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/06 20:47:00 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ typedef struct s_sprite
 typedef struct s_mlx
 {
 	t_list		*map;
-	t_settings	*settings;
+	struct s_settings	*settings;
 	int			image_height;
 	int			image_width;
 	int			row_width;
