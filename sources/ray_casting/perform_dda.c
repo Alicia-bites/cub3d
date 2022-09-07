@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 18:09:58 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/06 12:59:51 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/07 11:42:18 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int	perform_dda(t_vector *vec, t_list *map)
 {
+	extern	int	worldMap[24][24];
 	(void)map;
 	// perform DDA
 	while (vec->hit == 0)
@@ -34,11 +35,13 @@ int	perform_dda(t_vector *vec, t_list *map)
 		// printf("vec->mapX = %d\n", vec->mapX);
 		// printf("vec->mapY = %d\n", vec->mapY);
 		// check if ray has hit a wall
-		if (get_character_in_map(map, vec->mapX, vec->mapY) == '1')
-		{
-			// printf("char is = %c\n", get_character_in_map(map, vec->mapX, vec->mapY));
+		// if (get_character_in_map(map, vec->mapX, vec->mapY) == '1')
+		// {
+		// 	// printf("char is = %c\n", get_character_in_map(map, vec->mapX, vec->mapY));
+		// 	vec->hit = 1;
+		// }
+		if (worldMap[vec->mapX][vec->mapY] > 0)
 			vec->hit = 1;
-		}
 	}
 	return (0);
 }

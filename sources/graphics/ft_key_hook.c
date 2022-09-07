@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 12:18:17 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/06 16:36:08 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/07 11:48:13 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,57 +27,57 @@ void ft_render_player(t_mlx *mlx)
 		mlx->player_x, mlx->player_y);
 }
 
-void	move_player(int keycode, t_mlx *mlx)
-{
-	printf("key = %d\n", keycode);
-	// Move forward if no wall is in front of you
-	if (keycode == UP)
-	{	
-		printf("mlx->vec.posX = %f\n", mlx->vec.posX);
-		printf("mlx->vec.posY = %f\n", mlx->vec.posY);
-		printf("mlx->vec.dirX = %f\n", mlx->vec.dirX);
-		printf("mlx->vec.dirY = %f\n", mlx->vec.dirY);
-		printf("(int)(mlx->vec.posX + mlx->vec.dirX) = %d\n", 
-			(int)(mlx->vec.posX + mlx->vec.dirX));
-		printf("(int)mlx->vec.posY = %d\n", (int)mlx->vec.posY);
-		if (get_character_in_map(mlx->map, (int)(mlx->vec.posX + mlx->vec.dirX), (int)mlx->vec.posY) == '0')
-			mlx->vec.posX += mlx->vec.dirX * MOVESPEED;
-		if (get_character_in_map(mlx->map, (int)mlx->vec.posX, (int)(mlx->vec.posY + mlx->vec.dirY)) == '0')
-			mlx->vec.posY += mlx->vec.dirY * MOVESPEED;
-	}
-	//move backwards if no wall behind you
-	else if (keycode == DOWN)
-	{
-		if (get_character_in_map(mlx->map, (int)(mlx->vec.posX - mlx->vec.dirX), (int)mlx->vec.posY) == '0')
-			mlx->vec.posX -= mlx->vec.dirX * MOVESPEED;
-		if (get_character_in_map(mlx->map, (int)mlx->vec.posX, (int)(mlx->vec.posY - mlx->vec.dirY)) == '0')
-			mlx->vec.posY -= mlx->vec.dirY * MOVESPEED;
-	}
-	//rotate to the right
-	else if (keycode == RIGHT)
-	{
-		//both camera direction and camera plane must be rotated
-		mlx->vec.old_dirX = mlx->vec.dirX;
-		mlx->vec.dirX = mlx->vec.dirX * cos(-ROTSPEED) - mlx->vec.dirY * sin(-ROTSPEED);
-		mlx->vec.dirY = mlx->vec.old_dirX * sin(-ROTSPEED) + mlx->vec.dirY * cos(-ROTSPEED);
-		mlx->vec.old_planeX = mlx->vec.planeX;
-		mlx->vec.planeX = mlx->vec.planeX * cos(-ROTSPEED) - mlx->vec.planeY * sin(-ROTSPEED);
-		mlx->vec.planeY = mlx->vec.old_planeX  * sin(-ROTSPEED) + mlx->vec.planeY * cos(-ROTSPEED);
-	}
-	//rotate to the left
-	else if (keycode == LEFT)
-	{
-		//both camera direction and camera plane must be rotated
-		mlx->vec.old_dirX = mlx->vec.dirX;
-		mlx->vec.dirX = mlx->vec.dirX  * cos(ROTSPEED) - mlx->vec.dirY * sin(ROTSPEED);
-		mlx->vec.dirY = mlx->vec.old_dirX  * sin(ROTSPEED) + mlx->vec.dirY * cos(ROTSPEED);
-		mlx->vec.old_planeX = mlx->vec.planeX;
-		mlx->vec.planeX = mlx->vec.planeX * cos(ROTSPEED) - mlx->vec.planeY * sin(ROTSPEED);
-		mlx->vec.planeY = mlx->vec.old_planeX * sin(ROTSPEED) + mlx->vec.planeY * cos(ROTSPEED);
-	}
-}
+// void	move_player(int keycode, t_mlx *mlx)
+// {
+// 	printf("key = %d\n", keycode);
+// 	// Move forward if no wall is in front of you
+// 	if (keycode == UP)
+// 	{	
+// 		printf("mlx->vec.posX = %f\n", mlx->vec.posX);
+// 		printf("mlx->vec.posY = %f\n", mlx->vec.posY);
+// 		printf("mlx->vec.dirX = %f\n", mlx->vec.dirX);
+// 		printf("mlx->vec.dirY = %f\n", mlx->vec.dirY);
+// 		printf("(int)(mlx->vec.posX + mlx->vec.dirX) = %d\n", 
+// 			(int)(mlx->vec.posX + mlx->vec.dirX));
+// 		printf("(int)mlx->vec.posY = %d\n", (int)mlx->vec.posY);
+// 		if (get_character_in_map(mlx->map, (int)(mlx->vec.posX + mlx->vec.dirX), (int)mlx->vec.posY) == '0')
+// 			mlx->vec.posX += mlx->vec.dirX * MOVESPEED;
+// 		if (get_character_in_map(mlx->map, (int)mlx->vec.posX, (int)(mlx->vec.posY + mlx->vec.dirY)) == '0')
+// 			mlx->vec.posY += mlx->vec.dirY * MOVESPEED;
+// 	}
+// 	//move backwards if no wall behind you
+// 	else if (keycode == DOWN)
+// 	{
+// 		if (get_character_in_map(mlx->map, (int)(mlx->vec.posX - mlx->vec.dirX), (int)mlx->vec.posY) == '0')
+// 			mlx->vec.posX -= mlx->vec.dirX * MOVESPEED;
+// 		if (get_character_in_map(mlx->map, (int)mlx->vec.posX, (int)(mlx->vec.posY - mlx->vec.dirY)) == '0')
+// 			mlx->vec.posY -= mlx->vec.dirY * MOVESPEED;
+// 	}
+// 	//rotate to the right
+// 	else if (keycode == RIGHT)
+// 	{
+// 		//both camera direction and camera plane must be rotated
+// 		mlx->vec.old_dirX = mlx->vec.dirX;
+// 		mlx->vec.dirX = mlx->vec.dirX * cos(-ROTSPEED) - mlx->vec.dirY * sin(-ROTSPEED);
+// 		mlx->vec.dirY = mlx->vec.old_dirX * sin(-ROTSPEED) + mlx->vec.dirY * cos(-ROTSPEED);
+// 		mlx->vec.old_planeX = mlx->vec.planeX;
+// 		mlx->vec.planeX = mlx->vec.planeX * cos(-ROTSPEED) - mlx->vec.planeY * sin(-ROTSPEED);
+// 		mlx->vec.planeY = mlx->vec.old_planeX  * sin(-ROTSPEED) + mlx->vec.planeY * cos(-ROTSPEED);
+// 	}
+// 	//rotate to the left
+// 	else if (keycode == LEFT)
+// 	{
+// 		//both camera direction and camera plane must be rotated
+// 		mlx->vec.old_dirX = mlx->vec.dirX;
+// 		mlx->vec.dirX = mlx->vec.dirX  * cos(ROTSPEED) - mlx->vec.dirY * sin(ROTSPEED);
+// 		mlx->vec.dirY = mlx->vec.old_dirX  * sin(ROTSPEED) + mlx->vec.dirY * cos(ROTSPEED);
+// 		mlx->vec.old_planeX = mlx->vec.planeX;
+// 		mlx->vec.planeX = mlx->vec.planeX * cos(ROTSPEED) - mlx->vec.planeY * sin(ROTSPEED);
+// 		mlx->vec.planeY = mlx->vec.old_planeX * sin(ROTSPEED) + mlx->vec.planeY * cos(ROTSPEED);
+// 	}
+// }
 
-//define how player move around
+// define how player move around
 int	ft_key_hook(int keycode, t_mlx *mlx)
 {
 	if (keycode != ESC_KEYCODE)
@@ -85,11 +85,54 @@ int	ft_key_hook(int keycode, t_mlx *mlx)
 		if (keycode == UP || keycode == DOWN
 			|| keycode == LEFT || keycode == RIGHT)
 		{
-			move_player (keycode, mlx);
+			// move_player(keycode, mlx);
+			keypress(keycode, mlx);
 		}
 	}
 	else
 		ft_redcross(mlx, 0);
 	
 	return (keycode);
+}
+
+int	keypress(int keycode, t_mlx *mlx)
+{
+	extern int	worldMap[24][24];
+	
+	printf("pos_x == %f\n", (mlx->vec.posX));
+	if (keycode == UP) // UP
+	{
+		if(worldMap[(int)(mlx->vec.posX + mlx->vec.dirX * MOVESPEED)][(int)mlx->vec.posY] == 0)
+			mlx->vec.posX += mlx->vec.dirX * MOVESPEED;
+		if(worldMap[(int)(mlx->vec.posX)][(int)(mlx->vec.posY + mlx->vec.dirY * MOVESPEED)] == 0)
+			mlx->vec.posY += mlx->vec.dirY * MOVESPEED;
+	}
+	if (keycode == DOWN) // DOWN
+	{
+		if(worldMap[(int)(mlx->vec.posX - mlx->vec.dirX * MOVESPEED)][(int)mlx->vec.posY] == 0)
+			mlx->vec.posX -= mlx->vec.dirX * MOVESPEED;
+		if(worldMap[(int)(mlx->vec.posX)][(int)(mlx->vec.posY - mlx->vec.dirY * MOVESPEED)] == 0)
+			mlx->vec.posY -= mlx->vec.dirY * MOVESPEED;
+	}
+	if (keycode == RIGHT)
+    {
+      //both camera direction and camera plane must be rotated
+		mlx->vec.old_dirX = mlx->vec.dirX;
+		mlx->vec.dirX = mlx->vec.dirX * cos(-ROTSPEED) - mlx->vec.dirY * sin(-ROTSPEED);
+		mlx->vec.dirY = mlx->vec.old_dirX * sin(-ROTSPEED) + mlx->vec.dirY * cos(-ROTSPEED);
+		mlx->vec.old_planeX = mlx->vec.planeX;
+		mlx->vec.planeX = mlx->vec.planeX * cos(-ROTSPEED) - mlx->vec.planeY * sin(-ROTSPEED);
+		mlx->vec.planeY = mlx->vec.old_planeX * sin(-ROTSPEED) + mlx->vec.planeY * cos(-ROTSPEED);
+    }
+	if (keycode == LEFT)
+    {
+      //both camera direction and camera plane must be rotated
+		mlx->vec.old_dirX = mlx->vec.dirX;
+		mlx->vec.dirX = mlx->vec.dirX * cos(ROTSPEED) - mlx->vec.dirY * sin(ROTSPEED);
+		mlx->vec.dirY = mlx->vec.old_dirX * sin(ROTSPEED) + mlx->vec.dirY * cos(ROTSPEED);
+		mlx->vec.old_planeX = mlx->vec.planeX;
+		mlx->vec.planeX = mlx->vec.planeX * cos(ROTSPEED) - mlx->vec.planeY * sin(ROTSPEED);
+		mlx->vec.planeY = mlx->vec.old_planeX * sin(ROTSPEED) + mlx->vec.planeY * cos(ROTSPEED);
+    }	
+	return (0);
 }

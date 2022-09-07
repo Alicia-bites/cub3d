@@ -1,18 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   cub.h                                              :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/07 11:54:08 by amarchan         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#ifndef CUB_H
-# define CUB_H
-
 # include <unistd.h>
 # include <string.h>
 # include <stdio.h>
@@ -36,6 +21,13 @@
 
 # define BACKGROUND_COLOR 0x00898c83
 # define PLAYER_COLOR 0x00a44620
+# define WHITE 0xFFFFFF
+# define RED 0xFF0000
+# define GREEN 0x008000
+# define BLACK 0x000000
+# define BLUE 0xB0E0E6
+# define VIOLET 0xC014BC
+# define TEST	0x0FAE4
 
 # define ESC_KEYCODE 65307
 # define UP 119
@@ -144,36 +136,36 @@ typedef struct s_palette
 	int	color_wall;
 }	t_palette;
 
+void	start_game(t_mlx *mlx)
+{	
+	mlx = mlx_init();
+	mlx->win_ptr =  mlx_new_window(mlx, SCREEN_WIDTH, SCREEN_HEIGHT, "Cub3d");
+	mlx->img->img = mlx_new_image(mlx, SCREEN_WIDTH, SCREEN_HEIGHT);
+	test->image->addr = mlx_get_data_addr(test->image->mlx_img, &test->image->bpp, &test->image->line_len, &test->image->endian);
+	mlx_key_hook(test->win, keypress, test);
+	mlx_loop_hook(test->mlx, raycasting, test);
+	mlx_loop(test->mlx);
+	mlx_destroy_image(test->mlx, test->image->mlx_img);
+	mlx_destroy_window(test->mlx, test->win);
+	mlx_destroy_display(test->mlx);
+}
 
-// PARSING
-t_list	*create_list(char *line);
-t_list	*ft_parse(char *argv);
-t_list	*read_map(char *argv);
+void init_struct(t_mlx *mlx)
+{
+	mlx->vec.screen_width = 1280;
+	mlx->vec.posX = 22; // position of the player on the x axe
+	mlx->vec.posY = 12; // position of the player on the y axe
+	mlx->vec.dirX = -1;	// initial direction mlx->vector
+	mlx->vec.dirY = 0; // the 2d raycaster mlx->version of camera plane
+	mlx->vec.planeX = 0;
+	mlx->vec.planeY = 0.66;
+}
 
-// GRAPHICS
-// void	destroy_sprites(t_mlx *mlx);
-int		choose_wall_color(t_list *map, t_vector *vec, t_palette *color);
-void	draw_player(t_mlx *mlx);
-void	draw_background(t_mlx *mlx);
-void	draw_no_player(t_mlx *mlx);
-int		draw_vertical_line(int x, t_vector vec, int color, t_data *img);
-void	free_mlx(t_mlx *mlx);
-int		ft_key_hook(int keycode, t_mlx *mlx);
-int		keypress(int keycode, t_mlx *mlx);
-int		ft_redcross(t_mlx *mlx, int x);
-int		init_game(t_list *map);
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
+int main(void)
+{
+	t_mlx mlx;
 
-// RAY_CASTING
-void	calculate_step(t_vector *vec);
-int		calculate_ray_position_and_direction(t_vector *vec, int x);
-int		draw_wall(t_vector *vec);
-int		perform_dda(t_vector *vec, t_list *map);
-int		set_vectors(t_vector *vec);
-int		start_ray_casting_loop(t_mlx *mlx);
-
-// UTILS
-char	get_character_in_map(t_list *map, int x, int y);
-void	print_map(t_list *map);
-
-#endif
+	init_struct(&mlx);
+	start_game(&mlx);
+	return (0);
+}

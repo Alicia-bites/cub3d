@@ -6,7 +6,6 @@
 #include <stdbool.h>
 #include <strings.h>
 #include "../../minilibX/libmlx.h"
-#include "../../minilibX/mlx_int.h"
 
 #define WIDTH 800
 #define HEIGHT 600
@@ -16,8 +15,8 @@
 #define mapHeight 24
 #define screenWIDTH 640
 #define screenHeight 480
-#define moveSpeed 0.5
-#define rotSpeed 0.2
+#define moveSpeed 0.1
+#define rotSpeed 0.1
 
 /* COLORS */
 # define WHITE 0xFFFFFF
@@ -115,28 +114,36 @@ typedef	struct s_imag
 	int		height;
 } t_imag;
 
-typedef struct s_pos
-{
-	double x;
-	double y;
-}	t_pos;
+// typedef struct s_pos
+// {
+// 	double x;
+// 	double y;
+// }	t_pos;
 
-typedef struct s_vector
-{
-	double x;
-	double y;
-	double norm;
-}	t_vector;
+// typedef struct s_vector
+// {
+// 	double x;
+// 	double y;
+// 	double norm;
+// }	t_vector;
 
 typedef struct s_global
 {
 	void		*mlx;
 	void		*win;
 	t_imag		*image;
-	t_pos		*pos;
-	t_vector	*dir;
-	t_vector	*plane;
-	t_vector	*ray;
+	// t_pos		*pos;
+	double 	posX;
+	double	posY; 
+	double 	dirX;
+	double	dirY; 
+	double 	planeX;
+	double	planeY;
+	double	ray_dirX;
+	double	ray_dirY;
+	// t_vector	*dir;
+	// t_vector	*plane;
+	// t_vector	*ray;
 	double		camX;
 	int stepX;
 	int stepY;
@@ -159,14 +166,14 @@ typedef struct s_global
 	int color;
 } t_global;
 
-void	rotation(t_vector *v, double angle)
-{
-	t_vector old;
+// void	rotation(t_vector *v, double angle)
+// {
+// 	t_vector old;
 
-	old = *v;
-	v->x = old.x * cos(angle) - old.y * sin(angle);
-	v->y = old.x * sin(angle) + old.y * cos(angle);
-}
+// 	old = *v;
+// 	v->x = old.x * cos(angle) - old.y * sin(angle);
+// 	v->y = old.x * sin(angle) + old.y * cos(angle);
+// }
 
 void	put_pixel_to_image(t_imag *image, int x, int y, int color)
 {
@@ -178,40 +185,40 @@ void	put_pixel_to_image(t_imag *image, int x, int y, int color)
 
 int	keypress(int key, t_global *test)
 {
-	printf("pos_x == %f\n", (test->pos->x));
+	printf("pos_x == %f\n", (test->posX));
 	if (key == K_UP) // UP
 	{
-		if(worldMap[(int)(test->pos->x + test->dir->x * moveSpeed)][(int)test->pos->y] == 0)
-			test->pos->x += test->dir->x * moveSpeed;
-		if(worldMap[(int)(test->pos->x)][(int)(test->pos->y + test->dir->y * moveSpeed)] == 0)
-			test->pos->y += test->dir->y * moveSpeed;
+		if(worldMap[(int)(test->posX + test->dirX * moveSpeed)][(int)test->posY] == 0)
+			test->posX += test->dirX * moveSpeed;
+		if(worldMap[(int)(test->posX)][(int)(test->posY + test->dirY * moveSpeed)] == 0)
+			test->posY += test->dirY * moveSpeed;
 	}
 	if (key == K_DOWN) // DOWN
 	{
-		if(worldMap[(int)(test->pos->x - test->dir->x * moveSpeed)][(int)test->pos->y] == 0)
-			test->pos->x -= test->dir->x * moveSpeed;
-		if(worldMap[(int)(test->pos->x)][(int)(test->pos->y - test->dir->y * moveSpeed)] == 0)
-			test->pos->y -= test->dir->y * moveSpeed;
+		if(worldMap[(int)(test->posX - test->dirX * moveSpeed)][(int)test->posY] == 0)
+			test->posX -= test->dirX * moveSpeed;
+		if(worldMap[(int)(test->posX)][(int)(test->posY - test->dirY * moveSpeed)] == 0)
+			test->posY -= test->dirY * moveSpeed;
 	}
 	if (key == K_RIGHT)
     {
       //both camera direction and camera plane must be rotated
-		test->oldDirX = test->dir->x;
-		test->dir->x = test->dir->x * cos(-rotSpeed) - test->dir->y * sin(-rotSpeed);
-		test->dir->y = test->oldDirX * sin(-rotSpeed) + test->dir->y * cos(-rotSpeed);
-		test->oldPlaneX = test->plane->x;
-		test->plane->x = test->plane->x * cos(-rotSpeed) - test->plane->y * sin(-rotSpeed);
-		test->plane->y = test->oldPlaneX * sin(-rotSpeed) + test->plane->y * cos(-rotSpeed);
+		test->oldDirX = test->dirX;
+		test->dirX = test->dirX * cos(-rotSpeed) - test->dirY * sin(-rotSpeed);
+		test->dirY = test->oldDirX * sin(-rotSpeed) + test->dirY * cos(-rotSpeed);
+		test->oldPlaneX = test->planeX;
+		test->planeX = test->planeX * cos(-rotSpeed) - test->planeY * sin(-rotSpeed);
+		test->planeY = test->oldPlaneX * sin(-rotSpeed) + test->planeY * cos(-rotSpeed);
     }
 	if (key == K_LEFT)
     {
       //both camera direction and camera plane must be rotated
-		test->oldDirX = test->dir->x;
-		test->dir->x = test->dir->x * cos(rotSpeed) - test->dir->y * sin(rotSpeed);
-		test->dir->y = test->oldDirX * sin(rotSpeed) + test->dir->y * cos(rotSpeed);
-		test->oldPlaneX = test->plane->x;
-		test->plane->x = test->plane->x * cos(rotSpeed) - test->plane->y * sin(rotSpeed);
-		test->plane->y = test->oldPlaneX * sin(rotSpeed) + test->plane->y * cos(rotSpeed);
+		test->oldDirX = test->dirX;
+		test->dirX = test->dirX * cos(rotSpeed) - test->dirY * sin(rotSpeed);
+		test->dirY = test->oldDirX * sin(rotSpeed) + test->dirY * cos(rotSpeed);
+		test->oldPlaneX = test->planeX;
+		test->planeX = test->planeX * cos(rotSpeed) - test->planeY * sin(rotSpeed);
+		test->planeY = test->oldPlaneX * sin(rotSpeed) + test->planeY * cos(rotSpeed);
     }	
 	return (0);
 }
@@ -227,40 +234,39 @@ int	raycasting(t_global *glob)
 	clear_window(glob);
 	for(x = 0; x < WIDTH; x++)
 	{
-		// printf("wiiidth == %d\n", WIDTH);
 		glob->camX = 2.0 * (double)x / (double)glob->width - 1.0;
-		glob->ray->x = glob->dir->x + glob->plane->x * glob->camX;
-		glob->ray->y = glob->dir->y + glob->plane->y * glob->camX;
-		glob->mapX = (int)glob->pos->x;
-		glob->mapY = (int)glob->pos->y;
+		glob->ray_dirX = glob->dirX + glob->planeX * glob->camX;
+		glob->ray_dirY = glob->dirY + glob->planeY * glob->camX;
+		glob->mapX = (int)glob->posX;
+		glob->mapY = (int)glob->posY;
 		glob->hit = 0;
-		if (glob->ray->x == 0.0)
+		if (glob->ray_dirX == 0.0)
 			glob->deltaDistX = 1e30;
 		else
-			glob->deltaDistX = fabs(1.0 / glob->ray->x);
-		if (glob->ray->y == 0.0)
+			glob->deltaDistX = fabs(1.0 / glob->ray_dirX);
+		if (glob->ray_dirY == 0.0)
 			glob->deltaDistY = 1e30;
 		else
-			glob->deltaDistY = fabs(1.0 / glob->ray->y);
-		if (glob->ray->x < 0)
+			glob->deltaDistY = fabs(1.0 / glob->ray_dirY);
+		if (glob->ray_dirX < 0)
 		{
 			glob->stepX = -1;
-			glob->sideDistX = (glob->pos->x - glob->mapX) * glob->deltaDistX;
+			glob->sideDistX = (glob->posX - glob->mapX) * glob->deltaDistX;
 		}
 		else
 		{
 			glob->stepX = 1;
-			glob->sideDistX = (glob->mapX + 1.0 - glob->pos->x) * glob->deltaDistX;
+			glob->sideDistX = (glob->mapX + 1.0 - glob->posX) * glob->deltaDistX;
 		}
-		if (glob->ray->y < 0)
+		if (glob->ray_dirY < 0)
 		{
 			glob->stepY = -1;
-			glob->sideDistY = (glob->pos->y - glob->mapY) * glob->deltaDistY;
+			glob->sideDistY = (glob->posY - glob->mapY) * glob->deltaDistY;
 		}
 		else
 		{
 			glob->stepY = 1;
-			glob->sideDistY = (glob->mapY + 1.0 - glob->pos->y) * glob->deltaDistY;
+			glob->sideDistY = (glob->mapY + 1.0 - glob->posY) * glob->deltaDistY;
 		}
 		while (glob->hit == 0)
 		{
@@ -324,7 +330,6 @@ void	gaming(t_global *test)
 	test->image->addr = mlx_get_data_addr(test->image->mlx_img, &test->image->bpp, &test->image->line_len, &test->image->endian);
 	mlx_key_hook(test->win, keypress, test);
 	mlx_loop_hook(test->mlx, raycasting, test);
-	// raycasting(test);
 	mlx_loop(test->mlx);
 	mlx_destroy_image(test->mlx, test->image->mlx_img);
 	mlx_destroy_window(test->mlx, test->win);
@@ -339,38 +344,17 @@ t_imag	*init_image(t_imag *image)
 	return (image);
 }
 
-t_pos	*init_pos(t_pos *pos)
-{
-	pos = ft_calloc(1, sizeof(t_pos));
-	if (!pos)
-		return (NULL);
-	pos->x = 22.0;
-	pos->y = 12.0;
-	return (pos);
-}
-
-t_vector	*init_vect(t_vector *vector)
-{
-	vector = ft_calloc(1, sizeof(t_vector));
-	if (!vector)
-		return (NULL);
-	return (vector);
-}
-
 void init_struct(t_global *test)
 {
-	test = ft_calloc(1, sizeof(t_global));
-	if	(!test)
-		return ;
 	test->image = init_image(test->image);
-	test->pos = init_pos(test->pos);
-	test->dir = init_vect(test->dir);
-	test->ray = init_vect(test->ray);
-	test->plane = init_vect(test->plane);
-	test->plane->x = 0.0;
-	test->plane->y = 0.66;
-	test->dir->x = -1;
-	test->dir->y = 0;
+	test->posX = 22;
+	test->posY = 12;
+	test->dirX = -1;
+	test->dirY = 0;
+	test->planeX = 0.0;
+	test->planeY = 0.66;
+	test->dirX = -1;
+	test->dirY = 0;
 	test->width = WIDTH;
 	test->height = HEIGHT;
 	gaming(test);

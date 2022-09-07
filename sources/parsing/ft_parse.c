@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 11:38:46 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/05 12:26:59 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/07 11:04:24 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,6 @@ t_list	*ft_parse(char *argv)
 {
 	t_list	*map;
 	map = read_map(argv);
+	
 	return (map);
 }
