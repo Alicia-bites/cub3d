@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/06 20:47:00 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/07 22:12:03 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@
 # include <math.h>
 
 //# include "mlx.h"
-//# include "../minilibX/libmlx.h"
-# include "libmlx.h"
+# include "../minilibX/libmlx.h"
+//# include "libmlx.h"
 # include "libft.h"
 
 # define PI 3.141592653589793238
@@ -49,13 +49,41 @@
 
 // MAP FILE SETTINGS
 # define MAP_FORMAT ".cub"
-# define MAP_CHARSET "01NSEW"
+# define MAP_CHARSET "01NSEW "
 # define MAP_TEXT_NO "NO"
 # define MAP_TEXT_SO "SO"
 # define MAP_TEXT_WE "WE"
 # define MAP_TEXT_EA "EA"
 # define MAP_TEXT_F "F"
 # define MAP_TEXT_C "C"
+# define FD_NOT_INIT -99999999
+
+/* MAP FILE SETTINGS
+ * char *no,so,we,ea are texture path
+ * char *floor, cell are full string of rgb value as "255,30,0"
+ * int *_r/g/b are individual integer value of rgb "255","30","0"
+ */
+typedef struct s_settings
+{
+	char	*no;
+	char	*so;
+	char	*we;
+	char	*ea;
+	char	*floor;
+	int	f_r;
+	int	f_g;
+	int	f_b;
+	char	*ceil;
+	int	c_r;
+	int	c_g;
+	int	c_b;
+	int	fd_no;
+	int	fd_so;
+	int	fd_we;
+	int	fd_ea;
+	int	fd_floor;
+	int	fd_ceil;
+}	t_settings;
 
 typedef struct s_sprite
 {
@@ -66,7 +94,7 @@ typedef struct s_sprite
 typedef struct s_mlx
 {
 	t_list		*map;
-	struct s_settings	*settings;
+	t_settings	settings;
 	int			image_height;
 	int			image_width;
 	int			row_width;
@@ -135,26 +163,13 @@ typedef struct s_coord
 	int	draw_loc_y;
 }	t_coord;
 
-/* MAP FILE SETTINGS
- * char *no,so,we,ea are texture path
- * char *floor, cell are full string of rgb value as "255,30,0"
- * int *_r/g/b are individual integer value of rgb "255","30","0"
- */
-typedef struct s_settings
-{
-	char	*no;
-	char	*so;
-	char	*we;
-	char	*ea;
-	char	*floor;
-	int	f_r;
-	int	f_g;
-	int	f_b;
-	char	*ceil;
-	int	c_r;
-	int	c_g;
-	int	c_b;
-}	t_settings;
+//MLX
+void	cb_mlx_init(t_mlx *mlx);
+void	cb_mlx_init_settings(t_settings *settings);
+void	cb_mlx_show(t_mlx *mlx);
+void	cb_mlx_show_settings(t_settings *settings);
+void	cb_mlx_show_string(char *title, char *s);
+
 
 //PARSING
 t_list	*create_list(char *line);

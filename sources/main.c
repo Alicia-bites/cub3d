@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:54:11 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/05 13:43:27 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/07 22:27:58 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,10 @@
 int	main(int argc, char **argv)
 {
 	t_list	*map;
+	t_mlx	mlx;
 	
+	cb_mlx_init(&mlx);
+	cb_mlx_show(&mlx);
 	map = NULL;
 	(void)argv;
 	if (argc != 2)

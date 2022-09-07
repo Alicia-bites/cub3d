@@ -28,8 +28,9 @@ OPATH			:=	obj
 
 SRCS_PATH		:=	sources
 GRAPH_PATH		:=	graphics
-RAY_PATH		:=	ray_casting
+CB_MLX_PATH		:=	cb_mlx
 PARSE_PATH		:=	parsing
+RAY_PATH		:=	ray_casting
 
 RM				:=	rm -rf
 
@@ -42,6 +43,12 @@ GRAPH_SRCS		:=	destroy_sprites.c\
 					ft_red_cross.c\
 					init_game.c\
 					my_pixel_put.c\
+
+CB_MLX_SRCS		:=	cb_mlx_init.c\
+				cb_mlx_init_settings.c\
+				cb_mlx_show.c\
+				cb_mlx_show_settings.c\
+				cb_mlx_show_string.c
 
 PARSE_SRCS		:=	create_list.c\
 					ft_parse.c\
@@ -56,6 +63,7 @@ RAY_SRCS		:=	calculate_ray_position_and_direction.c\
 
 SRCS			:=	main.c\
 					$(GRAPH_SRCS)\
+					$(CB_MLX_SRCS)\
 					$(RAY_SRCS)\
 					$(PARSE_SRCS)\
 					
@@ -65,6 +73,7 @@ DEPS			:=	$(OBJS:.o=.d)
 vpath %.h $(IPATH)
 vpath %.c $(SRCS_PATH)\
 		$(SRCS_PATH)/$(GRAPH_PATH)\
+		$(SRCS_PATH)/$(CB_MLX_PATH)\
 		$(SRCS_PATH)/$(RAY_PATH)\
 		$(SRCS_PATH)/$(PARSE_PATH)\
 
