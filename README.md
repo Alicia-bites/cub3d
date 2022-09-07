@@ -205,6 +205,9 @@ F 220,100,0
 C 225,30,0
 ```
 
+- [ ] Check content value of rgb
+	- [ ] Only numeric value
+	- [ ] value between 0 and 255
 
 ## Sources :link:
 [Go to content](#content)
