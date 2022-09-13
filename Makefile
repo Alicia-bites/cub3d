@@ -36,10 +36,7 @@ RM				:=	rm -rf
 
 GRAPH_SRCS		:=	choose_wall_color.c\
 					destroy_sprites.c\
-					draw_background.c\
-					draw_no_player.c\
 					draw_vertical_line.c\
-					draw_player.c\
 					free_mlx.c\
 					ft_key_hook.c\
 					ft_red_cross.c\
