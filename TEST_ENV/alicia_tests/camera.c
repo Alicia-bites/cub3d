@@ -7,14 +7,14 @@
 #include <strings.h>
 #include "../../minilibX/libmlx.h"
 
-#define WIDTH 800
-#define HEIGHT 600
+#define WINDOW_WIDTH 1000
+#define WINDOW_HEIGHT 1000
 #define PI 3.141592
 #define FOV 2 * atan(0.66/1.0)
 #define mapWIDTH 24
 #define mapHeight 24
-#define screenWIDTH 640
-#define screenHeight 480
+// #define screenWIDTH 1000
+// #define screenHeight 1000
 #define moveSpeed 0.1
 #define rotSpeed 0.1
 
@@ -25,7 +25,7 @@
 # define BLACK 0x000000
 # define BLUE 0xB0E0E6
 # define VIOLET 0xC014BC
-# define TEST	0x0FAE4
+# define COLOR	0x0FAE4
 /* MLX KEY EVENTS */
 #  define K_W 119
 #  define K_A 97
@@ -101,7 +101,7 @@ int worldMap[mapWIDTH][mapHeight]=
   {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
 };
 
-typedef	struct s_imag
+typedef	struct s_img
 {
 	char	*path;
 	int		len_path;
@@ -112,7 +112,7 @@ typedef	struct s_imag
 	int		endian;
 	int		width;
 	int		height;
-} t_imag;
+} t_img;
 
 // typedef struct s_pos
 // {
@@ -127,12 +127,11 @@ typedef	struct s_imag
 // 	double norm;
 // }	t_vector;
 
-typedef struct s_global
+typedef struct s_game
 {
-	void		*mlx;
-	void		*win;
-	t_imag		*image;
-	// t_pos		*pos;
+	void	*mlx;
+	void	*win;
+	t_img	*image;
 	double 	posX;
 	double	posY; 
 	double 	dirX;
@@ -141,30 +140,27 @@ typedef struct s_global
 	double	planeY;
 	double	ray_dirX;
 	double	ray_dirY;
-	// t_vector	*dir;
-	// t_vector	*plane;
-	// t_vector	*ray;
-	double		camX;
-	int stepX;
-	int stepY;
-	int hit;
-	int side;
-	int lineHeight;
-	double sideDistX;
-	double sideDistY;
-	double deltaDistX;
-	double deltaDistY;
-	double perpWallDist;
-	double oldDirX;
-	double oldPlaneX;
-	int mapX;
-	double height;
-	double width;
-	int mapY;
-	int drawStart;
-	int drawEnd;
-	int color;
-} t_global;
+	double	cameraX;
+	int 	stepX;
+	int 	stepY;
+	int 	hit;
+	int 	side;
+	int 	lineHeight;
+	double 	sideDistX;
+	double 	sideDistY;
+	double 	deltaDistX;
+	double 	deltaDistY;
+	double 	perpWallDist;
+	double 	oldDirX;
+	double 	oldPlaneX;
+	int 	mapX;
+	double 	height;
+	double 	width;
+	int 	mapY;
+	int 	drawStart;
+	int 	drawEnd;
+	int 	color;
+} t_game;
 
 // void	rotation(t_vector *v, double angle)
 // {
@@ -175,7 +171,7 @@ typedef struct s_global
 // 	v->y = old.x * sin(angle) + old.y * cos(angle);
 // }
 
-void	put_pixel_to_image(t_imag *image, int x, int y, int color)
+void	put_pixel_to_image(t_img *image, int x, int y, int color)
 {
 	char	*dst;
 
@@ -183,60 +179,60 @@ void	put_pixel_to_image(t_imag *image, int x, int y, int color)
 	*(unsigned int*)dst = color;
 }
 
-int	keypress(int key, t_global *test)
+int	keypress(int key, t_game *game)
 {
-	printf("pos_x == %f\n", (test->posX));
+	printf("pos_x == %f\n", (game->posX));
 	if (key == K_UP) // UP
 	{
-		if(worldMap[(int)(test->posX + test->dirX * moveSpeed)][(int)test->posY] == 0)
-			test->posX += test->dirX * moveSpeed;
-		if(worldMap[(int)(test->posX)][(int)(test->posY + test->dirY * moveSpeed)] == 0)
-			test->posY += test->dirY * moveSpeed;
+		if(worldMap[(int)(game->posX + game->dirX * moveSpeed)][(int)game->posY] == 0)
+			game->posX += game->dirX * moveSpeed;
+		if(worldMap[(int)(game->posX)][(int)(game->posY + game->dirY * moveSpeed)] == 0)
+			game->posY += game->dirY * moveSpeed;
 	}
 	if (key == K_DOWN) // DOWN
 	{
-		if(worldMap[(int)(test->posX - test->dirX * moveSpeed)][(int)test->posY] == 0)
-			test->posX -= test->dirX * moveSpeed;
-		if(worldMap[(int)(test->posX)][(int)(test->posY - test->dirY * moveSpeed)] == 0)
-			test->posY -= test->dirY * moveSpeed;
+		if(worldMap[(int)(game->posX - game->dirX * moveSpeed)][(int)game->posY] == 0)
+			game->posX -= game->dirX * moveSpeed;
+		if(worldMap[(int)(game->posX)][(int)(game->posY - game->dirY * moveSpeed)] == 0)
+			game->posY -= game->dirY * moveSpeed;
 	}
 	if (key == K_RIGHT)
     {
       //both camera direction and camera plane must be rotated
-		test->oldDirX = test->dirX;
-		test->dirX = test->dirX * cos(-rotSpeed) - test->dirY * sin(-rotSpeed);
-		test->dirY = test->oldDirX * sin(-rotSpeed) + test->dirY * cos(-rotSpeed);
-		test->oldPlaneX = test->planeX;
-		test->planeX = test->planeX * cos(-rotSpeed) - test->planeY * sin(-rotSpeed);
-		test->planeY = test->oldPlaneX * sin(-rotSpeed) + test->planeY * cos(-rotSpeed);
+		game->oldDirX = game->dirX;
+		game->dirX = game->dirX * cos(-rotSpeed) - game->dirY * sin(-rotSpeed);
+		game->dirY = game->oldDirX * sin(-rotSpeed) + game->dirY * cos(-rotSpeed);
+		game->oldPlaneX = game->planeX;
+		game->planeX = game->planeX * cos(-rotSpeed) - game->planeY * sin(-rotSpeed);
+		game->planeY = game->oldPlaneX * sin(-rotSpeed) + game->planeY * cos(-rotSpeed);
     }
 	if (key == K_LEFT)
     {
       //both camera direction and camera plane must be rotated
-		test->oldDirX = test->dirX;
-		test->dirX = test->dirX * cos(rotSpeed) - test->dirY * sin(rotSpeed);
-		test->dirY = test->oldDirX * sin(rotSpeed) + test->dirY * cos(rotSpeed);
-		test->oldPlaneX = test->planeX;
-		test->planeX = test->planeX * cos(rotSpeed) - test->planeY * sin(rotSpeed);
-		test->planeY = test->oldPlaneX * sin(rotSpeed) + test->planeY * cos(rotSpeed);
-    }	
+		game->oldDirX = game->dirX;
+		game->dirX = game->dirX * cos(rotSpeed) - game->dirY * sin(rotSpeed);
+		game->dirY = game->oldDirX * sin(rotSpeed) + game->dirY * cos(rotSpeed);
+		game->oldPlaneX = game->planeX;
+		game->planeX = game->planeX * cos(rotSpeed) - game->planeY * sin(rotSpeed);
+		game->planeY = game->oldPlaneX * sin(rotSpeed) + game->planeY * cos(rotSpeed);
+    }
 	return (0);
 }
 
-void	clear_window(t_global *glob)
+void	clear_window(t_game *glob)
 {
-	ft_bzero(glob->image->addr, HEIGHT * WIDTH * 4);
+	ft_bzero(glob->image->addr, WINDOW_HEIGHT * WINDOW_WIDTH * 4);
 }
 
-int	raycasting(t_global *glob)
+int	raycasting(t_game *glob)
 {	
 	int			x;
 	clear_window(glob);
-	for(x = 0; x < WIDTH; x++)
+	for(x = 0; x < WINDOW_WIDTH; x++)
 	{
-		glob->camX = 2.0 * (double)x / (double)glob->width - 1.0;
-		glob->ray_dirX = glob->dirX + glob->planeX * glob->camX;
-		glob->ray_dirY = glob->dirY + glob->planeY * glob->camX;
+		glob->cameraX = 2.0 * (double)x / (double)glob->width - 1.0;
+		glob->ray_dirX = glob->dirX + glob->planeX * glob->cameraX;
+		glob->ray_dirY = glob->dirY + glob->planeY * glob->cameraX;
 		glob->mapX = (int)glob->posX;
 		glob->mapY = (int)glob->posY;
 		glob->hit = 0;
@@ -287,7 +283,7 @@ int	raycasting(t_global *glob)
 			if (worldMap[glob->mapX][glob->mapY] > 0)
 				glob->hit = 1;
 		}
-		if(glob->side == 0) 
+		if (glob->side == 0) 
 			glob->perpWallDist = (glob->sideDistX - glob->deltaDistX);
 		else          
 			glob->perpWallDist = (glob->sideDistY - glob->deltaDistY);
@@ -322,48 +318,48 @@ int	raycasting(t_global *glob)
 	return (0);
 }
 
-void	gaming(t_global *test)
+void	gaming(t_game *game)
 {	
-	test->mlx = mlx_init();
-	test->win =  mlx_new_window(test->mlx, WIDTH, HEIGHT, "Cub3d");
-	test->image->mlx_img = mlx_new_image(test->mlx, WIDTH, HEIGHT);
-	test->image->addr = mlx_get_data_addr(test->image->mlx_img, &test->image->bpp, &test->image->line_len, &test->image->endian);
-	mlx_key_hook(test->win, keypress, test);
-	mlx_loop_hook(test->mlx, raycasting, test);
-	mlx_loop(test->mlx);
-	mlx_destroy_image(test->mlx, test->image->mlx_img);
-	mlx_destroy_window(test->mlx, test->win);
-	mlx_destroy_display(test->mlx);
+	game->mlx = mlx_init();
+	game->win =  mlx_new_window(game->mlx, WINDOW_WIDTH, WINDOW_HEIGHT, "Cub3d");
+	game->image->mlx_img = mlx_new_image(game->mlx, WINDOW_WIDTH, WINDOW_HEIGHT);
+	game->image->addr = mlx_get_data_addr(game->image->mlx_img, &game->image->bpp, &game->image->line_len, &game->image->endian);
+	mlx_key_hook(game->win, keypress, game);
+	mlx_loop_hook(game->mlx, raycasting, game);
+	mlx_loop(game->mlx);
+	mlx_destroy_image(game->mlx, game->image->mlx_img);
+	mlx_destroy_window(game->mlx, game->win);
+	mlx_destroy_display(game->mlx);
 }
 
-t_imag	*init_image(t_imag *image)
+t_img	*init_image(t_img *image)
 {
-	image = ft_calloc(1, sizeof(t_imag));
+	image = ft_calloc(1, sizeof(t_img));
 	if (!image)
 		return (NULL);
 	return (image);
 }
 
-void init_struct(t_global *test)
+void init_struct(t_game *game)
 {
-	test->image = init_image(test->image);
-	test->posX = 22;
-	test->posY = 12;
-	test->dirX = -1;
-	test->dirY = 0;
-	test->planeX = 0.0;
-	test->planeY = 0.66;
-	test->dirX = -1;
-	test->dirY = 0;
-	test->width = WIDTH;
-	test->height = HEIGHT;
-	gaming(test);
+	game->image = init_image(game->image);
+	game->posX = 22;
+	game->posY = 12;
+	game->dirX = -1;
+	game->dirY = 0;
+	game->planeX = 0.0;
+	game->planeY = 0.66;
+	game->dirX = -1;
+	game->dirY = 0;
+	game->width = WINDOW_WIDTH;
+	game->height = WINDOW_HEIGHT;
+	gaming(game);
 }
 
 int main(void)
 {
-	t_global	test;
+	t_game	game;
 
-	init_struct(&test);
+	init_struct(&game);
 	return (0);
 }

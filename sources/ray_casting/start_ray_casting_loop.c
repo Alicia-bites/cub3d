@@ -6,39 +6,29 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 18:09:25 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/13 11:19:21 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/14 21:42:04 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-void    clear_window(t_data *info)
+void    clear_window(t_game *game)
 {
-	ft_bzero(info->addr, SCREEN_HEIGHT * SCREEN_WIDTH * 4);
+	ft_bzero(game->image->addr, WINDOW_HEIGHT * WINDOW_WIDTH * 4);
 }
 
 int	start_ray_casting_loop(t_game *game)
 {
-	int			x;
-	// t_vector	vec;
-	t_palette	color;
-
-	// set_vectors(&vec);
-	x = 0;
-	clear_window(&game->info);
-	while (x < SCREEN_WIDTH)
+	int	x;
+	clear_window(game);
+	for(x = 0; x < WINDOW_WIDTH; x++)
 	{
-		calculate_ray_position_and_direction(&game->vec, x);
-		calculate_step(&game->vec);
-		perform_dda(&game->vec, game->map);
-		draw_wall(&game->vec);
-		choose_wall_color(game->map, &game->vec, &color);
-		draw_vertical_line(x, game->vec, color.color_wall, &game->info);
-		x++;
-		// printf("x = %d\n", x);
+		calculate_ray_position_and_direction(game, x);
+		calculate_step(game);
+		perform_dda(game);
+		draw_wall(game);
+		choose_wall_color(game);
+		draw_vertical_line(game, x);
 	}
-	// game->vec = vec;
-	// printf("IN START RAY CASTING --> vec.posX = %f\n", vec.posX);
-	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->info.img, 0, 0);
 	return (0);
 }

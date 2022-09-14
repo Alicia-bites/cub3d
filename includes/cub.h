@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/13 11:15:57 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/14 21:42:18 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,24 +26,41 @@
 # include "../minilibX/libmlx.h"
 # include "libft.h"
 
-# define PI 3.141592653589793238
+#define WINDOW_WIDTH 1000
+#define WINDOW_HEIGHT 1000
+#define PI 3.141592653589793238
+#define FOV 2 * atan(0.66/1.0)
+#define mapWIDTH 24
+#define mapHeight 24
+#define screenWIDTH 1000
+#define screenHeight 1000
+#define MOVESPEED 0.05
+#define ROTSPEED 0.05
 
-# define SCREEN_HEIGHT 1280
-# define SCREEN_WIDTH 1280
-
-# define MOVESPEED 0.5
-# define ROTSPEED 0.2
+/* COLORS */
+# define WHITE 0xFFFFFF
+# define RED 0xFF0000
+# define GREEN 0x008000
+# define BLACK 0x000000
+# define BLUE 0xB0E0E6
+# define VIOLET 0xC014BC
+# define COLOR	0x0FAE4
+/* MLX KEY EVENTS */
+#  define K_W 119
+#  define K_A 97
+#  define K_S 115
+#  define K_D 100
+#  define K_P 112
+#  define K_UP 65362 // Ici
+#  define K_LEFT 65361
+#  define K_DOWN 65364
+#  define K_RIGHT 65363 // Ici
+#  define K_SHIFT 65505
+#  define ESC 65307
+#  define ESP 32
 
 # define BACKGROUND_COLOR 0x00898c83
 # define PLAYER_COLOR 0x00a44620
-
-# define ESC_KEYCODE 65307
-# define UP 119
-# define DOWN 115
-# define LEFT 97
-# define RIGHT 100
-# define CAM_RIGHT 65363
-# define CAM_LEFT 65361
 
 # define FILE_ERROR -1
 # define MALLOC_ERROR -2
@@ -54,6 +71,8 @@
 
 #define mapWIDTH 24
 #define mapHeight 24
+
+#define X_EVENT_KEY_PRESS 17
 
 typedef struct s_sprite
 {
@@ -100,36 +119,54 @@ typedef	struct s_vector
 	
 }	t_vector;
 
-typedef struct s_data
+typedef	struct s_img
 {
-	void	*img;
+	char	*path;
+	int		len_path;
+	void	*mlx_img;
 	char	*addr;
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
-}	t_data;
+	int		width;
+	int		height;
+} t_img;
 
 typedef struct s_game
 {
-	t_list		*map;
-	int			image_height;
-	int			image_width;
-	int			row_width;
-	int			col_height;
-	int			map_height;
-	int			map_width;
-	int			sprite_size;
-	int			player_x;
-	int			player_y;
-	void		*image;
-	void		*mlx_ptr;
-	void		*player;
-	void		*win_ptr;
-	void		*player_image;
-	void		*no_player_image;
-	t_vector	vec;
-	t_data		info;
-}	t_game;
+	void	*mlx;
+	void	*win;
+	t_img	*image;
+	int		*map;
+	double 	posX;
+	double	posY; 
+	double 	dirX;
+	double	dirY; 
+	double 	planeX;
+	double	planeY;
+	double	ray_dirX;
+	double	ray_dirY;
+	double	cameraX;
+	int 	stepX;
+	int 	stepY;
+	int 	hit;
+	int 	side;
+	int 	lineHeight;
+	double 	sideDistX;
+	double 	sideDistY;
+	double 	deltaDistX;
+	double 	deltaDistY;
+	double 	perpWallDist;
+	double 	oldDirX;
+	double 	oldPlaneX;
+	int 	mapX;
+	double 	height;
+	double 	width;
+	int 	mapY;
+	int 	drawStart;
+	int 	drawEnd;
+	int 	color;
+} t_game;
 
 typedef struct s_coord
 {
@@ -152,24 +189,21 @@ t_list	*read_map(char *argv);
 
 // GRAPHICS
 // void	destroy_sprites(t_game *game);
-int		choose_wall_color(t_list *map, t_vector *vec, t_palette *color);
-void	draw_player(t_game *game);
-void	draw_background(t_game *game);
-void	draw_no_player(t_game *game);
-int		draw_vertical_line(int x, t_vector vec, int color, t_data *img);
+int		choose_wall_color(t_game *game);
+int		draw_vertical_line(t_game *game, int x);
 void	free_mlx(t_game *game);
 int		ft_key_hook(int keycode, t_game *game);
 int		keypress(int keycode, t_game *game);
 int		ft_redcross(t_game *game, int x);
-int		init_game(t_list *map);
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
+int		init_game(t_game *game);
+void	my_mlx_pixel_put(t_img *data, int x, int y, int color);
 
 // RAY_CASTING
-void	calculate_step(t_vector *vec);
-int		calculate_ray_position_and_direction(t_vector *vec, int x);
-int		draw_wall(t_vector *vec);
-int		perform_dda(t_vector *vec, t_list *map);
-int		set_vectors(t_vector *vec);
+void	calculate_step(t_game *game);
+int		calculate_ray_position_and_direction(t_game *game, int x);
+int		draw_wall(t_game *game);
+int		perform_dda(t_game *game);
+int		init_struct(t_game *game);
 int		start_ray_casting_loop(t_game *game);
 
 // UTILS

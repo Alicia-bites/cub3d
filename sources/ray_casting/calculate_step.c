@@ -6,33 +6,33 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 18:11:26 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/06 13:11:21 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/14 15:42:16 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-void	calculate_step(t_vector *vec)
+void	calculate_step(t_game *game)
 {
 	//calculate step and initial sideDist
-	if (vec->ray_dirX < 0)
+	if (game->ray_dirX < 0)
 	{
-		vec->stepX = -1;
-		vec->side_distX = (vec->posX - vec->mapX) * vec->delta_distX;
+		game->stepX = -1;
+		game->sideDistX = (game->posX - game->mapX) * game->deltaDistX;
 	}
 	else
 	{
-		vec->stepX = 1;
-		vec->side_distX = (vec->mapX + 1.0 - vec->posX) * vec->delta_distX;
+		game->stepX = 1;
+		game->sideDistX = (game->mapX + 1.0 - game->posX) * game->deltaDistX;
 	}
-	if (vec->ray_dirY < 0)
+	if (game->ray_dirY < 0)
 	{
-		vec->stepY = -1;
-		vec->side_distY = (vec->posY - vec->mapY) * vec->delta_distY;
+		game->stepY = -1;
+		game->sideDistY = (game->posY - game->mapY) * game->deltaDistY;
 	}
 	else
 	{
-		vec->stepY = 1;
-		vec->side_distY = (vec->mapY + 1.0 - vec->posY) * vec->delta_distY;
+		game->stepY = 1;
+		game->sideDistY = (game->mapY + 1.0 - game->posY) * game->deltaDistY;
 	}
 }

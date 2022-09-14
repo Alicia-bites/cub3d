@@ -6,20 +6,32 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 18:11:05 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/06 11:37:01 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/14 13:21:00 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-int	set_vectors(t_vector *vec)
+t_img	*init_image(t_img *image)
 {
-	vec->screen_width = 1280;
-	vec->posX = 22; // position of the player on the x axe
-	vec->posY = 12; // position of the player on the y axe
-	vec->dirX = -1;	// initial direction vector
-	vec->dirY = 0; // the 2d raycaster version of camera plane
-	vec->planeX = 0;
-	vec->planeY = 0.66;
+	image = ft_calloc(1, sizeof(t_img));
+	if (!image)
+		return (NULL);
+	return (image);
+}
+
+int	init_struct(t_game *game)
+{
+	game->image = init_image(game->image);
+	game->posX = 22;
+	game->posY = 12;
+	game->dirX = -1;
+	game->dirY = 0;
+	game->planeX = 0.0;
+	game->planeY = 0.66;
+	game->dirX = -1;
+	game->dirY = 0;
+	game->width = WINDOW_WIDTH;
+	game->height = WINDOW_HEIGHT;
 	return (0);
 }

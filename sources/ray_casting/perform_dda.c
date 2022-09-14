@@ -6,42 +6,60 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 18:09:58 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/07 11:42:18 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/14 15:45:52 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-int	perform_dda(t_vector *vec, t_list *map)
+int	worldMap[24][24] = {
+	{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,2,2,2,2,2,0,0,0,0,3,0,3,0,3,0,0,0,1},
+	{1,0,0,0,0,0,2,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,2,0,0,0,2,0,0,0,0,3,0,0,0,3,0,0,0,1},
+	{1,0,0,0,0,0,2,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,2,2,0,2,2,0,0,0,0,3,0,3,0,3,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,4,4,4,4,4,4,4,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,4,0,4,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,4,0,0,0,0,5,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,4,0,4,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,4,0,4,4,4,4,4,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,4,4,4,4,4,4,4,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
+						};
+
+int	perform_dda(t_game *game)
 {
-	extern	int	worldMap[24][24];
-	(void)map;
-	// perform DDA
-	while (vec->hit == 0)
+	// Perform DDA let's go bitch
+	while (game->hit == 0)
 	{
-		// jump to next map square, either in x-direction, or in y-direction
-		if (vec->side_distX < vec->side_distY)
+	// Jump to next map square, either in x-direction, or in y-direction
+		if (game->sideDistX < game->sideDistY)
 		{
-			vec->side_distX += vec->delta_distX;
-			vec->mapX += vec->stepX;
-			vec->side = 0;
+			game->sideDistX += game->deltaDistX;
+			game->mapX += game->stepX;
+			game->side = 0;
 		}
 		else
 		{
-			vec->side_distY += vec->delta_distY;
-			vec->mapY += vec->stepY;
-			vec->side = 1;
+			game->sideDistY += game->deltaDistY;
+			game->mapY += game->stepY;
+			game->side = 1;
 		}
-		// printf("vec->mapX = %d\n", vec->mapX);
-		// printf("vec->mapY = %d\n", vec->mapY);
-		// check if ray has hit a wall
-		// if (get_character_in_map(map, vec->mapX, vec->mapY) == '1')
-		// {
-		// 	// printf("char is = %c\n", get_character_in_map(map, vec->mapX, vec->mapY));
-		// 	vec->hit = 1;
-		// }
-		if (worldMap[vec->mapX][vec->mapY] > 0)
-			vec->hit = 1;
+		// Check if ray has hit a wall
+		if (worldMap[game->mapX][game->mapY] > 0)
+			game->hit = 1;
 	}
 	return (0);
 }

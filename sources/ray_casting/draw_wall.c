@@ -6,30 +6,28 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 17:56:21 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/06 13:14:13 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/14 15:48:41 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-int	draw_wall(t_vector *vec)
+int	draw_wall(t_game *game)
 {
     // Calculate distance projected on camera direction (Euclidean 
 	// distance would give fisheye effect!)
-	vec->h = SCREEN_HEIGHT;
-	if (vec->side == 0)
-		vec->perp_wall_dist = (vec->side_distX - vec->delta_distX);
-	else
-		vec->perp_wall_dist = (vec->side_distY - vec->delta_distY);
-	// Calculate height of line to draw on screen
-	vec->line_height = (int)(vec->h / vec->perp_wall_dist);
-	// Calculate lowest and highest pixel to fill in current stripe
-	vec->draw_start = -vec->line_height / 2 + vec->h / 2;
-	if (vec->draw_start < 0)
-		vec->draw_start = 0;
-	vec->draw_end = vec->line_height / 2 + vec->h / 2;
-	if (vec->draw_end >= vec->h)
-		vec->draw_end = vec->h - 1;
+	if (game->side == 0) 
+		game->perpWallDist = (game->sideDistX - game->deltaDistX);
+	else          
+		game->perpWallDist = (game->sideDistY - game->deltaDistY);
+	game->lineHeight = (int)(game->height / game->perpWallDist);
+	//calculate lowest and highest pixel to fill in current stripe
+	game->drawStart = -(game->lineHeight) / 2 + game->height / 2;
+	if(game->drawStart < 0)
+		game->drawStart = 0;
+	game->drawEnd = game->lineHeight / 2 + game->height / 2;
+	if(game->drawEnd >= game->height)
+		game->drawEnd = game->height - 1;
 	return (0);
 }
 
