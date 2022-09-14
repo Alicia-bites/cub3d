@@ -59,3 +59,4 @@ dkms.conf
 
 #exec files
 cub3d
+.vscode/settings.json
