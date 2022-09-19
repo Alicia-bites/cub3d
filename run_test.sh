@@ -18,7 +18,7 @@ ORI_P=$(pwd)
 FILE_P=${ORI_P}/maps
 RES_P=${ORI_P}/result
 
-TEST_MANUAL=("file_does_not_exist")
+TEST_MANUAL=("file_does_not_exist" "${FILE_P}/map_subject.cub            ")
 
 function	run_manual()
 {
