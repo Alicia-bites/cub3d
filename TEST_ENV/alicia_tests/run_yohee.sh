@@ -1,0 +1,1 @@
+clang -lXext -lX11 -lm yohee.c ../../minilibX/libmlx.h ../../minilibX/libmlx.a && ./a.out

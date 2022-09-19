@@ -13,9 +13,9 @@ MLX				:=	mlx
 NAME 			:=	cub3d
 NORMINETTE_BIN 	:= 	norminette
 NM_BIN			:=	nm
-CC				:=	cc
+CC				:=	clang
 CFLAGS			:=	-MMD -Wall -Wextra -Werror
-CFLAGS_MLX 		:=	-lXext -lX11
+CFLAGS_MLX 		:=	-lXext -lX11 -lm
 #CFLAGS			:=	-MMD
 #CFLAGSADD		:=	-g3 -fsanitize=address
 CFLAGSADD		:=	-g3
@@ -31,18 +31,18 @@ GRAPH_PATH		:=	graphics
 CB_MLX_PATH		:=	cb_mlx
 PARSE_PATH		:=	parsing
 RAY_PATH		:=	ray_casting
+UTILS_PATH		:=	utils
 
 RM				:=	rm -rf
 
-GRAPH_SRCS		:=	destroy_sprites.c\
-					draw_background.c\
-					draw_no_player.c\
-					draw_player.c\
+GRAPH_SRCS		:=	choose_wall_color.c\
+					destroy_sprites.c\
+					draw_vertical_line.c\
 					free_mlx.c\
 					ft_key_hook.c\
 					ft_red_cross.c\
 					init_game.c\
-					my_pixel_put.c\
+					my_mlx_pixel_put.c\
 
 CB_MLX_SRCS		:=	cb_mlx_init.c\
 				cb_mlx_init_settings.c\
@@ -50,22 +50,33 @@ CB_MLX_SRCS		:=	cb_mlx_init.c\
 				cb_mlx_show_settings.c\
 				cb_mlx_show_string.c
 
-PARSE_SRCS		:=	create_list.c\
+PARSE_SRCS		:=	cb_parse_argc.c\
+				cb_parse.c\
+				cb_parse_check_file.c\
+				cb_parse_map_fd_free.c\
+				cb_parse_map_fd_init.c\
+				cb_parse_map_fd_show.c\
+				cb_parse_read_file.c\
+				create_list.c\
 					ft_parse.c\
 					read_map.c\
-					print_map.c\
 
 RAY_SRCS		:=	calculate_ray_position_and_direction.c\
 					calculate_step.c\
+					draw_wall.c\
 					perform_dda.c\
 					set_vectors.c\
 					start_ray_casting_loop.c\
+
+UTILS_SRCS		:=	get_character_in_map.c\
+					print_map.c\
 
 SRCS			:=	main.c\
 					$(GRAPH_SRCS)\
 					$(CB_MLX_SRCS)\
 					$(RAY_SRCS)\
 					$(PARSE_SRCS)\
+					$(UTILS_SRCS)\
 					
 OBJS			:=	$(addprefix $(OPATH)/, $(SRCS:.c=.o))
 DEPS			:=	$(OBJS:.o=.d)
@@ -76,6 +87,7 @@ vpath %.c $(SRCS_PATH)\
 		$(SRCS_PATH)/$(CB_MLX_PATH)\
 		$(SRCS_PATH)/$(RAY_PATH)\
 		$(SRCS_PATH)/$(PARSE_PATH)\
+		$(SRCS_PATH)/$(UTILS_PATH)\
 
 vpath %.o $(OPATH)
 

@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   my_pixel_put.c                                     :+:      :+:    :+:   */
+/*   draw_vertical_line.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/02 14:08:20 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/02 14:09:36 by amarchan         ###   ########.fr       */
+/*   Created: 2022/09/06 09:36:25 by amarchan          #+#    #+#             */
+/*   Updated: 2022/09/14 21:42:02 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
+int	draw_vertical_line(t_game *game, int x)
 {
-	char	*dst;
-
-	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-	*(unsigned int*)dst = color;
+		int y;
+		
+		y = game->drawStart;
+		while (y < game->drawEnd)
+		{
+			my_mlx_pixel_put(game->image, x, y, game->color);
+			y++;
+		}
+		mlx_put_image_to_window(game->mlx, game->win, game->image->mlx_img, 0, 0);
+	return (0);
 }

@@ -6,60 +6,51 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 12:18:17 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/02 16:36:02 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/14 15:28:07 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-void	move_camera(t_mlx *mlx, int keycode)
+int	keypress(int keycode, t_game *game)
 {
-	(void)mlx;
-	if (keycode == CAM_RIGHT)
-		NULL;
-	else if (keycode == CAM_LEFT)
-		NULL;
-}
-
-
-
-void	ft_clear_player(t_mlx *mlx)
-{
-	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->no_player_image,
-		mlx->player_x, mlx->player_y);
-}
-
-void ft_render_player(t_mlx *mlx)
-{
-	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->player_image, mlx->player_x, mlx->player_y);
-}
-
-void	move_player(t_mlx *mlx, int keycode)
-{
-	if (keycode == UP)
-		mlx->player_y -= 64;
-	else if (keycode == DOWN)
-		mlx->player_y += 64;
-	else if (keycode == LEFT)
-		mlx->player_x -= 64;
-	else if (keycode == RIGHT)
-		mlx->player_x += 64;
-}
-
-//define how player move around
-int	ft_key_hook(int keycode, t_mlx *mlx)
-{
-	if (keycode != ESC_KEYCODE)
-	{	
-		if (keycode == UP || keycode == DOWN
-			|| keycode == LEFT || keycode == RIGHT)
-		{
-			ft_clear_player(mlx);
-			move_player(mlx, keycode);
-			ft_render_player(mlx);
-		}
+	extern int	worldMap[24][24];
+	
+	if (keycode == K_UP)
+	{
+		if(worldMap[(int)(game->posX + game->dirX * MOVESPEED)][(int)game->posY] == 0)
+			game->posX += game->dirX * MOVESPEED;
+		if(worldMap[(int)(game->posX)][(int)(game->posY + game->dirY * MOVESPEED)] == 0)
+			game->posY += game->dirY * MOVESPEED;
 	}
-	else
-		ft_redcross(mlx, 0);
-	return (keycode);
+	if (keycode == K_DOWN)
+	{
+		if(worldMap[(int)(game->posX - game->dirX * MOVESPEED)][(int)game->posY] == 0)
+			game->posX -= game->dirX * MOVESPEED;
+		if(worldMap[(int)(game->posX)][(int)(game->posY - game->dirY * MOVESPEED)] == 0)
+			game->posY -= game->dirY * MOVESPEED;
+	}
+	if (keycode == K_RIGHT)
+    {
+      // Both camera direction and camera plane must be rotated
+		game->oldDirX = game->dirX;
+		game->dirX = game->dirX * cos(-ROTSPEED) - game->dirY * sin(-ROTSPEED);
+		game->dirY = game->oldDirX * sin(-ROTSPEED) + game->dirY * cos(-ROTSPEED);
+		game->oldPlaneX = game->planeX;
+		game->planeX = game->planeX * cos(-ROTSPEED) - game->planeY * sin(-ROTSPEED);
+		game->planeY = game->oldPlaneX * sin(-ROTSPEED) + game->planeY * cos(-ROTSPEED);
+    }
+	if (keycode == K_LEFT)
+    {
+      // Both camera direction and camera plane must be rotated
+		game->oldDirX = game->dirX;
+		game->dirX = game->dirX * cos(ROTSPEED) - game->dirY * sin(ROTSPEED);
+		game->dirY = game->oldDirX * sin(ROTSPEED) + game->dirY * cos(ROTSPEED);
+		game->oldPlaneX = game->planeX;
+		game->planeX = game->planeX * cos(ROTSPEED) - game->planeY * sin(ROTSPEED);
+		game->planeY = game->oldPlaneX * sin(ROTSPEED) + game->planeY * cos(ROTSPEED);
+    }
+	if (keycode == ESC)
+		exit(0);
+	return (0);
 }

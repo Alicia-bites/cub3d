@@ -6,24 +6,29 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 18:09:25 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/05 12:13:05 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/14 21:42:04 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-int	start_ray_casting_loop(t_list *map)
+void    clear_window(t_game *game)
 {
-	int			x;
-	t_vector	vec;
+	ft_bzero(game->image->addr, WINDOW_HEIGHT * WINDOW_WIDTH * 4);
+}
 
-	set_vectors(&vec);
-	x = 0;
-	while (x < vec.screen_width)
+int	start_ray_casting_loop(t_game *game)
+{
+	int	x;
+	clear_window(game);
+	for(x = 0; x < WINDOW_WIDTH; x++)
 	{
-		calculate_ray_position_and_direction(&vec, &x);
-		calculate_step(&vec);
-		perform_dda(&vec, map);
+		calculate_ray_position_and_direction(game, x);
+		calculate_step(game);
+		perform_dda(game);
+		draw_wall(game);
+		choose_wall_color(game);
+		draw_vertical_line(game, x);
 	}
 	return (0);
 }
