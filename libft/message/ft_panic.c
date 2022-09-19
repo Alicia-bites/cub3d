@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 15:33:20 by abarrier          #+#    #+#             */
-/*   Updated: 2022/08/18 17:53:11 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/19 09:39:32 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ int	ft_panic(int errcode, const char *filename, char *msg)
 		err_msg = msg;
 	else
 		err_msg = NULL;
-	res += ft_putstr_fd_const("smbash:  ", 2);
 	res += ft_putendl_fd_const(err_msg, 2);
 	if (filename)
 	{
