@@ -6,7 +6,7 @@
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 16:53:08 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/19 16:56:31 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/19 18:22:30 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ int	settings_rgb_check_char(char *str)
 	i = 0;
 	while (str[i])
 	{
-		if (ft_isdigit(str[i]) == 0 && ft_isspace(str[i]) == 0 &&
-			str[i] != MAP_COLOR_SEP)
+		if (ft_isdigit(str[i]) == 0 && ft_isspace(str[i]) == 0
+			&& str[i] != MAP_COLOR_SEP)
 			return (ft_panic(-1, __func__, ERR_MAP_COLOR_CHAR));
 		i++;
 	}

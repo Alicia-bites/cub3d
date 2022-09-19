@@ -6,7 +6,7 @@
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 16:34:58 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/19 17:26:50 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/19 18:22:07 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ int	settings_rgb_check(t_mlx *mlx, char **rgb_tab)
 			return (EXIT_FAILURE);
 		else if (settings_rgb_check_space(rgb_tab[i]) != 0)
 			return (EXIT_FAILURE);
-//		else if (settings_rgb_check_value(rgb_tab[i]) != 0)
-//			return (EXIT_FAILURE);
 		i++;
 	}
 	return (0);

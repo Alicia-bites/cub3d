@@ -6,7 +6,7 @@
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 17:02:20 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/19 17:27:09 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/19 18:23:21 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	settings_rgb_check_space(char *str)
 {
 	size_t	len;
 	size_t	i;
-	int	j;
+	int		j;
 
 	len = ft_strlen(str);
 	if (len == 0)
