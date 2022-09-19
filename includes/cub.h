@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/19 17:33:30 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/19 18:18:14 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,12 +86,13 @@
 # define MAP_TEXT_EA "EA"
 # define MAP_TEXT_F "F"
 # define MAP_TEXT_C "C"
-# define MAP_FILE_MIN_LINE 8
+# define MAP_FILE_MIN_LINE 9
 
 // MESSAGES
 # define ERR_MAP_COLOR_CHAR "Wrong char. Expected numeric value 0-255"
 # define ERR_MAP_COLOR_DEF "Wrong color definition. Expected rgb definition"
 # define ERR_MAP_COLOR_VAL "Wrong color value. Expected numeric value 0-255"
+# define ERR_MAP_CONTENT "Minimum line number incorrect. Expected 8"
 # define ERR_MAP_DUP_TEXT "Duplicate texture in the map file. Expected only one"
 # define ERR_MAP_FORMAT "Wrong map format. Expected \".cub\""
 
