@@ -6,7 +6,7 @@
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 09:51:00 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/19 17:25:48 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/19 18:21:07 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	parse_read_file(t_mlx *mlx)
 {
-	char	*line;
-	int	line_no;
+	char		*line;
+	int			line_no;
 	t_map_fd	*map_fd_node;
 
 	line_no = 1;

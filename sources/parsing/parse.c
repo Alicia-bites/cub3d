@@ -6,7 +6,7 @@
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 09:26:46 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/19 17:21:33 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/19 18:20:07 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ int	parse(int argc, char **argv, t_mlx *mlx)
 	parse_read_file(mlx);
 	if (mlx->map_fd_lst == NULL)
 		return (EXIT_FAILURE);
-	if (ft_lst_size(mlx->map_fd_lst) <= MAP_FILE_MIN_LINE)
-		return (EXIT_FAILURE);
+	if (ft_lst_size(mlx->map_fd_lst) < MAP_FILE_MIN_LINE)
+		return (ft_panic_value(-1, __func__, ERR_MAP_CONTENT,
+				EXIT_FAILURE));
 	return (0);
 }
