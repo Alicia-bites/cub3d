@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/19 13:48:07 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/19 17:33:30 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@
 # define FD_NOT_INIT -99999999
 # define MAP_FORMAT ".cub"
 # define MAP_CHARSET "01NSEW "
+# define MAP_COLOR_SEP ','
 # define MAP_TEXT_NO "NO"
 # define MAP_TEXT_SO "SO"
 # define MAP_TEXT_WE "WE"
@@ -88,7 +89,11 @@
 # define MAP_FILE_MIN_LINE 8
 
 // MESSAGES
-# define ERR_MAP_FORMAT "Wrong map format. Expected .cub"
+# define ERR_MAP_COLOR_CHAR "Wrong char. Expected numeric value 0-255"
+# define ERR_MAP_COLOR_DEF "Wrong color definition. Expected rgb definition"
+# define ERR_MAP_COLOR_VAL "Wrong color value. Expected numeric value 0-255"
+# define ERR_MAP_DUP_TEXT "Duplicate texture in the map file. Expected only one"
+# define ERR_MAP_FORMAT "Wrong map format. Expected \".cub\""
 
 /* MAP FILE SETTINGS
  * char *no,so,we,ea are texture path
@@ -264,17 +269,27 @@ typedef struct s_palette
 
 
 // PARSING
-int     cb_parse_arg(int argc);
-int     cb_parse(int argc, char **argv, t_mlx *mlx);
-int     cb_parse_check_file(char *filename, t_mlx *mlx);
-void	cb_parse_map_fd_free(void *content);
-t_map_fd   *cb_parse_map_fd_init(int line_no, char *line);
-void    cb_parse_map_fd_show(void *content);
-void    cb_parse_read_file(t_mlx *mlx);
+int     parse_arg(int argc);
+int     parse(int argc, char **argv, t_mlx *mlx);
+int     parse_map_fd(char *filename, t_mlx *mlx);
+void	parse_map_fd_free(void *content);
+t_map_fd   *parse_map_fd_init(int line_no, char *line);
+void    parse_map_fd_show(void *content);
+void    parse_read_file(t_mlx *mlx);
 
 t_list	*create_list(char *line);
 t_list	*ft_parse(char *argv);
 t_list	*read_map(char *argv);
+
+// SETTINGS
+int     settings_rgb(t_mlx *mlx, char *rgb);
+int     settings_rgb_check(t_mlx *mlx, char **rgb_tab);
+int     settings_rgb_check_char(char *str);
+int     settings_rgb_check_space(char *str);
+int     settings_rgb_check_value(char *str);
+int     settings_texture_fd_check(t_mlx *mlx, char *text_type);
+int     settings_texture_fd_open(t_mlx *mlx, char *text_type, char *filename);
+int     settings_texture_fd_save(t_mlx *mlx, char *text_type, int fd);
 
 // GRAPHICS
 // void	destroy_sprites(t_game *game);

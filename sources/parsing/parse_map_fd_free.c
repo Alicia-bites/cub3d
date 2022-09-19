@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cb_parse_check_file.c                              :+:      :+:    :+:   */
+/*   parse_map_fd_free.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/19 09:35:57 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/19 13:47:05 by abarrier         ###   ########.fr       */
+/*   Created: 2022/09/19 11:13:04 by abarrier          #+#    #+#             */
+/*   Updated: 2022/09/19 17:23:41 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-int	cb_parse_check_file(char *filename, t_mlx *mlx)
+void	parse_map_fd_free(void *content)
 {
-	int	fd;
+	t_map_fd	*map_fd_node;
 
-	if (ft_formatchr(filename, MAP_FORMAT) == NULL)
-		return (ft_panic(-1, __func__, ERR_MAP_FORMAT));
-	fd = open(filename, O_RDONLY);
-	if (fd < 0)
-		return (ft_panic(-1, __func__, ERR_FILEOPEN));
-	else
+	if (!content)
+		return ;
+	map_fd_node = (t_map_fd *)content;
+	if (map_fd_node->line)
 	{
-		mlx->map_fd = fd;
-		return (0);
+		free(map_fd_node->line);
+		map_fd_node->line = NULL;
 	}
 }

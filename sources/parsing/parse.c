@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cb_parse_map_fd_init.c                             :+:      :+:    :+:   */
+/*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/19 10:07:13 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/19 14:04:53 by abarrier         ###   ########.fr       */
+/*   Created: 2022/09/19 09:26:46 by abarrier          #+#    #+#             */
+/*   Updated: 2022/09/19 17:21:33 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-t_map_fd	*cb_parse_map_fd_init(int line_no, char *line)
+int	parse(int argc, char **argv, t_mlx *mlx)
 {
-	t_map_fd	*map_fd;
-
-	map_fd = NULL;
-	map_fd = (t_map_fd *)malloc(sizeof(t_map_fd));
-	if (!map_fd)
-		return (ft_panic_null(-1, __func__, ERR_MALLOC));
-	map_fd->line_no = line_no;
-	map_fd->line = line;
-	return (map_fd);
+	if (parse_arg(argc))
+		return (EXIT_FAILURE);
+	if (parse_map_fd(argv[1], mlx) < 0)
+		return (EXIT_FAILURE);
+	parse_read_file(mlx);
+	if (mlx->map_fd_lst == NULL)
+		return (EXIT_FAILURE);
+	if (ft_lst_size(mlx->map_fd_lst) <= MAP_FILE_MIN_LINE)
+		return (EXIT_FAILURE);
+	return (0);
 }

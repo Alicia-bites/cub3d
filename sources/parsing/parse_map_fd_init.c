@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cb_parse_map_fd_show.c                             :+:      :+:    :+:   */
+/*   parse_map_fd_init.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/19 10:17:39 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/19 11:11:20 by abarrier         ###   ########.fr       */
+/*   Created: 2022/09/19 10:07:13 by abarrier          #+#    #+#             */
+/*   Updated: 2022/09/19 17:23:51 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-void	cb_parse_map_fd_show(void *content)
+t_map_fd	*parse_map_fd_init(int line_no, char *line)
 {
-	t_map_fd	*map_fd_node;
+	t_map_fd	*map_fd;
 
-	if (!content)
-		return ;
-	map_fd_node = (t_map_fd *)content;
-	printf("map_fd_node->line_no: %d\n", map_fd_node->line_no);
-	if (map_fd_node->line)
-		printf("map_fd_node->line: %s\n", map_fd_node->line);
-	else
-		printf("map_fd_node->line: NULL\n");
-
+	map_fd = NULL;
+	map_fd = (t_map_fd *)malloc(sizeof(t_map_fd));
+	if (!map_fd)
+		return (ft_panic_null(-1, __func__, ERR_MALLOC));
+	map_fd->line_no = line_no;
+	map_fd->line = line;
+	return (map_fd);
 }
