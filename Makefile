@@ -11,9 +11,10 @@ MLX				:=	mlx
 
 # project settings
 NAME 			:=	cub3d
+NAME_AR			:=	libcub3d.a
 NORMINETTE_BIN 	:= 	norminette
 NM_BIN			:=	nm
-CC				:=	clang
+CC				:=	cc
 CFLAGS			:=	-MMD -Wall -Wextra -Werror
 CFLAGS_MLX 		:=	-lXext -lX11 -lm
 #CFLAGS			:=	-MMD
@@ -25,6 +26,7 @@ VALGRIND		:=	valgrind -s --leak-check=full --show-leak-kinds=all --track-origins
 
 IPATH			:=	includes
 OPATH			:=	obj
+UTPATH			:=	unit_test
 
 SRCS_PATH		:=	sources
 CB_MLX_PATH		:=	cb_mlx
@@ -33,8 +35,9 @@ PARSE_PATH		:=	parsing
 RAY_PATH		:=	ray_casting
 SETTINGS_PATH		:=	settings
 UTILS_PATH		:=	utils
-UNIT_TEST_PATH		:=	unit_test
 
+
+AR				:=	ar rcs
 RM				:=	rm -rf
 
 CB_MLX_SRCS		:=	cb_mlx_init.c\
@@ -84,16 +87,13 @@ SETTINGS_SRCS		:=	settings_rgb.c\
 UTILS_SRCS		:=	get_character_in_map.c\
 					print_map.c\
 
-UNIT_TEST_SRCS		:=	ut_rgb.c
-
 SRCS			:=	main.c\
 					$(CB_MLX_SRCS)\
 					$(GRAPH_SRCS)\
 					$(RAY_SRCS)\
 					$(PARSE_SRCS)\
 					$(SETTINGS_SRCS)\
-					$(UTILS_SRCS)\
-					$(UNIT_TEST_SRCS)
+					$(UTILS_SRCS)
 					
 OBJS			:=	$(addprefix $(OPATH)/, $(SRCS:.c=.o))
 DEPS			:=	$(OBJS:.o=.d)
@@ -105,8 +105,7 @@ vpath %.c $(SRCS_PATH)\
 		$(SRCS_PATH)/$(RAY_PATH)\
 		$(SRCS_PATH)/$(PARSE_PATH)\
 		$(SRCS_PATH)/$(SETTINGS_PATH)\
-		$(SRCS_PATH)/$(UTILS_PATH)\
-		$(SRCS_PATH)/$(UNIT_TEST_PATH)
+		$(SRCS_PATH)/$(UTILS_PATH)
 
 vpath %.o $(OPATH)
 
@@ -117,7 +116,7 @@ $(OPATH)/%.o:	%.c
 
 $(NAME):	$(OBJS)
 			make -C $(FTPATH)
-			$(CC) $(CFLAGS) $(CFLAGSADD) $(OBJS) -I $(IPATH) -I $(FTPATH)/$(IFT) -I $(MLX_PATH) -L$(FTPATH) -l$(FT) -L$(MLX_PATH) -l$(MLX) -o $(NAME) $(CFLAGS_MLX) 
+			$(CC) $(CFLAGS) $(CFLAGSADD) $(OBJS) -I $(IPATH) -I $(FTPATH)/$(IFT) -I $(MLX_PATH) -L$(FTPATH) -l$(FT) -L$(MLX_PATH) -l$(MLX) -o $(NAME) $(CFLAGS_MLX)
 
 $(OBJS):	| $(OPATH)
 
@@ -154,6 +153,10 @@ compi_envi:
 			make
 			$(VALGRIND) env -i ./$(NAME)
 
+archive:		$(filter-out $(OBJ)/main.o, $(OBJS))
+			$(AR) $(UTPATH)/$(NAME_AR) $^
+			@ranlib $(UTPATH)/$(NAME_AR) 
+
 -include $(DEPS)
 
-.PHONY: all clean fclean re norme sym comp comp_vgdb comp_envi
+.PHONY: all clean fclean re norme sym comp comp_vgdb comp_envi archive

@@ -328,7 +328,4 @@ int		start_ray_casting_loop(t_game *game);
 char	get_character_in_map(t_list *map, int x, int y);
 void	print_map(t_list *map);
 
-// UNIT TEST
-void	ut_rgb(t_mlx *mlx);
-
 #endif
