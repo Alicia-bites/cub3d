@@ -27,7 +27,8 @@ OPATH			:=	obj
 RM				:=	rm -rf
 
 SRCS			:=	main.c\
-				ut_rgb.c
+				ut_rgb.c\
+				ut_txt_file.c
 
 OBJS			:=	$(addprefix $(OPATH)/, $(SRCS:.c=.o))
 DEPS			:=	$(OBJS:.o=.d)
@@ -63,6 +64,9 @@ re:
 
 $(PRJ_NAME):
 			make archive -C $(PRJ_PATH)
+
+test:
+			./$(NAME) map_subject.cub
 
 -include $(DEPS)
 

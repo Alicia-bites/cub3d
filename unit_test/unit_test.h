@@ -6,7 +6,7 @@
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 13:45:19 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/20 15:15:38 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/20 16:31:51 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,6 @@
 
 // UNIT TEST
 void	ut_rgb(void *prj_struc);
+void	ut_txt_file(void *prj_struc);
 
 #endif
