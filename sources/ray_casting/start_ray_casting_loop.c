@@ -6,13 +6,13 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 18:09:25 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/14 21:42:04 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/20 10:51:12 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-void    clear_window(t_game *game)
+static void    clear_window(t_game *game)
 {
 	ft_bzero(game->image->addr, WINDOW_HEIGHT * WINDOW_WIDTH * 4);
 }
