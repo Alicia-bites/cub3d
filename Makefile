@@ -28,7 +28,7 @@ OPATH			:=	obj
 
 SRCS_PATH		:=	sources
 GRAPH_PATH		:=	graphics
-RAY_PATH		:=	ray_casting
+CB_MLX_PATH		:=	cb_mlx
 PARSE_PATH		:=	parsing
 UTILS_PATH		:=	utils
 
@@ -42,6 +42,12 @@ GRAPH_SRCS		:=	choose_wall_color.c\
 					ft_red_cross.c\
 					init_game.c\
 					my_mlx_pixel_put.c\
+
+CB_MLX_SRCS		:=	cb_mlx_init.c\
+				cb_mlx_init_settings.c\
+				cb_mlx_show.c\
+				cb_mlx_show_settings.c\
+				cb_mlx_show_string.c
 
 PARSE_SRCS		:=	create_list.c\
 					ft_parse.c\
@@ -59,6 +65,7 @@ UTILS_SRCS		:=	get_character_in_map.c\
 
 SRCS			:=	main.c\
 					$(GRAPH_SRCS)\
+					$(CB_MLX_SRCS)\
 					$(RAY_SRCS)\
 					$(PARSE_SRCS)\
 					$(UTILS_SRCS)\
@@ -69,6 +76,7 @@ DEPS			:=	$(OBJS:.o=.d)
 vpath %.h $(IPATH)
 vpath %.c $(SRCS_PATH)\
 		$(SRCS_PATH)/$(GRAPH_PATH)\
+		$(SRCS_PATH)/$(CB_MLX_PATH)\
 		$(SRCS_PATH)/$(RAY_PATH)\
 		$(SRCS_PATH)/$(PARSE_PATH)\
 		$(SRCS_PATH)/$(UTILS_PATH)\
@@ -82,7 +90,7 @@ $(OPATH)/%.o:	%.c
 
 $(NAME):	$(OBJS)
 			make -C $(FTPATH)
-			$(CC) $(CFLAGS) $(CFLAGSADD) $(CFLAGS_MLX) $(OBJS) -I $(IPATH) -I $(FTPATH)/$(IFT) -I $(MLX_PATH) -L$(FTPATH) -l$(FT) -L$(MLX_PATH) -l$(MLX) -o $(NAME)
+			$(CC) $(CFLAGS) $(CFLAGSADD) $(OBJS) -I $(IPATH) -I $(FTPATH)/$(IFT) -I $(MLX_PATH) -L$(FTPATH) -l$(FT) -L$(MLX_PATH) -l$(MLX) -o $(NAME) $(CFLAGS_MLX) 
 
 $(OBJS):	| $(OPATH)
 

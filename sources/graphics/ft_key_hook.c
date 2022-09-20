@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 12:18:17 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/20 12:26:49 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/20 12:32:07 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ void	move_down(t_game *game)
 
 void	move_right(t_game *game)
 {
+	extern int worldMap[24][24];
+
 	if(worldMap[(int)(game->posX + game->dirX * MOVESPEED)][(int)game->posY] == 0)
 		game->posX -= game->planeX * MOVESPEED;
 	if(worldMap[(int)(game->posX)][(int)(game->posY + game->dirY * MOVESPEED)] == 0)

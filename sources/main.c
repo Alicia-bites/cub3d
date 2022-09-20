@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:54:11 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/14 15:20:04 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/20 12:31:43 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,13 @@
 
 int	main(int argc, char **argv)
 {
-  t_game  game;
-  int     *map;
-  
-  (void)argv;
-  map = NULL;
+	t_game	game;
+	int		*map;
+		
+	// cb_mlx_init(&mlx);
+	// cb_mlx_show(&mlx);
+	map = NULL;
+	(void)argv;
 	if (argc != 2)
 	{
 		ft_putstr_fd("Oups, wrong number of arguments!", 2);
