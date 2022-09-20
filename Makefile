@@ -51,7 +51,7 @@ RAY_SRCS		:=	calculate_ray_position_and_direction.c\
 					calculate_step.c\
 					draw_wall.c\
 					perform_dda.c\
-					set_vectors.c\
+					init_struct.c\
 					start_ray_casting_loop.c\
 
 UTILS_SRCS		:=	get_character_in_map.c\
