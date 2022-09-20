@@ -33,6 +33,7 @@ PARSE_PATH		:=	parsing
 RAY_PATH		:=	ray_casting
 SETTINGS_PATH		:=	settings
 UTILS_PATH		:=	utils
+UNIT_TEST_PATH		:=	unit_test
 
 RM				:=	rm -rf
 
@@ -83,6 +84,8 @@ SETTINGS_SRCS		:=	settings_rgb.c\
 UTILS_SRCS		:=	get_character_in_map.c\
 					print_map.c\
 
+UNIT_TEST_SRCS		:=	ut_rgb.c
+
 SRCS			:=	main.c\
 					$(CB_MLX_SRCS)\
 					$(GRAPH_SRCS)\
@@ -90,6 +93,7 @@ SRCS			:=	main.c\
 					$(PARSE_SRCS)\
 					$(SETTINGS_SRCS)\
 					$(UTILS_SRCS)\
+					$(UNIT_TEST_SRCS)
 					
 OBJS			:=	$(addprefix $(OPATH)/, $(SRCS:.c=.o))
 DEPS			:=	$(OBJS:.o=.d)
@@ -102,6 +106,7 @@ vpath %.c $(SRCS_PATH)\
 		$(SRCS_PATH)/$(PARSE_PATH)\
 		$(SRCS_PATH)/$(SETTINGS_PATH)\
 		$(SRCS_PATH)/$(UTILS_PATH)\
+		$(SRCS_PATH)/$(UNIT_TEST_PATH)
 
 vpath %.o $(OPATH)
 
