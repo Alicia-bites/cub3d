@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 18:09:25 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/20 10:51:12 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/20 11:29:32 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,6 @@ int	start_ray_casting_loop(t_game *game)
 		choose_wall_color(game);
 		draw_vertical_line(game, x);
 	}
+	mlx_put_image_to_window(game->mlx, game->win, game->image->mlx_img, 0, 0);
 	return (0);
 }
