@@ -6,21 +6,21 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/20 12:56:18 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/20 13:54:27 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB_H
 # define CUB_H
 
-# include <unistd.h>
-# include <string.h>
-# include <stdio.h>
-# include <sys/types.h>
-# include <sys/stat.h>
-# include <fcntl.h>
 # include <errno.h>
+# include <fcntl.h>
 # include <math.h>
+# include <stdio.h>
+# include <string.h>
+# include <sys/stat.h>
+# include <sys/types.h>
+# include <unistd.h>
 
 //# include "mlx.h"
 # include "../minilibX/libmlx.h"
@@ -89,7 +89,7 @@
 # define MAP_FILE_MIN_LINE 9
 
 // MESSAGES
-# define ERR_MAP_COLOR_CHAR "Wrong char. Expected numeric value 0-255"
+# define ERR_MAP_COLOR_CHAR "Frobidden char. Expected numeric value 0-255"
 # define ERR_MAP_COLOR_DEF "Wrong rgb definition. Expected 3 values 0-255"
 # define ERR_MAP_COLOR_VAL "Wrong color value. Expected numeric value 0-255"
 # define ERR_MAP_CONTENT "Minimum line number incorrect. Expected 8"
