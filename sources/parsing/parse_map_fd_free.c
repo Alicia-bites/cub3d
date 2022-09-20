@@ -6,7 +6,7 @@
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 11:13:04 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/19 17:23:41 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/20 17:13:50 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,10 @@ void	parse_map_fd_free(void *content)
 	{
 		free(map_fd_node->line);
 		map_fd_node->line = NULL;
+	}
+	if (map_fd_node)
+	{
+		free(map_fd_node);
+		map_fd_node = NULL;
 	}
 }
