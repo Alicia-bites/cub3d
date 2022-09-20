@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 12:18:17 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/14 15:28:07 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/20 11:44:01 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,39 @@ int	keypress(int keycode, t_game *game)
 {
 	extern int	worldMap[24][24];
 	
-	if (keycode == K_UP)
+	//move up
+	if (keycode == K_W)
 	{
 		if(worldMap[(int)(game->posX + game->dirX * MOVESPEED)][(int)game->posY] == 0)
 			game->posX += game->dirX * MOVESPEED;
 		if(worldMap[(int)(game->posX)][(int)(game->posY + game->dirY * MOVESPEED)] == 0)
 			game->posY += game->dirY * MOVESPEED;
 	}
-	if (keycode == K_DOWN)
+	//move down
+	if (keycode == K_S)
 	{
 		if(worldMap[(int)(game->posX - game->dirX * MOVESPEED)][(int)game->posY] == 0)
 			game->posX -= game->dirX * MOVESPEED;
 		if(worldMap[(int)(game->posX)][(int)(game->posY - game->dirY * MOVESPEED)] == 0)
 			game->posY -= game->dirY * MOVESPEED;
 	}
+	// move to the left
+	if (keycode == K_A)
+	{
+		if(worldMap[(int)(game->posX + game->dirX * MOVESPEED)][(int)game->posY] == 0)
+			game->posX -= game->planeX * MOVESPEED;
+		if(worldMap[(int)(game->posX)][(int)(game->posY + game->dirY * MOVESPEED)] == 0)
+			game->posY -= game->planeY * MOVESPEED;
+	}
+	// move to the right
+	if (keycode == K_D)
+	{
+		if(worldMap[(int)(game->posX - game->dirX * MOVESPEED)][(int)game->posY] == 0)
+			game->posX += game->planeX * MOVESPEED;
+		if(worldMap[(int)(game->posX)][(int)(game->posY - game->dirY * MOVESPEED)] == 0)
+			game->posY += game->planeY * MOVESPEED;
+	}
+	// Rotate to the right
 	if (keycode == K_RIGHT)
     {
       // Both camera direction and camera plane must be rotated
@@ -40,6 +59,7 @@ int	keypress(int keycode, t_game *game)
 		game->planeX = game->planeX * cos(-ROTSPEED) - game->planeY * sin(-ROTSPEED);
 		game->planeY = game->oldPlaneX * sin(-ROTSPEED) + game->planeY * cos(-ROTSPEED);
     }
+	// Rotate to the left
 	if (keycode == K_LEFT)
     {
       // Both camera direction and camera plane must be rotated
