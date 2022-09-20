@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:54:11 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/20 13:55:03 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/20 17:08:09 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,11 @@ int	main(int argc, char **argv)
 		return (EXIT_FAILURE);
 	mlx.map_fd_lst = map_fd_lst;
 	if (parse(argc, argv, &mlx))
+	{
+		ft_lst_free(mlx.map_fd_lst, &parse_map_fd_free);
 		return (EXIT_FAILURE);
+	}
+	ft_lst_free(mlx.map_fd_lst, &parse_map_fd_free);
 //	ft_lst_func_lst(mlx.map_fd_lst, &parse_map_fd_show);
 //	ut_rgb(&mlx);
 //	map = NULL;
