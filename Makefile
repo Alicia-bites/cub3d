@@ -34,11 +34,11 @@ UTPATH			:=	unit_test
 SRCS_PATH		:=	sources
 CB_MLX_PATH		:=	cb_mlx
 GRAPH_PATH		:=	graphics
+MAP_PATH		:=	map
 PARSE_PATH		:=	parsing
 RAY_PATH		:=	ray_casting
 SETTINGS_PATH		:=	settings
 UTILS_PATH		:=	utils
-
 
 AR				:=	ar rcs
 RM				:=	rm -rf
@@ -57,6 +57,8 @@ GRAPH_SRCS		:=	choose_wall_color.c\
 					ft_red_cross.c\
 					init_game.c\
 					my_mlx_pixel_put.c\
+
+MAP_SRCS		:=	map_lst.c
 
 PARSE_SRCS		:=	parse_argc.c\
 				parse.c\
@@ -93,8 +95,9 @@ UTILS_SRCS		:=	get_character_in_map.c\
 SRCS			:=	main.c\
 					$(CB_MLX_SRCS)\
 					$(GRAPH_SRCS)\
-					$(RAY_SRCS)\
+					$(MAP_SRCS)\
 					$(PARSE_SRCS)\
+					$(RAY_SRCS)\
 					$(SETTINGS_SRCS)\
 					$(UTILS_SRCS)
 					
@@ -105,8 +108,9 @@ vpath %.h $(IPATH)
 vpath %.c $(SRCS_PATH)\
 		$(SRCS_PATH)/$(CB_MLX_PATH)\
 		$(SRCS_PATH)/$(GRAPH_PATH)\
-		$(SRCS_PATH)/$(RAY_PATH)\
+		$(SRCS_PATH)/$(MAP_PATH)\
 		$(SRCS_PATH)/$(PARSE_PATH)\
+		$(SRCS_PATH)/$(RAY_PATH)\
 		$(SRCS_PATH)/$(SETTINGS_PATH)\
 		$(SRCS_PATH)/$(UTILS_PATH)
 
