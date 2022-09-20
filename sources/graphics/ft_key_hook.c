@@ -6,39 +6,57 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 12:18:17 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/20 11:44:01 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/20 12:26:49 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
+void	move_up(t_game *game)
+{
+	extern int worldMap[24][24];
+	
+	if(worldMap[(int)(game->posX + game->dirX * MOVESPEED)][(int)game->posY] == 0)
+		game->posX += game->dirX * MOVESPEED;
+	if(worldMap[(int)(game->posX)][(int)(game->posY + game->dirY * MOVESPEED)] == 0)
+		game->posY += game->dirY * MOVESPEED;
+}
+
+void	move_down(t_game *game)
+{
+	extern int worldMap[24][24];
+	
+	if(worldMap[(int)(game->posX - game->dirX * MOVESPEED)][(int)game->posY] == 0)
+		game->posX -= game->dirX * MOVESPEED;
+	if(worldMap[(int)(game->posX)][(int)(game->posY - game->dirY * MOVESPEED)] == 0)
+		game->posY -= game->dirY * MOVESPEED;
+}
+
+void	move_right(t_game *game)
+{
+	if(worldMap[(int)(game->posX + game->dirX * MOVESPEED)][(int)game->posY] == 0)
+		game->posX -= game->planeX * MOVESPEED;
+	if(worldMap[(int)(game->posX)][(int)(game->posY + game->dirY * MOVESPEED)] == 0)
+		game->posY -= game->planeY * MOVESPEED;
+}
+
 int	keypress(int keycode, t_game *game)
 {
-	extern int	worldMap[24][24];
-	
+	extern int worldMap[24][24];	
 	//move up
 	if (keycode == K_W)
 	{
-		if(worldMap[(int)(game->posX + game->dirX * MOVESPEED)][(int)game->posY] == 0)
-			game->posX += game->dirX * MOVESPEED;
-		if(worldMap[(int)(game->posX)][(int)(game->posY + game->dirY * MOVESPEED)] == 0)
-			game->posY += game->dirY * MOVESPEED;
+		move_up(game);
 	}
 	//move down
 	if (keycode == K_S)
 	{
-		if(worldMap[(int)(game->posX - game->dirX * MOVESPEED)][(int)game->posY] == 0)
-			game->posX -= game->dirX * MOVESPEED;
-		if(worldMap[(int)(game->posX)][(int)(game->posY - game->dirY * MOVESPEED)] == 0)
-			game->posY -= game->dirY * MOVESPEED;
+		move_down(game);
 	}
 	// move to the left
 	if (keycode == K_A)
 	{
-		if(worldMap[(int)(game->posX + game->dirX * MOVESPEED)][(int)game->posY] == 0)
-			game->posX -= game->planeX * MOVESPEED;
-		if(worldMap[(int)(game->posX)][(int)(game->posY + game->dirY * MOVESPEED)] == 0)
-			game->posY -= game->planeY * MOVESPEED;
+		move_right(game);
 	}
 	// move to the right
 	if (keycode == K_D)
