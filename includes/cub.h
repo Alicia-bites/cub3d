@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/14 21:42:18 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/20 11:48:20 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@
 #define mapHeight 24
 #define screenWIDTH 1000
 #define screenHeight 1000
-#define MOVESPEED 0.05
-#define ROTSPEED 0.05
+#define MOVESPEED 0.5
+#define ROTSPEED 0.5
 
 /* COLORS */
 # define WHITE 0xFFFFFF
