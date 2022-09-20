@@ -6,7 +6,7 @@
 /*   By: abarrier <abarrier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 21:51:47 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/07 22:19:35 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/20 17:33:44 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,5 @@ void	cb_mlx_show_settings(t_settings *settings)
 		settings->fd_so, settings->fd_we, settings->fd_ea);
 	printf("fd | floor: %d\tceil: %d\n", settings->fd_floor,
 		settings->fd_ceil);
+	printf("map start line: %d\n", settings->map_start_line);
 }

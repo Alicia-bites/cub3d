@@ -6,7 +6,7 @@
 /*   By: abarrier <abarrier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 21:34:02 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/07 22:15:50 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/20 17:31:31 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,5 @@ void	cb_mlx_init_settings(t_settings *settings)
 	settings->fd_ea = FD_NOT_INIT;
 	settings->fd_floor = FD_NOT_INIT;
 	settings->fd_ceil = FD_NOT_INIT;
+	settings->map_start_line = -1;
 }
