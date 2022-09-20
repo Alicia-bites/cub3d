@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/20 11:42:58 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/20 12:56:18 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@
 
 // MESSAGES
 # define ERR_MAP_COLOR_CHAR "Wrong char. Expected numeric value 0-255"
-# define ERR_MAP_COLOR_DEF "Wrong color definition. Expected rgb definition"
+# define ERR_MAP_COLOR_DEF "Wrong rgb definition. Expected 3 values 0-255"
 # define ERR_MAP_COLOR_VAL "Wrong color value. Expected numeric value 0-255"
 # define ERR_MAP_CONTENT "Minimum line number incorrect. Expected 8"
 # define ERR_MAP_DUP_TEXT "Duplicate texture in the map file. Expected only one"

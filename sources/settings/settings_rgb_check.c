@@ -6,7 +6,7 @@
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 16:34:58 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/20 11:22:35 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/20 12:56:26 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,10 @@
  * >   255    ,0,0<
  * >+255,0,0<
  *
+ * @INVALID USE CASE: empty value in rgb value
+ * ,,
+ * 1,,
+ * 1,2,
  * @INVALID USE CASE: length of value == 0
  * 255,,0
  * @INVALID USE CASE: forbidden char
@@ -45,8 +49,14 @@
 int	settings_rgb_check(char **rgb_lst, int *rgb_tab)
 {
 	int	i;
+	size_t	len;
 
 	i = 0;
+	len = 0;
+	while (rgb_lst[len])
+		len++;
+	if (len != 3)
+		return (ft_panic(-1, __func__, ERR_MAP_COLOR_DEF));
 	while (rgb_lst[i])
 	{
 		if (ft_strlen(rgb_lst[i]) == 0)
