@@ -21,7 +21,6 @@ CFLAGS_MLX 		:=	-lXext -lX11 -lm
 #CFLAGSADD		:=	-g3 -fsanitize=address
 CFLAGSADD		:=	-g3
 
-# VALGRIND	:=	valgrind -s --suppressions=ignoreliberror --leak-check=full --show-leak-kinds=all --track-origins=yes --track-fds=yes
 VALGRIND		:=	valgrind -s --leak-check=full --show-leak-kinds=all --track-origins=yes --track-fds=yes
 
 IPATH			:=	includes
@@ -155,8 +154,12 @@ compi_envi:
 
 archive:		$(filter-out $(OBJ)/main.o, $(OBJS))
 			$(AR) $(UTPATH)/$(NAME_AR) $^
-			@ranlib $(UTPATH)/$(NAME_AR) 
+			@ranlib $(UTPATH)/$(NAME_AR)
+
+test:
+			make
+			$(VALGRIND) ./$(NAME) maps/map_subject.cub
 
 -include $(DEPS)
 
-.PHONY: all clean fclean re norme sym comp comp_vgdb comp_envi archive
+.PHONY: all clean fclean re norme sym comp comp_vgdb comp_envi archive test
