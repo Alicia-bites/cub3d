@@ -1,3 +1,7 @@
+# constant
+SEP_P		:=	"----------------------------------------------"
+SEP_S		:=	".............................................."
+
 # libft settings
 FTPATH			:=	libft
 IFT				:=	include
@@ -159,6 +163,9 @@ archive:		$(filter-out $(OBJ)/main.o, $(OBJS))
 test:
 			make
 			$(VALGRIND) ./$(NAME) maps/map_subject.cub
+			@echo $(SEP_P)
+			$(VALGRIND) ./$(NAME) maps/map_subject.cub.cub
+			@echo $(SEP_P)
 
 -include $(DEPS)
 
