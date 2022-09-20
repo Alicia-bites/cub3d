@@ -6,23 +6,56 @@
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 16:34:58 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/19 18:22:07 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/20 11:22:35 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-int	settings_rgb_check(t_mlx *mlx, char **rgb_tab)
+/* @BRIEF:
+ * check rgb content as:
+ * > length of the value
+ * > forbidden char
+ * > no space between digit
+ * > value between 0 and 255
+ *
+ * @PARAM:
+ * char **: rgb list of string
+ * int *: rgb tab to store int value
+ *
+ * @RETURN:
+ * = 0: ok
+ * != 0: error
+ *
+ * @VALID USE CASE:
+ * >255,0,0<
+ * >  255,0,0<
+ * >   255    ,0,0<
+ * >+255,0,0<
+ *
+ * @INVALID USE CASE: length of value == 0
+ * 255,,0
+ * @INVALID USE CASE: forbidden char
+ * abc,0,0
+ * @INVALID USE CASE: space between digit
+ * 255 0,0,0
+ * @INVALID USE CASE: value over range
+ * 500,0,0
+ */
+int	settings_rgb_check(char **rgb_lst, int *rgb_tab)
 {
 	int	i;
 
-	(void)mlx;
 	i = 0;
-	while (rgb_tab[i])
+	while (rgb_lst[i])
 	{
-		if (settings_rgb_check_char(rgb_tab[i]) != 0)
+		if (ft_strlen(rgb_lst[i]) == 0)
+			return (ft_panic(-1, __func__, ERR_MAP_COLOR_VAL));
+		if (settings_rgb_check_char(rgb_lst[i]) != 0)
 			return (EXIT_FAILURE);
-		else if (settings_rgb_check_space(rgb_tab[i]) != 0)
+		else if (settings_rgb_check_space(rgb_lst[i]) != 0)
+			return (EXIT_FAILURE);
+		else if (settings_rgb_check_value(rgb_lst[i], &rgb_tab[i]) != 0)
 			return (EXIT_FAILURE);
 		i++;
 	}

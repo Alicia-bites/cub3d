@@ -294,14 +294,16 @@ t_list	*ft_parse(char *argv);
 t_list	*read_map(char *argv);
 
 // SETTINGS
-int     settings_rgb(t_mlx *mlx, char *rgb);
-int     settings_rgb_check(t_mlx *mlx, char **rgb_tab);
+int     settings_rgb(t_mlx *mlx, int txt_type, char *rgb);
+int     settings_rgb_check(char **rgb_lst, int *rgb_tab);
 int     settings_rgb_check_char(char *str);
 int     settings_rgb_check_space(char *str);
-int     settings_rgb_check_value(char *str);
-int     settings_texture_fd_check(t_mlx *mlx, char *text_type);
-int     settings_texture_fd_open(t_mlx *mlx, char *text_type, char *filename);
-int     settings_texture_fd_save(t_mlx *mlx, char *text_type, int fd);
+int     settings_rgb_check_value(char *str, int *tab_i);
+void	settings_rgb_set_value(t_mlx *mlx, int txt_type, int *rgb_tab);
+void	settings_rgb_set_value_type(int *r, int *g, int *b, int *rgb_tab);
+int     settings_texture_fd_check(t_mlx *mlx, int txt_type);
+int     settings_texture_fd_open(t_mlx *mlx, int txt_type, char *filename);
+int     settings_texture_fd_save(t_mlx *mlx, int txt_type, int fd);
 
 // GRAPHICS
 // void	destroy_sprites(t_game *game);

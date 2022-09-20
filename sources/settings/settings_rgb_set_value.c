@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   settings_texture_fd_open.c                         :+:      :+:    :+:   */
+/*   settings_rgb_set_value.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/19 09:35:57 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/20 10:38:20 by abarrier         ###   ########.fr       */
+/*   Created: 2022/09/20 10:47:13 by abarrier          #+#    #+#             */
+/*   Updated: 2022/09/20 11:48:37 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-int	settings_texture_fd_open(t_mlx *mlx, int txt_type, char *filename)
+void	settings_rgb_set_value(t_mlx *mlx, int txt_type, int *rgb_tab)
 {
-	int	fd;
+	t_settings	*settings;
 
-	if (settings_texture_fd_check(mlx, txt_type) != 0)
-		return (EXIT_FAILURE);
-	fd = open(filename, O_RDONLY);
-	if (fd < 0)
-		return (ft_panic(-1, __func__, ERR_FILEOPEN));
-	settings_texture_fd_save(mlx, txt_type, fd);
-	return (0);
+	settings = &mlx->settings;
+	if (txt_type == F)
+		settings_rgb_set_value_type(&settings->f_r, &settings->f_g,
+				&settings->f_b, rgb_tab);
+	else if (txt_type == C)
+		settings_rgb_set_value_type(&settings->c_r, &settings->c_g,
+				&settings->c_b, rgb_tab);
 }
