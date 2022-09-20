@@ -6,7 +6,7 @@
 /*   By: abarrier <abarrier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 21:42:30 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/07 22:16:36 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/20 16:45:16 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	cb_mlx_show(t_mlx *mlx)
 {
 	printf("map ptr: %p\n", mlx->map);
+	printf("map fd: %d\n", mlx->map_fd);
 	printf("settings ptr: %p\n", &mlx->settings);
 	printf("image | height: %d\twidth: %d\n", mlx->image_height,
 		mlx->image_width);
