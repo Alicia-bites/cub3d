@@ -129,7 +129,7 @@ clean:
 
 fclean:
 			make clean
-			$(RM) $(NAME) $(FT_NAME)
+			$(RM) $(NAME) $(FTPATH)/$(FT_NAME)
   
 re:
 			make fclean
