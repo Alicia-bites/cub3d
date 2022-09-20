@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/19 18:18:14 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/20 11:42:58 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,17 @@
  * char *floor, cell are full string of rgb value as "255,30,0"
  * int *_r/g/b are individual integer value of rgb "255","30","0"
  */
+enum e_texture_type
+{
+	NO,
+	SO,
+	WE,
+	EA,
+	F,
+	C,
+	NONE
+};
+
 typedef struct s_settings
 {
 	char	*no;
