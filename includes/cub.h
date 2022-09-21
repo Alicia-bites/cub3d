@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/21 09:29:03 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/21 09:35:49 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@
 # define ERR_MAP_CONTENT "Minimum line number incorrect. Expected 8"
 # define ERR_MAP_DUP_TEXT "Duplicate texture in the map file. Expected only one"
 # define ERR_MAP_FORMAT "Wrong map format. Expected \".cub\""
+# define ERR_MAP_SPACE_IN "Space line in between map definition. Expected none"
 
 /* MAP FILE SETTINGS
  * char *no,so,we,ea are texture path
@@ -285,6 +286,9 @@ int     parse_map_fd(char *filename, t_mlx *mlx);
 void	parse_map_fd_free(void *content);
 t_map_fd   *parse_map_fd_init(int line_no, char *line);
 void    parse_map_fd_show(void *content);
+int     parse_map_lst(t_mlx *mlx);
+int     parse_map_lst_fullspace(t_mlx *mlx, t_ulist *obj);
+int     parse_map_lst_line(t_mlx *mlx, t_ulist *obj);
 void    parse_read_file(t_mlx *mlx);
 
 t_list	*create_list(char *line);
