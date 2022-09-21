@@ -64,8 +64,11 @@ PARSE_SRCS		:=	parse_argc.c\
 				parse_map_fd_init.c\
 				parse_map_fd_show.c\
 				parse_map_lst.c\
+				parse_map_lst_check.c\
 				parse_map_lst_fullspace.c\
+				parse_map_lst_get_value.c\
 				parse_map_lst_line.c\
+				parse_map_lst_line_txt_type.c\
 				parse_read_file.c\
 				create_list.c\
 					ft_parse.c\

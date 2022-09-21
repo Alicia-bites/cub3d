@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_map_lst_line.c                               :+:      :+:    :+:   */
+/*   parse_map_lst_check.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/21 09:02:52 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/21 13:06:36 by abarrier         ###   ########.fr       */
+/*   Created: 2022/09/21 12:58:38 by abarrier          #+#    #+#             */
+/*   Updated: 2022/09/21 13:11:59 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-int	parse_map_lst_line(t_mlx *mlx, t_ulist *obj)
+int	parse_map_lst_check(t_mlx *mlx, int txt_type, char *value)
 {
-	t_map_fd	*map;
-	int			txt_type;
-	char		*value;
-
-	map = (t_map_fd *)obj->content;
-	txt_type = parse_map_lst_line_txt_type(map);
-	value = NULL;
-	value = parse_map_lst_get_value(mlx, txt_type, map->line);
-	if (!value)
-		return (0);
-	if (parse_map_lst_check(mlx, txt_type, value) != 0)
+	if ((txt_type == NO || txt_type == SO || txt_type == WE
+		|| txt_type == EA)
+		&& settings_texture_fd_open(mlx, txt_type, value) != 0)
 		return (EXIT_FAILURE);
-	return (0);
+	else if ((txt_type == F || txt_type == C)
+		&& settings_rgb(mlx, txt_type, value) != 0)
+		return (EXIT_FAILURE);
+	else
+		return (0);
 }

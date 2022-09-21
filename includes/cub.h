@@ -290,8 +290,11 @@ void	parse_map_fd_free(void *content);
 t_map_fd   *parse_map_fd_init(int line_no, char *line);
 void    parse_map_fd_show(void *content);
 int     parse_map_lst(t_mlx *mlx);
+int     parse_map_lst_check(t_mlx *mlx, int txt_type, char *value);
 int     parse_map_lst_fullspace(t_mlx *mlx, t_ulist *obj);
+char    *parse_map_lst_get_value(t_mlx *mlx, int txt_type, char *str);
 int     parse_map_lst_line(t_mlx *mlx, t_ulist *obj);
+int     parse_map_lst_line_txt_type(t_map_fd *map);
 void    parse_read_file(t_mlx *mlx);
 
 t_list	*create_list(char *line);
