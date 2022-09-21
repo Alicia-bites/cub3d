@@ -82,6 +82,7 @@ SETTINGS_SRCS		:=	settings_init.c\
 				settings_rgb.c\
 				settings_rgb_check.c\
 				settings_rgb_check_char.c\
+				settings_rgb_check_dup.c\
 				settings_rgb_check_space.c\
 				settings_rgb_check_value.c\
 				settings_rgb_set_value.c\

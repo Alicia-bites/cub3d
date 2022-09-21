@@ -302,6 +302,7 @@ void	settings_init(t_settings *settings);
 int     settings_rgb(t_mlx *mlx, int txt_type, char *rgb);
 int     settings_rgb_check(char **rgb_lst, int *rgb_tab);
 int     settings_rgb_check_char(char *str);
+int     settings_rgb_check_dup(t_mlx *mlx, int txt_type);
 int     settings_rgb_check_space(char *str);
 int     settings_rgb_check_value(char *str, int *tab_i);
 void	settings_rgb_set_value(t_mlx *mlx, int txt_type, int *rgb_tab);
