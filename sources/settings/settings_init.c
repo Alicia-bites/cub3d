@@ -6,7 +6,7 @@
 /*   By: abarrier <abarrier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 21:34:02 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/21 09:05:17 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/21 12:12:48 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ void	settings_init(t_settings *settings)
 	settings->we = NULL;
 	settings->ea = NULL;
 	settings->floor = NULL;
-	settings->f_r = 0;
-	settings->f_g = 0;
-	settings->f_b = 0;
+	settings->f_r = -1;
+	settings->f_g = -1;
+	settings->f_b = -1;
 	settings->ceil = NULL;
-	settings->c_r = 0;
-	settings->c_g = 0;
-	settings->c_b = 0;
+	settings->c_r = -1;
+	settings->c_g = -1;
+	settings->c_b = -1;
 	settings->fd_no = FD_NOT_INIT;
 	settings->fd_so = FD_NOT_INIT;
 	settings->fd_we = FD_NOT_INIT;
