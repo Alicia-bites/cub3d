@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/21 09:35:49 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/21 10:29:07 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,13 +104,13 @@
  */
 enum e_texture_type
 {
+	NONE,
 	NO,
 	SO,
 	WE,
 	EA,
 	F,
-	C,
-	NONE
+	C
 };
 
 typedef struct s_settings
