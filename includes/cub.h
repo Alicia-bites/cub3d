@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/21 15:09:51 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/21 17:33:13 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@
 
 #define WINDOW_WIDTH 1000
 #define WINDOW_HEIGHT 1000
+#define TEX_WIDTH 64
+#define TEX_HEIGHT 64
 #define PI 3.141592653589793238
 #define FOV 2 * atan(0.66/1.0)
 #define mapWIDTH 24
@@ -80,45 +82,6 @@ typedef struct s_sprite
 	char	*name;
 }	t_sprite;
 
-typedef	struct s_vector
-{
-	double 	posX;
-	double	posY; 
-	double 	dirX;
-	double	dirY; 
-	double 	planeX;
-	double	planeY;
-	double	cameraX;
-	double	ray_dirX;
-	double	ray_dirY;
-	double	screen_width;
-	int		mapX;
-	int		mapY;
-
-	double	delta_distX;
-	double	delta_distY;
-	//length of ray from current position to next x or y-side
-	double 	side_distX;
-	double 	side_distY;
-	//what direction to step in x or y-direction (either +1 or -1)
-	int 	stepX;
-	int 	stepY;
-	int		hit;
-	//was a NS or a EW wall hit?
-	int		side;
-	
-	//used to calculate the length of the ray
-	double perp_wall_dist;
-
-	int		line_height;
-	int		draw_start;
-	int		draw_end;
-	int		h;
-	double	old_dirX;
-	double	old_planeX;
-	
-}	t_vector;
-
 typedef	struct s_img
 {
 	char	*path;
@@ -166,6 +129,9 @@ typedef struct s_game
 	int 	drawStart;
 	int 	drawEnd;
 	int 	color;
+	int		**buf;
+	int		re_buf;
+	int		texture[8][TEX_HEIGHT * TEX_WIDTH];
 } t_game;
 
 typedef struct s_coord
@@ -204,6 +170,11 @@ void	move_right(t_game *game);
 void	move_up(t_game *game);
 void	rotate_left(t_game *game);
 void	rotate_right(t_game *game);
+
+//TEXTURES
+int		init_buf(t_game *game);
+void	init_texture(t_game *game);
+void	generate_textures(t_game *game);
 
 // RAY_CASTING
 void	calculate_step(t_game *game);

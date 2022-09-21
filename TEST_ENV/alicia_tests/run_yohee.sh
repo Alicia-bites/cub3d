@@ -1,1 +1,1 @@
-clang -lXext -lX11 -lm yohee.c ../../minilibX/libmlx.h ../../minilibX/libmlx.a && ./a.out
+gcc tex_camera.c ../../minilibX/libmlx.h ../../minilibX/libmlx.a -lm -lXext -lX11 && ./a.out

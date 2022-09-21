@@ -29,6 +29,7 @@ OPATH			:=	obj
 SRCS_PATH		:=	sources
 GRAPH_PATH		:=	graphics
 CAM_PATH		:=	camera_movements
+TEX_PATH		:=	textures
 RAY_PATH		:=	ray_casting
 PARSE_PATH		:=	parsing
 UTILS_PATH		:=	utils
@@ -51,6 +52,9 @@ CAM_SRCS		:=	move_down.c\
 					rotate_left.c\
 					rotate_right.c\
 
+TEX_SRCS		:=	init_buf.c\
+					init_texture.c\
+
 PARSE_SRCS		:=	create_list.c\
 					ft_parse.c\
 					read_map.c\
@@ -68,6 +72,7 @@ UTILS_SRCS		:=	get_character_in_map.c\
 SRCS			:=	main.c\
 					$(GRAPH_SRCS)\
 					$(CAM_SRCS)\
+					$(TEX_SRCS)\
 					$(RAY_SRCS)\
 					$(PARSE_SRCS)\
 					$(UTILS_SRCS)\
@@ -79,6 +84,7 @@ vpath %.h $(IPATH)
 vpath %.c $(SRCS_PATH)\
 		$(SRCS_PATH)/$(GRAPH_PATH)\
 		$(SRCS_PATH)/$(GRAPH_PATH)/$(CAM_PATH)\
+		$(SRCS_PATH)/$(GRAPH_PATH)/$(TEX_PATH)\
 		$(SRCS_PATH)/$(RAY_PATH)\
 		$(SRCS_PATH)/$(PARSE_PATH)\
 		$(SRCS_PATH)/$(UTILS_PATH)\
