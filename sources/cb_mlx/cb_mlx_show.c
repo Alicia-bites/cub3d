@@ -6,7 +6,7 @@
 /*   By: abarrier <abarrier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 21:42:30 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/20 16:45:16 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/21 09:32:04 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,5 @@ void	cb_mlx_show(t_mlx *mlx)
 	printf("win ptr: %p\n", mlx->win_ptr);
 	printf("player image ptr: %p\n", mlx->player_image);
 	printf("no player image ptr: %p\n", mlx->no_player_image);
-	cb_mlx_show_settings(&mlx->settings);
+	settings_show(&mlx->settings);
 }
