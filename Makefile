@@ -82,6 +82,8 @@ RAY_SRCS		:=	calculate_ray_position_and_direction.c\
 					start_ray_casting_loop.c\
 
 SETTINGS_SRCS		:=	settings_init.c\
+				settings_free.c\
+				settings_free_close_fd.c\
 				settings_rgb.c\
 				settings_rgb_check.c\
 				settings_rgb_check_char.c\
@@ -94,6 +96,7 @@ SETTINGS_SRCS		:=	settings_init.c\
 				settings_show_string.c\
 				settings_texture_fd_check_dup.c\
 				settings_texture_fd_open.c\
+				settings_texture_fd_rm_nl.c\
 				settings_texture_fd_save.c
 
 UTILS_SRCS		:=	get_character_in_map.c\

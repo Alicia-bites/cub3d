@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   settings_texture_fd_open.c                         :+:      :+:    :+:   */
+/*   settings_texture_fd_rm_nl.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/19 09:35:57 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/21 15:41:29 by abarrier         ###   ########.fr       */
+/*   Created: 2022/09/21 15:23:59 by abarrier          #+#    #+#             */
+/*   Updated: 2022/09/21 15:35:52 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-int	settings_texture_fd_open(t_mlx *mlx, int txt_type, char *filename)
+void	settings_texture_fd_rm_nl(char *filename)
 {
-	int	fd;
+	size_t	len;
 
-	if (settings_texture_fd_check_dup(mlx, txt_type) != 0)
-		return (EXIT_FAILURE);
-	settings_texture_fd_rm_nl(filename);
-	fd = open(filename, O_RDONLY);
-	if (fd < 0)
-		return (ft_panic(-1, __func__, ERR_FILEOPEN));
-	settings_texture_fd_save(mlx, txt_type, fd);
-	return (0);
+	len = ft_strlen(filename);
+	if (len > 0)
+	len--;
+	while (len > 0 && ft_isspace(filename[len]) == 1)
+	{
+		filename[len] = '\0';
+		len--;
+	}
 }

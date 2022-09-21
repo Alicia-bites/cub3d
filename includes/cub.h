@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/21 13:11:27 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/21 15:35:07 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -303,6 +303,8 @@ t_list	*read_map(char *argv);
 
 // SETTINGS
 void	settings_init(t_settings *settings);
+void	settings_free(t_settings *settings);
+void	settings_free_close_fd(int *fd);
 int     settings_rgb(t_mlx *mlx, int txt_type, char *rgb);
 int     settings_rgb_check(char **rgb_lst, int *rgb_tab);
 int     settings_rgb_check_char(char *str);
@@ -315,6 +317,7 @@ void	settings_show(t_settings *settings);
 void	settings_show_string(char *title, char *s);
 int     settings_texture_fd_check_dup(t_mlx *mlx, int txt_type);
 int     settings_texture_fd_open(t_mlx *mlx, int txt_type, char *filename);
+void	settings_texture_fd_rm_nl(char *filename);
 int     settings_texture_fd_save(t_mlx *mlx, int txt_type, int fd);
 
 // GRAPHICS
