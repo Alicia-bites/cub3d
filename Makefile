@@ -45,7 +45,6 @@ RM				:=	rm -rf
 
 CB_MLX_SRCS		:=	cb_mlx_init.c\
 				cb_mlx_show.c\
-				cb_mlx_show_settings.c\
 				cb_mlx_show_string.c
 
 GRAPH_SRCS		:=	choose_wall_color.c\
@@ -77,14 +76,15 @@ RAY_SRCS		:=	calculate_ray_position_and_direction.c\
 					set_vectors.c\
 					start_ray_casting_loop.c\
 
-SETTINGS_SRCS		:=	settings_rgb.c\
+SETTINGS_SRCS		:=	settings_init.c\
+				settings_rgb.c\
 				settings_rgb_check.c\
 				settings_rgb_check_char.c\
 				settings_rgb_check_space.c\
 				settings_rgb_check_value.c\
 				settings_rgb_set_value.c\
 				settings_rgb_set_value_type.c\
-				settings_init.c\
+				settings_show.c\
 				settings_texture_fd_check.c\
 				settings_texture_fd_open.c\
 				settings_texture_fd_save.c
