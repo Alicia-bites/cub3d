@@ -88,7 +88,7 @@ SETTINGS_SRCS		:=	settings_init.c\
 				settings_rgb_set_value_type.c\
 				settings_show.c\
 				settings_show_string.c\
-				settings_texture_fd_check.c\
+				settings_texture_fd_check_dup.c\
 				settings_texture_fd_open.c\
 				settings_texture_fd_save.c
 

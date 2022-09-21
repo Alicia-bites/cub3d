@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/21 11:14:37 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/21 12:39:42 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -308,7 +308,7 @@ void	settings_rgb_set_value(t_mlx *mlx, int txt_type, int *rgb_tab);
 void	settings_rgb_set_value_type(int *r, int *g, int *b, int *rgb_tab);
 void	settings_show(t_settings *settings);
 void	settings_show_string(char *title, char *s);
-int     settings_texture_fd_check(t_mlx *mlx, int txt_type);
+int     settings_texture_fd_check_dup(t_mlx *mlx, int txt_type);
 int     settings_texture_fd_open(t_mlx *mlx, int txt_type, char *filename);
 int     settings_texture_fd_save(t_mlx *mlx, int txt_type, int fd);
 

@@ -6,7 +6,7 @@
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 09:35:57 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/20 10:38:20 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/21 12:38:09 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	settings_texture_fd_open(t_mlx *mlx, int txt_type, char *filename)
 {
 	int	fd;
 
-	if (settings_texture_fd_check(mlx, txt_type) != 0)
+	if (settings_texture_fd_check_dup(mlx, txt_type) != 0)
 		return (EXIT_FAILURE);
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
