@@ -6,7 +6,7 @@
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 10:31:17 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/21 14:52:28 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/21 17:52:54 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ char	*parse_map_lst_get_value(t_mlx *mlx, int txt_type, char *str)
 		return (&str[ft_strlen(MAP_TEXT_F)]);
 	else if (txt_type == C)
 		return (&str[ft_strlen(MAP_TEXT_C)]);
+	else if (txt_type == MAP)
+		return (str);
 	else
 		return (NULL);
 }
