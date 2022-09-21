@@ -44,7 +44,6 @@ AR				:=	ar rcs
 RM				:=	rm -rf
 
 CB_MLX_SRCS		:=	cb_mlx_init.c\
-				cb_mlx_init_settings.c\
 				cb_mlx_show.c\
 				cb_mlx_show_settings.c\
 				cb_mlx_show_string.c
@@ -85,6 +84,7 @@ SETTINGS_SRCS		:=	settings_rgb.c\
 				settings_rgb_check_value.c\
 				settings_rgb_set_value.c\
 				settings_rgb_set_value_type.c\
+				settings_init.c\
 				settings_texture_fd_check.c\
 				settings_texture_fd_open.c\
 				settings_texture_fd_save.c

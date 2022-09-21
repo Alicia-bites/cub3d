@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/20 17:32:52 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/21 08:34:15 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -268,7 +268,6 @@ typedef struct s_coord
 
 //MLX
 void	cb_mlx_init(t_mlx *mlx);
-void	cb_mlx_init_settings(t_settings *settings);
 void	cb_mlx_show(t_mlx *mlx);
 void	cb_mlx_show_settings(t_settings *settings);
 void	cb_mlx_show_string(char *title, char *s);
@@ -302,6 +301,7 @@ int     settings_rgb_check_space(char *str);
 int     settings_rgb_check_value(char *str, int *tab_i);
 void	settings_rgb_set_value(t_mlx *mlx, int txt_type, int *rgb_tab);
 void	settings_rgb_set_value_type(int *r, int *g, int *b, int *rgb_tab);
+void	settings_init(t_settings *settings);
 int     settings_texture_fd_check(t_mlx *mlx, int txt_type);
 int     settings_texture_fd_open(t_mlx *mlx, int txt_type, char *filename);
 int     settings_texture_fd_save(t_mlx *mlx, int txt_type, int fd);

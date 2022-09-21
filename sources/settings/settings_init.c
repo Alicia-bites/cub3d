@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cb_mlx_init_settings.c                             :+:      :+:    :+:   */
+/*   settings_init.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarrier <abarrier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 21:34:02 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/20 17:31:31 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/21 08:33:24 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-void	cb_mlx_init_settings(t_settings *settings)
+void	settings_init(t_settings *settings)
 {
 	settings->no = NULL;
 	settings->so = NULL;

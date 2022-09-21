@@ -6,7 +6,7 @@
 /*   By: abarrier <abarrier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 21:30:22 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/20 16:51:04 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/21 08:34:41 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,5 @@ void	cb_mlx_init(t_mlx *mlx)
 	mlx->win_ptr = NULL;
 	mlx->player_image = NULL;
 	mlx->no_player_image = NULL;
-	cb_mlx_init_settings(&mlx->settings);
+	settings_init(&mlx->settings);
 }
