@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cb_mlx_show_settings.c                             :+:      :+:    :+:   */
+/*   settings_show.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarrier <abarrier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 21:51:47 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/20 17:33:44 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/21 09:30:18 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-void	cb_mlx_show_settings(t_settings *settings)
+void	settings_show(t_settings *settings)
 {
-	cb_mlx_show_string("NO",settings->no);
-	cb_mlx_show_string("SO", settings->so);
-	cb_mlx_show_string("WE", settings->we);
-	cb_mlx_show_string("EA", settings->ea);
-	cb_mlx_show_string("FLOOR", settings->floor);
-	cb_mlx_show_string("CEIL", settings->ceil);
+	settings_show_string("NO",settings->no);
+	settings_show_string("SO", settings->so);
+	settings_show_string("WE", settings->we);
+	settings_show_string("EA", settings->ea);
+	settings_show_string("FLOOR", settings->floor);
+	settings_show_string("CEIL", settings->ceil);
 	printf("floor | g: %d\tg: %d\tb: %d\n", settings->f_r, settings->f_g,
 		settings->f_b);
 	printf("ceil | g: %d\tg: %d\tb: %d\n", settings->c_r, settings->c_g,
