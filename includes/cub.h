@@ -92,7 +92,7 @@
 # define ERR_MAP_COLOR_CHAR "Frobidden char. Expected numeric value 0-255"
 # define ERR_MAP_COLOR_DEF "Wrong rgb definition. Expected 3 values 0-255"
 # define ERR_MAP_COLOR_VAL "Wrong color value. Expected numeric value 0-255"
-# define ERR_MAP_CONTENT "Minimum line number incorrect. Expected 8"
+# define ERR_MAP_CONTENT "No valid map definition. Expected minimum 3 map line"
 # define ERR_MAP_DUP_TEXT "Duplicate texture in the map file. Expected only one"
 # define ERR_MAP_FORMAT "Wrong map format. Expected \".cub\""
 # define ERR_MAP_SPACE_IN "Space line in between map definition. Expected none"
