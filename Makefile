@@ -28,6 +28,7 @@ OPATH			:=	obj
 
 SRCS_PATH		:=	sources
 GRAPH_PATH		:=	graphics
+CAM_PATH		:=	camera_movements
 RAY_PATH		:=	ray_casting
 PARSE_PATH		:=	parsing
 UTILS_PATH		:=	utils
@@ -38,10 +39,17 @@ GRAPH_SRCS		:=	choose_wall_color.c\
 					destroy_sprites.c\
 					draw_vertical_line.c\
 					free_mlx.c\
-					ft_key_hook.c\
+					key_hook.c\
 					ft_red_cross.c\
 					init_game.c\
 					my_mlx_pixel_put.c\
+
+CAM_SRCS		:=	move_down.c\
+					move_left.c\
+					move_right.c\
+					move_up.c\
+					rotate_left.c\
+					rotate_right.c\
 
 PARSE_SRCS		:=	create_list.c\
 					ft_parse.c\
@@ -59,6 +67,7 @@ UTILS_SRCS		:=	get_character_in_map.c\
 
 SRCS			:=	main.c\
 					$(GRAPH_SRCS)\
+					$(CAM_SRCS)\
 					$(RAY_SRCS)\
 					$(PARSE_SRCS)\
 					$(UTILS_SRCS)\
@@ -69,6 +78,7 @@ DEPS			:=	$(OBJS:.o=.d)
 vpath %.h $(IPATH)
 vpath %.c $(SRCS_PATH)\
 		$(SRCS_PATH)/$(GRAPH_PATH)\
+		$(SRCS_PATH)/$(GRAPH_PATH)/$(CAM_PATH)\
 		$(SRCS_PATH)/$(RAY_PATH)\
 		$(SRCS_PATH)/$(PARSE_PATH)\
 		$(SRCS_PATH)/$(UTILS_PATH)\

@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/20 11:48:20 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/21 15:09:51 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -192,11 +192,18 @@ t_list	*read_map(char *argv);
 int		choose_wall_color(t_game *game);
 int		draw_vertical_line(t_game *game, int x);
 void	free_mlx(t_game *game);
-int		ft_key_hook(int keycode, t_game *game);
-int		keypress(int keycode, t_game *game);
+int		key_hook(int keycode, t_game *game);
 int		ft_redcross(t_game *game, int x);
 int		init_game(t_game *game);
 void	my_mlx_pixel_put(t_img *data, int x, int y, int color);
+
+// CAMERA_MOVEMENTS
+void	move_down(t_game *game);
+void	move_left(t_game *game);
+void	move_right(t_game *game);
+void	move_up(t_game *game);
+void	rotate_left(t_game *game);
+void	rotate_right(t_game *game);
 
 // RAY_CASTING
 void	calculate_step(t_game *game);
