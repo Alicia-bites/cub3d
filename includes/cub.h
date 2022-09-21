@@ -95,6 +95,7 @@
 # define ERR_MAP_CONTENT "No valid map definition. Expected minimum 3 map line"
 # define ERR_MAP_DUP_TEXT "Duplicate texture in the map file. Expected only one"
 # define ERR_MAP_FORMAT "Wrong map format. Expected \".cub\""
+# define ERR_MAP_ORDER "Wrong map order. Expected map at the end"
 # define ERR_MAP_SPACE_IN "Space line in between map definition. Expected none"
 # define ERR_MAP_TXT_TYPE "One of texture or rgb value is not correct"
 
