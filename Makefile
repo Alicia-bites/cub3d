@@ -83,6 +83,8 @@ RAY_SRCS		:=	calculate_ray_position_and_direction.c\
 
 SETTINGS_SRCS		:=	settings_init.c\
 				settings_check.c\
+				settings_check_map_order.c\
+				settings_check_map_start_line.c\
 				settings_check_txt_type.c\
 				settings_free.c\
 				settings_free_close_fd.c\
@@ -92,6 +94,7 @@ SETTINGS_SRCS		:=	settings_init.c\
 				settings_rgb_check_dup.c\
 				settings_rgb_check_space.c\
 				settings_rgb_check_value.c\
+				settings_rgb_set_line_no.c\
 				settings_rgb_set_value.c\
 				settings_rgb_set_value_type.c\
 				settings_show.c\
@@ -99,7 +102,8 @@ SETTINGS_SRCS		:=	settings_init.c\
 				settings_texture_fd_check_dup.c\
 				settings_texture_fd_open.c\
 				settings_texture_fd_rm_nl.c\
-				settings_texture_fd_save.c
+				settings_texture_fd_save.c\
+				settings_texture_fd_set_line_no.c
 
 UTILS_SRCS		:=	get_character_in_map.c\
 					print_map.c\

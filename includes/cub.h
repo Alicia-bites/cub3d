@@ -101,7 +101,6 @@
 
 /* MAP FILE SETTINGS
  * char *no,so,we,ea are texture path
- * char *floor, cell are full string of rgb value as "255,30,0"
  * int *_r/g/b are individual integer value of rgb "255","30","0"
  */
 enum e_texture_type
@@ -308,6 +307,8 @@ t_list	*read_map(char *argv);
 // SETTINGS
 void	settings_init(t_settings *settings);
 int	settings_check(t_settings *settings);
+int	settings_check_map_order(t_settings *settings);
+int	settings_check_map_start_line(t_settings *settings);
 int	settings_check_txt_type(t_settings *settings);
 void	settings_free(t_settings *settings);
 void	settings_free_close_fd(int *fd);
@@ -317,6 +318,7 @@ int     settings_rgb_check_char(char *str);
 int     settings_rgb_check_dup(t_mlx *mlx, int txt_type);
 int     settings_rgb_check_space(char *str);
 int     settings_rgb_check_value(char *str, int *tab_i);
+void	settings_rgb_set_line_no(t_mlx *mlx, int txt_type, t_map_fd *map);
 void	settings_rgb_set_value(t_mlx *mlx, int txt_type, int *rgb_tab);
 void	settings_rgb_set_value_type(int *r, int *g, int *b, int *rgb_tab);
 void	settings_show(t_settings *settings);
@@ -325,6 +327,8 @@ int     settings_texture_fd_check_dup(t_mlx *mlx, int txt_type);
 int     settings_texture_fd_open(t_mlx *mlx, int txt_type, char *filename);
 void	settings_texture_fd_rm_nl(char *filename);
 int     settings_texture_fd_save(t_mlx *mlx, int txt_type, int fd);
+void	settings_texture_fd_set_line_no(t_mlx *mlx, int txt_type,
+		t_map_fd *map);
 
 // GRAPHICS
 // void	destroy_sprites(t_game *game);
