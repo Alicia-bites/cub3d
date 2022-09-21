@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_vectors.c                                      :+:      :+:    :+:   */
+/*   init_struct.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 18:11:05 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/14 13:21:00 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/21 15:12:05 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-t_img	*init_image(t_img *image)
+static t_img	*init_image(t_img *image)
 {
 	image = ft_calloc(1, sizeof(t_img));
 	if (!image)
