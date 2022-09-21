@@ -82,6 +82,8 @@ RAY_SRCS		:=	calculate_ray_position_and_direction.c\
 					start_ray_casting_loop.c\
 
 SETTINGS_SRCS		:=	settings_init.c\
+				settings_check.c\
+				settings_check_txt_type.c\
 				settings_free.c\
 				settings_free_close_fd.c\
 				settings_rgb.c\
