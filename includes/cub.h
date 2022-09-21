@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/21 10:29:07 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/21 11:14:37 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,12 +80,12 @@
 # define MAP_FORMAT ".cub"
 # define MAP_CHARSET "01NSEW "
 # define MAP_COLOR_SEP ','
-# define MAP_TEXT_NO "NO"
-# define MAP_TEXT_SO "SO"
-# define MAP_TEXT_WE "WE"
-# define MAP_TEXT_EA "EA"
-# define MAP_TEXT_F "F"
-# define MAP_TEXT_C "C"
+# define MAP_TEXT_NO "NO "
+# define MAP_TEXT_SO "SO "
+# define MAP_TEXT_WE "WE "
+# define MAP_TEXT_EA "EA "
+# define MAP_TEXT_F "F "
+# define MAP_TEXT_C "C "
 # define MAP_FILE_MIN_LINE 9
 
 // MESSAGES
