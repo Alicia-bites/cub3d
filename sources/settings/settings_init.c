@@ -6,7 +6,7 @@
 /*   By: abarrier <abarrier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 21:34:02 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/21 08:33:24 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/21 09:05:17 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,6 @@ void	settings_init(t_settings *settings)
 	settings->fd_floor = FD_NOT_INIT;
 	settings->fd_ceil = FD_NOT_INIT;
 	settings->map_start_line = -1;
+	settings->map_width = -1;
+	settings->map_height = -1;
 }

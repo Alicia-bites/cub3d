@@ -134,6 +134,8 @@ typedef struct s_settings
 	int	fd_floor;
 	int	fd_ceil;
 	int	map_start_line;
+	int	map_width;
+	int	map_height;
 }	t_settings;
 
 typedef struct s_map_fd
