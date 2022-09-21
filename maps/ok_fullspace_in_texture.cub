@@ -1,18 +1,18 @@
 
-NO ./path_to_the_north_texture
+NO ./texture/no.xpm
 
 
-SO ./path_to_the_south_texture
-
-
-
-WE ./path_to_the_west_texture
+SO ./texture/so.xpm
 
 
 
+WE ./texture/we.xpm
 
 
-EA ./path_to_the_east_texture
+
+
+
+EA ./texture/ea.xpm
 
 
 
