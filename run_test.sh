@@ -44,7 +44,7 @@ function	run_maps()
 {
 	local	res_file="${4}_result_maps.txt";
 
-	echo -e "${YE}Executing \"${FUNCNAME}\"${NC}";
+	echo -e "${YE}Executing \"${FUNCNAME} - ${4}\"${NC}";
 	for i in ${2}/${4}*
 	do
 		echo -e "${BU}Progress on : ${i}${NC}" | tee -a ${3}/${res_file};
@@ -104,6 +104,7 @@ function	main()
 	if checkfiles ${FILE_P}; [ $? != 0 ]; then return 1; fi;
 	if create_dir_res ${ORI_P} ${RES_P}; [ $? != 0 ]; then return 1; fi;
 	run_maps ${PROGNAME} ${FILE_P} ${RES_P} "ko";
+	run_maps ${PROGNAME} ${FILE_P} ${RES_P} "ok";
 	run_manual ${PROGNAME} ${FILE_P} ${RES_P};
 	return 0
 }
