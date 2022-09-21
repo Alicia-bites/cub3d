@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/21 17:28:00 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/21 18:52:42 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,11 +121,9 @@ typedef struct s_settings
 	char	*so;
 	char	*we;
 	char	*ea;
-	char	*floor;
 	int	f_r;
 	int	f_g;
 	int	f_b;
-	char	*ceil;
 	int	c_r;
 	int	c_g;
 	int	c_b;
@@ -133,9 +131,13 @@ typedef struct s_settings
 	int	fd_so;
 	int	fd_we;
 	int	fd_ea;
-	int	fd_floor;
-	int	fd_ceil;
-	int	map_start_line;
+	int	no_line_no;
+	int	so_line_no;
+	int	we_line_no;
+	int	ea_line_no;
+	int	f_line_no;
+	int	c_line_no;
+	int	map_start_line_no;
 	int	map_width;
 	int	map_height;
 }	t_settings;

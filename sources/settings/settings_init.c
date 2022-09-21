@@ -6,7 +6,7 @@
 /*   By: abarrier <abarrier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 21:34:02 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/21 12:12:48 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/21 18:22:52 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,9 @@ void	settings_init(t_settings *settings)
 	settings->so = NULL;
 	settings->we = NULL;
 	settings->ea = NULL;
-	settings->floor = NULL;
 	settings->f_r = -1;
 	settings->f_g = -1;
 	settings->f_b = -1;
-	settings->ceil = NULL;
 	settings->c_r = -1;
 	settings->c_g = -1;
 	settings->c_b = -1;
@@ -30,9 +28,13 @@ void	settings_init(t_settings *settings)
 	settings->fd_so = FD_NOT_INIT;
 	settings->fd_we = FD_NOT_INIT;
 	settings->fd_ea = FD_NOT_INIT;
-	settings->fd_floor = FD_NOT_INIT;
-	settings->fd_ceil = FD_NOT_INIT;
-	settings->map_start_line = -1;
+	settings->no_line_no = -1;
+	settings->so_line_no = -1;
+	settings->we_line_no = -1;
+	settings->ea_line_no = -1;
+	settings->f_line_no = -1;
+	settings->c_line_no = -1;
+	settings->map_start_line_no = -1;
 	settings->map_width = -1;
 	settings->map_height = -1;
 }

@@ -6,7 +6,7 @@
 /*   By: abarrier <abarrier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 21:51:47 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/21 16:49:18 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/21 18:36:47 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,17 @@ void	settings_show(t_settings *settings)
 	settings_show_string("SO", settings->so);
 	settings_show_string("WE", settings->we);
 	settings_show_string("EA", settings->ea);
-	settings_show_string("FLOOR", settings->floor);
-	settings_show_string("CEIL", settings->ceil);
 	printf("floor | g: %d\tg: %d\tb: %d\n", settings->f_r, settings->f_g,
 		settings->f_b);
 	printf("ceil | g: %d\tg: %d\tb: %d\n", settings->c_r, settings->c_g,
 		settings->c_b);
 	printf("fd | no: %d\tso: %d\twe: %d\tea: %d\n", settings->fd_no,
 		settings->fd_so, settings->fd_we, settings->fd_ea);
-	printf("fd | floor: %d\tceil: %d\n", settings->fd_floor,
-		settings->fd_ceil);
-	printf("map start line: %d\n", settings->map_start_line);
+	printf("line_no | no: %d\tso: %d\twe: %d\tea: %d\tf: %d\tc: %d\n",
+		settings->no_line_no, settings->so_line_no,
+		settings->we_line_no, settings->ea_line_no,
+		settings->f_line_no, settings->c_line_no);
+	printf("map | start line: %d\twidth: %d\theight: %d\n",
+		settings->map_start_line_no, settings->map_width,
+		settings->map_height);
 }
