@@ -176,9 +176,14 @@ archive:		$(filter-out $(OBJ)/main.o, $(OBJS))
 
 test:
 			make
-			$(VALGRIND) ./$(NAME) maps/map_subject.cub
+			@echo "TEST - OK"
+			$(VALGRIND) ./$(NAME) maps/ok_subject.cub
 			@echo $(SEP_P)
-			$(VALGRIND) ./$(NAME) maps/map_subject.cub.cub
+			@echo "TEST - KO MISSING FILE"
+			$(VALGRIND) ./$(NAME) maps/ok_subject.cub.cub
+			@echo $(SEP_P)
+			@echo "TEST - KO DUPLICATE TEXTURE DATA"
+			$(VALGRIND) ./$(NAME) maps/ko_SO_dup.cub
 			@echo $(SEP_P)
 
 -include $(DEPS)
