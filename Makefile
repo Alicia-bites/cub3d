@@ -183,6 +183,8 @@ test:
 			@echo $(SEP_P)
 			@echo "TEST - KO MISSING FILE"
 			$(VALGRIND) ./$(NAME) maps/ok_subject.cub.cub
+			@echo $(SEP_S)
+			$(VALGRIND) ./$(NAME) maps/ko_SO_no_space_sep.cub
 			@echo $(SEP_P)
 			@echo "TEST - KO DUPLICATE TEXTURE DATA"
 			$(VALGRIND) ./$(NAME) maps/ko_SO_dup.cub
