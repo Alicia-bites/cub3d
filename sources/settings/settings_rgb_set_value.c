@@ -6,7 +6,7 @@
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 10:47:13 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/20 11:48:37 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/21 16:48:31 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	settings_rgb_set_value(t_mlx *mlx, int txt_type, int *rgb_tab)
 	settings = &mlx->settings;
 	if (txt_type == F)
 		settings_rgb_set_value_type(&settings->f_r, &settings->f_g,
-				&settings->f_b, rgb_tab);
+			&settings->f_b, rgb_tab);
 	else if (txt_type == C)
 		settings_rgb_set_value_type(&settings->c_r, &settings->c_g,
-				&settings->c_b, rgb_tab);
+			&settings->c_b, rgb_tab);
 }

@@ -6,7 +6,7 @@
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 16:34:58 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/20 12:56:26 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/21 16:48:56 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@
  */
 int	settings_rgb_check(char **rgb_lst, int *rgb_tab)
 {
-	int	i;
+	int		i;
 	size_t	len;
 
 	i = 0;

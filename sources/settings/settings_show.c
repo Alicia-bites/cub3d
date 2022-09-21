@@ -6,7 +6,7 @@
 /*   By: abarrier <abarrier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 21:51:47 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/21 09:30:18 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/21 16:49:18 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	settings_show(t_settings *settings)
 {
-	settings_show_string("NO",settings->no);
+	settings_show_string("NO", settings->no);
 	settings_show_string("SO", settings->so);
 	settings_show_string("WE", settings->we);
 	settings_show_string("EA", settings->ea);
