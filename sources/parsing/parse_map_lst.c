@@ -6,7 +6,7 @@
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 08:39:15 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/21 11:16:03 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/21 14:56:37 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	parse_map_lst(t_mlx *mlx)
 		else if (parse_map_lst_fullspace(mlx, obj) == 0)
 		{
 			printf("DEBUG: [%d] is a line\n", map->line_no);
-			if (parse_map_lst_line(mlx, obj) == -1)
+			if (parse_map_lst_line(mlx, obj) != 0)
 				return (EXIT_FAILURE);
 		}
 		else
