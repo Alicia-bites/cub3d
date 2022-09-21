@@ -6,7 +6,7 @@
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 08:50:36 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/21 09:36:58 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/21 11:10:34 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	parse_map_lst_fullspace(t_mlx *mlx, t_ulist *obj)
 {
 	t_map_fd	*map;
 	size_t		len;
-	int		i;
+	int			i;
 
 	map = (t_map_fd *)obj->content;
 	len = ft_strlen(map->line);
@@ -27,7 +27,7 @@ int	parse_map_lst_fullspace(t_mlx *mlx, t_ulist *obj)
 	{
 		if (mlx->settings.map_start_line >= 0)
 			return (ft_panic_value(-1, __func__,
-				ERR_MAP_SPACE_IN, -1));
+					ERR_MAP_SPACE_IN, -1));
 		else
 			return (1);
 	}
