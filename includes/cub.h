@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/22 10:49:39 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/22 17:01:38 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,15 +87,18 @@
 # define MAP_TEXT_F "F "
 # define MAP_TEXT_C "C "
 # define MAP_FILE_MIN_LINE 9
+# define MAP_SIZE_MIN 3
 
 // MESSAGES
 # define ERR_MAP_COLOR_CHAR "Frobidden char. Expected numeric value 0-255"
 # define ERR_MAP_COLOR_DEF "Wrong rgb definition. Expected 3 values 0-255"
 # define ERR_MAP_COLOR_VAL "Wrong color value. Expected numeric value 0-255"
-# define ERR_MAP_CONTENT "No valid map definition. Expected minimum 3 map line"
+# define ERR_MAP_CONTENT "No valid map definition. Expected minimum 8 line"
 # define ERR_MAP_DUP_TEXT "Duplicate texture in the map file. Expected only one"
 # define ERR_MAP_FORMAT "Wrong map format. Expected \".cub\""
+# define ERR_MAP_NONE "No map definition, Expected minimum 3 map line"
 # define ERR_MAP_ORDER "Wrong map order. Expected map at the end"
+# define ERR_MAP_SIZE_MIN "Invalid map size. Expected minimum 3 map line"
 # define ERR_MAP_SPACE_IN "Space line in between map definition. Expected none"
 # define ERR_MAP_TXT_TYPE "One of texture or rgb value is not correct"
 
@@ -310,6 +313,7 @@ void	settings_init(t_settings *settings);
 int	settings_check(t_settings *settings);
 int	settings_check_map_order(t_settings *settings);
 int	settings_check_map_start_line(t_settings *settings);
+int	settings_check_map_size_min(t_settings *settings);
 int	settings_check_txt_type(t_settings *settings);
 void	settings_free(t_settings *settings);
 void	settings_free_close_fd(int *fd);
@@ -331,6 +335,9 @@ int     settings_texture_fd_open(t_mlx *mlx, int txt_type, char *filename);
 int     settings_texture_fd_save(t_mlx *mlx, int txt_type, int fd);
 void	settings_texture_fd_set_line_no(t_mlx *mlx, int txt_type,
 		t_map_fd *map);
+
+// MAP
+
 
 // GRAPHICS
 // void	destroy_sprites(t_game *game);

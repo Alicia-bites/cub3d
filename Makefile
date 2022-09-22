@@ -55,7 +55,7 @@ GRAPH_SRCS		:=	choose_wall_color.c\
 					init_game.c\
 					my_mlx_pixel_put.c\
 
-MAP_SRCS		:=	map_lst.c
+MAP_SRCS		:=	map.c
 
 PARSE_SRCS		:=	parse_argc.c\
 				parse.c\
@@ -85,6 +85,7 @@ SETTINGS_SRCS		:=	settings_init.c\
 				settings_check.c\
 				settings_check_map_order.c\
 				settings_check_map_start_line.c\
+				settings_check_map_size_min.c\
 				settings_check_txt_type.c\
 				settings_free.c\
 				settings_free_close_fd.c\
