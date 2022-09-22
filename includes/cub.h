@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/21 18:52:42 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/22 08:46:18 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,6 +138,7 @@ typedef struct s_settings
 	int	f_line_no;
 	int	c_line_no;
 	int	map_start_line_no;
+	int	map_end_line_no;
 	int	map_width;
 	int	map_height;
 }	t_settings;

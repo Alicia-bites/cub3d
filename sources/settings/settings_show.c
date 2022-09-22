@@ -6,7 +6,7 @@
 /*   By: abarrier <abarrier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 21:51:47 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/21 18:36:47 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/22 08:47:31 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	settings_show(t_settings *settings)
 		settings->no_line_no, settings->so_line_no,
 		settings->we_line_no, settings->ea_line_no,
 		settings->f_line_no, settings->c_line_no);
-	printf("map | start line: %d\twidth: %d\theight: %d\n",
-		settings->map_start_line_no, settings->map_width,
-		settings->map_height);
+	printf("map | start line: %d\tend line: %d\ttwidth: %d\theight: %d\n",
+		settings->map_start_line_no, settings->map_end_line_no,
+		settings->map_width, settings->map_height);
 }
