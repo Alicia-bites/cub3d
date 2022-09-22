@@ -15,12 +15,13 @@
 // Start mlx loop, set hook on keys and start raycasting loop.
 static int	start_game(t_game *game)
 {
-
 	game->win = mlx_new_window(game->mlx, WINDOW_WIDTH, WINDOW_HEIGHT, "mlx");
 	game->img.mlx_img = mlx_new_image(game->mlx, WINDOW_WIDTH, WINDOW_HEIGHT);
-	game->img.data = (int *)mlx_get_data_addr(game->img.mlx_img, &game->img.bits_per_pixel, &game->img.line_length, &game->img.endian);
+	game->img.data = (int *)mlx_get_data_addr(game->img.mlx_img,
+		&game->img.bits_per_pixel, &game->img.line_length, &game->img.endian);
 	start_ray_casting_loop(game);
 	mlx_key_hook(game->win, &key_hook, game);
+	mlx_hook(game->win, 17, 0, ft_redcross, game);
 	mlx_loop(game->mlx);
 	return (0);
 }
