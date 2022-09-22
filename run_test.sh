@@ -18,7 +18,7 @@ ORI_P=$(pwd)
 FILE_P=${ORI_P}/maps
 RES_P=${ORI_P}/result
 
-TEST_MANUAL=("file_does_not_exist" "${FILE_P}/map_subject.cub            ")
+TEST_MANUAL=("file_does_not_exist" "map_subject.cub            ")
 
 function	run_manual()
 {
@@ -28,7 +28,7 @@ function	run_manual()
 	for i in ${TEST_MANUAL[@]}
 	do
 		echo -e "${BU}Progress on : ${2}/${i}${NC}" | tee -a ${3}/${res_file};
-		if ./${1} ${2}/${i}; [ $? != 0 ]
+		if ./${1} ${2}/${i} >> ${3}/${res_file} 2>&1; [ $? != 0 ]
 		then
 			echo -e "${RD}Program failed${NC}" | tee -a ${3}/${res_file};
 		else
@@ -48,7 +48,7 @@ function	run_maps()
 	for i in ${2}/${4}*
 	do
 		echo -e "${BU}Progress on : ${i}${NC}" | tee -a ${3}/${res_file};
-		if ./${1} ${i}; [ $? != 0 ]
+		if ./${1} ${i} >> ${3}/${res_file} 2>&1; [ $? != 0 ]
 		then
 			echo -e "${RD}Program failed${NC}" | tee -a ${3}/${res_file};
 		else
