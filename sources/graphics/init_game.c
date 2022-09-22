@@ -31,7 +31,6 @@ int	init_game(t_game *game)
 	int	err;
 
 	game->mlx = mlx_init();
-
 	init_struct(game);
 	err = init_buf(game);
 	if (err)
