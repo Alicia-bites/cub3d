@@ -6,7 +6,7 @@
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 08:50:36 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/22 09:12:10 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/22 09:24:29 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	parse_map_lst_fullspace(t_mlx *mlx, t_ulist *obj)
 	if (i == (int)len)
 	{
 		if (mlx->settings.map_start_line_no >= 0)
-			mlx->settings.map_end_line_no = map->line_no;
+			mlx->settings.map_end_line_no = map->line_no - 1;
 		return (1);
 	}
 	return (0);
