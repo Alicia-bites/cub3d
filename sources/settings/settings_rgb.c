@@ -6,7 +6,7 @@
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 16:18:26 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/20 11:07:13 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/22 10:50:13 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ int	settings_rgb(t_mlx *mlx, int txt_type, char *rgb)
 	rgb_lst = ft_split((const char *)rgb, MAP_COLOR_SEP);
 	if (!rgb_lst)
 		return (ft_panic(-1, __func__, ERR_NOOBJ));
+	settings_rgb_rm_space_end(rgb_lst);
 	if (settings_rgb_check(rgb_lst, rgb_tab) != 0)
 	{
 		ft_free_ptrptr_str(rgb_lst);

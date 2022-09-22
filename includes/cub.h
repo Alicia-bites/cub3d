@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/22 08:46:18 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/22 10:49:39 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -319,14 +319,15 @@ int     settings_rgb_check_char(char *str);
 int     settings_rgb_check_dup(t_mlx *mlx, int txt_type);
 int     settings_rgb_check_space(char *str);
 int     settings_rgb_check_value(char *str, int *tab_i);
+void	settings_rgb_rm_space_end(char **rgb_lst);
 void	settings_rgb_set_line_no(t_mlx *mlx, int txt_type, t_map_fd *map);
 void	settings_rgb_set_value(t_mlx *mlx, int txt_type, int *rgb_tab);
 void	settings_rgb_set_value_type(int *r, int *g, int *b, int *rgb_tab);
+void	settings_rm_space_end(char *str);
 void	settings_show(t_settings *settings);
 void	settings_show_string(char *title, char *s);
 int     settings_texture_fd_check_dup(t_mlx *mlx, int txt_type);
 int     settings_texture_fd_open(t_mlx *mlx, int txt_type, char *filename);
-void	settings_texture_fd_rm_nl(char *filename);
 int     settings_texture_fd_save(t_mlx *mlx, int txt_type, int fd);
 void	settings_texture_fd_set_line_no(t_mlx *mlx, int txt_type,
 		t_map_fd *map);

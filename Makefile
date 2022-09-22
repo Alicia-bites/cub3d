@@ -94,14 +94,15 @@ SETTINGS_SRCS		:=	settings_init.c\
 				settings_rgb_check_dup.c\
 				settings_rgb_check_space.c\
 				settings_rgb_check_value.c\
+				settings_rgb_rm_space_end.c\
 				settings_rgb_set_line_no.c\
 				settings_rgb_set_value.c\
 				settings_rgb_set_value_type.c\
+				settings_rm_space_end.c\
 				settings_show.c\
 				settings_show_string.c\
 				settings_texture_fd_check_dup.c\
 				settings_texture_fd_open.c\
-				settings_texture_fd_rm_nl.c\
 				settings_texture_fd_save.c\
 				settings_texture_fd_set_line_no.c
 
