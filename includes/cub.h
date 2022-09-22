@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/22 17:01:38 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/22 18:10:22 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,8 @@
 # define MAP_SIZE_MIN 3
 
 // MESSAGES
-# define ERR_MAP_COLOR_CHAR "Frobidden char. Expected numeric value 0-255"
+# define ERR_MAP_CHAR "Forbidden char. Expected numeric \"01NSEW \""
+# define ERR_MAP_COLOR_CHAR "Forbidden char. Expected numeric value 0-255"
 # define ERR_MAP_COLOR_DEF "Wrong rgb definition. Expected 3 values 0-255"
 # define ERR_MAP_COLOR_VAL "Wrong color value. Expected numeric value 0-255"
 # define ERR_MAP_CONTENT "No valid map definition. Expected minimum 8 line"
@@ -337,7 +338,12 @@ void	settings_texture_fd_set_line_no(t_mlx *mlx, int txt_type,
 		t_map_fd *map);
 
 // MAP
-
+int	map(t_mlx *mlx);
+int     map_check_char(t_mlx *mlx, t_ulist *map_obj);
+int     map_check_char_line(char *str);
+t_ulist	*map_get_start_obj(t_mlx *mlx);
+void    map_rm_nl(t_mlx *mlx, t_ulist *map_obj);
+void    map_rm_nl_line(char *str);
 
 // GRAPHICS
 // void	destroy_sprites(t_game *game);

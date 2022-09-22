@@ -55,7 +55,12 @@ GRAPH_SRCS		:=	choose_wall_color.c\
 					init_game.c\
 					my_mlx_pixel_put.c\
 
-MAP_SRCS		:=	map.c
+MAP_SRCS		:=	map.c\
+				map_check_char.c\
+				map_check_char_line.c\
+				map_get_start_obj.c\
+				map_rm_nl.c\
+				map_rm_nl_line.c
 
 PARSE_SRCS		:=	parse_argc.c\
 				parse.c\

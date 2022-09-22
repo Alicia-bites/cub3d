@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_lst.c                                          :+:      :+:    :+:   */
+/*   map_check_char_line.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/20 17:21:52 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/20 17:24:53 by abarrier         ###   ########.fr       */
+/*   Created: 2022/09/22 18:01:52 by abarrier          #+#    #+#             */
+/*   Updated: 2022/09/22 18:07:30 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-int	map_lst(t_mlx *mlx)
+int	map_check_char_line(char *str)
 {
-	(void)mlx;
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (ft_strchr(MAP_CHARSET, str[i]) == NULL)
+			return (ft_panic(-1, __func__, ERR_MAP_CHAR));
+		i++;
+	}
 	return (0);
 }
