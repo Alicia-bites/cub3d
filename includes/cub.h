@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/22 16:04:48 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/22 16:35:20 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,6 +135,7 @@ typedef struct s_game
 	double	wall_x;
 	int		tex_x;
 	double	step;
+	int		tex_dir;
 } t_game;
 
 typedef struct s_coord

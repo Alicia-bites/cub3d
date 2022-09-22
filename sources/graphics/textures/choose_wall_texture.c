@@ -6,13 +6,13 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 10:25:05 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/22 15:57:17 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/22 16:37:03 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-void	find_x_coordinate_in_texture(t_game *game)
+static void	find_x_coordinate_in_texture(t_game *game)
 {
 	extern int	worldMap[24][24];
 	
@@ -74,8 +74,16 @@ void	choose_wall_texture(t_game *game, int x)
 	extern int	worldMap[24][24];
 	
 	game->tex_number = worldMap[game->mapX][game->mapY] - 1;
+	if (game->side == 0 && game->ray_dirX < 0)
+		game->tex_dir = 0;
+	if (game->side == 0 && game->ray_dirX >= 0)
+		game->tex_dir = 1;
+	if (game->side == 1 && game->ray_dirY < 0)
+		game->tex_dir = 2;
+	if (game->side == 1 && game->ray_dirY >= 0)
+		game->tex_dir = 3;
 	if (game->side == 0)
-		game->wall_x = game->posY + game->perpWallDist * game->ray_dirY;
+		game->wall_x = game->posY + game->perpWallDist * game->ray_dirY;		
 	else
 		game->wall_x = game->posX + game->perpWallDist * game->ray_dirX;
 	game->wall_x -= floor(game->wall_x);
