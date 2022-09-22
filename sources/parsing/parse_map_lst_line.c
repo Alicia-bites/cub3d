@@ -6,7 +6,7 @@
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 09:02:52 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/21 17:54:58 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/22 09:30:41 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,7 @@ int	parse_map_lst_line(t_mlx *mlx, t_ulist *obj)
 		return (0);
 	if (parse_map_lst_check(mlx, txt_type, map, value) != 0)
 		return (EXIT_FAILURE);
+	if (obj->next == NULL && mlx->settings.map_end_line_no < 0)
+		mlx->settings.map_end_line_no = map->line_no;
 	return (0);
 }
