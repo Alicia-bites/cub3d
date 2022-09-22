@@ -11,8 +11,8 @@
 // #define WINDOW_HEIGHT 1000
 // #define PI 3.141592
 // #define FOV 2 * atan(0.66/1.0)
-// #define mapWIDTH 24
-// #define mapHeight 24
+// #define MAP_WIDTH 24
+// #define MAP_HEIGHT 24
 // // #define screenWIDTH 1000
 // // #define screenHeight 1000
 // #define moveSpeed 0.1
@@ -73,7 +73,7 @@
 // 	return (ptr);
 // }
 
-// int worldMap[mapWIDTH][mapHeight]=
+// int worldMap[MAP_WIDTH][MAP_HEIGHT]=
 // {
 //   {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
 //   {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},

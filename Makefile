@@ -54,6 +54,9 @@ CAM_SRCS		:=	move_down.c\
 
 TEX_SRCS		:=	init_buf.c\
 					init_texture.c\
+					generate_textures.c\
+					choose_wall_texture.c\
+					init_re_buf.c\
 
 PARSE_SRCS		:=	create_list.c\
 					ft_parse.c\

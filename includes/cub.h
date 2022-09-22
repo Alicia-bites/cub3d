@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/21 17:33:13 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/22 16:04:48 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,14 @@
 # include "../minilibX/libmlx.h"
 # include "libft.h"
 
-#define WINDOW_WIDTH 1000
-#define WINDOW_HEIGHT 1000
+#define X_EVENT_key_hook 2
+#define X_EVENT_KEY_EXIT 17
 #define TEX_WIDTH 64
 #define TEX_HEIGHT 64
-#define PI 3.141592653589793238
-#define FOV 2 * atan(0.66/1.0)
-#define mapWIDTH 24
-#define mapHeight 24
-#define screenWIDTH 1000
-#define screenHeight 1000
+#define MAP_WIDTH 24
+#define MAP_HEIGHT 24
+#define WINDOW_WIDTH 1920
+#define WINDOW_HEIGHT 1080
 #define MOVESPEED 0.5
 #define ROTSPEED 0.5
 
@@ -59,7 +57,7 @@
 #  define K_RIGHT 65363 // Ici
 #  define K_SHIFT 65505
 #  define ESC 65307
-#  define ESP 32
+// #  define ESP 32
 
 # define BACKGROUND_COLOR 0x00898c83
 # define PLAYER_COLOR 0x00a44620
@@ -71,9 +69,6 @@
 # define SPRITE_COUNT 9
 # define CHAR_NOT_FOUND	'N'
 
-#define mapWIDTH 24
-#define mapHeight 24
-
 #define X_EVENT_KEY_PRESS 17
 
 typedef struct s_sprite
@@ -84,6 +79,7 @@ typedef struct s_sprite
 
 typedef	struct s_img
 {
+	int		*data;
 	char	*path;
 	int		len_path;
 	void	*mlx_img;
@@ -91,15 +87,15 @@ typedef	struct s_img
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
-	int		width;
-	int		height;
+	// int		width;
+	// int		height;
 } t_img;
 
 typedef struct s_game
 {
 	void	*mlx;
 	void	*win;
-	t_img	*image;
+	t_img	img;
 	int		*map;
 	double 	posX;
 	double	posY; 
@@ -132,6 +128,13 @@ typedef struct s_game
 	int		**buf;
 	int		re_buf;
 	int		texture[8][TEX_HEIGHT * TEX_WIDTH];
+	int		xorcolor;
+	int		ycolor;
+	int		xycolor;
+	int		tex_number;
+	double	wall_x;
+	int		tex_x;
+	double	step;
 } t_game;
 
 typedef struct s_coord
@@ -156,7 +159,7 @@ t_list	*read_map(char *argv);
 // GRAPHICS
 // void	destroy_sprites(t_game *game);
 int		choose_wall_color(t_game *game);
-int		draw_vertical_line(t_game *game, int x);
+void	draw_vertical_line(t_game *game);
 void	free_mlx(t_game *game);
 int		key_hook(int keycode, t_game *game);
 int		ft_redcross(t_game *game, int x);
@@ -175,6 +178,8 @@ void	rotate_right(t_game *game);
 int		init_buf(t_game *game);
 void	init_texture(t_game *game);
 void	generate_textures(t_game *game);
+void	choose_wall_texture(t_game *game, int x);
+void	init_re_buf(t_game *game);
 
 // RAY_CASTING
 void	calculate_step(t_game *game);

@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:54:11 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/14 15:20:04 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/22 14:40:50 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	main(int argc, char **argv)
 		return (-1);
 	}
   game.map = map;
-	// print_tab(worldMap, mapWIDTH, mapHeight);
+	// print_tab(worldMap, MAP_WIDTH, MAP_HEIGHT);
 	init_game(&game);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/15 12:12:25 by yohan             #+#    #+#             */
-/*   Updated: 2022/09/13 12:50:11 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/22 14:40:50 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 #include <stdlib.h>
 #define X_EVENT_KEY_PRESS	2
 #define X_EVENT_KEY_EXIT	17
-#define mapWidth 24
-#define mapHeight 24
+#define MAP_WIDTH 24
+#define MAP_HEIGHT 24
 #define width 640
 #define height 480
 

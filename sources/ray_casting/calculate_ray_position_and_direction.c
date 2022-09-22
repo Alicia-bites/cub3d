@@ -6,32 +6,38 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 18:10:33 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/14 15:40:41 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/22 15:58:54 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-int	calculate_ray_position_and_direction(t_game *game, int x)
+static void	get_which_box_of_the_map_we_re_in(t_game *game)
 {
-	// calculate ray position and direction
-	game->cameraX = 2.0 * (double)x / (double)game->width - 1.0;
-	game->ray_dirX = game->dirX + game->planeX * game->cameraX;
-	game->ray_dirY = game->dirY + game->planeY * game->cameraX;
-	//which box of the map we're in
 	game->mapX = (int)game->posX;
 	game->mapY = (int)game->posY;
-	//--> to see if a wall was hit :
-	game->hit = 0;
-	//length of ray from one x-side to next x-side
-	if (game->ray_dirX == 0.0)
-		game->deltaDistX = 1e30;
-	else
-		game->deltaDistX = fabs(1.0 / game->ray_dirX);
-	//length of ray from one y-side to next y-side
-	if (game->ray_dirY == 0.0)
-		game->deltaDistY = 1e30;
-	else
-		game->deltaDistY = fabs(1.0 / game->ray_dirY);
+}
+
+static void	get_length_of_ray_from_x_or_y_side_to_next_x_or_y_side(t_game *game)
+{
+	game->deltaDistX = fabs(1 / game->ray_dirX);
+	game->deltaDistY = fabs(1 / game->ray_dirY);
+	// if (game->ray_dirX == 0.0)
+	// 	game->game->deltaDistX = 1e30;
+	// else
+	// 	game->game->deltaDistX = fabs(1.0 / game->ray_dirX);
+	// if (game->ray_dirY == 0.0)
+	// 	game->deltaDistY = 1e30;
+	// else
+	// 	game->deltaDistY = fabs(1.0 / game->ray_dirY);
+}
+
+int	calculate_ray_position_and_direction(t_game *game, int x)
+{
+	game->cameraX = 2.0 * x / (double)WINDOW_WIDTH - 1.0;
+	game->ray_dirX = game->dirX + game->planeX * game->cameraX;
+	game->ray_dirY = game->dirY + game->planeY * game->cameraX;
+	get_which_box_of_the_map_we_re_in(game);
+	get_length_of_ray_from_x_or_y_side_to_next_x_or_y_side(game);
 	return (0);
 }

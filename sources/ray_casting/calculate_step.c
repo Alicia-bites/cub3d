@@ -6,15 +6,15 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 18:11:26 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/14 15:42:16 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/22 15:58:32 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
+// Calculate step and initial sideDist.
 void	calculate_step(t_game *game)
 {
-	//calculate step and initial sideDist
 	if (game->ray_dirX < 0)
 	{
 		game->stepX = -1;

@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_vertical_line.c                               :+:      :+:    :+:   */
+/*   init_re_buf.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/06 09:36:25 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/22 15:59:11 by amarchan         ###   ########.fr       */
+/*   Created: 2022/09/22 15:55:47 by amarchan          #+#    #+#             */
+/*   Updated: 2022/09/22 15:55:59 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-void	draw_vertical_line(t_game *game)
+void	init_re_buf(t_game *game)
 {
-	int	y;
-	int	x;
+	int	i;
+	int	j;
 
-	y = 0;
-	while (y < WINDOW_HEIGHT)
+	if (game->re_buf == 1)
 	{
-		x = 0;
-		while (x < WINDOW_WIDTH)
+		i = 0;
+		while (i < WINDOW_HEIGHT)
 		{
-			game->img.data[y * WINDOW_WIDTH + x] = game->buf[y][x];
-			x++;
+			j = 0;
+			while (j < WINDOW_WIDTH)
+			{
+				game->buf[i][j] = 0;
+				j++;
+			}
+			i++;
 		}
-		y++;
+		game->re_buf = 0;
 	}
 }
