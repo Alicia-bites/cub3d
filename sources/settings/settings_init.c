@@ -6,7 +6,7 @@
 /*   By: abarrier <abarrier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 21:34:02 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/23 11:00:46 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/23 17:40:03 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,4 @@ void	settings_init(t_settings *settings)
 	settings->f_line_no = -1;
 	settings->c_line_no = -1;
 	settings_init_map(settings);
-	}
+}
