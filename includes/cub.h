@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/22 18:10:22 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/23 13:55:03 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,9 +88,10 @@
 # define MAP_TEXT_C "C "
 # define MAP_FILE_MIN_LINE 9
 # define MAP_SIZE_MIN 3
+# define PLAYER_SP_CHARSET "NSEW"
 
 // MESSAGES
-# define ERR_MAP_CHAR "Forbidden char. Expected numeric \"01NSEW \""
+# define ERR_MAP_CHAR "Forbidden char. Expected charset \"01NSEW \""
 # define ERR_MAP_COLOR_CHAR "Forbidden char. Expected numeric value 0-255"
 # define ERR_MAP_COLOR_DEF "Wrong rgb definition. Expected 3 values 0-255"
 # define ERR_MAP_COLOR_VAL "Wrong color value. Expected numeric value 0-255"
@@ -99,6 +100,8 @@
 # define ERR_MAP_FORMAT "Wrong map format. Expected \".cub\""
 # define ERR_MAP_NONE "No map definition, Expected minimum 3 map line"
 # define ERR_MAP_ORDER "Wrong map order. Expected map at the end"
+# define ERR_MAP_PLAYER_SP "No player spawn. Expected only one N,S,E or W"
+# define ERR_MAP_PLAYER_DUP "Multiple player spawn. Expected only one N,S,E or W"
 # define ERR_MAP_SIZE_MIN "Invalid map size. Expected minimum 3 map line"
 # define ERR_MAP_SPACE_IN "Space line in between map definition. Expected none"
 # define ERR_MAP_TXT_TYPE "One of texture or rgb value is not correct"
@@ -145,6 +148,9 @@ typedef struct s_settings
 	int	map_end_line_no;
 	int	map_width;
 	int	map_height;
+	int	map_player_sp_val;
+	int	map_player_sp_x;
+	int	map_player_sp_y;
 }	t_settings;
 
 typedef struct s_map_fd
@@ -310,7 +316,6 @@ t_list	*ft_parse(char *argv);
 t_list	*read_map(char *argv);
 
 // SETTINGS
-void	settings_init(t_settings *settings);
 int	settings_check(t_settings *settings);
 int	settings_check_map_order(t_settings *settings);
 int	settings_check_map_start_line(t_settings *settings);
@@ -318,6 +323,8 @@ int	settings_check_map_size_min(t_settings *settings);
 int	settings_check_txt_type(t_settings *settings);
 void	settings_free(t_settings *settings);
 void	settings_free_close_fd(int *fd);
+void	settings_init(t_settings *settings);
+void	settings_init_map(t_settings *settings);
 int     settings_rgb(t_mlx *mlx, int txt_type, char *rgb);
 int     settings_rgb_check(char **rgb_lst, int *rgb_tab);
 int     settings_rgb_check_char(char *str);
@@ -339,8 +346,11 @@ void	settings_texture_fd_set_line_no(t_mlx *mlx, int txt_type,
 
 // MAP
 int	map(t_mlx *mlx);
-int     map_check_char(t_mlx *mlx, t_ulist *map_obj);
-int     map_check_char_line(char *str);
+int     map_check(t_mlx *mlx, t_ulist *map_obj);
+int     map_check_line(t_settings *settings, t_map_fd *map);
+int     map_check_line_char(int c);
+int     map_check_line_player_sp(t_settings *settings, int c, int x, int y);
+void	map_check_width(t_settings *settings, char *str);
 t_ulist	*map_get_start_obj(t_mlx *mlx);
 void    map_rm_nl(t_mlx *mlx, t_ulist *map_obj);
 void    map_rm_nl_line(char *str);

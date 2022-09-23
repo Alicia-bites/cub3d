@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_check_char.c                                   :+:      :+:    :+:   */
+/*   map_check_line_player_sp.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/22 17:27:27 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/23 10:42:23 by abarrier         ###   ########.fr       */
+/*   Created: 2022/09/22 18:01:52 by abarrier          #+#    #+#             */
+/*   Updated: 2022/09/23 11:37:43 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-int	map_check_char(t_mlx *mlx, t_ulist *map_obj)
+int	map_check_line_player_sp(t_settings *settings, int c, int x, int y)
 {
-	t_ulist		*obj;
-	t_map_fd	*map;
-
-	obj = map_obj;
-	map = (t_map_fd *)obj->content;
-	while (obj && map->line_no <= mlx->settings.map_end_line_no)
+	if (ft_strchr(PLAYER_SP_CHARSET, c) != NULL)
 	{
-		map = (t_map_fd *)obj->content;
-		if (map_check_char_line(map->line) != 0)
-			return (EXIT_FAILURE);
-		obj = obj->next;
+		if (settings->map_player_sp_val < 0)
+		{
+			settings->map_player_sp_val = c;
+			settings->map_player_sp_x = x;
+			settings->map_player_sp_y = y;
+		}
+		else
+			return (ft_panic(-1, __func__, ERR_MAP_PLAYER_DUP));
 	}
 	return (0);
 }

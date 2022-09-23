@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map.c                                              :+:      :+:    :+:   */
+/*   map_check_line.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/20 17:21:52 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/23 12:05:28 by abarrier         ###   ########.fr       */
+/*   Created: 2022/09/22 18:01:52 by abarrier          #+#    #+#             */
+/*   Updated: 2022/09/23 13:56:29 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-int	map(t_mlx *mlx)
+int	map_check_line(t_settings *settings, t_map_fd *map)
 {
-	t_ulist	*map_obj;
+	int			i;
 
-	if (!mlx)
-		return (ft_panic(-1, __func__, ERR_NOOBJ));
-	map_obj = map_get_start_obj(mlx);
-	if (!map_obj)
-		return (ft_panic(-1, __func__, ERR_NOOBJ));
-	map_rm_nl(mlx, map_obj);
-	if (map_check(mlx, map_obj) != 0)
-		return (EXIT_FAILURE);
+	i = 0;
+	while (map->line[i])
+	{
+		if (map_check_line_char((int)map->line[i]) != 0)
+			return (EXIT_FAILURE);
+		if (map_check_line_player_sp(settings, (int)map->line[i],
+			i, map->line_no) != 0)
+			return (EXIT_FAILURE);
+		i++;
+	}
 	return (0);
 }

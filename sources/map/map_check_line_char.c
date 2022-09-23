@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_check_char_line.c                              :+:      :+:    :+:   */
+/*   map_check_line_char.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 18:01:52 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/22 18:07:30 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/23 13:54:44 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-int	map_check_char_line(char *str)
+int	map_check_line_char(int c)
 {
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		if (ft_strchr(MAP_CHARSET, str[i]) == NULL)
-			return (ft_panic(-1, __func__, ERR_MAP_CHAR));
-		i++;
-	}
-	return (0);
+	if (ft_strchr(MAP_CHARSET, c) == NULL)
+		return (ft_panic(-1, __func__, ERR_MAP_CHAR));
+	else
+		return (0);
 }

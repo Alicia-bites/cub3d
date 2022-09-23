@@ -56,8 +56,11 @@ GRAPH_SRCS		:=	choose_wall_color.c\
 					my_mlx_pixel_put.c\
 
 MAP_SRCS		:=	map.c\
-				map_check_char.c\
-				map_check_char_line.c\
+				map_check.c\
+				map_check_line.c\
+				map_check_line_char.c\
+				map_check_line_player_sp.c\
+				map_check_width.c\
 				map_get_start_obj.c\
 				map_rm_nl.c\
 				map_rm_nl_line.c
@@ -86,14 +89,15 @@ RAY_SRCS		:=	calculate_ray_position_and_direction.c\
 					set_vectors.c\
 					start_ray_casting_loop.c\
 
-SETTINGS_SRCS		:=	settings_init.c\
-				settings_check.c\
+SETTINGS_SRCS		:=	settings_check.c\
 				settings_check_map_order.c\
 				settings_check_map_start_line.c\
 				settings_check_map_size_min.c\
 				settings_check_txt_type.c\
 				settings_free.c\
 				settings_free_close_fd.c\
+				settings_init.c\
+				settings_init_map.c\
 				settings_rgb.c\
 				settings_rgb_check.c\
 				settings_rgb_check_char.c\
