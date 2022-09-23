@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map.c                                              :+:      :+:    :+:   */
+/*   map_tab_free.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/20 17:21:52 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/23 15:05:47 by abarrier         ###   ########.fr       */
+/*   Created: 2022/09/23 15:03:10 by abarrier          #+#    #+#             */
+/*   Updated: 2022/09/23 15:05:37 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-int	map(t_mlx *mlx)
+void	map_tab_free(t_mlx *mlx)
 {
-	t_ulist	*map_obj;
+	int	i;
 
-	if (!mlx)
-		return (ft_panic(-1, __func__, ERR_NOOBJ));
-	map_obj = map_get_start_obj(mlx);
-	if (!map_obj)
-		return (ft_panic(-1, __func__, ERR_NOOBJ));
-	map_rm_nl(mlx, map_obj);
-	if (map_check(mlx, map_obj) != 0)
-		return (EXIT_FAILURE);
-//	if (map_tab(&mlx))
-//	{
-//		map_tab_free(mlx);
-//		return (EXIT_FAILURE);
-//	}
-	return (0);
+	i = 0;
+	if (!mlx->map_tab)
+		return ;
+	while (mlx->map_tab[i])
+	{
+		if (mlx->map_tab[i])
+		{
+			free(mlx->map_tab[i]);
+			mlx->map_tab[i] = NULL;
+		}
+		i++;
+	}
 }

@@ -1,33 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map.c                                              :+:      :+:    :+:   */
+/*   map_tab.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/20 17:21:52 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/23 15:05:47 by abarrier         ###   ########.fr       */
+/*   Created: 2022/09/23 14:46:59 by abarrier          #+#    #+#             */
+/*   Updated: 2022/09/23 14:48:49 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-int	map(t_mlx *mlx)
+int	map_tab(t_mlx *mlx)
 {
-	t_ulist	*map_obj;
-
-	if (!mlx)
-		return (ft_panic(-1, __func__, ERR_NOOBJ));
-	map_obj = map_get_start_obj(mlx);
-	if (!map_obj)
-		return (ft_panic(-1, __func__, ERR_NOOBJ));
-	map_rm_nl(mlx, map_obj);
-	if (map_check(mlx, map_obj) != 0)
+	if (map_tab_init(mlx) == NULL)
 		return (EXIT_FAILURE);
-//	if (map_tab(&mlx))
-//	{
-//		map_tab_free(mlx);
-//		return (EXIT_FAILURE);
-//	}
-	return (0);
 }
