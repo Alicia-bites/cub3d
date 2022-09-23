@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/23 13:55:03 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/23 14:33:39 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,6 +170,7 @@ typedef struct s_mlx
 	t_list		*map;
 	int		map_fd;
 	t_ulist		**map_fd_lst;
+	int		**map_tab;
 	t_settings	settings;
 	int			image_height;
 	int			image_width;

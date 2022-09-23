@@ -6,7 +6,7 @@
 /*   By: abarrier <abarrier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 21:30:22 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/21 08:34:41 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/23 14:33:34 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	cb_mlx_init(t_mlx *mlx)
 	mlx->map = NULL;
 	mlx->map_fd = FD_NOT_INIT;
 	mlx->map_fd_lst = NULL;
+	mlx->map_tab = NULL;
 	mlx->image_height = 0;
 	mlx->image_width = 0;
 	mlx->row_width = 0;
