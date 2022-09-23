@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/23 14:33:39 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/23 17:12:44 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -355,6 +355,11 @@ void	map_check_width(t_settings *settings, char *str);
 t_ulist	*map_get_start_obj(t_mlx *mlx);
 void    map_rm_nl(t_mlx *mlx, t_ulist *map_obj);
 void    map_rm_nl_line(char *str);
+int     map_tab(t_mlx *mlx);
+void    map_tab_free(t_mlx *mlx);
+void    map_tab_init_bzero(int **tab, int len);
+int     map_tab_init(t_mlx *mlx);
+int     *map_tab_init_line(int **tab, int len);
 
 // GRAPHICS
 // void	destroy_sprites(t_game *game);

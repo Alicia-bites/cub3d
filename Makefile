@@ -63,7 +63,12 @@ MAP_SRCS		:=	map.c\
 				map_check_width.c\
 				map_get_start_obj.c\
 				map_rm_nl.c\
-				map_rm_nl_line.c
+				map_rm_nl_line.c\
+				map_tab.c\
+				map_tab_free.c\
+				map_tab_init_bzero.c\
+				map_tab_init.c\
+				map_tab_init_line.c
 
 PARSE_SRCS		:=	parse_argc.c\
 				parse.c\
@@ -191,11 +196,14 @@ archive:		$(filter-out $(OBJ)/main.o, $(OBJS))
 			$(AR) $(UTPATH)/$(NAME_AR) $^
 			@ranlib $(UTPATH)/$(NAME_AR)
 
-test:
+test_ok:
 			make
 			@echo "TEST - OK"
-			$(VALGRIND) ./$(NAME) maps/ok_subject.cub
+			$(VALGRIND) ./$(NAME) maps/ok_all_subject.cub
 			@echo $(SEP_P)
+
+test_ko:
+			make
 			@echo "TEST - KO MISSING FILE"
 			$(VALGRIND) ./$(NAME) maps/ok_subject.cub.cub
 			@echo $(SEP_S)
@@ -207,4 +215,4 @@ test:
 
 -include $(DEPS)
 
-.PHONY: all clean fclean re norme sym comp comp_vgdb comp_envi archive test
+.PHONY: all clean fclean re norme sym comp comp_vgdb comp_envi archive test_ok test_ko
