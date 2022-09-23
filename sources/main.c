@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:54:11 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/23 13:45:14 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/23 17:34:22 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,27 +49,25 @@ int	main(int argc, char **argv)
 	settings_show(&mlx.settings);
 	if (parse(argc, argv, &mlx) != 0)
 	{
-		settings_show(&mlx.settings);
 		settings_free(&mlx.settings);
 		ft_lst_free(mlx.map_fd_lst, &parse_map_fd_free);
 		return (EXIT_FAILURE);
 	}
 	if (settings_check(&mlx.settings) != 0)
 	{
-		settings_show(&mlx.settings);
 		settings_free(&mlx.settings);
 		ft_lst_free(mlx.map_fd_lst, &parse_map_fd_free);
 		return (EXIT_FAILURE);
 	}
-	settings_show(&mlx.settings);
 	if (map(&mlx) != 0)
 	{
-		settings_show(&mlx.settings);
+		map_tab_free(&mlx);
 		settings_free(&mlx.settings);
 		ft_lst_free(mlx.map_fd_lst, &parse_map_fd_free);
 		return (EXIT_FAILURE);
 	}
 	settings_show(&mlx.settings);
+	map_tab_free(&mlx);
 	settings_free(&mlx.settings);
 	ft_lst_free(mlx.map_fd_lst, &parse_map_fd_free);
 //	ft_lst_func_lst(mlx.map_fd_lst, &parse_map_fd_show);

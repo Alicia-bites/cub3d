@@ -6,7 +6,7 @@
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 14:46:59 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/23 14:48:49 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/23 17:12:37 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int	map_tab(t_mlx *mlx)
 {
-	if (map_tab_init(mlx) == NULL)
+	if (map_tab_init(mlx) != 0)
 		return (EXIT_FAILURE);
+	return (0);
 }
