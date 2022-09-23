@@ -6,7 +6,7 @@
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 15:23:59 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/22 18:01:31 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/23 10:35:21 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,6 @@ void	map_rm_nl_line(char *str)
 	str[len] = '\0';
 	if (len > 0)
 		len--;
-	if (str[len] == '\r')
+	if (len > 0 && str[len] == '\r')
 		str[len] = '\0';
 }

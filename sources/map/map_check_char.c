@@ -6,7 +6,7 @@
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 17:27:27 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/22 18:08:53 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/23 10:42:23 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ int	map_check_char(t_mlx *mlx, t_ulist *map_obj)
 	map = (t_map_fd *)obj->content;
 	while (obj && map->line_no <= mlx->settings.map_end_line_no)
 	{
+		map = (t_map_fd *)obj->content;
 		if (map_check_char_line(map->line) != 0)
 			return (EXIT_FAILURE);
 		obj = obj->next;
-		map = (t_map_fd *)obj->content;
 	}
 	return (0);
 }
