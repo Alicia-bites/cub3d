@@ -6,7 +6,7 @@
 /*   By: abarrier <abarrier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 21:34:02 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/22 08:46:43 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/23 11:00:46 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,5 @@ void	settings_init(t_settings *settings)
 	settings->ea_line_no = -1;
 	settings->f_line_no = -1;
 	settings->c_line_no = -1;
-	settings->map_start_line_no = -1;
-	settings->map_end_line_no = -1;
-	settings->map_width = -1;
-	settings->map_height = -1;
-}
+	settings_init_map(settings);
+	}
