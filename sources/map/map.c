@@ -6,7 +6,7 @@
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 17:21:52 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/23 17:13:33 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/23 18:07:21 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ int	map(t_mlx *mlx)
 	map_rm_nl(mlx, map_obj);
 	if (map_check(mlx, map_obj) != 0)
 		return (EXIT_FAILURE);
-	if (map_tab(mlx))
+	if (map_tab(mlx, map_obj))
 		return (EXIT_FAILURE);
+	map_tab_show(mlx->map_tab);
 	return (0);
 }

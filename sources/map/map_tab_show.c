@@ -1,22 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_tab.c                                          :+:      :+:    :+:   */
+/*   map_tab_show.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/23 14:46:59 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/23 18:00:20 by abarrier         ###   ########.fr       */
+/*   Created: 2022/09/23 18:04:12 by abarrier          #+#    #+#             */
+/*   Updated: 2022/09/23 18:08:35 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-int	map_tab(t_mlx *mlx, t_ulist *map_obj)
+void	map_tab_show(int **tab)
 {
-	if (map_tab_init(mlx) != 0)
-		return (EXIT_FAILURE);
-	if (map_tab_create(mlx, map_obj) != 0)
-		return (EXIT_FAILURE);
-	return (0);
+	int	i;
+	int	j;
+
+	i = 0;
+	while (tab[i])
+	{
+		j = 0;
+		while (tab[i][j])
+		{
+			if (tab[i][j] != ' ')
+				ft_putchar_fd(tab[i][j], 1);
+			else
+				ft_putchar_fd('-', 1);
+			j++;
+		}
+		ft_putchar_fd('\n', 1);
+		i++;
+	}
 }

@@ -65,10 +65,13 @@ MAP_SRCS		:=	map.c\
 				map_rm_nl.c\
 				map_rm_nl_line.c\
 				map_tab.c\
+				map_tab_create.c\
+				map_tab_create_line.c\
 				map_tab_free.c\
 				map_tab_init_bzero.c\
 				map_tab_init.c\
-				map_tab_init_line.c
+				map_tab_init_line.c\
+				map_tab_show.c
 
 PARSE_SRCS		:=	parse_argc.c\
 				parse.c\
@@ -201,6 +204,11 @@ test_ok:
 			@echo "TEST - OK"
 			$(VALGRIND) ./$(NAME) maps/ok_all_subject.cub
 			@echo $(SEP_P)
+			$(VALGRIND) ./$(NAME) maps/ok_map_space_end_line_1.cub
+			@echo $(SEP_P)
+			$(VALGRIND) ./$(NAME) maps/ok_map_space_end_line_2.cub
+			@echo $(SEP_P)
+			
 
 test_ko:
 			make
