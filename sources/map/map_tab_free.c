@@ -6,7 +6,7 @@
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 15:03:10 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/23 15:05:37 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/23 17:36:47 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,6 @@ void	map_tab_free(t_mlx *mlx)
 		}
 		i++;
 	}
+	free(mlx->map_tab);
+	mlx->map_tab = NULL;
 }
