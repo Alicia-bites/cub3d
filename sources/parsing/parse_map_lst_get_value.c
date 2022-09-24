@@ -6,17 +6,14 @@
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 10:31:17 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/21 17:52:54 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/24 09:47:54 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-char	*parse_map_lst_get_value(t_mlx *mlx, int txt_type, char *str)
+char	*parse_map_lst_get_value(int txt_type, char *str)
 {
-	t_settings	*settings;
-
-	settings = &mlx->settings;
 	if (txt_type == NO)
 		return (&str[ft_strlen(MAP_TEXT_NO)]);
 	else if (txt_type == SO)

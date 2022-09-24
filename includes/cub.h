@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/23 18:18:49 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/24 09:48:11 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -307,7 +307,7 @@ void    parse_map_fd_show(void *content);
 int     parse_map_lst(t_mlx *mlx);
 int     parse_map_lst_check(t_mlx *mlx, int txt_type, t_map_fd *map, char *value);
 int     parse_map_lst_fullspace(t_mlx *mlx, t_ulist *obj);
-char    *parse_map_lst_get_value(t_mlx *mlx, int txt_type, char *str);
+char    *parse_map_lst_get_value(int txt_type, char *str);
 int     parse_map_lst_line(t_mlx *mlx, t_ulist *obj);
 int     parse_map_lst_line_txt_type(t_map_fd *map);
 void    parse_read_file(t_mlx *mlx);

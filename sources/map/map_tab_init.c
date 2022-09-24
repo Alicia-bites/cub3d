@@ -6,7 +6,7 @@
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 14:49:02 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/23 18:20:12 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/24 09:46:42 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,8 @@
 int	map_tab_init(t_mlx *mlx)
 {
 	t_settings	*settings;
-	int			i;
 
 	settings = &mlx->settings;
-	i = 0;
 	mlx->map_tab = (int **)malloc(sizeof(int *)
 			* (settings->map_height + 1));
 	if (mlx->map_tab == NULL)
