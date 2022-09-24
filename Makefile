@@ -65,6 +65,10 @@ MAP_SRCS		:=	map.c\
 				map_rm_nl.c\
 				map_rm_nl_line.c\
 				map_tab.c\
+				map_tab_check.c\
+				map_tab_check_line.c\
+				map_tab_check_line_horizontal.c\
+				map_tab_check_line_vertical.c\
 				map_tab_create.c\
 				map_tab_create_line.c\
 				map_tab_free.c\

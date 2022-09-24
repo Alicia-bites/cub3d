@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/24 09:48:11 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/24 11:54:52 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@
 
 // MESSAGES
 # define ERR_MAP_CHAR "Forbidden char. Expected charset \"01NSEW \""
+# define ERR_MAP_CLOSURE "Map is not enclose by wall"
 # define ERR_MAP_COLOR_CHAR "Forbidden char. Expected numeric value 0-255"
 # define ERR_MAP_COLOR_DEF "Wrong rgb definition. Expected 3 values 0-255"
 # define ERR_MAP_COLOR_VAL "Wrong color value. Expected numeric value 0-255"
@@ -356,6 +357,10 @@ t_ulist	*map_get_start_obj(t_mlx *mlx);
 void    map_rm_nl(t_mlx *mlx, t_ulist *map_obj);
 void    map_rm_nl_line(char *str);
 int     map_tab(t_mlx *mlx, t_ulist *map_obj);
+int     map_tab_check(int **tab, int height, int width);
+int     map_tab_check_line(int *line, int *prev, int *next, int width);
+int     map_tab_check_line_horizontal(int *line, int i, int dir, int width);
+int     map_tab_check_line_vertical(int *line, int i);
 int     map_tab_create(t_mlx *mlx, t_ulist *map_obj);
 int     map_tab_create_line(t_map_fd *map, int *tab, int len_tab);
 void    map_tab_free(t_mlx *mlx);

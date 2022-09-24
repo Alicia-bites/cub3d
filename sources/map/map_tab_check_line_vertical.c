@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_tab.c                                          :+:      :+:    :+:   */
+/*   map_tab_check_line_vertical.c                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abarrier <abarrier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/23 14:46:59 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/24 11:45:58 by abarrier         ###   ########.fr       */
+/*   Created: 2022/09/24 11:48:59 by abarrier          #+#    #+#             */
+/*   Updated: 2022/09/24 11:58:35 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-int	map_tab(t_mlx *mlx, t_ulist *map_obj)
+int	map_tab_check_line_vertical(int *line, int i)
 {
-	if (map_tab_init(mlx) != 0)
-		return (EXIT_FAILURE);
-	if (map_tab_create(mlx, map_obj) != 0)
-		return (EXIT_FAILURE);
-	if (map_tab_check(mlx->map_tab, mlx->settings.map_height,
-		mlx->settings.map_width) != 0)
-		return (EXIT_FAILURE);
+	if (!line || line[i] == ' ')
+		return (ft_panic(-1, __func__, ERR_MAP_CLOSURE));
 	return (0);
 }
