@@ -6,7 +6,7 @@
 /*   By: antho <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 21:34:20 by antho             #+#    #+#             */
-/*   Updated: 2022/02/03 09:57:33 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/13 21:45:04 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,12 @@ static void	gnl_shiftbuf(char *buf)
 	}
 }
 
-static void	gnl_eof(char *buf, char *line)
+static void	gnl_eof(char *line)
 {
 	if (!line || line[0] == '\0')
 	{
 		if (line)
 			free(line);
-		free(buf);
 	}
 }
 
@@ -57,28 +56,28 @@ static char	*gnl_line(int fd, char *buf)
 	return (line);
 }
 
-char	*get_next_line(int fd)
+static char	*gnl_start(int fd)
 {
-	static char	*buf;
-	char		*line;
+	static char	buf[BUFFER_SIZE];
+	char	*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || BUFFER_SIZE >= 2147483647)
-		return (0);
-	if (!buf)
-	{
-		buf = (char *)malloc(sizeof(char) * (size_t)(BUFFER_SIZE + 1));
-		if (!buf)
-			return (0);
-		buf[0] = '\0';
-	}
 	line = gnl_line(fd, buf);
 	if (!line || line[0] == '\0')
 	{
-		gnl_eof(buf, line);
-		buf = 0;
+		gnl_eof(line);
 		line = 0;
 	}
 	else
 		gnl_shiftbuf(buf);
+	return (line);
+}
+
+char	*get_next_line(int fd)
+{
+	char		*line;
+
+	if (fd < 0 || BUFFER_SIZE <= 0 || BUFFER_SIZE > 2147483647)
+		return (0);
+	line = gnl_start(fd);
 	return (line);
 }

@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cb_mlx_show_string.c                               :+:      :+:    :+:   */
+/*   map_tab_check_line_horizontal.c                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarrier <abarrier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/07 21:53:37 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/07 22:20:36 by abarrier         ###   ########.fr       */
+/*   Created: 2022/09/24 11:35:37 by abarrier          #+#    #+#             */
+/*   Updated: 2022/09/24 11:47:13 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-void	cb_mlx_show_string(char *title, char *s)
+int	map_tab_check_line_horizontal(int *line, int i, int dir, int width)
 {
-	if (!s)
-		printf("%s | ptr: NULL\tvalue: NULL\n", title);
+	if (dir == -1)
+	{
+		if (i == 0 || line[i - 1] == ' ')
+			return (ft_panic(-1, __func__, ERR_MAP_CLOSURE));
+	}
 	else
-		printf("%s | ptr: %p\tvalue: %s\n", title, s, s);
+	{
+		if (i == (width - 1) || line[i + 1] == ' ')
+			return (ft_panic(-1, __func__, ERR_MAP_CLOSURE));
+	}
+	return (0);
 }
