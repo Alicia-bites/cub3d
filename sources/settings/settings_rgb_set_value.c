@@ -12,11 +12,11 @@
 
 #include "cub.h"
 
-void	settings_rgb_set_value(t_mlx *mlx, int txt_type, int *rgb_tab)
+void	settings_rgb_set_value(t_game *game, int txt_type, int *rgb_tab)
 {
 	t_settings	*settings;
 
-	settings = &mlx->settings;
+	settings = &game->settings;
 	if (txt_type == F)
 		settings_rgb_set_value_type(&settings->f_r, &settings->f_g,
 			&settings->f_b, rgb_tab);

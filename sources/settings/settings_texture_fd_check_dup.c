@@ -12,11 +12,11 @@
 
 #include "cub.h"
 
-int	settings_texture_fd_check_dup(t_mlx *mlx, int txt_type)
+int	settings_texture_fd_check_dup(t_game *game, int txt_type)
 {
 	t_settings	*settings;
 
-	settings = &mlx->settings;
+	settings = &game->settings;
 	if (txt_type == NO && settings->fd_no >= 0)
 		return (ft_panic(-1, __func__, ERR_MAP_DUP_TEXT));
 	else if (txt_type == SO && settings->fd_so >= 0)

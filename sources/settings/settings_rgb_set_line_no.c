@@ -12,11 +12,11 @@
 
 #include "cub.h"
 
-void	settings_rgb_set_line_no(t_mlx *mlx, int txt_type, t_map_fd *map)
+void	settings_rgb_set_line_no(t_game *game, int txt_type, t_map_fd *map)
 {
 	t_settings	*settings;
 
-	settings = &mlx->settings;
+	settings = &game->settings;
 	if (txt_type == F)
 		settings->f_line_no = map->line_no;
 	else if (txt_type == C)

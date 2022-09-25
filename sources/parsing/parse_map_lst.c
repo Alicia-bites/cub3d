@@ -12,18 +12,18 @@
 
 #include "cub.h"
 
-int	parse_map_lst(t_mlx *mlx)
+int	parse_map_lst(t_game *game)
 {
 	t_ulist	*obj;
 
-	if (!mlx)
+	if (!game)
 		return (ft_panic(-1, __func__, ERR_NOOBJ));
-	obj = *mlx->map_fd_lst;
+	obj = *game->map_fd_lst;
 	while (obj)
 	{
-		if (parse_map_lst_fullspace(mlx, obj) == 0)
+		if (parse_map_lst_fullspace(game, obj) == 0)
 		{
-			if (parse_map_lst_line(mlx, obj) != 0)
+			if (parse_map_lst_line(game, obj) != 0)
 				return (EXIT_FAILURE);
 		}
 		obj = obj->next;

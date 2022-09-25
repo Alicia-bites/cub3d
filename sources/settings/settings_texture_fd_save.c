@@ -12,11 +12,11 @@
 
 #include "cub.h"
 
-int	settings_texture_fd_save(t_mlx *mlx, int txt_type, int fd)
+int	settings_texture_fd_save(t_game *game, int txt_type, int fd)
 {
 	t_settings	*settings;
 
-	settings = &mlx->settings;
+	settings = &game->settings;
 	if (txt_type == NO)
 		settings->fd_no = fd;
 	else if (txt_type == SO)

@@ -12,7 +12,7 @@
 
 #include "cub.h"
 
-int	parse_map_lst_line(t_mlx *mlx, t_ulist *obj)
+int	parse_map_lst_line(t_game *game, t_ulist *obj)
 {
 	t_map_fd	*map;
 	int			txt_type;
@@ -23,9 +23,9 @@ int	parse_map_lst_line(t_mlx *mlx, t_ulist *obj)
 	value = parse_map_lst_get_value(txt_type, map->line);
 	if (!value)
 		return (0);
-	if (parse_map_lst_check(mlx, txt_type, map, value) != 0)
+	if (parse_map_lst_check(game, txt_type, map, value) != 0)
 		return (EXIT_FAILURE);
-	if (obj->next == NULL && mlx->settings.map_end_line_no < 0)
-		mlx->settings.map_end_line_no = map->line_no;
+	if (obj->next == NULL && game->settings.map_end_line_no < 0)
+		game->settings.map_end_line_no = map->line_no;
 	return (0);
 }

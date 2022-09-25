@@ -24,7 +24,7 @@
  * rgb = 255,0,0)
 
  * @PARAM:
- * t_mlx *: typedef structure mlx
+ * t_game *: typedef structure game
  * int: texture type
  * char *: full rgb value without type object
  *
@@ -41,7 +41,7 @@
  * @INVALID USE CASE: value over range
  * 500,0,0
  */
-int	settings_rgb(t_mlx *mlx, int txt_type, char *rgb)
+int	settings_rgb(t_game *game, int txt_type, char *rgb)
 {
 	char	**rgb_lst;
 	int		rgb_tab[3];
@@ -61,7 +61,7 @@ int	settings_rgb(t_mlx *mlx, int txt_type, char *rgb)
 		ft_free_ptrptr_str(rgb_lst);
 		return (EXIT_FAILURE);
 	}
-	settings_rgb_set_value(mlx, txt_type, rgb_tab);
+	settings_rgb_set_value(game, txt_type, rgb_tab);
 	ft_free_ptrptr_str(rgb_lst);
 	return (0);
 }

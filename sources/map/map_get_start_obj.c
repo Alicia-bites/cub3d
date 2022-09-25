@@ -12,17 +12,17 @@
 
 #include "cub.h"
 
-t_ulist	*map_get_start_obj(t_mlx *mlx)
+t_ulist	*map_get_start_obj(t_game *game)
 {
 	t_ulist		*obj;
 	t_map_fd	*map;
 
-	obj = *mlx->map_fd_lst;
+	obj = *game->map_fd_lst;
 	while (obj)
 	{
 		map = NULL;
 		map = (t_map_fd *)obj->content;
-		if (mlx->settings.map_start_line_no == map->line_no)
+		if (game->settings.map_start_line_no == map->line_no)
 			return (obj);
 		obj = obj->next;
 	}

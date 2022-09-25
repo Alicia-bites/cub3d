@@ -12,19 +12,19 @@
 
 #include "cub.h"
 
-int	map_check(t_mlx *mlx, t_ulist *map_obj)
+int	map_check(t_game *game, t_ulist *map_obj)
 {
 	t_ulist		*obj;
 	t_map_fd	*map;
 
 	obj = map_obj;
 	map = (t_map_fd *)obj->content;
-	while (obj && map->line_no <= mlx->settings.map_end_line_no)
+	while (obj && map->line_no <= game->settings.map_end_line_no)
 	{
-		if (map_check_line(&mlx->settings, map) != 0)
+		if (map_check_line(&game->settings, map) != 0)
 			return (EXIT_FAILURE);
 		settings_rm_space_end(map->line);
-		map_check_width(&mlx->settings, map->line);
+		map_check_width(&game->settings, map->line);
 		obj = obj->next;
 		if (obj)
 			map = (t_map_fd *)obj->content;

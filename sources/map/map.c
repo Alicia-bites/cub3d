@@ -12,20 +12,20 @@
 
 #include "cub.h"
 
-int	map(t_mlx *mlx)
+int	map(t_game *game)
 {
 	t_ulist	*map_obj;
 
-	if (!mlx)
+	if (!game)
 		return (ft_panic(-1, __func__, ERR_NOOBJ));
-	map_obj = map_get_start_obj(mlx);
+	map_obj = map_get_start_obj(game);
 	if (!map_obj)
 		return (ft_panic(-1, __func__, ERR_NOOBJ));
-	map_rm_nl(mlx, map_obj);
-	if (map_check(mlx, map_obj) != 0)
+	map_rm_nl(game, map_obj);
+	if (map_check(game, map_obj) != 0)
 		return (EXIT_FAILURE);
-	if (map_tab(mlx, map_obj))
+	if (map_tab(game, map_obj))
 		return (EXIT_FAILURE);
-	map_tab_show(mlx->map_tab);
+	map_tab_show(game->map_tab);
 	return (0);
 }

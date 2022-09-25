@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:54:11 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/23 17:34:22 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/25 23:25:04 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,41 +35,45 @@
 
 int	main(int argc, char **argv)
 {
-//	t_game  game;
+	t_game  game;
 //	int     *map;
-	t_mlx	mlx;
+//	t_mlx	mlx;
 	t_ulist	**map_fd_lst;
-	
-	cb_mlx_init(&mlx);
+
+//	cb_mlx_init(&mlx);
 	//cb_mlx_show(&mlx);
+	game.map_fd = FD_NOT_INIT;
+	game.map_fd_lst = NULL;;
+	game.map_tab = NULL;
+	settings_init(&game.settings);
 	map_fd_lst = ft_lst_init();
 	if (!map_fd_lst )
 		return (EXIT_FAILURE);
-	mlx.map_fd_lst = map_fd_lst;
-	settings_show(&mlx.settings);
-	if (parse(argc, argv, &mlx) != 0)
+	game.map_fd_lst = map_fd_lst;
+	settings_show(&game.settings);
+	if (parse(argc, argv, &game) != 0)
 	{
-		settings_free(&mlx.settings);
-		ft_lst_free(mlx.map_fd_lst, &parse_map_fd_free);
+		settings_free(&game.settings);
+		ft_lst_free(game.map_fd_lst, &parse_map_fd_free);
 		return (EXIT_FAILURE);
 	}
-	if (settings_check(&mlx.settings) != 0)
+	if (settings_check(&game.settings) != 0)
 	{
-		settings_free(&mlx.settings);
-		ft_lst_free(mlx.map_fd_lst, &parse_map_fd_free);
+		settings_free(&game.settings);
+		ft_lst_free(game.map_fd_lst, &parse_map_fd_free);
 		return (EXIT_FAILURE);
 	}
-	if (map(&mlx) != 0)
+	if (map(&game) != 0)
 	{
-		map_tab_free(&mlx);
-		settings_free(&mlx.settings);
-		ft_lst_free(mlx.map_fd_lst, &parse_map_fd_free);
+		map_tab_free(&game);
+		settings_free(&game.settings);
+		ft_lst_free(game.map_fd_lst, &parse_map_fd_free);
 		return (EXIT_FAILURE);
 	}
-	settings_show(&mlx.settings);
-	map_tab_free(&mlx);
-	settings_free(&mlx.settings);
-	ft_lst_free(mlx.map_fd_lst, &parse_map_fd_free);
+	settings_show(&game.settings);
+	map_tab_free(&game);
+	settings_free(&game.settings);
+	ft_lst_free(game.map_fd_lst, &parse_map_fd_free);
 //	ft_lst_func_lst(mlx.map_fd_lst, &parse_map_fd_show);
 //	map = NULL;
 //	if (argc != 2)

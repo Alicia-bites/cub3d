@@ -12,7 +12,7 @@
 
 #include "cub.h"
 
-int	parse_map_lst_fullspace(t_mlx *mlx, t_ulist *obj)
+int	parse_map_lst_fullspace(t_game *game, t_ulist *obj)
 {
 	t_map_fd	*map;
 	size_t		len;
@@ -25,9 +25,9 @@ int	parse_map_lst_fullspace(t_mlx *mlx, t_ulist *obj)
 		i++;
 	if (i == (int)len)
 	{
-		if (mlx->settings.map_start_line_no >= 0
-			&& mlx->settings.map_end_line_no < 0)
-			mlx->settings.map_end_line_no = map->line_no - 1;
+		if (game->settings.map_start_line_no >= 0
+			&& game->settings.map_end_line_no < 0)
+			game->settings.map_end_line_no = map->line_no - 1;
 		return (1);
 	}
 	return (0);

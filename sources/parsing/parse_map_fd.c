@@ -12,7 +12,7 @@
 
 #include "cub.h"
 
-int	parse_map_fd(char *filename, t_mlx *mlx)
+int	parse_map_fd(char *filename, t_game *game)
 {
 	int	fd;
 
@@ -23,7 +23,7 @@ int	parse_map_fd(char *filename, t_mlx *mlx)
 		return (ft_panic(-1, __func__, ERR_FILEOPEN));
 	else
 	{
-		mlx->map_fd = fd;
+		game->map_fd = fd;
 		return (0);
 	}
 }

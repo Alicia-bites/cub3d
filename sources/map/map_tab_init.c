@@ -12,20 +12,20 @@
 
 #include "cub.h"
 
-int	map_tab_init(t_mlx *mlx)
+int	map_tab_init(t_game *game)
 {
 	t_settings	*settings;
 
-	settings = &mlx->settings;
-	mlx->map_tab = (int **)malloc(sizeof(int *)
+	settings = &game->settings;
+	game->map_tab = (int **)malloc(sizeof(int *)
 			* (settings->map_height + 1));
-	if (mlx->map_tab == NULL)
+	if (game->map_tab == NULL)
 		return (ft_panic(-1, __func__, ERR_MALLOC));
-	map_tab_init_bzero(mlx->map_tab, settings->map_height);
-	if (map_tab_init_line(mlx->map_tab, settings->map_height,
+	map_tab_init_bzero(game->map_tab, settings->map_height);
+	if (map_tab_init_line(game->map_tab, settings->map_height,
 			settings->map_width) == NULL)
 	{
-		map_tab_free(mlx);
+		map_tab_free(game);
 		return (EXIT_FAILURE);
 	}
 	return (0);

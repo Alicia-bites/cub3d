@@ -12,22 +12,22 @@
 
 #include "cub.h"
 
-void	map_tab_free(t_mlx *mlx)
+void	map_tab_free(t_game *game)
 {
 	int	i;
 
 	i = 0;
-	if (!mlx->map_tab)
+	if (!game->map_tab)
 		return ;
-	while (mlx->map_tab[i])
+	while (game->map_tab[i])
 	{
-		if (mlx->map_tab[i])
+		if (game->map_tab[i])
 		{
-			free(mlx->map_tab[i]);
-			mlx->map_tab[i] = NULL;
+			free(game->map_tab[i]);
+			game->map_tab[i] = NULL;
 		}
 		i++;
 	}
-	free(mlx->map_tab);
-	mlx->map_tab = NULL;
+	free(game->map_tab);
+	game->map_tab = NULL;
 }

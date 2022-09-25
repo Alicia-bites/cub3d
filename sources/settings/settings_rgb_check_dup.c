@@ -12,11 +12,11 @@
 
 #include "cub.h"
 
-int	settings_rgb_check_dup(t_mlx *mlx, int txt_type)
+int	settings_rgb_check_dup(t_game *game, int txt_type)
 {
 	t_settings	*settings;
 
-	settings = &mlx->settings;
+	settings = &game->settings;
 	if (txt_type == F && settings->f_r >= 0)
 		return (ft_panic(-1, __func__, ERR_MAP_DUP_TEXT));
 	else if (txt_type == C && settings->c_r >= 0)
