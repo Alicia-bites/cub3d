@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 18:10:33 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/22 15:58:54 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/26 10:03:21 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,6 @@ static void	get_length_of_ray_from_x_or_y_side_to_next_x_or_y_side(t_game *game)
 {
 	game->deltaDistX = fabs(1 / game->ray_dirX);
 	game->deltaDistY = fabs(1 / game->ray_dirY);
-	// if (game->ray_dirX == 0.0)
-	// 	game->game->deltaDistX = 1e30;
-	// else
-	// 	game->game->deltaDistX = fabs(1.0 / game->ray_dirX);
-	// if (game->ray_dirY == 0.0)
-	// 	game->deltaDistY = 1e30;
-	// else
-	// 	game->deltaDistY = fabs(1.0 / game->ray_dirY);
 }
 
 int	calculate_ray_position_and_direction(t_game *game, int x)
