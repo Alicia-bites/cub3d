@@ -6,7 +6,7 @@
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 11:41:10 by abarrier          #+#    #+#             */
-/*   Updated: 2022/07/28 12:53:32 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/19 16:23:10 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_str_isll(char *str);
 int		ft_str_isdigit(char *str);
 char	*ft_strnchr(const char *s, int c, size_t n);
+char	*ft_formatchr(char *str, char *to_find);
+int		ft_strnchar(const char *s, int c);
 
 #endif
