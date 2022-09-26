@@ -35,7 +35,6 @@ SRCS_PATH		:=	sources
 GRAPH_PATH		:=	graphics
 CAM_PATH		:=	camera_movements
 TEX_PATH		:=	textures
-RAY_PATH		:=	ray_casting
 MAP_PATH		:=	map
 PARSE_PATH		:=	parsing
 RAY_PATH		:=	ray_casting
@@ -150,7 +149,6 @@ SRCS			:=	main.c\
 					$(RAY_SRCS)\
 					$(MAP_SRCS)\
 					$(PARSE_SRCS)\
-					$(RAY_SRCS)\
 					$(SETTINGS_SRCS)\
 					$(UTILS_SRCS)
 					
@@ -165,7 +163,6 @@ vpath %.c $(SRCS_PATH)\
 		$(SRCS_PATH)/$(RAY_PATH)\
 		$(SRCS_PATH)/$(MAP_PATH)\
 		$(SRCS_PATH)/$(PARSE_PATH)\
-		$(SRCS_PATH)/$(RAY_PATH)\
 		$(SRCS_PATH)/$(SETTINGS_PATH)\
 		$(SRCS_PATH)/$(UTILS_PATH)
 
