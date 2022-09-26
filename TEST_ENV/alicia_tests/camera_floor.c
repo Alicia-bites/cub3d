@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   camera_images.c                                    :+:      :+:    :+:   */
+/*   camera_floor.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/26 10:47:48 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/26 13:18:53 by amarchan         ###   ########.fr       */
+/*   Created: 2022/09/26 14:17:13 by amarchan          #+#    #+#             */
+/*   Updated: 2022/09/26 14:18:55 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,37 +63,35 @@ typedef struct	s_info
 	int		**texture;
 	double	moveSpeed;
 	double	rotSpeed;
-	int		re_buf;
-
 }				t_info;
 
 int	worldMap[mapWidth][mapHeight] =
-						{
-							{4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,7,7,7,7,7,7,7,7},
-							{4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7,0,0,0,0,0,0,7},
-							{4,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7},
-							{4,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7},
-							{4,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,7,0,0,0,0,0,0,7},
-							{4,0,4,0,0,0,0,5,5,5,5,5,5,5,5,5,7,7,0,7,7,7,7,7},
-							{4,0,5,0,0,0,0,5,0,5,0,5,0,5,0,5,7,0,0,0,7,7,7,1},
-							{4,0,6,0,0,0,0,5,0,0,0,0,0,0,0,5,7,0,0,0,0,0,0,8},
-							{4,0,7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7,7,7,1},
-							{4,0,8,0,0,0,0,5,0,0,0,0,0,0,0,5,7,0,0,0,0,0,0,8},
-							{4,0,0,0,0,0,0,5,0,0,0,0,0,0,0,5,7,0,0,0,7,7,7,1},
-							{4,0,0,0,0,0,0,5,5,5,5,0,5,5,5,5,7,7,7,7,7,7,7,1},
-							{6,6,6,6,6,6,6,6,6,6,6,0,6,6,6,6,6,6,6,6,6,6,6,6},
-							{8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4},
-							{6,6,6,6,6,6,0,6,6,6,6,0,6,6,6,6,6,6,6,6,6,6,6,6},
-							{4,4,4,4,4,4,0,4,4,4,6,0,6,2,2,2,2,2,2,2,3,3,3,3},
-							{4,0,0,0,0,0,0,0,0,4,6,0,6,2,0,0,0,0,0,2,0,0,0,2},
-							{4,0,0,0,0,0,0,0,0,0,0,0,6,2,0,0,5,0,0,2,0,0,0,2},
-							{4,0,0,0,0,0,0,0,0,4,6,0,6,2,0,0,0,0,0,2,2,0,2,2},
-							{4,0,6,0,6,0,0,0,0,4,6,0,0,0,0,0,5,0,0,0,0,0,0,2},
-							{4,0,0,5,0,0,0,0,0,4,6,0,6,2,0,0,0,0,0,2,2,0,2,2},
-							{4,0,6,0,6,0,0,0,0,4,6,0,6,2,0,0,5,0,0,2,0,0,0,2},
-							{4,0,0,0,0,0,0,0,0,4,6,0,6,2,0,0,0,0,0,2,0,0,0,2},
-							{4,4,4,4,4,4,4,4,4,4,1,1,1,2,2,2,2,2,2,3,3,3,3,3}
-						};
+									{
+										{8,8,8,8,8,8,8,8,8,8,8,4,4,6,4,4,6,4,6,4,4,4,6,4},
+										{8,0,0,0,0,0,0,0,0,0,8,4,0,0,0,0,0,0,0,0,0,0,0,4},
+										{8,0,3,3,0,0,0,0,0,8,8,4,0,0,0,0,0,0,0,0,0,0,0,6},
+										{8,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6},
+										{8,0,3,3,0,0,0,0,0,8,8,4,0,0,0,0,0,0,0,0,0,0,0,4},
+										{8,0,0,0,0,0,0,0,0,0,8,4,0,0,0,0,0,6,6,6,0,6,4,6},
+										{8,8,8,8,0,8,8,8,8,8,8,4,4,4,4,4,4,6,0,0,0,0,0,6},
+										{7,7,7,7,0,7,7,7,7,0,8,0,8,0,8,0,8,4,0,4,0,6,0,6},
+										{7,7,0,0,0,0,0,0,7,8,0,8,0,8,0,8,8,6,0,0,0,0,0,6},
+										{7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8,6,0,0,0,0,0,4},
+										{7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8,6,0,6,0,6,0,6},
+										{7,7,0,0,0,0,0,0,7,8,0,8,0,8,0,8,8,6,4,6,0,6,6,6},
+										{7,7,7,7,0,7,7,7,7,8,8,4,0,6,8,4,8,3,3,3,0,3,3,3},
+										{2,2,2,2,0,2,2,2,2,4,6,4,0,0,6,0,6,3,0,0,0,0,0,3},
+										{2,2,0,0,0,0,0,2,2,4,0,0,0,0,0,0,4,3,0,0,0,0,0,3},
+										{2,0,0,0,0,0,0,0,2,4,0,0,0,0,0,0,4,3,0,0,0,0,0,3},
+										{1,0,0,0,0,0,0,0,1,4,4,4,4,4,6,0,6,3,3,0,0,0,3,3},
+										{2,0,0,0,0,0,0,0,2,2,2,1,2,2,2,6,6,0,0,5,0,5,0,5},
+										{2,2,0,0,0,0,0,2,2,2,0,0,0,2,2,0,5,0,5,0,0,0,5,5},
+										{2,0,0,0,0,0,0,0,2,0,0,0,0,0,2,5,0,5,0,5,0,5,0,5},
+										{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5},
+										{2,0,0,0,0,0,0,0,2,0,0,0,0,0,2,5,0,5,0,5,0,5,0,5},
+										{2,2,0,0,0,0,0,2,2,2,0,0,0,2,2,0,5,0,5,0,0,0,5,5},
+										{2,2,2,2,1,2,2,2,2,2,2,1,2,2,2,5,5,5,5,5,5,5,5,5}
+									};
 
 void	draw(t_info *info)
 {
@@ -109,20 +107,68 @@ void	draw(t_info *info)
 
 void	calc(t_info *info)
 {
-	int	x;
-
-	x = 0;
-	if (info->re_buf == 1)
+	//FLOOR CASTING
+	for(int y = 0; y < height; y++)
 	{
-		for (int i = 0; i < height; i++)
+		// rayDir for leftmost ray (x = 0) and rightmost ray (x = w)
+		float rayDirX0 = info->dirX - info->planeX;
+		float rayDirY0 = info->dirY - info->planeY;
+		float rayDirX1 = info->dirX + info->planeX;
+		float rayDirY1 = info->dirY + info->planeY;
+
+		// Current y position compared to the center of the screen (the horizon)
+		int p = y - height / 2;
+
+		// Vertical position of the camera.
+		float posZ = 0.5 * height;
+
+		// Horizontal distance from the camera to the floor for the current row.
+		// 0.5 is the z position exactly in the middle between floor and ceiling.
+		float rowDistance = posZ / p;
+
+		// calculate the real world step vector we have to add for each x (parallel to camera plane)
+		// adding step by step avoids multiplications with a weight in the inner loop
+		float floorStepX = rowDistance * (rayDirX1 - rayDirX0) / width;
+		float floorStepY = rowDistance * (rayDirY1 - rayDirY0) / width;
+
+		// real world coordinates of the leftmost column. This will be updated as we step to the right.
+		float floorX = info->posX + rowDistance * rayDirX0;
+		float floorY = info->posY + rowDistance * rayDirY0;
+
+		for(int x = 0; x < width; ++x)
 		{
-			for (int j = 0; j < width; j++)
-			{
-				info->buf[i][j] = 0;
-			}
+			// the cell coord is simply got from the integer parts of floorX and floorY
+			int cellX = (int)(floorX);
+			int cellY = (int)(floorY);
+
+			// get the texture coordinate from the fractional part
+			int tx = (int)(texWidth * (floorX - cellX)) & (texWidth - 1);
+			int ty = (int)(texHeight * (floorY - cellY)) & (texHeight - 1);
+
+			floorX += floorStepX;
+			floorY += floorStepY;
+
+			// choose texture and draw the pixel
+			int floorTexture = 3;
+			int ceilingTexture = 6;
+
+			int color;
+
+			// floor
+			color = info->texture[floorTexture][texWidth * ty + tx];
+			color = (color >> 1) & 8355711; // make a bit darker
+
+			info->buf[y][x] = color;
+
+			//ceiling (symmetrical, at screenHeight - y - 1 instead of y)
+			color = info->texture[ceilingTexture][texWidth * ty + tx];
+			color = (color >> 1) & 8355711; // make a bit darker
+
+			info->buf[height - y - 1][x] = color;
 		}
 	}
-	while (x < width)
+	//WALL CASTING
+	for(int x = 0; x < width; x++)
 	{
 		double cameraX = 2 * x / (double)width - 1;
 		double rayDirX = info->dirX + info->planeX * cameraX;
@@ -203,7 +249,7 @@ void	calc(t_info *info)
 			drawEnd = height - 1;
 
 		// texturing calculations
-		int texNum = worldMap[mapX][mapY];
+		int texNum = worldMap[mapX][mapY] - 1;
 
 		// calculate value of wallX
 		double wallX;
@@ -222,21 +268,81 @@ void	calc(t_info *info)
 
 		// How much to increase the texture coordinate perscreen pixel
 		double step = 1.0 * texHeight / lineHeight;
+
 		// Starting texture coordinate
 		double texPos = (drawStart - height / 2 + lineHeight / 2) * step;
+
 		for (int y = drawStart; y < drawEnd; y++)
 		{
 			// Cast the texture coordinate to integer, and mask with (texHeight - 1) in case of overflow
 			int texY = (int)texPos & (texHeight - 1);
 			texPos += step;
+
 			int color = info->texture[texNum][texHeight * texY + texX];
+
 			// make color darker for y-sides: R, G and B byte each divided through two with a "shift" and an "and"
 			if (side == 1)
 				color = (color >> 1) & 8355711;
+
 			info->buf[y][x] = color;
-			info->re_buf = 1;
 		}
-		x++;
+
+		//FLOOR CASTING (vertical version, directly after drawing the vertical wall stripe for the current x)
+		double floorXWall, floorYWall; //x, y position of the floor texel at the bottom of the wall
+
+		//4 different wall directions possible
+		if(side == 0 && rayDirX > 0)
+		{
+			floorXWall = mapX;
+			floorYWall = mapY + wallX;
+		}
+		else if(side == 0 && rayDirX < 0)
+		{
+			floorXWall = mapX + 1.0;
+			floorYWall = mapY + wallX;
+		}
+		else if(side == 1 && rayDirY > 0)
+		{
+			floorXWall = mapX + wallX;
+			floorYWall = mapY;
+		}
+		else
+		{
+			floorXWall = mapX + wallX;
+			floorYWall = mapY + 1.0;
+		}
+
+		double distWall, distPlayer, currentDist;
+
+		distWall = perpWallDist;
+		distPlayer = 0.0;
+
+		if (drawEnd < 0) drawEnd = height; //becomes < 0 when the integer overflows
+
+		//draw the floor from drawEnd to the bottom of the screen
+		for(int y = drawEnd + 1; y < height; y++)
+		{
+			currentDist = height / (2.0 * y - height); //you could make a small lookup table for this instead
+
+			double weight = (currentDist - distPlayer) / (distWall - distPlayer);
+
+			double currentFloorX = weight * floorXWall + (1.0 - weight) * info->posX;
+			double currentFloorY = weight * floorYWall + (1.0 - weight) * info->posY;
+
+			int floorTexX, floorTexY;
+			floorTexX = (int)(currentFloorX * texWidth) % texWidth;
+			floorTexY = (int)(currentFloorY * texHeight) % texHeight;
+
+			int checkerBoardPattern = ((int)(currentFloorX) + (int)(currentFloorY)) % 2;
+			int floorTexture;
+			if(checkerBoardPattern == 0) floorTexture = 3;
+			else floorTexture = 4;
+
+			//floor
+			info->buf[y][x] = (info->texture[floorTexture][texWidth * floorTexY + floorTexX] >> 1) & 8355711;
+			//ceiling (symmetrical!)
+			info->buf[height - y][x] = info->texture[6][texWidth * floorTexY + floorTexX];
+		}
 	}
 }
 
@@ -288,8 +394,6 @@ int	key_press(int key, t_info *info)
 	}
 	if (key == ESC)
 		exit(0);
-	mlx_clear_window(info->mlx, info->win);
-	main_loop(info);
 	return (0);
 }
 
@@ -319,10 +423,8 @@ void	load_texture(t_info *info)
 	load_image(info, info->texture[5], "../../texture/mossy.xpm", &img);
 	load_image(info, info->texture[6], "../../texture/wood.xpm", &img);
 	load_image(info, info->texture[7], "../../texture/colorstone.xpm", &img);
-	load_image(info, info->texture[8], "../../texture/barrel.xpm", &img);
-	load_image(info, info->texture[9], "../../texture/pillar.xpm", &img);
-	load_image(info, info->texture[10], "../../texture/greenlight.xpm", &img);
 }
+
 
 int	main(void)
 {
@@ -335,7 +437,6 @@ int	main(void)
 	info.dirY = 0.0;
 	info.planeX = 0.0;
 	info.planeY = 0.66;
-	info.re_buf = 0;
 
 	for (int i = 0; i < height; i++)
 	{
@@ -345,14 +446,14 @@ int	main(void)
 		}
 	}
 
-	if (!(info.texture = (int **)malloc(sizeof(int *) * 11)))
+	if (!(info.texture = (int **)malloc(sizeof(int *) * 8)))
 		return (-1);
-	for (int i = 0; i < 11; i++)
+	for (int i = 0; i < 8; i++)
 	{
 		if (!(info.texture[i] = (int *)malloc(sizeof(int) * (texHeight * texWidth))))
 			return (-1);
 	}
-	for (int i = 0; i < 11; i++)
+	for (int i = 0; i < 8; i++)
 	{
 		for (int j = 0; j < texHeight * texWidth; j++)
 		{

@@ -52,6 +52,8 @@ GRAPH_SRCS		:=	choose_wall_color.c\
 					ft_red_cross.c\
 					init_game.c\
 					my_mlx_pixel_put.c\
+					draw_ceiling.c\
+					draw_floor.c\
 
 CAM_SRCS		:=	move_down.c\
 					move_left.c\

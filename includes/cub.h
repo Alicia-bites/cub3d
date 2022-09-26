@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/26 11:47:00 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/26 14:56:22 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@
 
 # define BACKGROUND_COLOR 0x00898c83
 # define PLAYER_COLOR 0x00a44620
+# define FLOOR_COLOR 0x002A4D70
 
 # define FILE_ERROR -1
 # define MALLOC_ERROR -2
@@ -176,59 +177,69 @@ typedef	struct s_img
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
-	// int		width;
-	// int		height;
 } t_img;
 
 typedef struct s_game
 {
-	int		map_fd;
-	t_ulist	**map_fd_lst;
-	int		**map_tab;
+	int			map_fd;
+	t_ulist		**map_fd_lst;
+	int			**map_tab;
 	t_settings	settings;
-	void	*mlx;
-	void	*win;
-	t_img	img;
-	int		*map;
-	double 	posX;
-	double	posY; 
-	double 	dirX;
-	double	dirY; 
-	double 	planeX;
-	double	planeY;
-	double	ray_dirX;
-	double	ray_dirY;
-	double	cameraX;
-	int 	stepX;
-	int 	stepY;
-	int 	hit;
-	int 	side;
-	int 	lineHeight;
-	double 	sideDistX;
-	double 	sideDistY;
-	double 	deltaDistX;
-	double 	deltaDistY;
-	double 	perpWallDist;
-	double 	oldDirX;
-	double 	oldPlaneX;
-	int 	mapX;
-	double 	height;
-	double 	width;
-	int 	mapY;
-	int 	drawStart;
-	int 	drawEnd;
-	int 	color;
-	int		buf[WINDOW_HEIGHT][WINDOW_WIDTH];
-	int		re_buf;
-	int		**texture;
-	int		xorcolor;
-	int		ycolor;
-	int		xycolor;
-	int		tex_number;
-	double	wall_x;
-	int		tex_x;
-	double	step;
-	int		tex_dir;
+	void		*mlx;
+	void		*win;
+	t_img		img;
+	int			*map;
+	double 		posX;
+	double		posY; 
+	double 		dirX;
+	double		dirY; 
+	double 		planeX;
+	double		planeY;
+	double		ray_dirX;
+	double		ray_dirY;
+	double		cameraX;
+	int 		stepX;
+	int 		stepY;
+	int 		hit;
+	int 		side;
+	int 		lineHeight;
+	double 		sideDistX;
+	double 		sideDistY;
+	double 		deltaDistX;
+	double 		deltaDistY;
+	double 		perpWallDist;
+	double 		oldDirX;
+	double 		oldPlaneX;
+	int 		mapX;
+	int 		mapY;
+	double 		height;
+	double 		width;
+	int 		drawStart;
+	int 		drawEnd;
+	int 		color;
+	int			buf[WINDOW_HEIGHT][WINDOW_WIDTH];
+	int			re_buf;
+	int			**texture;
+	int			xorcolor;
+	int			ycolor;
+	int			xycolor;
+	int			tex_number;
+	double		wall_x;
+	int			tex_x;
+	double		step;
+	// int			tex_dir;
+	float		rayDirX0;
+	float		rayDirY0;
+	float		raydirX1;
+	float		raydirY1;
+	float		posZ;
+	float		rowDistance;
+	float 		floorStepX;
+	float 		floorStepY;
+	float		floorX;
+	float		floorY;
+	int			cellX;
+	int			cellY;	
 } t_game;
 
 typedef struct s_palette
@@ -324,6 +335,8 @@ int		key_hook(int keycode, t_game *game);
 int		ft_redcross(t_game *game, int x);
 int		init_game(t_game *game);
 void	my_mlx_pixel_put(t_img *data, int x, int y, int color);
+int		draw_floor(t_game *game);
+int		draw_ceiling(t_game *game);
 
 // CAMERA_MOVEMENTS
 void	move_down(t_game *game);

@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 10:33:31 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/26 11:08:34 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/26 14:12:16 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -334,6 +334,8 @@ void	calc(t_info *info)
 		if(drawStart < 0) drawStart = 0;
 		int drawEnd = lineHeight / 2 + height / 2;
 		if(drawEnd >= height) drawEnd = height - 1;
+		
+		
 		//texturing calculations
 		int texNum = worldMap[mapX][mapY] - 1; //1 subtracted from it so that texture 0 can be used!
 		//calculate value of wallX
@@ -341,6 +343,8 @@ void	calc(t_info *info)
 		if (side == 0) wallX = info->posY + perpWallDist * rayDirY;
 		else           wallX = info->posX + perpWallDist * rayDirX;
 		wallX -= floor((wallX));
+
+		
 		//x coordinate on the texture
 		int texX = (int)(wallX * (double)texWidth);
 		if(side == 0 && rayDirX > 0) texX = texWidth - texX - 1;
@@ -579,17 +583,17 @@ void	load_texture(t_info *info)
 {
 	t_img	img;
 
-	load_image(info, info->texture[0], "../../textures/eagle.xpm", &img);
-	load_image(info, info->texture[1], "../../textures/redbrick.xpm", &img);
-	load_image(info, info->texture[2], "../../textures/purplestone.xpm", &img);
-	load_image(info, info->texture[3], "../../textures/greystone.xpm", &img);
-	load_image(info, info->texture[4], "../../textures/bluestone.xpm", &img);
-	load_image(info, info->texture[5], "../../textures/mossy.xpm", &img);
-	load_image(info, info->texture[6], "../../textures/wood.xpm", &img);
-	load_image(info, info->texture[7], "../../textures/colorstone.xpm", &img);
-	load_image(info, info->texture[8], "../../textures/barrel.xpm", &img);
-	load_image(info, info->texture[9], "../../textures/pillar.xpm", &img);
-	load_image(info, info->texture[10], "../../textures/greenlight.xpm", &img);
+	load_image(info, info->texture[0], "../../texture/eagle.xpm", &img);
+	load_image(info, info->texture[1], "../../texture/redbrick.xpm", &img);
+	load_image(info, info->texture[2], "../../texture/purplestone.xpm", &img);
+	load_image(info, info->texture[3], "../../texture/greystone.xpm", &img);
+	load_image(info, info->texture[4], "../../texture/bluestone.xpm", &img);
+	load_image(info, info->texture[5], "../../texture/mossy.xpm", &img);
+	load_image(info, info->texture[6], "../../texture/wood.xpm", &img);
+	load_image(info, info->texture[7], "../../texture/colorstone.xpm", &img);
+	load_image(info, info->texture[8], "../../texture/barrel.xpm", &img);
+	load_image(info, info->texture[9], "../../texture/pillar.xpm", &img);
+	load_image(info, info->texture[10], "../../texture/greenlight.xpm", &img);
 }
 
 
