@@ -36,7 +36,7 @@ int	init_game(t_game *game)
 	if (err)
 		return (err);
 	init_texture(game);
-	generate_textures(game);
+	load_texture(game);
 	start_game(game);
 	return (0);
 }

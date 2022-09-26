@@ -34,7 +34,7 @@ UTPATH			:=	unit_test
 SRCS_PATH		:=	sources
 GRAPH_PATH		:=	graphics
 CAM_PATH		:=	camera_movements
-TEX_PATH		:=	textures
+TEX_PATH		:=	texturing
 MAP_PATH		:=	map
 PARSE_PATH		:=	parsing
 RAY_PATH		:=	ray_casting
@@ -65,6 +65,7 @@ TEX_SRCS		:=	init_buf.c\
 					generate_textures.c\
 					choose_wall_texture.c\
 					init_re_buf.c\
+					load_texture.c\
 
 MAP_SRCS		:=	map.c\
 					map_check.c\

@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/26 09:52:32 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/26 11:47:00 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -165,8 +165,11 @@ typedef struct s_sprite
 
 typedef	struct s_img
 {
+	void	*img;
 	int		*data;
 	char	*path;
+	int		img_height;
+	int		img_width;
 	int		len_path;
 	void	*mlx_img;
 	char	*addr;
@@ -180,7 +183,7 @@ typedef	struct s_img
 typedef struct s_game
 {
 	int		map_fd;
-	t_ulist		**map_fd_lst;
+	t_ulist	**map_fd_lst;
 	int		**map_tab;
 	t_settings	settings;
 	void	*mlx;
@@ -215,9 +218,9 @@ typedef struct s_game
 	int 	drawStart;
 	int 	drawEnd;
 	int 	color;
-	int		**buf;
+	int		buf[WINDOW_HEIGHT][WINDOW_WIDTH];
 	int		re_buf;
-	int		texture[8][TEX_HEIGHT * TEX_WIDTH];
+	int		**texture;
 	int		xorcolor;
 	int		ycolor;
 	int		xycolor;
@@ -332,10 +335,11 @@ void	rotate_right(t_game *game);
 
 //TEXTURES
 int		init_buf(t_game *game);
-void	init_texture(t_game *game);
+int		init_texture(t_game *game);
 void	generate_textures(t_game *game);
 void	choose_wall_texture(t_game *game, int x);
 void	init_re_buf(t_game *game);
+int		load_texture(t_game *game);
 
 // RAY_CASTING
 void	calculate_step(t_game *game);
