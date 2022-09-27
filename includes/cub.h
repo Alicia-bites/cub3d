@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/27 17:10:38 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/27 17:58:05 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@
 # define SPRITE_COUNT 9
 # define CHAR_NOT_FOUND	'N'
 
-#define X_EVENT_KEY_PRESS 17
+# define setup game->settings
 
 // MAP FILE SETTINGS
 # define FD_NOT_INIT -99999999
