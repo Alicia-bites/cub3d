@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/27 14:28:36 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/27 14:45:46 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@
 //# include "libmlx.h"
 # include "libft.h"
 
-#define X_EVENT_key_hook 2
-#define X_EVENT_KEY_EXIT 17
+#define EVENT_KEY_HOOK 2
+#define EVENT_KEY_EXIT 17
 #define TEX_WIDTH 64
 #define TEX_HEIGHT 64
 #define MAP_WIDTH 24
@@ -46,25 +46,23 @@
 # define BLUE 0xB0E0E6
 # define VIOLET 0xC014BC
 # define COLOR	0x0FAE4
+# define FLOOR_COLOR 0x001A5557
+# define CEILING_COLOR 0x0000A7B2
+
 /* MLX KEY EVENTS */
 #  define K_W 119
 #  define K_A 97
 #  define K_S 115
 #  define K_D 100
 #  define K_P 112
-#  define K_UP 65362 // Ici
+#  define K_UP 65362
 #  define K_LEFT 65361
 #  define K_DOWN 65364
-#  define K_RIGHT 65363 // Ici
+#  define K_RIGHT 65363
 #  define K_SHIFT 65505
 #  define ESC 65307
-// #  define ESP 32
 
-# define BACKGROUND_COLOR 0x00898c83
-# define PLAYER_COLOR 0x00a44620
-# define FLOOR_COLOR 0x001A5557
-# define CEILING_COLOR 0x0000A7B2
-
+/* ERRORS */
 # define FILE_ERROR -1
 # define MALLOC_ERROR -2
 # define EMPTY_LINE -3
@@ -228,27 +226,7 @@ typedef struct s_game
 	double		wall_x;
 	int			tex_x;
 	double		step;
-	// int			tex_dir;
-	float		rayDirX0;
-	float		rayDirY0;
-	float		raydirX1;
-	float		raydirY1;
-	float		posZ;
-	float		rowDistance;
-	float 		floorStepX;
-	float 		floorStepY;
-	float		floorX;
-	float		floorY;
-	int			cellX;
-	int			cellY;
-	double		floorX_wall;
-	double		floorY_wall;
-	double		dist_wall;
-	double		dist_player;
-	double		current_dist;
-	double 		weight;
-	double		current_floorX;
-	double		current_floorY;
+	int			tex_dir;
 } t_game;
 
 typedef struct s_palette
@@ -265,115 +243,115 @@ typedef struct s_coord
 }	t_coord;
 
 // PARSING
-int     parse_arg(int argc);
-int     parse(int argc, char **argv, t_game *game);
-int     parse_map_fd(char *filename, t_game *game);
-void	parse_map_fd_free(void *content);
+int     	parse_arg(int argc);
+int     	parse(int argc, char **argv, t_game *game);
+int     	parse_map_fd(char *filename, t_game *game);
+void		parse_map_fd_free(void *content);
 t_map_fd   *parse_map_fd_init(int line_no, char *line);
-void    parse_map_fd_show(void *content);
-int     parse_map_lst(t_game *game);
-int     parse_map_lst_check(t_game *game, int txt_type, t_map_fd *map, char *value);
-int     parse_map_lst_fullspace(t_game *game, t_ulist *obj);
-char    *parse_map_lst_get_value(int txt_type, char *str);
-int     parse_map_lst_line(t_game *game, t_ulist *obj);
-int     parse_map_lst_line_txt_type(t_map_fd *map);
-void    parse_read_file(t_game *game);
+void    	parse_map_fd_show(void *content);
+int     	parse_map_lst(t_game *game);
+int     	parse_map_lst_check(t_game *game, int txt_type, t_map_fd *map, char *value);
+int     	parse_map_lst_fullspace(t_game *game, t_ulist *obj);
+char    	*parse_map_lst_get_value(int txt_type, char *str);
+int     	parse_map_lst_line(t_game *game, t_ulist *obj);
+int     	parse_map_lst_line_txt_type(t_map_fd *map);
+void    	parse_read_file(t_game *game);
 
-t_list	*create_list(char *line);
-t_list	*ft_parse(char *argv);
-t_list	*read_map(char *argv);
+t_list		*create_list(char *line);
+t_list		*ft_parse(char *argv);
+t_list		*read_map(char *argv);
 
 // SETTINGS
-int	settings_check(t_settings *settings);
-int	settings_check_map_order(t_settings *settings);
-int	settings_check_map_start_line(t_settings *settings);
-int	settings_check_map_size_min(t_settings *settings);
-int	settings_check_txt_type(t_settings *settings);
-void	settings_free(t_settings *settings);
-void	settings_free_close_fd(int *fd);
-void	settings_init(t_settings *settings);
-void	settings_init_map(t_settings *settings);
-int     settings_rgb(t_game *game, int txt_type, char *rgb);
-int     settings_rgb_check(char **rgb_lst, int *rgb_tab);
-int     settings_rgb_check_char(char *str);
-int     settings_rgb_check_dup(t_game *game, int txt_type);
-int     settings_rgb_check_space(char *str);
-int     settings_rgb_check_value(char *str, int *tab_i);
-void	settings_rgb_rm_space_end(char **rgb_lst);
-void	settings_rgb_set_line_no(t_game *game, int txt_type, t_map_fd *map);
-void	settings_rgb_set_value(t_game *game, int txt_type, int *rgb_tab);
-void	settings_rgb_set_value_type(int *r, int *g, int *b, int *rgb_tab);
-void	settings_rm_space_end(char *str);
-void	settings_show(t_settings *settings);
-void	settings_show_string(char *title, char *s);
-int     settings_texture_fd_check_dup(t_game *game, int txt_type);
-int     settings_texture_fd_open(t_game *game, int txt_type, char *filename);
-int     settings_texture_fd_save(t_game *game, int txt_type, int fd);
-void	settings_texture_fd_set_line_no(t_game *game, int txt_type,
-		t_map_fd *map);
+int			settings_check(t_settings *settings);
+int			settings_check_map_order(t_settings *settings);
+int			settings_check_map_start_line(t_settings *settings);
+int			settings_check_map_size_min(t_settings *settings);
+int			settings_check_txt_type(t_settings *settings);
+void		settings_free(t_settings *settings);
+void		settings_free_close_fd(int *fd);
+void		settings_init(t_settings *settings);
+void		settings_init_map(t_settings *settings);
+int     	settings_rgb(t_game *game, int txt_type, char *rgb);
+int     	settings_rgb_check(char **rgb_lst, int *rgb_tab);
+int     	settings_rgb_check_char(char *str);
+int     	settings_rgb_check_dup(t_game *game, int txt_type);
+int     	settings_rgb_check_space(char *str);
+int     	settings_rgb_check_value(char *str, int *tab_i);
+void		settings_rgb_rm_space_end(char **rgb_lst);
+void		settings_rgb_set_line_no(t_game *game, int txt_type, t_map_fd *map);
+void		settings_rgb_set_value(t_game *game, int txt_type, int *rgb_tab);
+void		settings_rgb_set_value_type(int *r, int *g, int *b, int *rgb_tab);
+void		settings_rm_space_end(char *str);
+void		settings_show(t_settings *settings);
+void		settings_show_string(char *title, char *s);
+int     	settings_texture_fd_check_dup(t_game *game, int txt_type);
+int     	settings_texture_fd_open(t_game *game, int txt_type, char *filename);
+int     	settings_texture_fd_save(t_game *game, int txt_type, int fd);
+void		settings_texture_fd_set_line_no(t_game *game, int txt_type,
+				t_map_fd *map);
 
 // MAP
-int	map(t_game *game);
-int     map_check(t_game *game, t_ulist *map_obj);
-int     map_check_line(t_settings *settings, t_map_fd *map);
-int     map_check_line_char(int c);
-int     map_check_line_player_sp(t_settings *settings, int c, int x, int y);
-void	map_check_width(t_settings *settings, char *str);
-t_ulist	*map_get_start_obj(t_game *game);
-void    map_rm_nl(t_game *game, t_ulist *map_obj);
-void    map_rm_nl_line(char *str);
-int     map_tab(t_game *game, t_ulist *map_obj);
-int     map_tab_check(int **tab, int height, int width);
-int     map_tab_check_line(int *line, int *prev, int *next, int width);
-int     map_tab_check_line_horizontal(int *line, int i, int dir, int width);
-int     map_tab_check_line_vertical(int *line, int i);
-int     map_tab_create(t_game *game, t_ulist *map_obj);
-int     map_tab_create_line(t_map_fd *map, int *tab, int len_tab);
-void    map_tab_free(t_game *game);
-void    map_tab_init_bzero(int **tab, int len);
-int     map_tab_init(t_game *game);
-int     *map_tab_init_line(int **tab, int height, int width);
-void	map_tab_show(int **tab);
+int			map(t_game *game);
+int     	map_check(t_game *game, t_ulist *map_obj);
+int     	map_check_line(t_settings *settings, t_map_fd *map);
+int     	map_check_line_char(int c);
+int     	map_check_line_player_sp(t_settings *settings, int c, int x, int y);
+void		map_check_width(t_settings *settings, char *str);
+t_ulist		*map_get_start_obj(t_game *game);
+void    	map_rm_nl(t_game *game, t_ulist *map_obj);
+void    	map_rm_nl_line(char *str);
+int     	map_tab(t_game *game, t_ulist *map_obj);
+int     	map_tab_check(int **tab, int height, int width);
+int     	map_tab_check_line(int *line, int *prev, int *next, int width);
+int     	map_tab_check_line_horizontal(int *line, int i, int dir, int width);
+int     	map_tab_check_line_vertical(int *line, int i);
+int     	map_tab_create(t_game *game, t_ulist *map_obj);
+int     	map_tab_create_line(t_map_fd *map, int *tab, int len_tab);
+void    	map_tab_free(t_game *game);
+void    	map_tab_init_bzero(int **tab, int len);
+int     	map_tab_init(t_game *game);
+int     	*map_tab_init_line(int **tab, int height, int width);
+void		map_tab_show(int **tab);
 
 // GRAPHICS
 // void	destroy_sprites(t_game *game);
-int		choose_wall_color(t_game *game);
-void	draw_vertical_line(t_game *game);
-void	free_mlx(t_game *game);
-int		key_hook(int keycode, t_game *game);
-int		ft_redcross(t_game *game, int x);
-int		init_game(t_game *game);
-void	my_mlx_pixel_put(t_img *data, int x, int y, int color);
-int		draw_floor(t_game *game);
-int		draw_ceiling(t_game *game);
-int		draw_background(t_game *game, int x);
+int			choose_wall_color(t_game *game);
+void		draw_vertical_line(t_game *game);
+void		free_mlx(t_game *game);
+int			key_hook(int keycode, t_game *game);
+int			ft_redcross(t_game *game, int x);
+int			init_game(t_game *game);
+void		my_mlx_pixel_put(t_img *data, int x, int y, int color);
+int			draw_floor(t_game *game);
+int			draw_ceiling(t_game *game);
+int			draw_background(t_game *game, int x);
 
 // CAMERA_MOVEMENTS
-void	move_down(t_game *game);
-void	move_left(t_game *game);
-void	move_right(t_game *game);
-void	move_up(t_game *game);
-void	rotate_left(t_game *game);
-void	rotate_right(t_game *game);
+void		move_down(t_game *game);
+void		move_left(t_game *game);
+void		move_right(t_game *game);
+void		move_up(t_game *game);
+void		rotate_left(t_game *game);
+void		rotate_right(t_game *game);
 
 //TEXTURES
-int		init_buf(t_game *game);
-int		init_texture(t_game *game);
-void	generate_textures(t_game *game);
-void	choose_wall_texture(t_game *game, int x);
-void	init_re_buf(t_game *game);
-int		load_texture(t_game *game);
+int			init_buf(t_game *game);
+int			init_texture(t_game *game);
+void		generate_textures(t_game *game);
+void		choose_wall_texture(t_game *game, int x);
+void		init_re_buf(t_game *game);
+int			load_texture(t_game *game);
 
 // RAY_CASTING
-void	calculate_step(t_game *game);
-int		calculate_ray_position_and_direction(t_game *game, int x);
-int		calculate_start_and_end_of_line(t_game *game);
-int		perform_dda(t_game *game);
-int		init_struct(t_game *game);
-int		start_ray_casting_loop(t_game *game);
+void		calculate_step(t_game *game);
+int			calculate_ray_position_and_direction(t_game *game, int x);
+int			calculate_start_and_end_of_line(t_game *game);
+int			perform_dda(t_game *game);
+int			init_struct(t_game *game);
+int			start_ray_casting_loop(t_game *game);
 
 // UTILS
-char	get_character_in_map(t_list *map, int x, int y);
-void	print_map(t_list *map);
+char		get_character_in_map(t_list *map, int x, int y);
+void		print_map(t_list *map);
 
 #endif
