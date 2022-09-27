@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 18:09:58 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/27 17:14:51 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/27 17:29:08 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,13 @@ int	perform_dda(t_game *game)
 		if (worldMap[game->mapX][game->mapY] > 0)
 			game->hit = 1;
 		// print_tab(game->map_tab, game->settings.map_width, game->settings.map_height);
-		// if (game->map_tab[game->mapX][game->mapY] > 0)
+		// printf("game->map_tab = %p\n", game->map_tab);
+		// printf("game->mapX = %d\n", game->mapX);
+		// printf("game->mapY = %d\n", game->mapY);
+		// printf("game->settings->map_height = %d\n", game->settings.map_height);
+		// printf("game->settings->map_width = %d\n", game->settings.map_width);
+		// printf("game->map_tab[game->mapX][game->mapY] = %d\n", game->map_tab[game->mapX][game->mapY]);
+		// if (game->map_tab[game->mapX][game->mapY] > 48)
 		// 	game->hit = 1;
 	}
 	return (0);
