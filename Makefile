@@ -52,8 +52,6 @@ GRAPH_SRCS		:=	choose_wall_color.c\
 					ft_red_cross.c\
 					init_game.c\
 					my_mlx_pixel_put.c\
-					draw_ceiling.c\
-					draw_floor.c\
 
 CAM_SRCS		:=	move_down.c\
 					move_left.c\
@@ -110,7 +108,7 @@ PARSE_SRCS		:=	parse_argc.c\
 
 RAY_SRCS		:=	calculate_ray_position_and_direction.c\
 					calculate_step.c\
-					draw_wall.c\
+					calculate_start_and_end_of_line.c\
 					perform_dda.c\
 					init_struct.c\
 					start_ray_casting_loop.c\

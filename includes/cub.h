@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/26 14:56:22 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/27 14:28:36 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,8 @@
 
 # define BACKGROUND_COLOR 0x00898c83
 # define PLAYER_COLOR 0x00a44620
-# define FLOOR_COLOR 0x002A4D70
+# define FLOOR_COLOR 0x001A5557
+# define CEILING_COLOR 0x0000A7B2
 
 # define FILE_ERROR -1
 # define MALLOC_ERROR -2
@@ -239,7 +240,15 @@ typedef struct s_game
 	float		floorX;
 	float		floorY;
 	int			cellX;
-	int			cellY;	
+	int			cellY;
+	double		floorX_wall;
+	double		floorY_wall;
+	double		dist_wall;
+	double		dist_player;
+	double		current_dist;
+	double 		weight;
+	double		current_floorX;
+	double		current_floorY;
 } t_game;
 
 typedef struct s_palette
@@ -337,6 +346,7 @@ int		init_game(t_game *game);
 void	my_mlx_pixel_put(t_img *data, int x, int y, int color);
 int		draw_floor(t_game *game);
 int		draw_ceiling(t_game *game);
+int		draw_background(t_game *game, int x);
 
 // CAMERA_MOVEMENTS
 void	move_down(t_game *game);
@@ -357,7 +367,7 @@ int		load_texture(t_game *game);
 // RAY_CASTING
 void	calculate_step(t_game *game);
 int		calculate_ray_position_and_direction(t_game *game, int x);
-int		draw_wall(t_game *game);
+int		calculate_start_and_end_of_line(t_game *game);
 int		perform_dda(t_game *game);
 int		init_struct(t_game *game);
 int		start_ray_casting_loop(t_game *game);

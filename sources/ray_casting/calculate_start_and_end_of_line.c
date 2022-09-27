@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_wall.c                                        :+:      :+:    :+:   */
+/*   calculate_start_and_end_of_line.c                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 17:56:21 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/22 15:57:57 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/27 13:37:25 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-int	draw_wall(t_game *game)
+int	calculate_start_and_end_of_line(t_game *game)
 {
     // Calculate distance projected on camera direction (Euclidean 
 	// distance would give fisheye effect!)
@@ -24,9 +24,11 @@ int	draw_wall(t_game *game)
 	game->lineHeight = (int)(WINDOW_HEIGHT / game->perpWallDist);
 	//calculate lowest and highest pixel to fill in current stripe
 	game->drawStart = -(game->lineHeight) / 2 + WINDOW_HEIGHT / 2;
+	// printf("drawStart = %d\n", game->drawStart);
 	if(game->drawStart < 0)
 		game->drawStart = 0;
 	game->drawEnd = game->lineHeight / 2 + WINDOW_HEIGHT / 2;
+	// printf("drawEnd = %d\n", game->drawEnd);
 	if(game->drawEnd >= WINDOW_HEIGHT)
 		game->drawEnd = WINDOW_HEIGHT - 1;
 	return (0);

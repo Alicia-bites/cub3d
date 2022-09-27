@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 14:17:13 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/26 14:18:55 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/27 09:54:36 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -248,6 +248,7 @@ void	calc(t_info *info)
 		if(drawEnd >= height)
 			drawEnd = height - 1;
 
+//NEEEWW STUUUUUF
 		// texturing calculations
 		int texNum = worldMap[mapX][mapY] - 1;
 
