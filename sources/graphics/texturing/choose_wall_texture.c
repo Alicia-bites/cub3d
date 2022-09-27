@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 10:25:05 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/26 14:55:53 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/27 14:41:09 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	get_pixel_color_along_y_axe(t_game *game, int x)
 	{
 		tex_y = (int)texPos & (TEX_HEIGHT - 1);
 		texPos += game->step;
-		color = game->texture[game->tex_number][TEX_HEIGHT * tex_y + game->tex_x];
+		color = game->texture[game->tex_dir][TEX_HEIGHT * tex_y + game->tex_x];
 		make_color_darker_for_y_side(game, color, x, y);
 		y++;
 	}
@@ -79,15 +79,14 @@ void	choose_wall_texture(t_game *game, int x)
 {
 	extern int	worldMap[24][24];
 	
-	game->tex_number = worldMap[game->mapX][game->mapY] - 1;
-	// if (game->side == 0 && game->ray_dirX < 0)
-	// 	game->tex_dir = 0;
-	// if (game->side == 0 && game->ray_dirX >= 0)
-	// 	game->tex_dir = 1;
-	// if (game->side == 1 && game->ray_dirY < 0)
-	// 	game->tex_dir = 2;
-	// if (game->side == 1 && game->ray_dirY >= 0)
-	// 	game->tex_dir = 3;
+	if (game->side == 0 && game->ray_dirX < 0)
+		game->tex_dir = 0;
+	if (game->side == 0 && game->ray_dirX >= 0)
+		game->tex_dir = 1;
+	if (game->side == 1 && game->ray_dirY < 0)
+		game->tex_dir = 2;
+	if (game->side == 1 && game->ray_dirY >= 0)
+		game->tex_dir = 3;
 	if (game->side == 0)
 		game->wall_x = game->posY + game->perpWallDist * game->ray_dirY;		
 	else
