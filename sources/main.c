@@ -6,32 +6,33 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:54:11 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/26 12:10:42 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/27 17:14:01 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-// void	print_tab(int worldMap[24][24], int map_width, int map_height)
-// {
-// 	int	i;
-// 	int	j;
+//FOR DEBUG
+void	print_tab(int **worldMap, int map_width, int map_height)
+{
+	int	i;
+	int	j;
 
-// 	i = 0;
-// 	while (i < map_height)
-// 	{
-// 		j = 0;
-// 		printf(("{"));
-// 		while (j < map_width)
-// 		{
-// 			printf("%d,", worldMap[i][j]);
-// 			j++;
-// 		}
-// 		i++;
-// 		printf(("}"));
-// 		printf(("\n"));
-// 	}
-// }
+	i = 0;
+	while (i < map_height)
+	{
+		j = 0;
+		printf(("{"));
+		while (j < map_width)
+		{
+			printf("%d,", worldMap[i][j]);
+			j++;
+		}
+		i++;
+		printf(("}"));
+		printf(("\n"));
+	}
+}
 
 int	main(int argc, char **argv)
 {
@@ -48,7 +49,7 @@ int	main(int argc, char **argv)
 	if (!map_fd_lst )
 		return (EXIT_FAILURE);
 	game.map_fd_lst = map_fd_lst;
-	settings_show(&game.settings);
+	// settings_show(&game.settings);
 	if (parse(argc, argv, &game) != 0)
 	{
 		settings_free(&game.settings);
@@ -68,7 +69,9 @@ int	main(int argc, char **argv)
 		ft_lst_free(game.map_fd_lst, &parse_map_fd_free);
 		return (EXIT_FAILURE);
 	}
-	settings_show(&game.settings);
+	// print_tab(game.map_tab, game.settings.map_width, game.settings.map_height);
+	init_game(&game);
+	// settings_show(&game.settings);
 	map_tab_free(&game);
 	settings_free(&game.settings);
 	ft_lst_free(game.map_fd_lst, &parse_map_fd_free);
@@ -79,7 +82,6 @@ int	main(int argc, char **argv)
 //		ft_putstr_fd("Oups, wrong number of arguments!", 2);
 //		return (-1);
 //	}
-	game.map = map_test;
-	init_game(&game);
+	// game.map = map_test;
 	return (0);
 }

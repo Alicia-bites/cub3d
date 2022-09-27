@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/27 14:45:46 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/27 17:10:38 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,8 +153,8 @@ typedef struct s_settings
 
 typedef struct s_map_fd
 {
-	int	line_no;
-	char	*line;
+	int		line_no;
+	char*	line;
 }	t_map_fd;
 
 typedef struct s_sprite
@@ -353,5 +353,8 @@ int			start_ray_casting_loop(t_game *game);
 // UTILS
 char		get_character_in_map(t_list *map, int x, int y);
 void		print_map(t_list *map);
+
+//DEBUG
+void		print_tab(int **worldMap, int map_width, int map_height);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 18:09:58 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/26 13:16:07 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/27 17:14:51 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,9 @@ int	perform_dda(t_game *game)
 		// Check if ray has hit a wall
 		if (worldMap[game->mapX][game->mapY] > 0)
 			game->hit = 1;
+		// print_tab(game->map_tab, game->settings.map_width, game->settings.map_height);
+		// if (game->map_tab[game->mapX][game->mapY] > 0)
+		// 	game->hit = 1;
 	}
 	return (0);
 }

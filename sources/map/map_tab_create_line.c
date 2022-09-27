@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_tab_create_line.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 17:52:53 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/24 09:58:52 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/27 17:06:08 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ int	map_tab_create_line(t_map_fd *map, int *tab, int len_tab)
 	int		i;
 
 	len = ft_strlen(map->line);
-	printf("DEBUG: map->line_no: %d\tlen_line: %zu\nlen tab: %d\n", map->line_no, len, len_tab);
+	// printf("DEBUG: map->line_no: %d\tlen_line: %zu\nlen tab: %d\n", map->line_no, len, len_tab);
 	i = 0;
 	while (i < (int)len)
 	{
-		tab[i] = map->line[i];
+		tab[i] = (int)map->line[i];
 		i++;
 	}
 	while (i < len_tab)

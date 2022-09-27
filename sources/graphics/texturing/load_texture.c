@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 11:38:42 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/26 11:59:22 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/27 16:09:49 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ int	load_texture(t_game *game)
 {
 	t_img img;
 
-	load_image(game, game->texture[1], "texture/redbrick.xpm", &img);
 	load_image(game, game->texture[0], "texture/eagle.xpm", &img);
+	load_image(game, game->texture[1], "texture/redbrick.xpm", &img);
 	load_image(game, game->texture[2], "texture/purplestone.xpm", &img);
 	load_image(game, game->texture[3], "texture/greystone.xpm", &img);
 	load_image(game, game->texture[4], "texture/bluestone.xpm", &img);

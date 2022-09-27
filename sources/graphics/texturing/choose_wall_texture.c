@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 10:25:05 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/27 14:41:09 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/27 14:56:37 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,20 +61,6 @@ static void	find_x_coordinate_in_texture(t_game *game)
 		game->tex_x = TEX_WIDTH - game->tex_x - 1;
 }
 
-// tex_number --> the value of the current square minus 1. Why minus 1?
-// because there is a texture 0, but map tile 0 has no texture since it
-// represents an empty space.
-// So, to be able to use texture 0 anyway, we substract so that the map
-// tile 1 will have the texture 0, the map tile 2 the texture 1, etc...
-// vall_x --> the exact value where the wall was hit, to just the integer
-// coordonates of the wall. This is required to know wich x-coordinate of the
-// texture we must use. We obtain that value by :
-// 1) Calculate the exact x and y of the world game.
-// 2) Substract off it the integer value of the wall.
-// READ THIS ANTHONY !!!
-// In mathematics and computer science, the 'floor' function is the function
-// that takes as input a real number x, and gives as output the greatest integer
-// less than or equal to x.
 void	choose_wall_texture(t_game *game, int x)
 {
 	extern int	worldMap[24][24];

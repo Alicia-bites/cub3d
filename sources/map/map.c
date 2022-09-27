@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 17:21:52 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/23 18:07:21 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/27 17:14:23 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ int	map(t_game *game)
 		return (EXIT_FAILURE);
 	if (map_tab(game, map_obj))
 		return (EXIT_FAILURE);
-	map_tab_show(game->map_tab);
+	// map_tab_show(game->map_tab);
 	return (0);
 }
