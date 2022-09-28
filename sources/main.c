@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:54:11 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/28 14:17:16 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/28 15:23:33 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int	main(int argc, char **argv)
 	t_ulist	**map_fd_lst;
 	int		err;
 
+	err = 0;
 	map_test = NULL;
 	game.map_fd = FD_NOT_INIT;
 	game.map_fd_lst = NULL;;

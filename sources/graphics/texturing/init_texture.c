@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 16:50:15 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/28 14:27:28 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/28 15:18:52 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,15 @@ static int	malloc_lines_for_textures_tab(t_game *game)
 
 int	init_texture(t_game *game)
 {
-
+	int	err;
 	
+	err = 0;
 	game->texture = (int **)malloc(sizeof(int *) * 11);
 	if (!game->texture)
 		return (errors_handler(MALLOC_ERROR, __func__));
-	malloc_lines_for_textures_tab(game);
+	err = malloc_lines_for_textures_tab(game);
+	if (err)
+		return (err);
 	fill_textures_tab_with_zero(game);
 	return (0);
 }
