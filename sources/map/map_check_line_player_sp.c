@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_check_line_player_sp.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 18:01:52 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/23 11:37:43 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/28 12:00:18 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	map_check_line_player_sp(t_settings *settings, int c, int x, int y)
 		{
 			settings->map_player_sp_val = c;
 			settings->map_player_sp_x = x;
-			settings->map_player_sp_y = y;
+			settings->map_player_sp_y = y - settings->map_start_line_no;
 		}
 		else
 			return (ft_panic(-1, __func__, ERR_MAP_PLAYER_DUP));
