@@ -6,11 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 10:25:05 by amarchan          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2022/09/28 09:37:57 by abarrier         ###   ########.fr       */
-=======
-/*   Updated: 2022/09/28 14:57:00 by amarchan         ###   ########.fr       */
->>>>>>> main
+/*   Updated: 2022/09/28 18:06:23 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +60,7 @@ static void	find_x_coordinate_in_texture(t_game *game)
 }
 
 void	choose_wall_texture(t_game *game, int x)
+{
 	if (game->side == 0 && game->ray_dirX < 0)
 		game->tex_dir = 0;
 	if (game->side == 0 && game->ray_dirX >= 0)

@@ -6,11 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:54:11 by amarchan          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2022/09/28 09:39:20 by abarrier         ###   ########.fr       */
-=======
-/*   Updated: 2022/09/28 16:12:26 by amarchan         ###   ########.fr       */
->>>>>>> main
+/*   Updated: 2022/09/28 18:13:36 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +19,7 @@ int	main(int argc, char **argv)
 	t_ulist	**map_fd_lst;
 	int		err;
 
-<<<<<<< HEAD
-//	map_test = NULL;
-=======
 	err = 0;
-	map_test = NULL;
->>>>>>> main
 	game.map_fd = FD_NOT_INIT;
 	game.map_fd_lst = NULL;;
 	game.map_tab = NULL;
@@ -58,9 +49,14 @@ int	main(int argc, char **argv)
 		return (EXIT_FAILURE);
 	}
 	print_tab(game.map_tab, game.settings.map_width, game.settings.map_height);
-	err = init_game(&game);
+//	err = init_game(&game);
 	if (err)
+	{
+		map_tab_free(&game);
+		settings_free(&game.settings);
+		ft_lst_free(game.map_fd_lst, &parse_map_fd_free);
 		return (err);
+	}
 	// settings_show(&game.settings);
 	map_tab_free(&game);
 	settings_free(&game.settings);
