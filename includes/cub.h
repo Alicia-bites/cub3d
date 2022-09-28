@@ -309,6 +309,8 @@ t_ulist		*map_get_start_obj(t_game *game);
 void    	map_rm_nl(t_game *game, t_ulist *map_obj);
 void    	map_rm_nl_line(char *str);
 int     	map_tab(t_game *game, t_ulist *map_obj);
+void    	map_tab_adjust(int **tab);
+void    	map_tab_adjust_line(int *line);
 int     	map_tab_check(int **tab, int height, int width);
 int     	map_tab_check_line(int *line, int *prev, int *next, int width);
 int     	map_tab_check_line_horizontal(int *line, int i, int dir, int width);

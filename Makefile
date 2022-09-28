@@ -77,6 +77,8 @@ MAP_SRCS		:=	map.c\
 					map_rm_nl.c\
 					map_rm_nl_line.c\
 					map_tab.c\
+					map_tab_adjust.c\
+					map_tab_adjust_line.c\
 					map_tab_check.c\
 					map_tab_check_line.c\
 					map_tab_check_line_horizontal.c\
