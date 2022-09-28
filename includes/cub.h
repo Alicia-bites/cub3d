@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/28 15:52:47 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/28 16:22:51 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,11 @@
 //# include "libmlx.h"
 # include "libft.h"
 
+#define N -2
+#define E -3
+#define S -4
+#define O -5
+
 #define EVENT_KEY_HOOK 2
 #define EVENT_KEY_EXIT 17
 #define TEX_WIDTH 64
@@ -35,6 +40,8 @@
 #define MAP_HEIGHT 24
 #define WINDOW_WIDTH 1920
 #define WINDOW_HEIGHT 1080
+// #define WINDOW_WIDTH 800
+// #define WINDOW_HEIGHT 800
 #define MOVESPEED 0.5
 #define ROTSPEED 0.5
 
