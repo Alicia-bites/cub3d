@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 11:38:42 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/27 16:09:49 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/28 15:31:44 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,5 @@ int	load_texture(t_game *game)
 	load_image(game, game->texture[8], "texture/barrel.xpm", &img);
 	load_image(game, game->texture[9], "texture/pillar.xpm", &img);
 	load_image(game, game->texture[10], "texture/greenlight.xpm", &img);
-
 	return (0);
 }
