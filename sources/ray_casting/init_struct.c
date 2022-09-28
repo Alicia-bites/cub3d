@@ -6,19 +6,11 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 18:11:05 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/27 17:58:39 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/28 14:42:57 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
-
-// static t_img	*init_image(t_img *image)
-// {
-// 	image = ft_calloc(1, sizeof(t_img));
-// 	if (!image)
-// 		return (NULL);
-// 	return (image);
-// }
 
 int	init_struct(t_game *game)
 {
