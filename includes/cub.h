@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/28 15:20:49 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/28 15:52:47 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,29 +126,29 @@ typedef struct s_settings
 	char	*so;
 	char	*we;
 	char	*ea;
-	int	f_r;
-	int	f_g;
-	int	f_b;
-	int	c_r;
-	int	c_g;
-	int	c_b;
-	int	fd_no;
-	int	fd_so;
-	int	fd_we;
-	int	fd_ea;
-	int	no_line_no;
-	int	so_line_no;
-	int	we_line_no;
-	int	ea_line_no;
-	int	f_line_no;
-	int	c_line_no;
-	int	map_start_line_no;
-	int	map_end_line_no;
-	int	map_width;
-	int	map_height;
-	int	map_player_sp_val;
-	int	map_player_sp_x;
-	int	map_player_sp_y;
+	int		f_r;
+	int		f_g;
+	int		f_b;
+	int		c_r;
+	int		c_g;
+	int		c_b;
+	int		fd_no;
+	int		fd_so;
+	int		fd_we;
+	int		fd_ea;
+	int		no_line_no;
+	int		so_line_no;
+	int		we_line_no;
+	int		ea_line_no;
+	int		f_line_no;
+	int		c_line_no;
+	int		map_start_line_no;
+	int		map_end_line_no;
+	int		map_width;
+	int		map_height;
+	int		map_player_sp_val;
+	int		map_player_sp_x;
+	int		map_player_sp_y;
 }	t_settings;
 
 typedef struct s_map_fd
