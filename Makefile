@@ -142,6 +142,7 @@ SETTINGS_SRCS		:=	settings_check.c\
 
 UTILS_SRCS		:=	get_character_in_map.c\
 					print_map.c\
+					errors_handler.c\
 
 SRCS			:=	main.c\
 					$(GRAPH_SRCS)\

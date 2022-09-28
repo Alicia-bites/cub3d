@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/27 17:58:05 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/28 14:26:29 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -335,7 +335,7 @@ void		rotate_left(t_game *game);
 void		rotate_right(t_game *game);
 
 //TEXTURES
-int			init_buf(t_game *game);
+void		init_buf(t_game *game);
 int			init_texture(t_game *game);
 void		generate_textures(t_game *game);
 void		choose_wall_texture(t_game *game, int x);
@@ -353,6 +353,7 @@ int			start_ray_casting_loop(t_game *game);
 // UTILS
 char		get_character_in_map(t_list *map, int x, int y);
 void		print_map(t_list *map);
+int			errors_handler(int err, const char *function_name);
 
 //DEBUG
 void		print_tab(int **worldMap, int map_width, int map_height);
