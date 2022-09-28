@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/28 14:26:29 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/28 15:20:49 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -354,6 +354,7 @@ int			start_ray_casting_loop(t_game *game);
 char		get_character_in_map(t_list *map, int x, int y);
 void		print_map(t_list *map);
 int			errors_handler(int err, const char *function_name);
+void		clean_up(t_game *game);
 
 //DEBUG
 void		print_tab(int **worldMap, int map_width, int map_height);
