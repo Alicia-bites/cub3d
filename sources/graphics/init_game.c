@@ -30,6 +30,7 @@ int	init_game(t_game *game)
 {
 	int	err;
 
+	err = 0;
 	game->mlx = mlx_init();
 	init_struct(game);
 	init_buf(game);
@@ -38,5 +39,6 @@ int	init_game(t_game *game)
 		return (err);
 	load_texture(game);
 	start_game(game);
+	clean_up(game);
 	return (0);
 }

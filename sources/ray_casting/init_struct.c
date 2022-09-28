@@ -12,14 +12,6 @@ gitc/* *************************************************************************
 
 #include "cub.h"
 
-// static t_img	*init_image(t_img *image)
-// {
-// 	image = ft_calloc(1, sizeof(t_img));
-// 	if (!image)
-// 		return (NULL);
-// 	return (image);
-// }
-
 int	init_struct(t_game *game)
 {
 	game->posX = setup.map_player_sp_x;

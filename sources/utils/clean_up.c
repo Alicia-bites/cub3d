@@ -1,20 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   errors_handler.c                                   :+:      :+:    :+:   */
+/*   clean_up.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/28 14:09:15 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/28 14:49:35 by amarchan         ###   ########.fr       */
+/*   Created: 2022/09/28 15:16:50 by amarchan          #+#    #+#             */
+/*   Updated: 2022/09/28 15:22:41 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-int	errors_handler(int err, const char *function_name)
+static void	free_texture_tab(int **texture)
 {
-	if (err == MALLOC_ERROR)
-		printf("Error !\nMemory allocation failed. Check function : %s \n", function_name);
-	return (err);
+	int	i;
+
+	i = 0;
+	while(i < 11)
+	{
+		free(texture[i]);
+		i++;
+	}
+	free(texture);
+}
+
+void	clean_up(t_game *game)
+{
+	free_texture_tab(game->texture);
 }
