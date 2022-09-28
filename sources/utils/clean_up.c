@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_buf.c                                         :+:      :+:    :+:   */
+/*   clean_up.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/21 17:20:29 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/28 14:06:12 by amarchan         ###   ########.fr       */
+/*   Created: 2022/09/28 15:16:50 by amarchan          #+#    #+#             */
+/*   Updated: 2022/09/28 15:22:41 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-void init_buf(t_game *game)
+static void	free_texture_tab(int **texture)
 {
 	int	i;
-	int	j;
 
 	i = 0;
-	while (i < WINDOW_HEIGHT)
+	while(i < 11)
 	{
-		j = 0;
-		while (j < WINDOW_WIDTH)
-		{
-			game->buf[i][j] = 0;
-			j++;
-		}
+		free(texture[i]);
 		i++;
 	}
+	free(texture);
+}
+
+void	clean_up(t_game *game)
+{
+	free_texture_tab(game->texture);
 }

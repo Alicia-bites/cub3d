@@ -1,31 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_buf.c                                         :+:      :+:    :+:   */
+/*   errors_handler.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/21 17:20:29 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/28 14:06:12 by amarchan         ###   ########.fr       */
+/*   Created: 2022/09/28 14:09:15 by amarchan          #+#    #+#             */
+/*   Updated: 2022/09/28 14:49:35 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-void init_buf(t_game *game)
+int	errors_handler(int err, const char *function_name)
 {
-	int	i;
-	int	j;
-
-	i = 0;
-	while (i < WINDOW_HEIGHT)
-	{
-		j = 0;
-		while (j < WINDOW_WIDTH)
-		{
-			game->buf[i][j] = 0;
-			j++;
-		}
-		i++;
-	}
+	if (err == MALLOC_ERROR)
+		printf("Error !\nMemory allocation failed. Check function : %s \n", function_name);
+	return (err);
 }

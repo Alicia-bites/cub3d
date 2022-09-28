@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/27 17:10:38 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/28 16:22:51 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,11 @@
 //# include "libmlx.h"
 # include "libft.h"
 
+#define N -2
+#define E -3
+#define S -4
+#define O -5
+
 #define EVENT_KEY_HOOK 2
 #define EVENT_KEY_EXIT 17
 #define TEX_WIDTH 64
@@ -35,6 +40,8 @@
 #define MAP_HEIGHT 24
 #define WINDOW_WIDTH 1920
 #define WINDOW_HEIGHT 1080
+// #define WINDOW_WIDTH 800
+// #define WINDOW_HEIGHT 800
 #define MOVESPEED 0.5
 #define ROTSPEED 0.5
 
@@ -70,7 +77,7 @@
 # define SPRITE_COUNT 9
 # define CHAR_NOT_FOUND	'N'
 
-#define X_EVENT_KEY_PRESS 17
+# define setup game->settings
 
 // MAP FILE SETTINGS
 # define FD_NOT_INIT -99999999
@@ -126,29 +133,29 @@ typedef struct s_settings
 	char	*so;
 	char	*we;
 	char	*ea;
-	int	f_r;
-	int	f_g;
-	int	f_b;
-	int	c_r;
-	int	c_g;
-	int	c_b;
-	int	fd_no;
-	int	fd_so;
-	int	fd_we;
-	int	fd_ea;
-	int	no_line_no;
-	int	so_line_no;
-	int	we_line_no;
-	int	ea_line_no;
-	int	f_line_no;
-	int	c_line_no;
-	int	map_start_line_no;
-	int	map_end_line_no;
-	int	map_width;
-	int	map_height;
-	int	map_player_sp_val;
-	int	map_player_sp_x;
-	int	map_player_sp_y;
+	int		f_r;
+	int		f_g;
+	int		f_b;
+	int		c_r;
+	int		c_g;
+	int		c_b;
+	int		fd_no;
+	int		fd_so;
+	int		fd_we;
+	int		fd_ea;
+	int		no_line_no;
+	int		so_line_no;
+	int		we_line_no;
+	int		ea_line_no;
+	int		f_line_no;
+	int		c_line_no;
+	int		map_start_line_no;
+	int		map_end_line_no;
+	int		map_width;
+	int		map_height;
+	int		map_player_sp_val;
+	int		map_player_sp_x;
+	int		map_player_sp_y;
 }	t_settings;
 
 typedef struct s_map_fd
@@ -335,7 +342,7 @@ void		rotate_left(t_game *game);
 void		rotate_right(t_game *game);
 
 //TEXTURES
-int			init_buf(t_game *game);
+void		init_buf(t_game *game);
 int			init_texture(t_game *game);
 void		generate_textures(t_game *game);
 void		choose_wall_texture(t_game *game, int x);
@@ -353,6 +360,8 @@ int			start_ray_casting_loop(t_game *game);
 // UTILS
 char		get_character_in_map(t_list *map, int x, int y);
 void		print_map(t_list *map);
+int			errors_handler(int err, const char *function_name);
+void		clean_up(t_game *game);
 
 //DEBUG
 void		print_tab(int **worldMap, int map_width, int map_height);

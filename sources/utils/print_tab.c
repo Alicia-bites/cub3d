@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_buf.c                                         :+:      :+:    :+:   */
+/*   print_tab.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/21 17:20:29 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/28 14:06:12 by amarchan         ###   ########.fr       */
+/*   Created: 2022/09/28 16:09:09 by amarchan          #+#    #+#             */
+/*   Updated: 2022/09/28 16:09:17 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub.h"
+#include"cub.h"
 
-void init_buf(t_game *game)
+//FOR DEBUG
+void	print_tab(int **worldMap, int map_width, int map_height)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	while (i < WINDOW_HEIGHT)
+	while (i < map_height)
 	{
 		j = 0;
-		while (j < WINDOW_WIDTH)
+		printf(("{"));
+		while (j < map_width)
 		{
-			game->buf[i][j] = 0;
+			printf("%d,", worldMap[i][j]);
 			j++;
 		}
 		i++;
+		printf(("}"));
+		printf(("\n"));
 	}
 }
