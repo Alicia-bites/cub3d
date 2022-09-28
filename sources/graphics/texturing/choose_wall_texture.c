@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 10:25:05 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/27 14:56:37 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/28 09:37:57 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	get_pixel_color_along_y_axe(t_game *game, int x)
 
 static void	find_x_coordinate_in_texture(t_game *game)
 {
-	extern int	worldMap[24][24];
+//	extern int	worldMap[24][24];
 	
 	game->tex_x = (int)(game->wall_x * (double)TEX_WIDTH);
 	if (game->side == 0 && game->ray_dirX > 0)
@@ -63,7 +63,7 @@ static void	find_x_coordinate_in_texture(t_game *game)
 
 void	choose_wall_texture(t_game *game, int x)
 {
-	extern int	worldMap[24][24];
+//	extern int	worldMap[24][24];
 	
 	if (game->side == 0 && game->ray_dirX < 0)
 		game->tex_dir = 0;

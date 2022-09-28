@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:54:11 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/27 17:14:01 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/28 09:39:20 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,10 @@ void	print_tab(int **worldMap, int map_width, int map_height)
 int	main(int argc, char **argv)
 {
 	t_game	game;
-	int		*map_test;
+//	int		*map_test;
 	t_ulist	**map_fd_lst;
 
-	map_test = NULL;
+//	map_test = NULL;
 	game.map_fd = FD_NOT_INIT;
 	game.map_fd_lst = NULL;;
 	game.map_tab = NULL;
@@ -70,8 +70,8 @@ int	main(int argc, char **argv)
 		return (EXIT_FAILURE);
 	}
 	// print_tab(game.map_tab, game.settings.map_width, game.settings.map_height);
-	init_game(&game);
-	// settings_show(&game.settings);
+	//init_game(&game);
+	settings_show(&game.settings);
 	map_tab_free(&game);
 	settings_free(&game.settings);
 	ft_lst_free(game.map_fd_lst, &parse_map_fd_free);
