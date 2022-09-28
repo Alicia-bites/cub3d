@@ -6,33 +6,11 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:54:11 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/28 15:23:33 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/28 16:12:26 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
-
-//FOR DEBUG
-void	print_tab(int **worldMap, int map_width, int map_height)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (i < map_height)
-	{
-		j = 0;
-		printf(("{"));
-		while (j < map_width)
-		{
-			printf("%d,", worldMap[i][j]);
-			j++;
-		}
-		i++;
-		printf(("}"));
-		printf(("\n"));
-	}
-}
 
 int	main(int argc, char **argv)
 {
@@ -71,7 +49,7 @@ int	main(int argc, char **argv)
 		ft_lst_free(game.map_fd_lst, &parse_map_fd_free);
 		return (EXIT_FAILURE);
 	}
-	// print_tab(game.map_tab, game.settings.map_width, game.settings.map_height);
+	print_tab(game.map_tab, game.settings.map_width, game.settings.map_height);
 	err = init_game(&game);
 	if (err)
 		return (err);
