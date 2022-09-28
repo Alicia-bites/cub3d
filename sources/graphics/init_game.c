@@ -32,10 +32,10 @@ int	init_game(t_game *game)
 
 	game->mlx = mlx_init();
 	init_struct(game);
-	err = init_buf(game);
+	init_buf(game);
+	err = init_texture(game);
 	if (err)
 		return (err);
-	init_texture(game);
 	load_texture(game);
 	start_game(game);
 	return (0);

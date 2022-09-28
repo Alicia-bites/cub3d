@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 17:52:53 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/27 17:06:08 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/28 11:59:37 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	map_tab_create_line(t_map_fd *map, int *tab, int len_tab)
 	i = 0;
 	while (i < (int)len)
 	{
-		tab[i] = (int)map->line[i];
+		tab[i] = (int)map->line[i] - '0';
 		i++;
 	}
 	while (i < len_tab)
