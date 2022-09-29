@@ -45,9 +45,7 @@ AR				:=	ar rcs
 RM				:=	rm -rf
 
 GRAPH_SRCS		:=	choose_wall_color.c\
-					destroy_sprites.c\
 					draw_vertical_line.c\
-					free_mlx.c\
 					key_hook.c\
 					ft_red_cross.c\
 					init_game.c\
