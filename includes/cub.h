@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/29 12:00:32 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/29 12:20:55 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,8 @@
 # define TEX_HEIGHT 64
 # define MAP_WIDTH 24
 # define MAP_HEIGHT 24
-# define WINDOW_WIDTH 1920
+# define WINDOW_WIDTH 1350
 # define WINDOW_HEIGHT 1080
-// #define WINDOW_WIDTH 800
-// #define WINDOW_HEIGHT 800
 # define MOVESPEED 0.5
 # define ROTSPEED 0.5
 
@@ -318,10 +316,8 @@ int     	*map_tab_init_line(int **tab, int height, int width);
 void		map_tab_show(int **tab);
 
 // GRAPHICS
-// void	destroy_sprites(t_game *game);
 int			choose_wall_color(t_game *game);
 void		draw_vertical_line(t_game *game);
-void		free_mlx(t_game *game);
 int			key_hook(int keycode, t_game *game);
 int			ft_redcross(t_game *game, int x);
 int			init_game(t_game *game);
