@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 10:25:05 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/28 18:06:23 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/29 16:07:48 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,10 @@ static void	find_x_coordinate_in_texture(t_game *game)
 		game->tex_x = TEX_WIDTH - game->tex_x - 1;
 }
 
+// 0 --> facing South
+// 1 --> facing North
+// 2 --> facing West
+// 3 --> facing East
 void	choose_wall_texture(t_game *game, int x)
 {
 	if (game->side == 0 && game->ray_dirX < 0)
