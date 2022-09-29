@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/29 12:23:18 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/09/29 17:35:01 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -288,7 +288,8 @@ void		settings_show(t_settings *settings);
 void		settings_show_string(char *title, char *s);
 int     	settings_texture_fd_check_dup(t_game *game, int txt_type);
 int     	settings_texture_fd_open(t_game *game, int txt_type, char *filename);
-int     	settings_texture_fd_save(t_game *game, int txt_type, int fd);
+int     	settings_texture_fd_save_fd(t_game *game, int txt_type, int fd);
+int     	settings_texture_fd_save_filename(t_game *game, int txt_type, char *filename);
 void		settings_texture_fd_set_line_no(t_game *game, int txt_type,
 				t_map_fd *map);
 

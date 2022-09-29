@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   settings_texture_fd_save.c                         :+:      :+:    :+:   */
+/*   settings_texture_fd_save_fd.c                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 15:56:07 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/20 10:39:29 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/29 17:32:59 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-int	settings_texture_fd_save(t_game *game, int txt_type, int fd)
+int	settings_texture_fd_save_fd(t_game *game, int txt_type, int fd)
 {
 	t_settings	*settings;
 

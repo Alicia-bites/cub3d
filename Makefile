@@ -137,7 +137,8 @@ SETTINGS_SRCS		:=	settings_check.c\
 						settings_show_string.c\
 						settings_texture_fd_check_dup.c\
 						settings_texture_fd_open.c\
-						settings_texture_fd_save.c\
+						settings_texture_fd_save_fd.c\
+						settings_texture_fd_save_filename.c\
 						settings_texture_fd_set_line_no.c
 
 UTILS_SRCS		:=	get_character_in_map.c\
