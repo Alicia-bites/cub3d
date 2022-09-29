@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/28 19:44:39 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/29 11:48:32 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@
 # include "libft.h"
 
 # define SP -1
-#define N -2
-#define E -3
-#define S -4
-#define O -5
+# define N -2
+# define E -3
+# define S -4
+# define O -5
 
 #define EVENT_KEY_HOOK 2
 #define EVENT_KEY_EXIT 17
@@ -85,6 +85,7 @@
 # define MAP_FORMAT ".cub"
 # define MAP_CHARSET "01NSEW "
 # define MAP_COLOR_SEP ','
+# define MAP_TEXT_FORMAT ".xpm"
 # define MAP_TEXT_NO "NO "
 # define MAP_TEXT_SO "SO "
 # define MAP_TEXT_WE "WE "
@@ -111,6 +112,7 @@
 # define ERR_MAP_SIZE_MIN "Invalid map size. Expected minimum 3 map line"
 # define ERR_MAP_SPACE_IN "Space line in between map definition. Expected none"
 # define ERR_MAP_TXT_TYPE "One of texture or rgb value is not correct"
+# define ERR_MAP_TXT_FORMAT "Wrong texture format. Expected \".xpm\""
 
 /* MAP FILE SETTINGS
  * char *no,so,we,ea are texture path
@@ -262,7 +264,7 @@ int     	parse_map_lst_check(t_game *game, int txt_type, t_map_fd *map, char *va
 int     	parse_map_lst_fullspace(t_game *game, t_ulist *obj);
 char    	*parse_map_lst_get_value(int txt_type, char *str);
 int     	parse_map_lst_line(t_game *game, t_ulist *obj);
-int     	parse_map_lst_line_txt_type(t_map_fd *map);
+int     	parse_map_lst_line_txt_type(char *line);
 void    	parse_read_file(t_game *game);
 
 t_list		*create_list(char *line);
