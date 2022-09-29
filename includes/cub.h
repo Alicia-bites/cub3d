@@ -264,7 +264,7 @@ int     	parse_map_lst_check(t_game *game, int txt_type, t_map_fd *map, char *va
 int     	parse_map_lst_fullspace(t_game *game, t_ulist *obj);
 char    	*parse_map_lst_get_value(int txt_type, char *str);
 int     	parse_map_lst_line(t_game *game, t_ulist *obj);
-int     	parse_map_lst_line_txt_type(t_map_fd *map);
+int     	parse_map_lst_line_txt_type(char *line);
 void    	parse_read_file(t_game *game);
 
 t_list		*create_list(char *line);
