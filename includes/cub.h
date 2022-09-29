@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/29 10:51:07 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/29 11:48:32 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,11 @@
 //# include "libmlx.h"
 # include "libft.h"
 
-#define N -2
-#define E -3
-#define S -4
-#define O -5
+# define SP -1
+# define N -2
+# define E -3
+# define S -4
+# define O -5
 
 #define EVENT_KEY_HOOK 2
 #define EVENT_KEY_EXIT 17
