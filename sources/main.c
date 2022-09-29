@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:54:11 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/28 18:13:36 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/29 11:35:56 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	main(int argc, char **argv)
 		return (EXIT_FAILURE);
 	}
 	print_tab(game.map_tab, game.settings.map_width, game.settings.map_height);
-//	err = init_game(&game);
+	err = init_game(&game);
 	if (err)
 	{
 		map_tab_free(&game);
