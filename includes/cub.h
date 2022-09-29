@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/29 11:48:32 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/09/29 12:05:57 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # include "../minilibX/libmlx.h"
 //# include "libmlx.h"
 # include "libft.h"
+# include "colors.h"
 
 # define SP -1
 # define N -2
@@ -33,42 +34,35 @@
 # define S -4
 # define O -5
 
-#define EVENT_KEY_HOOK 2
-#define EVENT_KEY_EXIT 17
-#define TEX_WIDTH 64
-#define TEX_HEIGHT 64
-#define MAP_WIDTH 24
-#define MAP_HEIGHT 24
-#define WINDOW_WIDTH 1920
-#define WINDOW_HEIGHT 1080
+# define EVENT_KEY_HOOK 2
+# define EVENT_KEY_EXIT 17
+# define TEX_WIDTH 64
+# define TEX_HEIGHT 64
+# define MAP_WIDTH 24
+# define MAP_HEIGHT 24
+# define WINDOW_WIDTH 1920
+# define WINDOW_HEIGHT 1080
 // #define WINDOW_WIDTH 800
 // #define WINDOW_HEIGHT 800
-#define MOVESPEED 0.5
-#define ROTSPEED 0.5
+# define MOVESPEED 0.5
+# define ROTSPEED 0.5
 
 /* COLORS */
-# define WHITE 0xFFFFFF
-# define RED 0xFF0000
-# define GREEN 0x008000
-# define BLACK 0x000000
-# define BLUE 0xB0E0E6
-# define VIOLET 0xC014BC
-# define COLOR	0x0FAE4
 # define FLOOR_COLOR 0x001A5557
 # define CEILING_COLOR 0x0000A7B2
 
 /* MLX KEY EVENTS */
-#  define K_W 119
-#  define K_A 97
-#  define K_S 115
-#  define K_D 100
-#  define K_P 112
-#  define K_UP 65362
-#  define K_LEFT 65361
-#  define K_DOWN 65364
-#  define K_RIGHT 65363
-#  define K_SHIFT 65505
-#  define ESC 65307
+# define K_W 119
+# define K_A 97
+# define K_S 115
+# define K_D 100
+# define K_P 112
+# define K_UP 65362
+# define K_LEFT 65361
+# define K_DOWN 65364
+# define K_RIGHT 65363
+# define K_SHIFT 65505
+# define ESC 65307
 
 /* ERRORS */
 # define FILE_ERROR -1
