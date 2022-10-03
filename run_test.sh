@@ -51,8 +51,20 @@ function	run_maps()
 		if ./${1} ${i} >> ${3}/${res_file} 2>&1; [ $? != 0 ]
 		then
 			echo -e "${RD}Program failed${NC}" | tee -a ${3}/${res_file};
+			if [ "${4}" == "ko" ]
+			then
+				echo -e "${BK_GN}RESULT: Corrrect${NC}" | tee -a ${3}/${res_file};
+			else
+				echo -e "${BK_RD}RESULT: Wrong${NC}" | tee -a ${3}/${res_file};
+			fi
 		else
 			echo -e "${GN}Program successed${NC}" | tee -a ${3}/${res_file};
+			if [ "${4}" == "ko" ]
+			then
+				echo -e "${BK_RD}RESULT: Wrong${NC}" | tee -a ${3}/${res_file};
+			else
+				echo -e "${BK_GN}RESULT: Correct${NC}" | tee -a ${3}/${res_file};
+			fi
 		fi;
 		echo -e "${BU}${SEP_SP}${NC}" | tee -a ${3}/${res_file};
 	done
