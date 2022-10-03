@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/10/03 14:00:54 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/10/03 14:20:04 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -268,10 +268,6 @@ char    	*parse_map_lst_get_value(int txt_type, char *str);
 int     	parse_map_lst_line(t_game *game, t_ulist *obj);
 int     	parse_map_lst_line_txt_type(char *line);
 void    	parse_read_file(t_game *game);
-
-t_list		*create_list(char *line);
-t_list		*ft_parse(char *argv);
-t_list		*read_map(char *argv);
 
 // SETTINGS
 int			settings_check(t_settings *settings);

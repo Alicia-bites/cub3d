@@ -103,10 +103,7 @@ PARSE_SRCS		:=	parse_argc.c\
 					parse_map_lst_get_value.c\
 					parse_map_lst_line.c\
 					parse_map_lst_line_txt_type.c\
-					parse_read_file.c\
-					create_list.c\
-					ft_parse.c\
-					read_map.c\
+					parse_read_file.c
 
 RAY_SRCS		:=	calculate_ray_position_and_direction.c\
 					calculate_step.c\
