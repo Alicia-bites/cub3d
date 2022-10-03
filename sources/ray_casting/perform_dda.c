@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 18:09:58 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/28 16:07:49 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/10/03 11:40:19 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	perform_dda(t_game *game)
 			game->mapY += game->stepY;
 			game->side = 1;
 		}
-		if (game->map_tab[game->mapX][game->mapY] > 0)
+		if (game->map_tab[game->mapY][game->mapX] > 0)
 			game->hit = 1;
 	}
 	return (0);

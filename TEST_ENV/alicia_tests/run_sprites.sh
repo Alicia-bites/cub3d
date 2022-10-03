@@ -1,1 +1,0 @@
-clang camera_sprites.c ../../minilibX/libmlx.h ../../minilibX/libmlx.a -lm -lXext -lX11 && ./a.out
