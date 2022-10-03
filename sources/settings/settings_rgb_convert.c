@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   settings_check.c                                   :+:      :+:    :+:   */
+/*   settings_rgb_convert.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/21 16:36:24 by abarrier          #+#    #+#             */
-/*   Updated: 2022/10/03 14:02:09 by abarrier         ###   ########.fr       */
+/*   Created: 2022/10/03 13:57:52 by abarrier          #+#    #+#             */
+/*   Updated: 2022/10/03 14:09:13 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-int	settings_check(t_settings *settings)
+/* THANK YOU FOR YOUR TIPS JONAS THE 'BG'
+ *
+ */
+void	settings_rgb_convert(t_settings *settings)
 {
-	if (settings_check_txt_type(settings) != 0)
-		return (EXIT_FAILURE);
-	if (settings_check_map_start_line(settings) != 0)
-		return (EXIT_FAILURE);
-	if (settings_check_map_size_min(settings) != 0)
-		return (EXIT_FAILURE);
-	if (settings_check_map_order(settings) != 0)
-		return (EXIT_FAILURE);
-	settings_rgb_convert(settings);
-	return (0);
+	settings->floor = settings->f_r << 16 | settings->f_g << 8
+		| settings->f_b;
+	settings->ceil = settings->c_r << 16 | settings->c_g << 8
+		| settings->c_b;
 }

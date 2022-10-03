@@ -131,6 +131,7 @@ SETTINGS_SRCS		:=	settings_check.c\
 						settings_rgb_check_dup.c\
 						settings_rgb_check_space.c\
 						settings_rgb_check_value.c\
+						settings_rgb_convert.c\
 						settings_rgb_rm_space_end.c\
 						settings_rgb_set_line_no.c\
 						settings_rgb_set_value.c\
