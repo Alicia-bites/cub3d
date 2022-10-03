@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 18:11:05 by amarchan          #+#    #+#             */
-/*   Updated: 2022/10/03 11:41:17 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/10/03 12:08:26 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ void	init_starting_direction(t_game *game)
 
 int	init_struct(t_game *game)
 {
-	game->posX = setup.map_player_sp_x;
-	game->posY = setup.map_player_sp_y;
+	game->posX = setup.map_player_sp_y;
+	game->posY = setup.map_player_sp_x;
 	game->dirX = -1.0;
 	game->dirY = 0.0;
 	game->planeX = 0.0;

@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 11:38:42 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/29 16:36:54 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/10/03 11:56:35 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,10 @@ int	load_texture(t_game *game)
 	printf("we = %s\n", setup.we);
 	printf("ea = %s\n", setup.ea);
 
-	load_image(game, game->texture[0], "texture/so.xpm", &img);
-	load_image(game, game->texture[1], "texture/no.xpm", &img);
-	load_image(game, game->texture[2], "texture/we.xpm", &img);
-	load_image(game, game->texture[3], "texture/ea.xpm", &img);
+	load_image(game, game->texture[0], setup.so, &img);
+	load_image(game, game->texture[1], setup.no, &img);
+	load_image(game, game->texture[2], setup.we, &img);
+	load_image(game, game->texture[3], setup.ea, &img);
 	load_image(game, game->texture[4], "texture/bluestone.xpm", &img);
 	load_image(game, game->texture[5], "texture/mossy.xpm", &img);
 	load_image(game, game->texture[6], "texture/wood.xpm", &img);
