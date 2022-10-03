@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 11:38:42 by amarchan          #+#    #+#             */
-/*   Updated: 2022/10/03 11:56:35 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/10/03 12:23:08 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,6 @@ int	load_texture(t_game *game)
 {
 	t_img img;
 
-	printf("so = %s\n", setup.so);
-	printf("no = %s\n", setup.no);
-	printf("we = %s\n", setup.we);
-	printf("ea = %s\n", setup.ea);
-
 	load_image(game, game->texture[0], setup.so, &img);
 	load_image(game, game->texture[1], setup.no, &img);
 	load_image(game, game->texture[2], setup.we, &img);
@@ -53,17 +48,5 @@ int	load_texture(t_game *game)
 	load_image(game, game->texture[8], "texture/barrel.xpm", &img);
 	load_image(game, game->texture[9], "texture/pillar.xpm", &img);
 	load_image(game, game->texture[10], "texture/greenlight.xpm", &img);
-
-	// load_image(game, game->texture[0], "texture/eagle.xpm", &img);
-	// load_image(game, game->texture[1], "texture/redbrick.xpm", &img);
-	// load_image(game, game->texture[2], "texture/purplestone.xpm", &img);
-	// load_image(game, game->texture[3], "texture/greystone.xpm", &img);
-	// load_image(game, game->texture[4], "texture/bluestone.xpm", &img);
-	// load_image(game, game->texture[5], "texture/mossy.xpm", &img);
-	// load_image(game, game->texture[6], "texture/wood.xpm", &img);
-	// load_image(game, game->texture[7], "texture/colorstone.xpm", &img);
-	// load_image(game, game->texture[8], "texture/barrel.xpm", &img);
-	// load_image(game, game->texture[9], "texture/pillar.xpm", &img);
-	// load_image(game, game->texture[10], "texture/greenlight.xpm", &img);
 	return (0);
 }
