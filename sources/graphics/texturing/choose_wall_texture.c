@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 10:25:05 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/29 16:07:48 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/10/03 11:49:31 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,13 +65,13 @@ static void	find_x_coordinate_in_texture(t_game *game)
 // 3 --> facing East
 void	choose_wall_texture(t_game *game, int x)
 {
-	if (game->side == 0 && game->ray_dirX < 0)
-		game->tex_dir = 0;
-	if (game->side == 0 && game->ray_dirX >= 0)
-		game->tex_dir = 1;
 	if (game->side == 1 && game->ray_dirY < 0)
-		game->tex_dir = 2;
+		game->tex_dir = 0;
 	if (game->side == 1 && game->ray_dirY >= 0)
+		game->tex_dir = 1;
+	if (game->side == 0 && game->ray_dirX < 0)
+		game->tex_dir = 2;
+	if (game->side == 0 && game->ray_dirX >= 0)
 		game->tex_dir = 3;
 	if (game->side == 0)
 		game->wall_x = game->posY + game->perpWallDist * game->ray_dirY;		

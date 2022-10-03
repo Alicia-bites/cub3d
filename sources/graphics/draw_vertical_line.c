@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 09:36:25 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/29 16:41:29 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/10/03 10:51:19 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void	draw_vertical_line(t_game *game)
 		x = 0;
 		while (x < WINDOW_WIDTH)
 		{
-			// game->img.data[y * WINDOW_WIDTH + x] = game->buf[y][x];
 			if (game->buf[y][x] == 0x0 && y < WINDOW_HEIGHT / 2)
                 my_mlx_pixel_put(&game->img, x, y, CEILING_COLOR);
             else if (game->buf[y][x] == 0x0 && y > WINDOW_HEIGHT / 2)
