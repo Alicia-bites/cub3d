@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/10/03 15:50:07 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/10/03 15:56:42 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,7 @@
 # include <sys/types.h>
 # include <unistd.h>
 
-//# include "mlx.h"
 # include "../minilibX/libmlx.h"
-//# include "libmlx.h"
 # include "libft.h"
 # include "colors.h"
 
@@ -69,8 +67,6 @@
 
 # define SPRITE_COUNT 9
 # define CHAR_NOT_FOUND	'N'
-
-// # define game->settings game->settings
 
 // MAP FILE SETTINGS
 # define FD_NOT_INIT -99999999
