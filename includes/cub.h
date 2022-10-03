@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/29 17:35:01 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/10/03 14:27:53 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -350,14 +350,23 @@ void		calculate_step(t_game *game);
 int			calculate_ray_position_and_direction(t_game *game, int x);
 int			calculate_start_and_end_of_line(t_game *game);
 int			perform_dda(t_game *game);
-int			init_struct(t_game *game);
 int			start_ray_casting_loop(t_game *game);
+int			init_struct(t_game *game);
+void		init_starting_direction(t_game *game);
 
 // UTILS
 char		get_character_in_map(t_list *map, int x, int y);
 void		print_map(t_list *map);
 int			errors_handler(int err, const char *function_name);
 void		clean_up(t_game *game);
+
+// COLORS
+void		blue(void);
+void		cyan(void);
+void		green(void);
+void		purple(void);
+void		seagreen4(void);
+void		reset(void);
 
 //DEBUG
 void		print_tab(int **worldMap, int map_width, int map_height);

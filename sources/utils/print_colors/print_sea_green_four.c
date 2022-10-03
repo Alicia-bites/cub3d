@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate_right.c                                     :+:      :+:    :+:   */
+/*   print_sea_green_four.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/21 13:35:00 by amarchan          #+#    #+#             */
-/*   Updated: 2022/10/03 14:07:27 by amarchan         ###   ########.fr       */
+/*   Created: 2022/10/03 14:21:51 by amarchan          #+#    #+#             */
+/*   Updated: 2022/10/03 14:22:08 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-void	rotate_right(t_game *game)
+void	seagreen4(void)
 {
-	game->oldDirX = game->dirX;
-	game->dirX = game->dirX * cos(-ROTSPEED) - game->dirY * sin(-ROTSPEED);
-	game->dirY = game->oldDirX * sin(-ROTSPEED) + game->dirY * cos(-ROTSPEED);
-	game->oldPlaneX = game->planeX;
-	game->planeX = game->planeX * cos(-ROTSPEED) - game->planeY
-		* sin(-ROTSPEED);
-	game->planeY = game->oldPlaneX * sin(-ROTSPEED) + game->planeY
-		* cos(-ROTSPEED);
+	printf(SEAGREEN4);
 }

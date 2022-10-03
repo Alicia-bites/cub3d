@@ -6,13 +6,13 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 17:20:29 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/28 14:06:12 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/10/03 14:04:35 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-void init_buf(t_game *game)
+void	init_buf(t_game *game)
 {
 	int	i;
 	int	j;

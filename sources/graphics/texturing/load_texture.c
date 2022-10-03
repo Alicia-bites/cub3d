@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 11:38:42 by amarchan          #+#    #+#             */
-/*   Updated: 2022/10/03 12:23:08 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/10/03 14:05:11 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,11 @@ static void	load_image(t_game *game, int *texture, char *path, t_img *img)
 {
 	int	y;
 	int	x;
-	
-	img->img = mlx_xpm_file_to_image(game->mlx, path, &img->img_width, &img->img_height);
-	img->data = (int *)mlx_get_data_addr(img->img, &img->bits_per_pixel, &img->line_length, &img->endian);
+
+	img->img = mlx_xpm_file_to_image(game->mlx, path, &img->img_width,
+			&img->img_height);
+	img->data = (int *)mlx_get_data_addr(img->img, &img->bits_per_pixel,
+			&img->line_length, &img->endian);
 	y = 0;
 	while (y < img->img_height)
 	{
@@ -35,7 +37,7 @@ static void	load_image(t_game *game, int *texture, char *path, t_img *img)
 
 int	load_texture(t_game *game)
 {
-	t_img img;
+	t_img	img;
 
 	load_image(game, game->texture[0], setup.so, &img);
 	load_image(game, game->texture[1], setup.no, &img);

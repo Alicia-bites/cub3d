@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 10:25:05 by amarchan          #+#    #+#             */
-/*   Updated: 2022/10/03 12:11:16 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/10/03 14:07:08 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,16 @@ void	get_pixel_color_along_y_axe(t_game *game, int x)
 	int		y;
 	int		color;
 	int		tex_y;
-	double	texPos;
-	
+	double	tex_pos;
+
 	increase_texture_coordinate_perscreen_pixel(game);
-	texPos = (game->drawStart - WINDOW_HEIGHT / 2 + game->lineHeight / 2) * game->step;
+	tex_pos = (game->drawStart - WINDOW_HEIGHT / 2
+			+ game->lineHeight / 2) * game->step;
 	y = game->drawStart;
 	while (y < game->drawEnd)
 	{
-		tex_y = (int)texPos & (TEX_HEIGHT - 1);
-		texPos += game->step;
+		tex_y = (int)tex_pos & (TEX_HEIGHT - 1);
+		tex_pos += game->step;
 		color = game->texture[game->tex_dir][TEX_HEIGHT * tex_y + game->tex_x];
 		make_color_darker_for_y_side(game, color, x, y);
 		y++;
@@ -65,16 +66,16 @@ static void	find_x_coordinate_in_texture(t_game *game)
 // 3 --> facing East
 void	choose_wall_texture(t_game *game, int x)
 {
-    if (game->side == 0 && game->ray_dirX < 0)
-        game->tex_dir = 1;
-    if (game->side == 0 && game->ray_dirX >= 0)
-        game->tex_dir = 0;
-    if (game->side == 1 && game->ray_dirY < 0)
-        game->tex_dir = 2;
-    if (game->side == 1 && game->ray_dirY >= 0)
+	if (game->side == 0 && game->ray_dirX < 0)
+		game->tex_dir = 1;
+	if (game->side == 0 && game->ray_dirX >= 0)
+		game->tex_dir = 0;
+	if (game->side == 1 && game->ray_dirY < 0)
+		game->tex_dir = 2;
+	if (game->side == 1 && game->ray_dirY >= 0)
 		game->tex_dir = 3;
 	if (game->side == 0)
-		game->wall_x = game->posY + game->perpWallDist * game->ray_dirY;		
+		game->wall_x = game->posY + game->perpWallDist * game->ray_dirY;
 	else
 		game->wall_x = game->posX + game->perpWallDist * game->ray_dirX;
 	game->wall_x -= floor(game->wall_x);

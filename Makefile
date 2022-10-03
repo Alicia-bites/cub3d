@@ -40,6 +40,7 @@ PARSE_PATH		:=	parsing
 RAY_PATH		:=	ray_casting
 SETTINGS_PATH		:=	settings
 UTILS_PATH		:=	utils
+COLOR_PATH		:=	print_colors
 
 AR				:=	ar rcs
 RM				:=	rm -rf
@@ -112,6 +113,7 @@ RAY_SRCS		:=	calculate_ray_position_and_direction.c\
 					perform_dda.c\
 					init_struct.c\
 					start_ray_casting_loop.c\
+					init_starting_direction.c\
 
 SETTINGS_SRCS		:=	settings_check.c\
 						settings_check_map_order.c\
@@ -147,6 +149,13 @@ UTILS_SRCS		:=	get_character_in_map.c\
 					errors_handler.c\
 					clean_up.c\
 
+COLOR_SRCS		:=	print_blue.c\
+					print_cyan.c\
+					print_green.c\
+					print_purple.c\
+					print_sea_green_four.c\
+					reset_print_color.c\
+
 SRCS			:=	main.c\
 					$(GRAPH_SRCS)\
 					$(CAM_SRCS)\
@@ -155,7 +164,8 @@ SRCS			:=	main.c\
 					$(MAP_SRCS)\
 					$(PARSE_SRCS)\
 					$(SETTINGS_SRCS)\
-					$(UTILS_SRCS)
+					$(UTILS_SRCS)\
+					$(COLOR_SRCS)\
 					
 OBJS			:=	$(addprefix $(OPATH)/, $(SRCS:.c=.o))
 DEPS			:=	$(OBJS:.o=.d)
@@ -169,7 +179,8 @@ vpath %.c $(SRCS_PATH)\
 		$(SRCS_PATH)/$(MAP_PATH)\
 		$(SRCS_PATH)/$(PARSE_PATH)\
 		$(SRCS_PATH)/$(SETTINGS_PATH)\
-		$(SRCS_PATH)/$(UTILS_PATH)
+		$(SRCS_PATH)/$(UTILS_PATH)\
+		$(SRCS_PATH)/$(UTILS_PATH)/$(COLOR_PATH)\
 
 vpath %.o $(OPATH)
 
