@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 17:56:21 by amarchan          #+#    #+#             */
-/*   Updated: 2022/10/03 14:11:34 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/10/03 15:41:11 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,17 @@
 int	calculate_start_and_end_of_line(t_game *game)
 {
 	if (game->side == 0)
-		game->perpWallDist = (game->mapX - game->posX + (1 - game->stepX) / 2)
-			/ game->ray_dirX;
+		game->perp_wall_dist = (game->map_x - game->pos_x + (1 - game->step_x) / 2)
+			/ game->ray_dir_x;
 	else
-		game->perpWallDist = (game->mapY - game->posY + (1 - game->stepY) / 2)
-			/ game->ray_dirY;
-	game->lineHeight = (int)(WINDOW_HEIGHT / game->perpWallDist);
-	game->drawStart = -(game->lineHeight) / 2 + WINDOW_HEIGHT / 2;
-	if (game->drawStart < 0)
-		game->drawStart = 0;
-	game->drawEnd = game->lineHeight / 2 + WINDOW_HEIGHT / 2;
-	if (game->drawEnd >= WINDOW_HEIGHT)
-		game->drawEnd = WINDOW_HEIGHT - 1;
+		game->perp_wall_dist = (game->map_y - game->pos_y + (1 - game->step_y) / 2)
+			/ game->ray_dir_y;
+	game->line_height = (int)(WINDOW_HEIGHT / game->perp_wall_dist);
+	game->draw_start = -(game->line_height) / 2 + WINDOW_HEIGHT / 2;
+	if (game->draw_start < 0)
+		game->draw_start = 0;
+	game->draw_end = game->line_height / 2 + WINDOW_HEIGHT / 2;
+	if (game->draw_end >= WINDOW_HEIGHT)
+		game->draw_end = WINDOW_HEIGHT - 1;
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 11:38:42 by amarchan          #+#    #+#             */
-/*   Updated: 2022/10/03 14:05:11 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/10/03 15:49:21 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,10 @@ int	load_texture(t_game *game)
 {
 	t_img	img;
 
-	load_image(game, game->texture[0], setup.so, &img);
-	load_image(game, game->texture[1], setup.no, &img);
-	load_image(game, game->texture[2], setup.we, &img);
-	load_image(game, game->texture[3], setup.ea, &img);
+	load_image(game, game->texture[0], game->settings.so, &img);
+	load_image(game, game->texture[1], game->settings.no, &img);
+	load_image(game, game->texture[2], game->settings.we, &img);
+	load_image(game, game->texture[3], game->settings.ea, &img);
 	load_image(game, game->texture[4], "texture/bluestone.xpm", &img);
 	load_image(game, game->texture[5], "texture/mossy.xpm", &img);
 	load_image(game, game->texture[6], "texture/wood.xpm", &img);

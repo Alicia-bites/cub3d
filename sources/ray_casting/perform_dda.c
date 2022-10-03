@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 18:09:58 by amarchan          #+#    #+#             */
-/*   Updated: 2022/10/03 12:08:15 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/10/03 15:40:50 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,19 +46,19 @@ int	perform_dda(t_game *game)
 {
 	while (game->hit == 0)
 	{
-		if (game->sideDistX < game->sideDistY)
+		if (game->side_dist_x < game->side_dist_y)
 		{
-			game->sideDistX += game->deltaDistX;
-			game->mapX += game->stepX;
+			game->side_dist_x += game->delta_dist_x;
+			game->map_x += game->step_x;
 			game->side = 0;
 		}
 		else
 		{
-			game->sideDistY += game->deltaDistY;
-			game->mapY += game->stepY;
+			game->side_dist_y += game->delta_dist_y;
+			game->map_y += game->step_y;
 			game->side = 1;
 		}
-		if (game->map_tab[game->mapX][game->mapY] > 0)
+		if (game->map_tab[game->map_x][game->map_y] > 0)
 			game->hit = 1;
 	}
 	return (0);
