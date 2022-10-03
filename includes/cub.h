@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/29 11:48:32 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/10/03 14:00:54 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -281,6 +281,7 @@ void		settings_free(t_settings *settings);
 void		settings_free_close_fd(int *fd);
 void		settings_init(t_settings *settings);
 void		settings_init_map(t_settings *settings);
+void		settings_init_rgb(t_settings *settings);
 int     	settings_rgb(t_game *game, int txt_type, char *rgb);
 int     	settings_rgb_check(char **rgb_lst, int *rgb_tab);
 int     	settings_rgb_check_char(char *str);

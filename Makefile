@@ -124,6 +124,7 @@ SETTINGS_SRCS		:=	settings_check.c\
 						settings_free_close_fd.c\
 						settings_init.c\
 						settings_init_map.c\
+						settings_init_rgb.c\
 						settings_rgb.c\
 						settings_rgb_check.c\
 						settings_rgb_check_char.c\
