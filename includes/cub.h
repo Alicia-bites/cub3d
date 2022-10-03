@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/10/03 14:27:53 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/10/03 14:35:11 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,9 +131,11 @@ typedef struct s_settings
 	int		f_r;
 	int		f_g;
 	int		f_b;
+	int		floor;
 	int		c_r;
 	int		c_g;
 	int		c_b;
+	int		ceil;
 	int		fd_no;
 	int		fd_so;
 	int		fd_we;
@@ -259,10 +261,6 @@ int     	parse_map_lst_line(t_game *game, t_ulist *obj);
 int     	parse_map_lst_line_txt_type(char *line);
 void    	parse_read_file(t_game *game);
 
-t_list		*create_list(char *line);
-t_list		*ft_parse(char *argv);
-t_list		*read_map(char *argv);
-
 // SETTINGS
 int			settings_check(t_settings *settings);
 int			settings_check_map_order(t_settings *settings);
@@ -273,12 +271,14 @@ void		settings_free(t_settings *settings);
 void		settings_free_close_fd(int *fd);
 void		settings_init(t_settings *settings);
 void		settings_init_map(t_settings *settings);
+void		settings_init_rgb(t_settings *settings);
 int     	settings_rgb(t_game *game, int txt_type, char *rgb);
 int     	settings_rgb_check(char **rgb_lst, int *rgb_tab);
 int     	settings_rgb_check_char(char *str);
 int     	settings_rgb_check_dup(t_game *game, int txt_type);
 int     	settings_rgb_check_space(char *str);
 int     	settings_rgb_check_value(char *str, int *tab_i);
+void		settings_rgb_convert(t_settings *settings);
 void		settings_rgb_rm_space_end(char **rgb_lst);
 void		settings_rgb_set_line_no(t_game *game, int txt_type, t_map_fd *map);
 void		settings_rgb_set_value(t_game *game, int txt_type, int *rgb_tab);

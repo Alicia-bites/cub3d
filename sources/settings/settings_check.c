@@ -6,7 +6,7 @@
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 16:36:24 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/22 17:04:55 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/10/03 14:02:09 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,6 @@ int	settings_check(t_settings *settings)
 		return (EXIT_FAILURE);
 	if (settings_check_map_order(settings) != 0)
 		return (EXIT_FAILURE);
+	settings_rgb_convert(settings);
 	return (0);
 }

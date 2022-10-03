@@ -102,10 +102,7 @@ PARSE_SRCS		:=	parse_argc.c\
 					parse_map_lst_get_value.c\
 					parse_map_lst_line.c\
 					parse_map_lst_line_txt_type.c\
-					parse_read_file.c\
-					create_list.c\
-					ft_parse.c\
-					read_map.c\
+					parse_read_file.c
 
 RAY_SRCS		:=	calculate_ray_position_and_direction.c\
 					calculate_step.c\
@@ -124,12 +121,14 @@ SETTINGS_SRCS		:=	settings_check.c\
 						settings_free_close_fd.c\
 						settings_init.c\
 						settings_init_map.c\
+						settings_init_rgb.c\
 						settings_rgb.c\
 						settings_rgb_check.c\
 						settings_rgb_check_char.c\
 						settings_rgb_check_dup.c\
 						settings_rgb_check_space.c\
 						settings_rgb_check_value.c\
+						settings_rgb_convert.c\
 						settings_rgb_rm_space_end.c\
 						settings_rgb_set_line_no.c\
 						settings_rgb_set_value.c\

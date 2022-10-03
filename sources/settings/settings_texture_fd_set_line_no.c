@@ -6,13 +6,14 @@
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 15:56:07 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/21 18:31:34 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/10/03 14:16:51 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-void	settings_texture_fd_set_line_no(t_game *game, int txt_type, t_map_fd *map)
+void	settings_texture_fd_set_line_no(t_game *game, int txt_type,
+		t_map_fd *map)
 {
 	t_settings	*settings;
 

@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parse.c                                         :+:      :+:    :+:   */
+/*   settings_rgb_convert.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/05 11:38:46 by amarchan          #+#    #+#             */
-/*   Updated: 2022/09/07 11:04:24 by amarchan         ###   ########.fr       */
+/*   Created: 2022/10/03 13:57:52 by abarrier          #+#    #+#             */
+/*   Updated: 2022/10/03 14:09:13 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-t_list	*ft_parse(char *argv)
+/* THANK YOU FOR YOUR TIPS JONAS THE 'BG'
+ *
+ */
+void	settings_rgb_convert(t_settings *settings)
 {
-	t_list	*map;
-	map = read_map(argv);
-	
-	return (map);
+	settings->floor = settings->f_r << 16 | settings->f_g << 8
+		| settings->f_b;
+	settings->ceil = settings->c_r << 16 | settings->c_g << 8
+		| settings->c_b;
 }

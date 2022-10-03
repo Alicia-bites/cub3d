@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 17:21:52 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/29 08:26:12 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/10/03 14:17:26 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,5 @@ int	map(t_game *game)
 				ERR_MAP_PLAYER_SP, EXIT_FAILURE));
 	if (map_tab(game, map_obj))
 		return (EXIT_FAILURE);
-	// map_tab_show(game->map_tab);
 	return (0);
 }
