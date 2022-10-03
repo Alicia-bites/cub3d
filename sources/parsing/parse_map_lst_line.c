@@ -6,7 +6,7 @@
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 09:02:52 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/29 11:46:40 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/10/03 15:40:25 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,10 @@ int	parse_map_lst_line(t_game *game, t_ulist *obj)
 		i++;
 	txt_type = parse_map_lst_line_txt_type(&map->line[i]);
 	value = parse_map_lst_get_value(txt_type, &map->line[i]);
+	i = 0;
+	while (value[i] && ft_isspace(value[i]) == 1)
+		i++;
+	value = &value[i];
 	if (!value)
 		return (0);
 	if (parse_map_lst_check(game, txt_type, map, value) != 0)
