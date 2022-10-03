@@ -6,7 +6,7 @@
 /*   By: abarrier <abarrier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 11:26:07 by abarrier          #+#    #+#             */
-/*   Updated: 2022/09/24 11:58:22 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/10/03 14:18:34 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ int	map_tab_check_line(int *line, int *prev, int *next, int width)
 	while (line[i])
 	{
 		if (line[i] == '0' || line[i] == 'N' || line[i] == 'S'
-			 || line[i] == 'E' || line[i] == 'W')
+			|| line[i] == 'E' || line[i] == 'W')
 		{
 			if (map_tab_check_line_horizontal(line, i, -1,
-				width) != 0)
+					width) != 0)
 				return (EXIT_FAILURE);
 			if (map_tab_check_line_horizontal(line, i, 1,
-				width) != 0)
+					width) != 0)
 				return (EXIT_FAILURE);
 			if (map_tab_check_line_vertical(prev, i) != 0)
 				return (EXIT_FAILURE);
