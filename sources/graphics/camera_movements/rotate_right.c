@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 13:35:00 by amarchan          #+#    #+#             */
-/*   Updated: 2022/10/03 15:54:45 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/10/04 13:52:26 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	rotate_right(t_game *game)
 {
+	if (!can_go(game))
+		return ;
 	game->old_dir_x = game->dir_x;
 	game->dir_x = game->dir_x * cos(-ROTSPEED) - game->dir_y
 		* sin(-ROTSPEED);
