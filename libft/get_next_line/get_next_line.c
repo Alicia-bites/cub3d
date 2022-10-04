@@ -6,7 +6,7 @@
 /*   By: antho <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 21:34:20 by antho             #+#    #+#             */
-/*   Updated: 2022/09/13 21:45:04 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/10/04 06:55:17 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static char	*gnl_line(int fd, char *buf)
 static char	*gnl_start(int fd)
 {
 	static char	buf[BUFFER_SIZE];
-	char	*line;
+	char		*line;
 
 	line = gnl_line(fd, buf);
 	if (!line || line[0] == '\0')
