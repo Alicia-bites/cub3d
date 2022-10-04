@@ -156,6 +156,8 @@ COLOR_SRCS		:=	print_blue.c\
 					reset_print_color.c\
 
 SRCS			:=	main.c\
+				main_init_conf_game.c\
+				main_init_map.c\
 					$(GRAPH_SRCS)\
 					$(CAM_SRCS)\
 					$(TEX_SRCS)\

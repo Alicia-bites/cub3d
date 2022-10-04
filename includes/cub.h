@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/10/03 15:56:42 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/10/04 07:24:36 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -241,6 +241,10 @@ typedef struct s_coord
 	int			draw_loc_x;
 	int			draw_loc_y;
 }	t_coord;
+
+// MAIN
+int			main_init_conf_game(int argc, char **argv, t_game *game);
+void		main_init_map(t_game *game);
 
 // PARSING
 int			parse_arg(int argc);
