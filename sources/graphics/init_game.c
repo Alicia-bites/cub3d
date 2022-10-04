@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 18:06:50 by amarchan          #+#    #+#             */
-/*   Updated: 2022/10/03 13:56:54 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/10/04 16:15:38 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,9 @@ int	init_game(t_game *game)
 	err = init_texture(game);
 	if (err)
 		return (err);
-	load_texture(game);
+	err = load_texture(game);
+	if (err)
+		return (err);
 	start_game(game);
 	clean_up(game);
 	return (0);

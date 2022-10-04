@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/10/04 13:51:06 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/10/04 16:14:08 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@
 # define FILE_ERROR -1
 # define MALLOC_ERROR -2
 # define EMPTY_LINE -3
+# define NO_ADDRESS -4
 
 # define SPRITE_COUNT 9
 # define CHAR_NOT_FOUND	'N'

@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 18:09:58 by amarchan          #+#    #+#             */
-/*   Updated: 2022/10/04 14:23:39 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/10/04 16:54:06 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,23 +44,33 @@
 // of 1.
 int	perform_dda(t_game *game)
 {
+	// printf("game->map_x = %d\n", game->map_x);
 	while (game->hit == 0)
 	{
 		if (game->side_dist_x < game->side_dist_y)
 		{
 			game->side_dist_x += game->delta_dist_x;
 			game->map_x += game->step_x;
+			// if (game->map_x < 0)
+			// 	game->map_x = 0;
+			// if (game->map_x > game->settings.map_height - 1)
+			// 	game->map_x = game->settings.map_height - 1;
 			game->side = 0;
 		}
 		else
 		{
 			game->side_dist_y += game->delta_dist_y;
 			game->map_y += game->step_y;
+			// if (game->map_y < 0)
+			// 	game->map_y = 0;
+			// if (game->map_y > game->settings.map_width - 1)
+			// 	game->map_y = game->settings.map_width - 1;
 			game->side = 1;
 		}
-		printf("game->map_x = %d\n", game->map_x);
-		printf("game->map_y = %d\n", game->map_y);
-		if (game->map_tab[game->map_y][game->map_x] > 0)
+		// if (can_go(game) == 0)
+		// 	game->hit = 1;
+		// printf("game->map_x = %d\n", game->map_x);
+		if (game->map_tab[game->map_x][game->map_y] > 0)
 			game->hit = 1;
 	}
 	return (0);

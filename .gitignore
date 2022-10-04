@@ -58,5 +58,5 @@ Mkfile.old
 dkms.conf
 
 #exec files
-cub3d
+cub3D
 .vscode/settings.json

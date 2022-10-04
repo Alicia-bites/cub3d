@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:54:11 by amarchan          #+#    #+#             */
-/*   Updated: 2022/10/04 07:25:28 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/10/04 17:13:12 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int	main(int argc, char **argv)
 		return (EXIT_FAILURE);
 	game.map_fd_lst = map_fd_lst;
 	main_init_conf_game(argc, argv, &game);
+	print_tab(game.map_tab, game.settings.map_width, game.settings.map_height);
 	err = init_game(&game);
 	map_tab_free(&game);
 	settings_free(&game.settings);
