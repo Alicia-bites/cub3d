@@ -1,5 +1,5 @@
-NO ./texture/no.xpm
-SO 	    		 ./texture/so.xpm
+ NO ./texture/no.xpm
+SO ./texture/so.xpm             		 
 WE ./texture/we.xpm
 EA ./texture/ea.xpm
 F 26,85,87
