@@ -14,7 +14,7 @@ MLX_NAME		:=	libmlx.a
 MLX				:=	mlx
 
 # project settings
-NAME 			:=	cub3d
+NAME 			:=	cub3D
 NAME_AR			:=	libcub3d.a
 NORMINETTE_BIN 	:= 	norminette
 NM_BIN			:=	nm
@@ -189,6 +189,7 @@ $(OPATH)/%.o:	%.c
 			$(CC) $(CFLAGS) $(CFLAGSADD) -I $(IPATH) -I $(FTPATH)/$(IFT) -I $(MLX_PATH) -c $< -o $@
 
 $(NAME):	$(OBJS)
+			make -C $(MLX_PATH)
 			make -C $(FTPATH)
 			$(CC) $(CFLAGS) $(CFLAGSADD) $(OBJS) -I $(IPATH) -I $(FTPATH)/$(IFT) -I $(MLX_PATH) -L$(FTPATH) -l$(FT) -L$(MLX_PATH) -l$(MLX) -o $(NAME) $(CFLAGS_MLX)
 
@@ -198,6 +199,7 @@ $(OPATH):
 			mkdir -p $(OPATH)
 
 clean:
+			make clean -C $(MLX_PATH)
 			make clean -C $(FTPATH)
 			$(RM) $(OPATH)
 
