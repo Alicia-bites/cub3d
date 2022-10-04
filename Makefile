@@ -51,6 +51,7 @@ GRAPH_SRCS		:=	choose_wall_color.c\
 					ft_red_cross.c\
 					init_game.c\
 					my_mlx_pixel_put.c\
+					can_go.c\
 
 CAM_SRCS		:=	move_down.c\
 					move_left.c\
@@ -156,8 +157,8 @@ COLOR_SRCS		:=	print_blue.c\
 					reset_print_color.c\
 
 SRCS			:=	main.c\
-				main_init_conf_game.c\
-				main_init_map.c\
+					main_init_conf_game.c\
+					main_init_map.c\
 					$(GRAPH_SRCS)\
 					$(CAM_SRCS)\
 					$(TEX_SRCS)\
