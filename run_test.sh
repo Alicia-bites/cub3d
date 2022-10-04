@@ -13,7 +13,7 @@ BU='\033[0;34m'
 MG='\033[0;35m'
 NC='\033[0m'
 
-PROGNAME="cub3d"
+PROGNAME="cub3D"
 ORI_P=$(pwd)
 FILE_P=${ORI_P}/maps
 RES_P=${ORI_P}/result
