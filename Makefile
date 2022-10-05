@@ -243,11 +243,15 @@ archive:		$(filter-out $(OBJ)/main.o, $(OBJS))
 test_ok:
 			make
 			@echo "TEST - OK"
-			$(VALGRIND) ./$(NAME) maps/ok_all_subject.cub
+#			$(VALGRIND) ./$(NAME) maps/ok_all_subject.cub
+#			@echo $(SEP_P)
+#			$(VALGRIND) ./$(NAME) maps/ok_map_space_end_line_1.cub
+#			@echo $(SEP_P)
+#			$(VALGRIND) ./$(NAME) maps/ok_map_space_end_line_2.cub
+#			@echo $(SEP_P)
+			$(VALGRIND) ./$(NAME) maps/ok_all_final_test_1.cub
 			@echo $(SEP_P)
-			$(VALGRIND) ./$(NAME) maps/ok_map_space_end_line_1.cub
-			@echo $(SEP_P)
-			$(VALGRIND) ./$(NAME) maps/ok_map_space_end_line_2.cub
+			$(VALGRIND) ./$(NAME) maps/ok_all_final_test_4.cub
 			@echo $(SEP_P)
 			
 
