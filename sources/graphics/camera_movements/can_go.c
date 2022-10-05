@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   my_mlx_pixel_put.c                                 :+:      :+:    :+:   */
+/*   can_go.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/02 14:08:20 by amarchan          #+#    #+#             */
-/*   Updated: 2022/10/05 09:26:09 by amarchan         ###   ########.fr       */
+/*   Created: 2022/10/04 13:45:01 by amarchan          #+#    #+#             */
+/*   Updated: 2022/10/04 16:07:06 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-void	my_mlx_pixel_put(t_img *image, int x, int y, int color)
+// Returns 1 if tile exists and 0 if it doesn't
+int	can_go(t_game *game)
 {
-	char	*dst;
-
-	if (!image->addr)
-		return ;
-	dst = image->addr + (y * image->line_length + x
-			* (image->bits_per_pixel / 8));
-	*(unsigned int *)dst = color;
+	if (game->map_x < 0 || game->map_x > game->settings.map_height - 1)
+		return (0);
+	if (game->map_y < 0 || game->map_y > game->settings.map_width - 1)
+		return (0);
+	return (1);
 }

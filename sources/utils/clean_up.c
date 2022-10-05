@@ -6,14 +6,22 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 15:16:50 by amarchan          #+#    #+#             */
-/*   Updated: 2022/10/03 14:19:59 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/10/05 10:03:06 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-void	free_mlx(t_game *game)
+void	free_mlx(t_game *game, int err)
 {
+	if (!game)
+		return ;
+	if (err)
+	{
+		mlx_destroy_display(game->mlx);
+		free(game->mlx);
+		return ;		
+	}
 	if (game->win)
 		mlx_destroy_window(game->mlx, game->win);
 	if (game->img.mlx_img)
@@ -27,6 +35,8 @@ static void	free_texture_tab(int **texture)
 	int	i;
 
 	i = 0;
+	if (!texture)
+		return ;
 	while (i < 11)
 	{
 		free(texture[i]);
@@ -35,8 +45,24 @@ static void	free_texture_tab(int **texture)
 	free(texture);
 }
 
-void	clean_up(t_game *game)
+static void	free_buf(int **buf)
 {
-	free_mlx(game);
+	int	i;
+
+	i = 0;
+	if (!buf)
+		return ;
+	while (i < WINDOW_HEIGHT)
+	{
+		free(buf[i]);
+		i++;
+	}
+	free(buf);
+}
+
+void	clean_up(t_game *game, int err)
+{
+	free_mlx(game, err);
 	free_texture_tab(game->texture);
+	free_buf(game->buf);
 }

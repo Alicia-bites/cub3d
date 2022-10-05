@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/10/04 07:24:36 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/10/05 09:59:55 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@
 # define FILE_ERROR -1
 # define MALLOC_ERROR -2
 # define EMPTY_LINE -3
+# define NO_ADDRESS -4
 
 # define SPRITE_COUNT 9
 # define CHAR_NOT_FOUND	'N'
@@ -216,7 +217,7 @@ typedef struct s_game
 	int			draw_start;
 	int			draw_end;
 	int			color;
-	int			buf[WINDOW_HEIGHT][WINDOW_WIDTH];
+	int			**buf;
 	int			re_buf;
 	int			**texture;
 	int			xorcolor;
@@ -332,6 +333,7 @@ void		my_mlx_pixel_put(t_img *data, int x, int y, int color);
 int			draw_floor(t_game *game);
 int			draw_ceiling(t_game *game);
 int			draw_background(t_game *game, int x);
+int			can_go(t_game *game);
 
 // CAMERA_MOVEMENTS
 void		move_down(t_game *game);
@@ -342,7 +344,7 @@ void		rotate_left(t_game *game);
 void		rotate_right(t_game *game);
 
 //TEXTURES
-void		init_buf(t_game *game);
+int			init_buf(t_game *game);
 int			init_texture(t_game *game);
 void		generate_textures(t_game *game);
 void		choose_wall_texture(t_game *game, int x);
@@ -362,7 +364,7 @@ void		init_starting_direction(t_game *game);
 char		get_character_in_map(t_list *map, int x, int y);
 void		print_map(t_list *map);
 int			errors_handler(int err, const char *function_name);
-void		clean_up(t_game *game);
+void		clean_up(t_game *game, int err);
 
 // COLORS
 void		blue(void);
