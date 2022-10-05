@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/10/05 12:27:03 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/10/05 13:48:01 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@
 # define MAP_HEIGHT 24
 # define WINDOW_WIDTH 1350
 # define WINDOW_HEIGHT 1080
-# define MOVESPEED 0.5
-# define ROTSPEED 0.5
+# define MOVESPEED 0.2
+# define ROTSPEED 0.2
 
 /* COLORS */
 # define FLOOR_COLOR 0x001A5557

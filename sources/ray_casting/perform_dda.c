@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 18:09:58 by amarchan          #+#    #+#             */
-/*   Updated: 2022/10/04 16:54:06 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/10/05 13:34:18 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int	perform_dda(t_game *game)
 		// if (can_go(game) == 0)
 		// 	game->hit = 1;
 		// printf("game->map_x = %d\n", game->map_x);
-		if (game->map_tab[game->map_x][game->map_y] > 0)
+		if (game->map_tab[game->map_y][game->map_x] == 1)
 			game->hit = 1;
 	}
 	return (0);
