@@ -89,6 +89,9 @@ MAP_SRCS		:=	map.c\
 					map_tab_init_bzero.c\
 					map_tab_init.c\
 					map_tab_init_line.c\
+					map_tab_reverse.c\
+					map_tab_reverse_copy.c\
+					map_tab_reverse_settings.c\
 					map_tab_show.c
 
 PARSE_SRCS		:=	parse_argc.c\

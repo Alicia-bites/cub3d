@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 17:21:52 by abarrier          #+#    #+#             */
-/*   Updated: 2022/10/03 14:17:26 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/10/05 11:52:48 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ int	map(t_game *game)
 	map_rm_nl(game, map_obj);
 	if (map_check(game, map_obj) != 0)
 		return (EXIT_FAILURE);
-	settings_show(&game->settings);
 	if (game->settings.map_player_sp_val < 0)
 		return (ft_panic_value(-1, __func__,
 				ERR_MAP_PLAYER_SP, EXIT_FAILURE));

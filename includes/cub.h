@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/10/05 11:14:35 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/10/05 11:43:31 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -321,6 +321,9 @@ void		map_tab_init_bzero(int **tab, int len);
 int			**map_tab_init(int height, int width);
 int			tab_init(t_game *game);
 int			*map_tab_init_line(int **tab, int height, int width);
+int			map_tab_reverse(t_game *game);
+void		map_tab_reverse_copy(int **tab_src, int **tab_dest, int height, int width);
+void		map_tab_reverse_settings(t_settings *settings, int **tab);
 void		map_tab_show(int **tab);
 
 // GRAPHICS

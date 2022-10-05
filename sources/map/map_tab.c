@@ -6,7 +6,7 @@
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 14:46:59 by abarrier          #+#    #+#             */
-/*   Updated: 2022/10/05 11:16:27 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/10/05 11:53:04 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,13 @@ int	map_tab(t_game *game, t_ulist *map_obj)
 	if (map_tab_check(game->map_tab, game->settings.map_height,
 			game->settings.map_width) != 0)
 		return (EXIT_FAILURE);
+	printf("DEBUG: map_tab\n");
+	settings_show(&game->settings);
+	map_tab_show(game->map_tab);
+	map_tab_reverse(game);
+	printf("DEBUG: map_tab\n");
+	settings_show(&game->settings);
+	map_tab_show(game->map_tab);
 	map_tab_adjust(game->map_tab);
 	return (0);
 }
