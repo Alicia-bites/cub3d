@@ -6,7 +6,7 @@
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 11:01:28 by abarrier          #+#    #+#             */
-/*   Updated: 2022/10/05 12:25:37 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/10/05 12:27:09 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ int	map_tab_reverse(t_game *game)
 		game->settings.map_height);
 	map_tab_free(game->map_tab);
 	game->map_tab = tab;
-	map_tab_reverse_settings(&game->settings, tab);
+	map_tab_reverse_settings(&game->settings);
 	return (0);
 }
