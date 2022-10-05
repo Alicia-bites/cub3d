@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 11:38:42 by amarchan          #+#    #+#             */
-/*   Updated: 2022/10/05 09:49:12 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/10/05 14:29:47 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ static int	load_image(t_game *game, int *texture, char *path, t_img *img)
 	int	x;
 
 	if (!path)
-		return (errors_handler(NO_ADDRESS, __func__));
+		return (NO_ADDRESS);
 	img->img = mlx_xpm_file_to_image(game->mlx, path, &img->img_width,
 			&img->img_height);
 	if (!img->img)
-		return (errors_handler(NO_ADDRESS, __func__));
+		return (NO_ADDRESS);
 	img->data = (int *)mlx_get_data_addr(img->img, &img->bits_per_pixel,
 			&img->line_length, &img->endian);
 	y = 0;
