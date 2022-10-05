@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 09:36:25 by amarchan          #+#    #+#             */
-/*   Updated: 2022/10/04 15:21:07 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/10/05 09:26:47 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	draw_vertical_line(t_game *game)
 	game->img.addr = mlx_get_data_addr(game->img.mlx_img,
 			&game->img.bits_per_pixel, &game->img.line_length,
 			&game->img.endian);
+	if (game->img.addr == 0)
+		return ;
 	while (y < WINDOW_HEIGHT)
 	{
 		x = 0;
