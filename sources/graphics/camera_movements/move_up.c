@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 13:32:18 by amarchan          #+#    #+#             */
-/*   Updated: 2022/10/05 13:56:23 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/10/05 14:05:34 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,13 @@ void	move_up(t_game *game)
 {
 	double	check_x;
 	double	check_y;
-	
-	game->map_y = (game->pos_y + game->dir_y * MOVESPEED);
-	game->map_x = (game->pos_x + game->dir_x * MOVESPEED);
-	check_x = game->map_x + game->dir_x * 0.01;
-	check_y = game->map_y + game->dir_y * 0.01;
+	double	x;
+	double	y;
+		
+	y = (game->pos_y + game->dir_y * MOVESPEED);
+	x = (game->pos_x + game->dir_x * MOVESPEED);
+	check_x = x + game->dir_x * 0.2;
+	check_y = y + game->dir_y * 0.2;
 	// printf("game->map_x + game->dir_x = %f\n", game->map_x + game->dir_x);
 	// printf("game->map_y + game->dir_y = %f\n", game->map_y + game->dir_y);
 	if (game->map_tab[(int)game->pos_y][(int)(game->pos_x + game->dir_x

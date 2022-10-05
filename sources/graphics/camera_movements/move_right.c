@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 13:34:31 by amarchan          #+#    #+#             */
-/*   Updated: 2022/10/05 13:47:46 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/10/05 14:05:27 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,13 @@ void	move_right(t_game *game)
 {
 	double	check_x;
 	double	check_y;
-	
-	game->map_y = (game->pos_y + game->dir_y * MOVESPEED);
-	game->map_x = (game->pos_x + game->dir_x * MOVESPEED);
-	check_x = game->map_x + game->dir_x * 0.2;
-	check_y = game->map_y + game->dir_y * 0.2;
+	double	x;
+	double	y;
+		
+	y = (game->pos_y + game->dir_y * MOVESPEED);
+	x = (game->pos_x + game->dir_x * MOVESPEED);
+	check_x = x + game->dir_x * 0.2;
+	check_y = y + game->dir_y * 0.2;
 	if (game->map_tab[(int)game->pos_y][(int)(game->pos_x - game->dir_x
 		* MOVESPEED)] <= 0
 		&& game->map_tab[(int)check_y][(int)check_x] != 1
