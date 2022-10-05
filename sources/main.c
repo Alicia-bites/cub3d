@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:54:11 by amarchan          #+#    #+#             */
-/*   Updated: 2022/10/05 09:22:02 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/10/05 10:00:40 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	main(int argc, char **argv)
 	main_init_conf_game(argc, argv, &game);
 	print_tab(game.map_tab, game.settings.map_width, game.settings.map_height);
 	err = init_game(&game);
+	clean_up(&game, err);
 	if (err)
 		return (err);
 	map_tab_free(&game);

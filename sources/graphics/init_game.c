@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 18:06:50 by amarchan          #+#    #+#             */
-/*   Updated: 2022/10/05 09:20:42 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/10/05 09:57:56 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,19 @@ int	init_game(t_game *game)
 	init_buf(game);
 	err = init_texture(game);
 	if (err)
+	{
+		// clean_up(game);
 		return (err);
+	}
 	err = load_texture(game);
 	if (err)
 		return (err);
 	err = start_game(game);
 	if (err)
+	{
+		// clean_up(game);
 		return (err);
-	clean_up(game);
+	}
+	// clean_up(game);
 	return (0);
 }
