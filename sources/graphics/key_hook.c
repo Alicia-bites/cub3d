@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 12:18:17 by amarchan          #+#    #+#             */
-/*   Updated: 2022/10/03 13:57:12 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/10/05 15:11:58 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int	key_hook(int keycode, t_game *game)
 		rotate_right(game);
 	if (keycode == K_LEFT)
 		rotate_left(game);
+	if (keycode == K_UP)
+		look_up(game);
 	if (keycode == ESC)
 		ft_redcross(game, 0);
 	start_ray_casting_loop(game);

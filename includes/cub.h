@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/10/05 13:48:01 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/10/05 15:23:59 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -336,7 +336,6 @@ void		my_mlx_pixel_put(t_img *data, int x, int y, int color);
 int			draw_floor(t_game *game);
 int			draw_ceiling(t_game *game);
 int			draw_background(t_game *game, int x);
-int			can_go(t_game *game);
 
 // CAMERA_MOVEMENTS
 void		move_down(t_game *game);
@@ -345,6 +344,7 @@ void		move_right(t_game *game);
 void		move_up(t_game *game);
 void		rotate_left(t_game *game);
 void		rotate_right(t_game *game);
+void		look_up(t_game *game);
 
 //TEXTURES
 int			init_buf(t_game *game);
