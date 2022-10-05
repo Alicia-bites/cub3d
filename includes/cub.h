@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/10/05 09:59:55 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/10/05 10:59:16 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -318,7 +318,7 @@ int			map_tab_create(t_game *game, t_ulist *map_obj);
 int			map_tab_create_line(t_map_fd *map, int *tab, int len_tab);
 void		map_tab_free(t_game *game);
 void		map_tab_init_bzero(int **tab, int len);
-int			map_tab_init(t_game *game);
+int			map_tab_init(t_game *game, int height, int width);
 int			tab_init(t_game *game);
 int			*map_tab_init_line(int **tab, int height, int width);
 void		map_tab_show(int **tab);
