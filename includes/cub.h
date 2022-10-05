@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/10/05 13:48:01 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/10/05 14:46:54 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,12 +75,12 @@
 # define MAP_CHARSET "01NSEW "
 # define MAP_COLOR_SEP ','
 # define MAP_TEXT_FORMAT ".xpm"
-# define MAP_TEXT_NO "NO "
-# define MAP_TEXT_SO "SO "
-# define MAP_TEXT_WE "WE "
-# define MAP_TEXT_EA "EA "
-# define MAP_TEXT_F "F "
-# define MAP_TEXT_C "C "
+# define MAP_TEXT_NO "NO"
+# define MAP_TEXT_SO "SO"
+# define MAP_TEXT_WE "WE"
+# define MAP_TEXT_EA "EA"
+# define MAP_TEXT_F "F"
+# define MAP_TEXT_C "C"
 # define MAP_FILE_MIN_LINE 9
 # define MAP_SIZE_MIN 3
 # define PLAYER_SP_CHARSET "NSEW"
