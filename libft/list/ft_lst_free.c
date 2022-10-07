@@ -6,7 +6,7 @@
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 07:57:56 by abarrier          #+#    #+#             */
-/*   Updated: 2022/06/28 12:26:44 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/10/07 09:10:02 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 void	ft_lst_free(t_ulist **list, void (*f)(void *))
 {
-	ft_lst_clear(list, f);
-	free(list);
+	if (list)
+	{
+		ft_lst_clear(list, f);
+		free(list);
+	}
 }
