@@ -249,11 +249,10 @@ test_ok:
 #			@echo $(SEP_P)
 #			$(VALGRIND) ./$(NAME) maps/ok_map_space_end_line_2.cub
 #			@echo $(SEP_P)
-			$(VALGRIND) ./$(NAME) maps/ok_all_final_test_1.cub
-			@echo $(SEP_P)
+#			$(VALGRIND) ./$(NAME) maps/ok_all_final_test_1.cub
+#			@echo $(SEP_P)
 			$(VALGRIND) ./$(NAME) maps/ok_all_final_test_4.cub
 			@echo $(SEP_P)
-			
 
 test_ko:
 			make
@@ -266,6 +265,12 @@ test_ko:
 			$(VALGRIND) ./$(NAME) maps/ko_SO_dup.cub
 			@echo $(SEP_P)
 
+test_man:
+			make
+			@echo "TEST - MANUAL"
+			$(VALGRIND) ./$(NAME) ${m}
+
+
 -include $(DEPS)
 
-.PHONY: all clean fclean re norme sym comp comp_vgdb comp_envi archive test_ok test_ko
+.PHONY: all clean fclean re norme sym comp comp_vgdb comp_envi archive test_ok test_ko test_man
