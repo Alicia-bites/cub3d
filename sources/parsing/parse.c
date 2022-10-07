@@ -6,7 +6,7 @@
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 09:26:46 by abarrier          #+#    #+#             */
-/*   Updated: 2022/10/07 09:42:21 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/10/07 09:48:23 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int	parse(int argc, char **argv, t_game *game)
 		return (EXIT_FAILURE);
 	if (parse_map_fd(argv[1], game) != 0)
 		return (EXIT_FAILURE);
+	if (game == NULL)
+		return (ft_panic(-1, __func__, ERR_NOOBJ));
 	if (parse_read_file(game) != 0)
 	{
 		close(game->map_fd);
