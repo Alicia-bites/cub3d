@@ -58,7 +58,6 @@ CAM_SRCS		:=	move_down.c\
 					move_up.c\
 					rotate_left.c\
 					rotate_right.c\
-					look_up.c\
 
 TEX_SRCS		:=	init_buf.c\
 					init_texture.c\
