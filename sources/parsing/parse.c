@@ -6,7 +6,7 @@
 /*   By: abarrier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 09:26:46 by abarrier          #+#    #+#             */
-/*   Updated: 2022/10/07 09:17:00 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/10/07 09:42:21 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	parse(int argc, char **argv, t_game *game)
 	if (parse_read_file(game) != 0)
 	{
 		close(game->map_fd);
-		return(EXIT_FAILURE);
+		return (EXIT_FAILURE);
 	}
 	close(game->map_fd);
 	game->map_fd = FD_NOT_INIT;
