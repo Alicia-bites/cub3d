@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/10/07 09:04:00 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/10/07 10:39:57 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@
 # define ERR_MAP_COLOR_DEF "Wrong rgb definition. Expected 3 values 0-255"
 # define ERR_MAP_COLOR_VAL "Wrong color value. Expected numeric value 0-255"
 # define ERR_MAP_CONTENT "No valid map definition. Expected minimum 8 line"
+# define ERR_MAP_DIR "Map is a directory. Expected file"
 # define ERR_MAP_DUP_TEXT "Duplicate texture in the map file. Expected only one"
 # define ERR_MAP_FORMAT "Wrong map format. Expected \".cub\""
 # define ERR_MAP_NONE "No map definition, Expected minimum 3 map line"
@@ -102,6 +103,7 @@
 # define ERR_MAP_SPACE_IN "Space line in between map definition. Expected none"
 # define ERR_MAP_TXT_TYPE "One of texture or rgb value is not correct"
 # define ERR_MAP_TXT_FORMAT "Wrong texture format. Expected \".xpm\""
+# define ERR_MAP_TXT_DIR "Texture is a directory. Expected file"
 
 /* MAP FILE SETTINGS
  * char *no,so,we,ea are texture path
