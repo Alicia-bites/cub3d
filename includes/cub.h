@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/10/05 16:30:52 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/10/07 09:04:00 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -261,7 +261,7 @@ int			parse_map_lst_fullspace(t_game *game, t_ulist *obj);
 char		*parse_map_lst_get_value(int txt_type, char *str);
 int			parse_map_lst_line(t_game *game, t_ulist *obj);
 int			parse_map_lst_line_txt_type(char *line);
-void		parse_read_file(t_game *game);
+int			parse_read_file(t_game *game);
 
 // SETTINGS
 int			settings_check(t_settings *settings);
