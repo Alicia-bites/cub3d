@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 11:38:42 by amarchan          #+#    #+#             */
-/*   Updated: 2022/10/05 14:29:47 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/10/07 11:09:04 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,20 +51,6 @@ int	load_texture(t_game *game)
 	if (load_image(game, game->texture[2], game->settings.we, &img))
 		return (errors_handler(NO_ADDRESS, __func__));
 	if (load_image(game, game->texture[3], game->settings.ea, &img))
-		return (errors_handler(NO_ADDRESS, __func__));
-	if (load_image(game, game->texture[4], "texture/bluestone.xpm", &img))
-		return (errors_handler(NO_ADDRESS, __func__));
-	if (load_image(game, game->texture[5], "texture/mossy.xpm", &img))
-		return (errors_handler(NO_ADDRESS, __func__));
-	if (load_image(game, game->texture[6], "texture/wood.xpm", &img))
-		return (errors_handler(NO_ADDRESS, __func__));
-	if (load_image(game, game->texture[7], "texture/colorstone.xpm", &img))
-		return (errors_handler(NO_ADDRESS, __func__));
-	if (load_image(game, game->texture[8], "texture/barrel.xpm", &img))
-		return (errors_handler(NO_ADDRESS, __func__));
-	if (load_image(game, game->texture[9], "texture/pillar.xpm", &img))
-		return (errors_handler(NO_ADDRESS, __func__));
-	if (load_image(game, game->texture[10], "texture/greenlight.xpm", &img))
 		return (errors_handler(NO_ADDRESS, __func__));
 	return (0);
 }
