@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 15:16:50 by amarchan          #+#    #+#             */
-/*   Updated: 2022/10/05 14:15:14 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/10/07 10:01:28 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,11 @@ static void	free_texture_tab(int **texture)
 	i = 0;
 	if (!texture)
 		return ;
+	if (texture[i] == NULL)
+	{
+		free(texture);
+		return ;
+	}
 	while (i < 11)
 	{
 		free(texture[i]);
@@ -52,6 +57,11 @@ static void	free_buf(int **buf)
 	i = 0;
 	if (!buf)
 		return ;
+	if (buf[0] == NULL)
+	{
+		free(buf);
+		return ;
+	}
 	while (i < WINDOW_HEIGHT)
 	{
 		free(buf[i]);

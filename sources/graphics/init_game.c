@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 18:06:50 by amarchan          #+#    #+#             */
-/*   Updated: 2022/10/05 14:16:55 by amarchan         ###   ########.fr       */
+/*   Updated: 2022/10/07 09:59:45 by amarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,13 @@ int	init_game(t_game *game)
 	int	err;
 
 	err = 0;
+	game->texture = 0;
+	game->buf = 0;
 	game->mlx = mlx_init();
 	init_struct(game);
-	init_buf(game);
+	err = init_buf(game);
+	if (err)
+		return (err);
 	err = init_texture(game);
 	if (err)
 		return (err);

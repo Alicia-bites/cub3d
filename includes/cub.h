@@ -6,7 +6,7 @@
 /*   By: amarchan <amarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:46:14 by amarchan          #+#    #+#             */
-/*   Updated: 2022/10/07 10:39:57 by abarrier         ###   ########.fr       */
+/*   Updated: 2022/10/07 10:47:03 by abarrier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@
 # define MAP_WIDTH 24
 # define MAP_HEIGHT 24
 # define WINDOW_WIDTH 1350
-# define WINDOW_HEIGHT 1080
+# define WINDOW_HEIGHT 1000
 # define MOVESPEED 0.2
 # define ROTSPEED 0.2
 
@@ -348,7 +348,6 @@ void		move_right(t_game *game);
 void		move_up(t_game *game);
 void		rotate_left(t_game *game);
 void		rotate_right(t_game *game);
-void		look_up(t_game *game);
 
 //TEXTURES
 int			init_buf(t_game *game);
