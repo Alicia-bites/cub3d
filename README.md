@@ -1,9 +1,15 @@
 # cub3d
-You must create a “realistic” 3D graphical representation of the inside of a maze from a first-person perspective. You have to create this representation using the Ray-Casting principles mentioned earlier.
+A “realistic” 3D graphical representation of the inside of a maze from a first-person perspective. Using the Ray-Casting principles.
+
+### How to use
+-   In a terminal, type in "make"
+-   Then, type in "./cub3d <path_to_map_file>"
+- Use keyboard arrows to move around
+- Enjoy exploring the maze!
+
 
 ## Team name  
-**SMBASH**  
-
+**SMBASH**
 
 ## Contributors
 - amarchan
