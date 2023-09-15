@@ -1,5 +1,5 @@
 # cub3d
-A “realistic” 3D graphical representation of the inside of a maze from a first-person perspective. Using the Ray-Casting principles.
+A realistic 3D graphical representation of the inside of a maze from a first-person perspective. Using Ray-Casting.
 
 ### How to use
 -   In a terminal, type in "make"
