@@ -3,7 +3,7 @@ A “realistic” 3D graphical representation of the inside of a maze from a fir
 
 ### How to use
 -   In a terminal, type in "make"
--   Then, type in "./cub3d <path_to_map_file>"
+-   Then, type in "./cub3d <path_to_map_file>" (there is a bunch of maps in /maps folder)
 - Use keyboard arrows to move around
 - Enjoy exploring the maze!
 
